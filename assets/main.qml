@@ -43,7 +43,7 @@ Window {
             anchors.centerIn: parent
 
             active: false
-            source: "DWMainScreen.qml"
+            source: "DWLevelScene.qml"
         }
 
         Keys.onDigit1Pressed: renderSampleSharp = !renderSampleSharp

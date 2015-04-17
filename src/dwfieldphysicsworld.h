@@ -22,8 +22,10 @@ public:
         CC__PLAYER = 0x02,
         CC_LAYER_A = 0x04,
         CC_LAYER_B = 0x08,
+        CC_LAYERS = 0x0C,
         CC_LAYER_A_ONLYTOP = 0x10,
         CC_LAYER_B_ONLYTOP = 0x20,
+        CC_LAYERS_ONLYTOP = 0x30,
         CC_OBJ_NOT_ROLLING = 0x40,
         CC__PLAYER_SENSOR = 0x80,
         CC_WATER_EDGE = 0x100

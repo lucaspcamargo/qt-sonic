@@ -1,6 +1,7 @@
 #include "dwfieldphysicsworld.h"
 #include <qmath.h>
 #include "dwroot.h"
+#include "dwfieldphysicscontactlistener.h"
 
 dwFieldPhysicsWorld * dwFieldPhysicsWorld::_instance = 0;
 
@@ -15,6 +16,7 @@ dwFieldPhysicsWorld::dwFieldPhysicsWorld(QObject *parent) :
     m_drawFlags = (e_shapeBit | e_jointBit | e_pairBit);
     _world = new b2World(b2Vec2(0, 9.81));
     _world->SetDebugDraw(this);
+    _world->SetContactListener( new dwFieldPhysicsContactListener(this) );
 
     m_doingDebugDraw = false;
 

@@ -16,6 +16,13 @@ PLevelChunk {
         height: 4096
     }
 
+    Image {
+        id: imagesim
+        x: 192 + 512
+        y: 48 + 512
+        source: "../obj/obj/movingPlatform.png"
+    }
+
     PLevelChunkVisual {
         id: image44
         x: 1536
