@@ -19,13 +19,13 @@ public:
     enum CollisionCategories
     {
         CC_DYNAMIC = 0x01,
-        CC__RESERVED = 0x02,
+        CC__PLAYER = 0x02,
         CC_LAYER_A = 0x04,
         CC_LAYER_B = 0x08,
         CC_LAYER_A_ONLYTOP = 0x10,
         CC_LAYER_B_ONLYTOP = 0x20,
         CC_OBJ_NOT_ROLLING = 0x40,
-        CC__EXTRA_1 = 0x80,
+        CC__PLAYER_SENSOR = 0x80,
         CC_WATER_EDGE = 0x100
     };
 
@@ -46,6 +46,7 @@ public:
     void DrawTransform(const b2Transform& xf);
 
     static dwFieldPhysicsWorld * singleton(){ return _instance; }
+    b2World * world() {return _world;}
 
 signals:
     void beforeUpdating(float dt);
@@ -95,6 +96,7 @@ private:
     QList<QVector2D> m_raysDrawBeginPoints;
     QList<QVector2D> m_raysDrawEndPoints;
     QList<qreal> m_raysDrawFractions;
+
 };
 
 #endif // DWFIELDPHYSICSWORLD_H

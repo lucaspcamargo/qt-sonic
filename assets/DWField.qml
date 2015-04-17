@@ -3,6 +3,7 @@ import QtQuick 2.3
 Item {
 
     id: fieldBase
+    enabled: false // do no receive any sort of input event
 
     property int viewWidth: parent.width / viewScale
     property int viewHeight: parent.height / viewScale

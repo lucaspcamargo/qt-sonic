@@ -5,6 +5,7 @@
 #include "dwfieldbvh.h"
 #include "dwfieldbvhnode.h"
 #include "dwfieldobject.h"
+#include "dwfophysicsbody.h"
 #include "dwfieldphysicsworld.h"
 #include "dwcomponentcache.h"
 #include "dwplayerbase.h"
@@ -37,6 +38,7 @@ void dwTypes::registerTypes()
     qmlRegisterType<dwEveryFrame>(PACKAGE_VERSION "DWEveryFrame");
     qmlRegisterType<dwFieldBVH>(PACKAGE_VERSION "DWFieldBVH");
     qmlRegisterType<dwFieldObject>(PACKAGE_VERSION "DWFieldObject");
+    qmlRegisterType<dwFOPhysicsBody>(PACKAGE_VERSION "DWFOPhysicsBody");
     qmlRegisterType<dwFieldPhysicsWorld>(PACKAGE_VERSION "DWFieldPhysicsWorld");
     qmlRegisterType<dwComponentCache>(PACKAGE_VERSION "DWComponentCache");
     qmlRegisterType<dwPlayerBase>(PACKAGE_VERSION "DWPlayerBase");

@@ -27,7 +27,8 @@ SOURCES += \
     src/dwfieldbvhnode.cpp \
     src/sound/util/dwsoundrawstream.cpp \
     src/sound/stb_vorbis/stb_vorbis.c \
-    src/dwfieldobject.cpp
+    src/dwfieldobject.cpp \
+    src/dwfophysicsbody.cpp
 
 RESOURCES +=
 
@@ -64,7 +65,8 @@ HEADERS += \
     src/dwutil.h \
     src/dwfieldbvh.h \
     src/dwfieldbvhnode.h \
-    src/dwfieldobject.h
+    src/dwfieldobject.h \
+    src/dwfophysicsbody.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
@@ -131,6 +133,7 @@ DISTFILES += \
     assets/ui/DWUIButton.qml \
     assets/ui/DWExtrasScreen.qml \
     assets/ui/DWUICSetting.qml \
-    assets/ui/DWTitleScreen.qml
+    assets/ui/DWTitleScreen.qml \
+    assets/obj/ObjMovingPlatformBase.qml
 
 
