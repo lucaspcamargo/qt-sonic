@@ -1,0 +1,73 @@
+import QtQuick 2.0
+import dw 1.0
+import ".."
+
+
+DWFieldObject {
+    id: spikes
+    property int prefabId: -1
+
+    rotationMatters: true
+    width: 32
+    height: 32
+    z: field.objAZ
+
+
+    property bool vertical: rotation == 0 || rotation == 180
+    property bool reversed: rotation == 270 || rotation == 180
+
+    Item
+    {
+        id: collision
+        x: parent.x + (vertical? (reversed? -2 : 2) : 0)
+        y: parent.y + (!vertical? (reversed? -2 : 2) : 0)
+        width: vertical? 27 : 32
+        height: vertical? 32 : 27
+    }
+
+    AnimatedSprite{
+        source: "obj/spikes.png"
+        frameWidth: 32
+        frameHeight: 32
+        width: frameWidth
+        height: frameHeight
+    }
+
+    DWEveryFrame
+    {
+        id: updater
+        enabled: active
+        onUpdate:
+        {
+
+            if(prefabId < 0)
+            {
+                if(vertical)
+                    prefabId = physicsWorld.addLevelGeomRect(x + 15.5, y + (reversed? -2 : 2) + 15, 15.5, 15, 0, DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_B);
+                else
+                    prefabId = physicsWorld.addLevelGeomRect(x + (reversed? -2 : 2) + 15, y + 15.5, 15, 15.5, 0, DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_B);
+            }
+
+            if(overlapPlayerI(collision) && !player.playerInvincible )
+            {
+                player.getHit(spikes.x + spikes.width/2, spikes.y + spikes.height / 2);
+                spikedSfx.play();
+            }
+        }
+    }
+
+    Component.onDestruction:
+    {
+        // destroy prefab
+        if(prefabId > 0) physicsWorld.removeLevelGeom(prefabId);
+    }
+
+
+
+    DWSoundEffect
+    {
+        id: spikedSfx
+        source: "sfx/spiked.wav"
+    }
+}
+

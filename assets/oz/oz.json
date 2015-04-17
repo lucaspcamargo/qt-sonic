@@ -1,0 +1,51 @@
+{
+    "name": "Original Zone",
+    "subtitle": "Not very original...",
+    "prefix": "oz",
+    "urlPrefix": "oz/",
+    "bgms":[
+	{
+	    "type": "simple",
+        "id": "bgm.mp3",
+        "inPrefix": true
+	}
+    ],
+
+    "bgs": [
+	{
+	    "bgType": "parallax",
+	    "bgName": "bg",
+	    "bgParallaxName": "bg-parallax",
+	    "inPrefix": true
+	}
+    ],
+    
+    "chunks": [
+	{
+	    "chunkSource": "chunk0.qml",
+	    "chunkX": -512,
+	    "chunkY": -512
+    }
+
+    ],
+    
+    "effects": [
+    ],
+
+    "playerX": -396,
+    "playerY": 220,
+
+    "minBoundaryX": -512,
+    "maxBoundaryX": 7680,
+    "minBoundaryY": -9000,
+    "maxBoundaryY": 2320,
+
+    "hasWater": true,
+    "waterColor": "#8df",
+    "waterYCenter": 1000,
+    "waterYAmplitude": 8,
+    
+    "objStubs": "",
+    "visStubs": "",
+    "geometryStubs": ""
+} 

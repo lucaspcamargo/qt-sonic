@@ -1,0 +1,69 @@
+{
+    "name": "Metallic Madness",
+    "subtitle": "ctrl CD, ctrl V",
+    "prefix": "mm",
+    "urlPrefix": "mm/",
+    "bgms":[
+	{
+	    "type": "simple",
+	    "id": "pseudo-paradise-s0lv0.mp3",
+	    "inPrefix": false
+	}
+    ],
+
+    "bgs": [
+	{
+	    "bgType": "parallax",
+	    "bgName": "bg",
+	    "bgParallaxName": "bg-parallax",
+	    "inPrefix": true
+	}
+    ],
+    
+    "chunks": [
+	{
+	    "chunkSource": "chunk0.qml",
+	    "chunkX": -512,
+	    "chunkY": -512
+	},
+	{
+	    "chunkSource": "chunk1.qml",
+	    "chunkX": -512,
+	    "chunkY": -512
+	}
+
+    ],
+    
+    "effects": [
+	{
+	    "effect": "EffWaterPerspective",
+	    "effectParams": {
+	      "opacity": 1.0
+	    },
+	    "inPrefix": false
+	},
+	{
+	    "effect": "EffWaterWalk",
+	    "effectParams": {
+	    },
+	    "inPrefix": false
+	}
+    ],
+
+    "playerX": -396,
+    "playerY": 220,
+
+    "minBoundaryX": -512,
+    "maxBoundaryX": 7680,
+    "minBoundaryY": -9000,
+    "maxBoundaryY": 2320,
+
+    "hasWater": true,
+    "waterColor": "#8df",
+    "waterYCenter": 1000,
+    "waterYAmplitude": 8,
+    
+    "objStubs": "",
+    "visStubs": "",
+    "geometryStubs": ""
+} 

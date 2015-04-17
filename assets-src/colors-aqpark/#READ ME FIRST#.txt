@@ -1,0 +1,81 @@
+-------------------------------
+SONIC RUSH/ADVENTURES/COLORS DS
+LEVEL RIP
+-------------------------------
+
+1) CREDITS
+The tilesets contained within were originally created by SEGA 
+and Dimps.  The rip was created via an automated process by 
+Techokami, with information and help from JoseTB & Retriever II.
+
+If you use the contents of this package, you must give credit
+to SEGA, Dimps, and Techokami.
+
+If you did not download this tileset from the following domains:
+http://holenet.info/
+http://www.spriters-resource.com/
+http://www.sonicfangameshq.com/
+http://www.themfz.com/
+http://sonicretro.org/
+then you should immediately start yelling at the webmaster for
+mirroring this file without permission.
+PROTIP: If you ask first, I'll almost always say yes!
+
+2) THE RIPPING PROCESS
+Sonic Colors' levels are stored in the ROM filesystem as .NARC
+(Nintendo/Nitro Archive) files. Inside the archive are several
+files, all LZ77 compressed, that contain the pallete, tile, and
+block data. Once decompressed, the files were fed into a modified
+version of my Sonic Advance level ripper, generating individual
+PNG files. The script is available under a BSD license (e.g. do
+whatever you want, but give credit) from holenet.info at the 
+following location:
+http://holenet.info/rush_levelrip.phps
+
+For more information, please read the thread on Sonic Retro:
+http://forums.sonicretro.org/index.php?showtopic=16629
+
+3) EXPLANATION OF TILESET
+Due to a limitation on the DS graphical system, you cannot have
+tile priority, only layer priority. In order to have parts of the
+level appear in front of Sonic, it is formed by combining layers
+BG2 (bottom) and BG3 (top) with the Object layer in between.
+
+The levels are built from 64x64 pixel blocks. Do NOT alter their
+dimensions or they will NOT work correctly!
+
+The background itself is completely separate from the block and
+tile data, so they have not been ripped. They will not be ripped.
+DO NOT ASK FOR BACKGROUND RIPS.
+
+4) CONTACT
+DO NOT ASK FOR BACKGROUND RIPS.
+DO NOT ASK FOR LEVEL EDITING INSTRUCTIONS.
+DO NOT ASK FOR THINGS TO BE RIPPED.
+DO NOT ASK FOR THINGS TO BE MADE INTO SINGLE IMAGE SHEETS.
+DO NOT ASK HOW I RIPPED THIS.
+DO NOT ASK HOW TO HACK ROMS.
+DO NOT ASK HOW TO WRITE PHP CODE.
+Email: techokami [AT] gdarcade [D0T] taloncrossing [D0T] com
+
+5) GREETS
+JoseTB, Retriever II, Ainsworth, The Kins, Shadsy, the Something 
+Awful goons, Tweaker, Scarred Sun, drx, phugolz, Sazpaimon, Coburn64,
+MatthewPZC, Naoshi, and all the staff at:
+-Mario Fan Games Galaxy
+-Metroid: Fan Mission
+-XCulT
+-Sonic Retro
+-Goshi-Dan's Arcade
+-The Spriter's Resource
+-SMW Central
+
+6) BLAZEFIRE IS A THIEF
+This kid loves to steal other people's code and graphics, and call them
+his own.  Why does anyone allow him to use the internet anymore?
+BlazeFire, if you are reading this, don't bother ripping from this game,
+Ragey and I will do things right.  Now GO KILL YOU'RE SAELF
+
+7) THE END
+Enjoy the tilesets.
+-Techokami
