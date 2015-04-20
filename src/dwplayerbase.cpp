@@ -4,7 +4,7 @@
 
 
 dwPlayerBase::dwPlayerBase(QQuickItem *parent) :
-    QQuickItem(parent)
+    dwFieldObject(parent)
 {
     m_active = true;
     m_numIterations = 4;

@@ -10,14 +10,22 @@ class dwFOPhysicsBody : public QObject
 {
     Q_OBJECT
     Q_ENUMS(ShapeType)
-    Q_PROPERTY(bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged)
+    Q_ENUMS(BodyType)
+
+    Q_PROPERTY(bool active READ enabled WRITE setEnabled NOTIFY enabledChanged)
+    Q_PROPERTY(bool collisionCallbackEnabled READ collisionCallbackEnabled WRITE setCollisionCallbackEnabled NOTIFY collisionCallbackEnabledChanged)
     Q_PROPERTY(bool autorebuild READ autorebuild WRITE setAutorebuild NOTIFY autorebuildChanged)
-    Q_PROPERTY(ShapeType shapeType READ shapeType WRITE setShapeType NOTIFY shapeTypeChanged)
+
+    Q_PROPERTY(QPointF origin READ origin WRITE setOrigin NOTIFY originChanged)
+
     Q_PROPERTY(BodyType bodyType READ bodyType WRITE setBodyType NOTIFY bodyTypeChanged)
+    Q_PROPERTY(ShapeType shapeType READ shapeType WRITE setShapeType NOTIFY shapeTypeChanged)
+    Q_PROPERTY(QVector4D shapeData READ shapeData WRITE setShapeData NOTIFY shapeDataChanged)
+
     Q_PROPERTY(int shapeCategory READ shapeCategory WRITE setShapeCategory NOTIFY shapeCategoryChanged)
     Q_PROPERTY(int shapeCollisionMask READ shapeCollisionMask WRITE setShapeCollisionMask NOTIFY shapeCollisionMaskChanged)
-    Q_PROPERTY(QVector4D shapeData READ shapeData WRITE setShapeData NOTIFY shapeDataChanged)
-    Q_PROPERTY(QPointF origin READ origin WRITE setOrigin NOTIFY originChanged)
+    Q_PROPERTY(bool sensor READ sensor WRITE setSensor NOTIFY sensorChanged)
+
 public:
 
     enum ShapeType
@@ -32,7 +40,8 @@ public:
     {
         BT_STATIC,
         BT_KINEMATIC,
-        BT_DYNAMIC
+        BT_DYNAMIC,
+        BT_DYNAMIC_SENSOR
     };
 
     explicit dwFOPhysicsBody(QObject *parent = 0);
@@ -78,7 +87,19 @@ public:
         return m_bodyType;
     }
 
+    bool sensor() const
+    {
+        return m_sensor;
+    }
+
+    bool collisionCallbackEnabled() const
+    {
+        return m_collisionCallbackEnabled;
+    }
+
 signals:
+
+    void collision(int colliderCategory, QObject * collider);
 
     void shapeDataChanged(QVector4D arg);
 
@@ -96,10 +117,15 @@ signals:
 
     void bodyTypeChanged(BodyType arg);
 
+    void sensorChanged(bool arg);
+
+    void collisionCallbackEnabledChanged(bool arg);
+
 public slots:
 
     void rebuildBody();
     void updateBodyTransform();
+    void updateObjectTransform();
 
     void setShapeData(QVector4D arg)
     {
@@ -157,8 +183,8 @@ public slots:
             return;
 
         m_enabled = arg;
+        if(m_body) m_body->SetActive(m_enabled);
         emit enabledChanged(arg);
-        if(m_autorebuild) rebuildBody();
     }
 
     bool ensureParent();
@@ -178,10 +204,30 @@ public slots:
 
         m_bodyType = arg;
         emit bodyTypeChanged(arg);
+        if(m_bodyType == BT_DYNAMIC_SENSOR)
+            setSensor(true);
+    }
+
+    void setSensor(bool arg)
+    {
+        if (m_sensor == arg)
+            return;
+
+        m_sensor = arg;
+        emit sensorChanged(arg);
+    }
+
+    void setCollisionCallbackEnabled(bool arg)
+    {
+        if (m_collisionCallbackEnabled == arg)
+            return;
+
+        m_collisionCallbackEnabled = arg;
+        emit collisionCallbackEnabledChanged(arg);
     }
 
 private:
-    dwFieldObject * m_object;
+    QQuickItem * m_object;
     QVector4D m_shapeData;
     QPointF m_origin;
     ShapeType m_shapeType;
@@ -194,6 +240,11 @@ private:
     bool m_enabled;
     bool m_autorebuild;
     BodyType m_bodyType;
+    bool m_sensor;
+
+    qreal m_scale;
+    qreal m_invScale;
+    bool m_collisionCallbackEnabled;
 };
 
 #endif // DWFOPHYSICSBODY_H

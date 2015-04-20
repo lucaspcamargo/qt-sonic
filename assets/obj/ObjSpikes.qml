@@ -33,36 +33,31 @@ DWFieldObject {
         height: frameHeight
     }
 
-    DWEveryFrame
-    {
-        id: updater
-        enabled: active
-        onUpdate:
-        {
-
-            if(prefabId < 0)
-            {
-                if(vertical)
-                    prefabId = physicsWorld.addLevelGeomRect(x + 15.5, y + (reversed? -2 : 2) + 15, 15.5, 15, 0, DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_B);
-                else
-                    prefabId = physicsWorld.addLevelGeomRect(x + (reversed? -2 : 2) + 15, y + 15.5, 15, 15.5, 0, DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_B);
-            }
-
-            if(overlapPlayerI(collision) && !player.playerInvincible )
-            {
-                player.getHit(spikes.x + spikes.width/2, spikes.y + spikes.height / 2);
-                spikedSfx.play();
-            }
-        }
-    }
-
-    Component.onDestruction:
-    {
-        // destroy prefab
+    Component.onCompleted: objManager.updateObjects.connect(update);
+    onActivated: objManager.updateObjects.connect(update);
+    onDeactivated: objManager.updateObjects.disconnect(update);
+    Component.onDestruction: {
+        objManager.updateObjects.disconnect(update);
         if(prefabId > 0) physicsWorld.removeLevelGeom(prefabId);
     }
 
+    function update(dt)
+    {
 
+        if(prefabId < 0)
+        {
+            if(vertical)
+                prefabId = physicsWorld.addLevelGeomRect(x + 15.5, y + (reversed? -2 : 2) + 15, 15.5, 15, 0, DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_B);
+            else
+                prefabId = physicsWorld.addLevelGeomRect(x + (reversed? -2 : 2) + 15, y + 15.5, 15, 15.5, 0, DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_B);
+        }
+
+        if(overlapPlayerI(collision) && !player.playerInvincible )
+        {
+            player.getHit(spikes.x + spikes.width/2, spikes.y + spikes.height / 2);
+            spikedSfx.play();
+        }
+    }
 
     DWSoundEffect
     {

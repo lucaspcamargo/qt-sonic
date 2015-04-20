@@ -9,7 +9,7 @@ DWField {
 
     id: field
 
-    property bool fieldActive: true
+    property bool fieldActive: false
     property real fieldTime: 0
     property bool fieldEditMode: false
 
@@ -82,21 +82,15 @@ DWField {
         id: fieldCamera
     }
 
-    ObjPlayer
-    {
-        id: player
-        x: levelData.playerX
-        y: levelData.playerY
-    }
+    property var player: null
 
     Item
     {
         id: playerCollision
         z: objSfxZ
-        width: fieldActive && player.active && (!player.playerDead)? (player.playerQuadModeVertical? 2*player.playerHalfHeight : 2*player.playerHalfWidth) : 0
-        height: fieldActive && player.active && (!player.playerDead)? ((!player.playerQuadModeVertical)? 2*player.playerHalfHeight : 2*player.playerHalfWidth) : 0
-        anchors.centerIn: fieldActive && player.active && (!player.playerDead)? player : null
-        DWDebugOutline{ border.color: "cyan"}
+        width: fieldActive && player && player.active && (!player.playerDead)? (player.playerQuadModeVertical? 2*player.playerHalfHeight : 2*player.playerHalfWidth) : 0
+        height: fieldActive && player &&  player.active && (!player.playerDead)? ((!player.playerQuadModeVertical)? 2*player.playerHalfHeight : 2*player.playerHalfWidth) : 0
+        anchors.centerIn: fieldActive && player &&  player.active && (!player.playerDead)? player : null
     }
 
     Component
@@ -141,6 +135,8 @@ DWField {
 
     function init()
     {
+
+
         for(var i = 0; i < levelData.chunks.length; i++)
         {
             var chunkData = levelData.chunks[i];
@@ -152,6 +148,11 @@ DWField {
         }
         visManager.init();
         objManager.init();
+
+        var pComponent = Qt.createComponent(Qt.resolvedUrl("obj/ObjPlayer.qml"));
+        player = pComponent.createObject(this, {x: levelData.playerX, y: levelData.playerY });
+
+
         fieldBVH.buildBVH(16, fieldBVH.rootNode);
         fieldBVH.viewRadius = Qt.vector2d(viewWidth/2, viewHeight/2).length()
 
@@ -182,17 +183,18 @@ DWField {
             if(fieldActive)
             {
                 fieldTime += dt;
+                physicsWorld.update(dt);
                 player.update(dt);
                 objManager.updateObjects(dt);
             }
             else
             {
-                if(player.playerDead)
+                if(player && player.playerDead)
                     player.update(dt);
             }
 
             // update camera and bvh always, if player not dead
-            if(!player.playerDead)
+            if(player && !player.playerDead)
             {
                 fieldCamera.update(dt);
                 fieldBVH.viewCenterX = viewCenterAtX;
@@ -207,6 +209,9 @@ DWField {
                 screenRenderer.waterLevel = (waterY - (viewCenterAtY - viewHeight/2))/viewHeight;
                 screenRenderer.waveYDelta = - viewCenterAtY / viewHeight;
             }
+
+            if(physicsWorldDrawer && physicsWorldDrawer.visible)
+                physicsWorldDrawer.updateNow();
         }
     }
 
@@ -305,6 +310,7 @@ DWField {
 
     DWFieldPhysicsDrawer
     {
+        id: physicsWorldDrawer
         z: fgZ
     }
 

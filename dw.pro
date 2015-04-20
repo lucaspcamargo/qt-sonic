@@ -138,6 +138,7 @@ DISTFILES += \
     assets/ui/DWTitleScreen.qml \
     assets/obj/ObjMovingPlatformBase.qml \
     assets/obj/ObjMovingPlatform.qml \
-    assets/obj/ObjHarmfulBase.qml
+    assets/obj/ObjHarmfulBase.qml \
+    assets/obj/ObjBox.qml
 
 

@@ -19,7 +19,7 @@ public:
     enum CollisionCategories
     {
         CC_DYNAMIC = 0x01,
-        CC__PLAYER = 0x02,
+        CC_PLAYER = 0x02,
         CC_LAYER_A = 0x04,
         CC_LAYER_B = 0x08,
         CC_LAYERS = 0x0C,
@@ -27,7 +27,7 @@ public:
         CC_LAYER_B_ONLYTOP = 0x20,
         CC_LAYERS_ONLYTOP = 0x30,
         CC_OBJ_NOT_ROLLING = 0x40,
-        CC__PLAYER_SENSOR = 0x80,
+        CC_PLAYER_SENSOR = 0x80,
         CC_WATER_EDGE = 0x100
     };
 
@@ -59,6 +59,7 @@ signals:
     void debugDrawPolygon( QList<qreal> pointsx, QList<qreal> pointsy, QColor color );
     void debugDrawSolidPolygon( QList<qreal> pointsx, QList<qreal> pointsy, QColor color );
     void debugDrawSegment( qreal x1, qreal y1, qreal x2, qreal y2, QColor color );
+    void debugDrawSolidCircle( qreal x1, qreal y1, qreal radius, qreal x2, qreal y2, QColor color );
 
 public slots:
     void update(float dt);

@@ -5,6 +5,10 @@
 #include "dwroot.h"
 #include "dwtypes.h"
 
+#ifdef QT_DEBUG
+#include <fenv.h>
+#endif
+
 int main(int argc, char *argv[])
 {
     dwTypes::registerTypes();

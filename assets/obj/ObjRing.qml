@@ -14,6 +14,23 @@ DWFieldObject{
     property real xS: 0
     property real yS: 0
 
+    DWFOPhysicsBody {
+        id: physicsBody
+        active: ring.active
+        bodyType: DWFOPhysicsBody.BT_DYNAMIC_SENSOR
+        shapeType: DWFOPhysicsBody.ST_CIRCLE
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_PLAYER | DWFieldPhysicsWorld.CC_DYNAMIC
+        shapeData: Qt.vector4d(8, 8, 0, 0)
+        origin: Qt.point(8, 8)
+
+        Component.onCompleted: rebuildBody();
+
+        collisionCallbackEnabled: true
+        onCollision: {
+            collect();
+        }
+    }
 
     AnimatedSprite{
         id: sprite
@@ -43,33 +60,34 @@ DWFieldObject{
             var f = field.fieldTime % (sprite.frameCount * sprite.frameDuration / 1000.0);
             if(f < prevfmod) sprite.restart();
             prevfmod = f;
-        }
 
-        if(!flying && player.hasShield && player.shieldType == 1 && !collected)
-        {
-            var vecX = (ring.x+8 - player.x);
-            var vecY = (ring.y + 8 - player.y);
-            var dist = Math.sqrt(vecX*vecX + vecY*vecY);
-            if(dist < 96 && !attraction && !collected)
+            if(player.hasShield && player.shieldType == 1 && !collected)
             {
-                if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
-                managerIndex = -1;
-                attraction = true;
-            }
+                var vecX = (ring.x+8 - player.x);
+                var vecY = (ring.y + 8 - player.y);
+                var dist = Math.sqrt(vecX*vecX + vecY*vecY);
+                if(dist < 96 && !attraction && !collected)
+                {
+                    if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
+                    managerIndex = -1;
+                    attraction = true;
+                }
 
-            if(attraction){
-                vecX /= dist;
-                vecY /= dist;
-                xS -= vecX * dt * 1800 * (xS*vecX > 0? 5 : 1) ;
-                yS -= vecY * dt * 1800 * (yS*vecY > 0? 5 : 1) ;
+                if(attraction){
+                    vecX /= dist;
+                    vecY /= dist;
+                    xS -= vecX * dt * 1800 * (xS*vecX > 0? 5 : 1) ;
+                    yS -= vecY * dt * 1800 * (yS*vecY > 0? 5 : 1) ;
 
-                x += xS*dt;
-                y += yS*dt;
+                    x += xS*dt;
+                    y += yS*dt;
+                }
+            }else if(attraction && !flying)
+            {
+                flying = true;
             }
-        }else if(attraction && !flying)
-        {
-            flying = true;
         }
+
 
         if ( ring.flying )
         {
@@ -105,22 +123,28 @@ DWFieldObject{
 
         }
 
+//        if(!collected && (!player.ringCollectLock > 0) && overlapPlayerI(ring))
+//        {
+//            collect();
+//        }
 
-        if(!collected && (!player.ringCollectLock > 0) && overlapPlayerI(ring))
-        {
-            if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
-            collected = true;
-            flying = false;
-            attraction = false;
-            collectedTimer.running = true;
-            hud.ringsValue += 1;
+    }
 
-            sfx.play( 1, 1, 1-2*Math.random(), 0, -0.75 );
+    function collect()
+    {
+        if(collected || player.ringCollectLock > 0) return;
 
-            x = Math.round(x);
-            y = Math.round(y);
+        if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
+        collected = true;
+        flying = false;
+        attraction = false;
+        collectedTimer.running = true;
+        hud.ringsValue += 1;
 
-        }
+        sfx.play( 1, 1, 1-2*Math.random(), 0, -0.75 );
+
+        x = Math.round(x);
+        y = Math.round(y);
     }
 
 

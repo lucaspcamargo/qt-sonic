@@ -20,7 +20,8 @@ dwFieldPhysicsWorld::dwFieldPhysicsWorld(QObject *parent) :
 
     m_doingDebugDraw = false;
 
-    connect(dwRoot::singleton(), &dwRoot::update, this, &dwFieldPhysicsWorld::update);
+    // updated manually by field
+    //connect(dwRoot::singleton(), &dwRoot::update, this, &dwFieldPhysicsWorld::update);
 }
 
 void dwFieldPhysicsWorld::update(float dt)
@@ -29,16 +30,16 @@ void dwFieldPhysicsWorld::update(float dt)
 
     _world->Step(dt, 8, 3, 3);
 
-    for ( b2Body* b = _world->GetBodyList(); b; b = b->GetNext())
-    {
-        if(b->GetUserData())
-        {
-            QQuickItem * item = reinterpret_cast<QQuickItem *>(b->GetUserData());
-            item->setX((b->GetPosition().x/m_physicsScale - item->width()/2));
-            item->setY( (b->GetPosition().y/m_physicsScale - item->height()/2 ));
-            item->setRotation(b->GetAngle() * 180 / M_PI );
-        }
-    }
+//    for ( b2Body* b = _world->GetBodyList(); b; b = b->GetNext())
+//    {
+//        if(b->GetUserData())
+//        {
+//            QQuickItem * item = reinterpret_cast<QQuickItem *>(b->GetUserData());
+//            item->setX((b->GetPosition().x/m_physicsScale - item->width()/2));
+//            item->setY( (b->GetPosition().y/m_physicsScale - item->height()/2 ));
+//            item->setRotation(b->GetAngle() * 180 / M_PI );
+//        }
+//    }
 
     emit afterUpdating(dt);
 }
@@ -253,7 +254,10 @@ void dwFieldPhysicsWorld::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexC
     emit debugDrawSolidPolygon(pointsX, pointsY, TO_QCOLOR(color) );
 }
 void dwFieldPhysicsWorld::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color){}
-void dwFieldPhysicsWorld::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color){}
+void dwFieldPhysicsWorld::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color)
+{
+    emit debugDrawSolidCircle(center.x/m_physicsScale, center.y/m_physicsScale, radius/m_physicsScale, axis.x, axis.y, TO_QCOLOR(color));
+}
 void dwFieldPhysicsWorld::DrawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count){}
 void dwFieldPhysicsWorld::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)
 {

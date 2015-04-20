@@ -1,7 +1,7 @@
 #ifndef DWPLAYERBASE_H
 #define DWPLAYERBASE_H
 
-#include <QQuickItem>
+#include "dwfieldobject.h"
 #include <QtMath>
 
 #define GENESIS_PIXELS_IN_PIXEL 1
@@ -13,7 +13,7 @@
 #define cgAcc(pixelsPFS) ((pixelsPFS) * GENESIS_PIXELS_IN_PIXEL * GENESIS_FRAMES_IN_SECOND * GENESIS_FRAMES_IN_SECOND)
 #define cgTime(frames) ((frames) * GENESIS_FRAMES_IN_SECOND_INV)
 
-class dwPlayerBase : public QQuickItem
+class dwPlayerBase : public dwFieldObject
 {
 public:
     enum PlayerState

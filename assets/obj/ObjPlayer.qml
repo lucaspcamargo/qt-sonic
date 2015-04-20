@@ -8,7 +8,19 @@ DWPlayerBase {
     id: player
     z: field.playerZ
 
+    // PHYSICS COLLIDER
 
+    DWFOPhysicsBody {
+
+        id: physicsBody
+
+        bodyType: DWFOPhysicsBody.BT_KINEMATIC
+        shapeType: DWFOPhysicsBody.ST_POLY_BOX
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_DYNAMIC | DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+
+        shapeData: Qt.vector4d(playerHalfWidth, playerHalfHeight, 0, 0)
+    }
 
     // SPRITE AND ANIMS
 
@@ -411,6 +423,9 @@ DWPlayerBase {
 
     Component.onCompleted:
     {
+        physicsBody.rebuildBody();
+        physicsBody.autorebuild = true;
+
         setAnimation("standing");
 
         // create shields
@@ -474,6 +489,11 @@ DWPlayerBase {
             previousY[previousPosIndex] = y;
         }
 
+        if(controls.bPressed)
+        {
+            var c = Qt.createComponent("ObjBox.qml");
+            var o = c.createObject(field, {"x": player.x, "y": player.y});
+        }
     }
 
 

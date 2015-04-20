@@ -32,15 +32,25 @@ DWFieldObject {
             if(playerOnTop) player.y += amount;
             deltaYLastUpdate += amount;
         }
+
+        if(Math.abs(deltaX - deltaXLastUpdate) >= 1)
+        {
+            var amount = Math.floor(deltaX - deltaXLastUpdate);
+            x += amount;
+            if(playerOnTop) player.x += amount;
+            deltaXLastUpdate += amount;
+        }
     }
 
     DWFOPhysicsBody
     {
         id: body
 
+        bodyType: DWFOPhysicsBody.BT_KINEMATIC
         shapeType: DWFOPhysicsBody.ST_POLY_BOX
         shapeCategory: DWFieldPhysicsWorld.CC_LAYERS_ONLYTOP
         shapeCollisionMask: DWFieldPhysicsWorld.CC_DYNAMIC
+
         shapeData: Qt.vector4d(platformBase.width/2, platformBase.height/2, 0, 0)
         origin: Qt.point(platformBase.width/2, platformBase.height/2)
 

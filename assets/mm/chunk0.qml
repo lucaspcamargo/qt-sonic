@@ -17,11 +17,23 @@ PLevelChunk {
     }
 
     Image {
-        id: imagesim
         x: 192 + 512
         y: 48 + 512
         source: "../obj/obj/movingPlatform.png"
     }
+
+    Image {
+        x:  512
+        y: 48 + 512
+        source: "../obj/obj/movingPlatform.png"
+    }
+
+    Image {
+        x:  512 - 192
+        y: 48 + 512
+        source: "../obj/obj/movingPlatform.png"
+    }
+
 
     PLevelChunkVisual {
         id: image44
