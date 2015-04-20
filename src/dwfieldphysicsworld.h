@@ -28,7 +28,8 @@ public:
         CC_LAYERS_ONLYTOP = 0x30,
         CC_OBJ_NOT_ROLLING = 0x40,
         CC_PLAYER_SENSOR = 0x80,
-        CC_WATER_EDGE = 0x100
+        CC_WATER_EDGE = 0x100,
+        CC_GIB = 0x200
     };
 
 

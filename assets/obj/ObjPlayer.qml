@@ -17,7 +17,7 @@ DWPlayerBase {
         bodyType: DWFOPhysicsBody.BT_KINEMATIC
         shapeType: DWFOPhysicsBody.ST_POLY_BOX
         shapeCategory: DWFieldPhysicsWorld.CC_PLAYER
-        shapeCollisionMask: DWFieldPhysicsWorld.CC_DYNAMIC | DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_DYNAMIC | DWFieldPhysicsWorld.CC_GIB | DWFieldPhysicsWorld.CC_PLAYER_SENSOR
 
         shapeData: Qt.vector4d(playerHalfWidth, playerHalfHeight, 0, 0)
     }
@@ -487,12 +487,6 @@ DWPlayerBase {
             previousPosIndex = (previousPosIndex + 1) % previousPosTotal;
             previousX[previousPosIndex] = x;
             previousY[previousPosIndex] = y;
-        }
-
-        if(controls.bPressed)
-        {
-            var c = Qt.createComponent("ObjBox.qml");
-            var o = c.createObject(field, {"x": player.x, "y": player.y});
         }
     }
 

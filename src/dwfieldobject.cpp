@@ -6,10 +6,8 @@ dwFieldObject::dwFieldObject(QQuickItem *parent)
       m_active( true ),
       m_autoVisibility( true )
 {
-
     m_sizeMatters = false;
     m_rotationMatters = false;
-
 }
 
 dwFieldObject::~dwFieldObject()

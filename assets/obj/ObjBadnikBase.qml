@@ -50,9 +50,12 @@ DWFieldObject {
 
         if(gibsEnabled)
         {
+            var gibComponent = Qt.createComponent("ObjGib.qml");
+
             for(var i = 0; i < gibCount; i++ )
-            {
+            {                
                 var fileUrl = Qt.resolvedUrl(gibLocation.arg(i));
+                field.createGib({x: badnikBase.x, y: badnikBase.y, source: fileUrl});
             }
         }
 

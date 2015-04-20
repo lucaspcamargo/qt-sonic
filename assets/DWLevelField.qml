@@ -234,6 +234,13 @@ DWField {
         return o;
     }
 
+    function createGib(props)
+    {
+        var c = Qt.createComponent("obj/ObjGib.qml");
+        var o = c.createObject(field, props);
+        return o;
+    }
+
     function createWaterSplash(x)
     {
         var c = Qt.createComponent("obj/ObjTimedSprite.qml");

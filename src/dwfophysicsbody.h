@@ -226,6 +226,18 @@ public slots:
         emit collisionCallbackEnabledChanged(arg);
     }
 
+    void setLinearVelocity(QVector2D velocity)
+    {
+        if(m_body)
+            m_body->SetLinearVelocity( m_scale * b2Vec2(velocity.x(), velocity.y()) );
+    }
+
+    void setAngularVelocity(qreal velocity)
+    {
+        if(m_body)
+            m_body->SetAngularVelocity( velocity );
+    }
+
 private:
     QQuickItem * m_object;
     QVector4D m_shapeData;

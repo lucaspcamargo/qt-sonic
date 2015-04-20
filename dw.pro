@@ -139,6 +139,7 @@ DISTFILES += \
     assets/obj/ObjMovingPlatformBase.qml \
     assets/obj/ObjMovingPlatform.qml \
     assets/obj/ObjHarmfulBase.qml \
-    assets/obj/ObjBox.qml
+    assets/obj/ObjBox.qml \
+    assets/obj/ObjGib.qml
 
 
