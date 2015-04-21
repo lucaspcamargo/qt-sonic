@@ -27,7 +27,6 @@ dwRoot::dwRoot(QQmlApplicationEngine *parent) :
     m_soundSystem = new DWSoundSystem(this);
     m_engine->rootContext()->setContextProperty("dwSoundSystem", m_soundSystem);
 
-
     m_timer = new QElapsedTimer();
     m_timer->start();
 }
@@ -36,7 +35,7 @@ void dwRoot::onLoaded()
 {
     m_window =  reinterpret_cast<QQuickWindow*>(m_engine->rootObjects()[0]);
     m_window->setClearBeforeRendering(false);
-    connect(m_window, &QQuickWindow::afterAnimating, this, &dwRoot::doFrameUpdate);
+    connect(m_window, &QQuickWindow::afterRendering, this, &dwRoot::doFrameUpdate);
 }
 
 void dwRoot::doFrameUpdate()

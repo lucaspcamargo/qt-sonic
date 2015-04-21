@@ -15,24 +15,25 @@ typedef struct _nSoundStreamerItem
 class nSoundStreamerPlaylist : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool loopPlaylist READ loopPlaylist WRITE setLoopPlaylist)
+    Q_PROPERTY(bool loopPlaylist READ loopPlaylist WRITE setLoopPlaylist) 
 public:
     explicit nSoundStreamerPlaylist(QObject *parent = 0);
     virtual ~nSoundStreamerPlaylist();
-
-    void createItem(nSoundStream * stream, bool loop);
     nSoundSteamerItem item(int index);
-    void clearItems();
 
     bool loopPlaylist(){return m_loopPlaylist;}
     void setLoopPlaylist(bool b){m_loopPlaylist = b;}
 
-    QList<nSoundSteamerItem> m_items;
 signals:
 
 public slots:
+    void createItem(nSoundStream * stream, bool loop);
+    int itemCount() { return m_items.count(); }
+    void clearItems();
 
 private:
+    friend class nSoundStreamer;
+    QList<nSoundSteamerItem> m_items;
     bool m_loopPlaylist;
 
 };

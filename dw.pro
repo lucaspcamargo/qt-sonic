@@ -29,7 +29,8 @@ SOURCES += \
     src/dwfophysicsbody.cpp \
     src/dwfieldphysicscontactlistener.cpp \
     src/sound/stb_vorbis/nvorbisstream.cpp \
-    src/sound/wav/nwavestream.cpp
+    src/sound/wav/nwavestream.cpp \
+    src/sound/util/nsoundstreamthreadwrapper.cpp
 
 RESOURCES +=
 
@@ -69,7 +70,8 @@ HEADERS += \
     src/dwfophysicsbody.h \
     src/dwfieldphysicscontactlistener.h \
     src/sound/stb_vorbis/nvorbisstream.h \
-    src/sound/wav/nwavestream.h
+    src/sound/wav/nwavestream.h \
+    src/sound/util/nsoundstreamthreadwrapper.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
@@ -141,6 +143,7 @@ DISTFILES += \
     assets/obj/ObjMovingPlatform.qml \
     assets/obj/ObjHarmfulBase.qml \
     assets/obj/ObjBox.qml \
-    assets/obj/ObjGib.qml
+    assets/obj/ObjGib.qml \
+    assets/DWLevelBGMNew.qml
 
 

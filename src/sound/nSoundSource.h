@@ -8,14 +8,6 @@
 class nSoundSystem;
 class nSoundBuffer;
 
-enum nSoundSourceState
-{
-    SSS_UNKNOWN,
-    SSS_PLAYING,
-    SSS_PAUSED,
-    SSS_STOPPED,
-    SSS_INITIAL
-};
 
 class nSoundSource : public QObject
 {
@@ -39,6 +31,14 @@ class nSoundSource : public QObject
 
 
 public:
+    enum nSoundSourceState
+    {
+        SSS_UNKNOWN,
+        SSS_PLAYING,
+        SSS_PAUSED,
+        SSS_STOPPED,
+        SSS_INITIAL
+    };
 
     explicit nSoundSource(QString name, nSoundSourceRole role, nSoundSystem * parent);
     virtual ~nSoundSource();

@@ -14,5 +14,7 @@ Audio
     Behavior on volume { enabled: bgmPlayer.fadeEnabled; NumberAnimation { easing.type: Easing.OutExpo; duration: 3000; } }
     onVolumeChanged: { if(volume == 0 ) pause(); else if(!playing() || paused()) play(); }
 
+    function seekZero() { seek(0); }
+
 }
 

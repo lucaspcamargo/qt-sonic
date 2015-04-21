@@ -23,10 +23,12 @@ public slots:
     virtual nSoundFormat format() { return _format; }
     virtual bool suggestStreaming() { return false; }
 
-    virtual void rewind();
     virtual quint64 read(void* data, unsigned long frames);
 
+    virtual void rewind();
+
 private:
+
     QIODevice * _device;
     quint64 _totalFrames;
     int _channels;

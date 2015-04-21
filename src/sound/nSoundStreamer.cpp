@@ -6,11 +6,13 @@
 #include "nSoundStreamerPlaylist.h"
 #include "AL/al.h"
 
-const int nSS_BUFFER_SIZE = 44100;
+const int nSS_BUFFER_SIZE = 4096;
 
 nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStreamerPlaylist * playlist, nSoundSystem * parent) :
     QObject(parent)
 {
+    qDebug(QStringLiteral("nSoundStreamer %1").arg(playlist->itemCount()).toLocal8Bit());
+
     setObjectName(name);
     m_playlist = playlist;
 
@@ -55,7 +57,7 @@ nSoundStreamer::~nSoundStreamer()
 {
     alGetError();
 
-    alSourceStop(m_source->openalHandle());
+    m_source->stop();
 
     int queuedBuffers;
     alGetSourcei(m_source->openalHandle(), AL_BUFFERS_QUEUED, &queuedBuffers);
@@ -64,7 +66,9 @@ nSoundStreamer::~nSoundStreamer()
         unsigned int buffer;
         alSourceUnqueueBuffers(m_source->openalHandle(), 1, &buffer);
         if(alGetError()!=AL_NO_ERROR)
-            throw QString("nSoundStreamer::update(...): Failed to unqueue buffer.");
+        {
+            qWarning("nSoundStreamer::~nSoundStreamer(): Failed to unqueue buffer");
+        }
     }
 
     unsigned int buffers[3];
@@ -74,7 +78,7 @@ nSoundStreamer::~nSoundStreamer()
     alDeleteBuffers(3, buffers);
 
     if(alGetError()!=AL_NO_ERROR)
-        throw QString("nSoundStreamer::nSoundStreamer(...): Openal error on streamer destruction.");
+        qWarning("nSoundStreamer::~nSoundStreamer(): Failed to destroy buffers.");
 
     delete m_bag;
 }
@@ -98,6 +102,18 @@ void nSoundStreamer::update(float frameTime)
             if(m_keepStreaming) m_keepStreaming = fillAndQueueBuffer(buffer);
         }
     }
+
+}
+
+void nSoundStreamer::rewind()
+{
+    bool playing = m_source->state() == nSoundSource::SSS_PLAYING;
+    m_source->stop();
+    m_playlist->m_items[m_currentStream].m_soundStream->rewind();
+    m_currentStream = 0;
+
+    update(0);
+    if(playing) m_source->play();
 
 }
 

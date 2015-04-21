@@ -3,6 +3,7 @@
 #include "nSoundBuffer.h"
 #include "nSoundListener.h"
 #include "nSoundStreamer.h"
+#include "nSoundStreamerPlaylist.h"
 
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -80,6 +81,7 @@ nSoundSystem::~nSoundSystem()
 
 void nSoundSystem::update(qreal frameTime)
 {
+
     m_listener->update(frameTime);
 
     foreach(nSoundStreamer * streamer, m_streamers)
@@ -163,7 +165,7 @@ bool nSoundSystem::destroySource(nSoundSource * source)
 
 nSoundBuffer * nSoundSystem::createBuffer(QString name)
 {
-    if(name.isEmpty()) throw QString("nSoundBuffer name cannot be empty.");
+    if(name.isEmpty()) qWarning("Creating nSoundBuffer with empty name.");
 
     nSoundBuffer * buf = new nSoundBuffer(name, this);
     m_buffers.insert(name, buf);
@@ -198,11 +200,17 @@ bool nSoundSystem::destroyBuffer(nSoundBuffer * buffer)
 
 nSoundStreamer * nSoundSystem::createStreamer(QString name, nSoundSource * source, nSoundStreamerPlaylist * playlist)
 {
-    if(name.isEmpty()) throw QString("nSoundBuffer name cannot be empty.");
+    if(name.isEmpty()) qWarning("Creating nSoundStreamer with an empty name.");
 
     nSoundStreamer * streamer = new nSoundStreamer(name, source, playlist, this);
+    playlist->setParent(streamer);
     m_streamers.insert(name, streamer);
     return streamer;
+}
+
+nSoundStreamerPlaylist *nSoundSystem::createStreamerPlaylist(QObject *parent)
+{
+    return new nSoundStreamerPlaylist(parent);
 }
 
 nSoundStreamer * nSoundSystem::streamer(QString name)

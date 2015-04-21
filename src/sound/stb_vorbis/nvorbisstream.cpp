@@ -24,11 +24,11 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
         dev->read(_buf, _bufSize);
         dev->close();
 
-        int err;
+        int err = VORBIS__no_error;
         _vorbis = stb_vorbis_open_memory((unsigned char*)_buf, _bufSize, &err,  0 );
         if(!_vorbis || err != VORBIS__no_error)
         {
-            qDebug("[nVorbisStream] Error initializing vorbis stream");
+            qDebug(QStringLiteral("[nVorbisStream] Error initializing vorbis stream: %1").arg(err).toLocal8Bit());
         }
 
         stb_vorbis_info info = stb_vorbis_get_info(_vorbis);
@@ -77,7 +77,7 @@ void nVorbisStream::rewind()
 
 quint64 nVorbisStream::read(void *data, unsigned long frames)
 {
-    return stb_vorbis_get_samples_short_interleaved(_vorbis, _channels, (short*) data, frames * _channels ) / _channels;
+    return stb_vorbis_get_samples_short_interleaved(_vorbis, _channels, (short*) data, frames * _channels );
 
 }
 

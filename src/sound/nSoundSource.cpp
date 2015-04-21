@@ -44,7 +44,7 @@ nSoundSource::~nSoundSource()
 
 // PROPERTIES
 
-nSoundSourceState nSoundSource::state()
+nSoundSource::nSoundSourceState nSoundSource::state()
 {
     alGetError();
 

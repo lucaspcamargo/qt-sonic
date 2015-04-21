@@ -4,6 +4,7 @@
 #include "nSoundSystem.h"
 #include <QUrl>
 
+class nSoundStream;
 
 class DWSoundSystem : public nSoundSystem
 {
@@ -15,6 +16,7 @@ signals:
 
 public slots:
 
+    nSoundStream * createStreamUrl(QUrl stream, QObject * parent);
     void fillBuffer(nSoundBuffer * buf, QUrl url);
 
 private:

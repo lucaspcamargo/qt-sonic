@@ -212,7 +212,7 @@ Item {
     Audio
     {
         id: mainScreenBgm
-        source: "music/main-alt.mp3.ogg"
+        source: "music/main-alt.ogg"
         loops: Audio.Infinite
         Behavior on volume { NumberAnimation { easing.type: Easing.Linear; duration: 800; } }
 
@@ -222,7 +222,7 @@ Item {
     {
         id: titleBgm
 
-        source: "music/title.mp3.ogg"
+        source: "music/title.ogg"
         loops: Audio.Infinite
         autoPlay: true
 

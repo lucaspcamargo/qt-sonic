@@ -14,17 +14,6 @@ public:
     explicit nVorbisStream(QIODevice * device, QObject *parent = 0);
     ~nVorbisStream();
 
-    virtual quint64 frames() { return _totalFrames; }
-    virtual int channels() { return _channels; }
-    virtual int frequency() { return _frequency; }
-
-    virtual nSoundBag * createSoundBag(QObject * parent = 0);
-
-    virtual nSoundFormat format() { return _format; }
-    virtual bool suggestStreaming() { return _totalFrames > 88200; }
-
-    virtual void rewind();
-    virtual quint64 read(void* data, unsigned long frames);
 
 
     bool error() const
@@ -35,6 +24,17 @@ public:
 signals:
 
 public slots:
+    virtual quint64 frames() { return _totalFrames; }
+    virtual int channels() { return _channels; }
+    virtual int frequency() { return _frequency; }
+
+    virtual nSoundBag * createSoundBag(QObject * parent = 0);
+
+    virtual nSoundFormat format() { return _format; }
+    virtual bool suggestStreaming() { return _totalFrames > 88200; }
+
+    virtual quint64 read(void* data, unsigned long frames);
+    virtual void rewind();
 
 private:
     QIODevice * _device;

@@ -5,8 +5,9 @@
     "urlPrefix": "mm/",
     "bgms":[
 	{
-	    "type": "simple",
-	    "id": "pseudo-paradise-s0lv0.mp3.ogg",
+        "type": "simple",
+            "introId": "sonic_2006_aquatic_base_intro.ogg",
+            "id": "sonic_2006_aquatic_base_loop.ogg",
 	    "inPrefix": false
 	}
     ],

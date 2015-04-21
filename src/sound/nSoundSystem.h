@@ -61,7 +61,9 @@ public slots:
     bool destroyBuffer(QString name);
     bool destroyBuffer(nSoundBuffer * buffer);
 
-    nSoundStreamer * createStreamer(QString name, nSoundSource * source, nSoundStreamerPlaylist * playlist);
+
+    nSoundStreamer * createStreamer(QString name, nSoundSource * source, nSoundStreamerPlaylist * playlist = 0);
+    nSoundStreamerPlaylist * createStreamerPlaylist(QObject * parent);
     nSoundStreamer * streamer(QString name);
     bool destroyStreamer(QString name);
     bool destroyStreamer(nSoundStreamer * streamer);

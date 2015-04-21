@@ -23,7 +23,7 @@ QtObject {
 
             if(bgmDef.type ==="simple")
             {
-                addBGM(bgmDef.id, bgmDef.inPrefix? levelData.urlPrefix : null);
+                addBGM(bgmDef.id, bgmDef.inPrefix? levelData.urlPrefix : null, bgmDef.introId? bgmDef.introId : null);
             }
             else if(bgmDef === "playlist")
             {
@@ -63,12 +63,12 @@ QtObject {
 
 
 
-    function addBGM( id, prefix )
+    function addBGM( id, prefix, introId )
     {
         var index = bgmIds.length;
 
-        var bgmC = Qt.createComponent("DWLevelBGM.qml");
-        var bgmO = bgmC.createObject(scene, {"id": id, "volume": gain, "prefix": (prefix? prefix : "") });
+        var bgmC = Qt.createComponent("DWLevelBGMNew.qml");
+        var bgmO = bgmC.createObject(scene, {"id": id, "volume": gain, "introId": introId, "prefix": (prefix? prefix : "") });
 
         bgmIds.push(id);
         bgms.push(bgmO);
@@ -98,7 +98,7 @@ QtObject {
 
     function resetBGM( index )
     {
-        return bgms[index].seek(0);
+        return bgms[index].seekZero();
     }
 
 }

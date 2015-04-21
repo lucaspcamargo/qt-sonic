@@ -18,6 +18,7 @@
 #include "sound/nSoundSource.h"
 #include "sound/nSoundStream.h"
 #include "sound/nSoundStreamer.h"
+#include "sound/nSoundStreamerPlaylist.h"
 
 static QObject *dwutil_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
@@ -58,4 +59,5 @@ void dwTypes::registerTypes()
     qmlRegisterUncreatableType<nSoundSource>( PACKAGE_VERSION "NSoundSource", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundStream>( PACKAGE_VERSION "NSoundStream", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundStreamer>( PACKAGE_VERSION "NSoundStreamer", QStringLiteral("") );
+    qmlRegisterUncreatableType<nSoundStreamerPlaylist>( PACKAGE_VERSION "NSoundStreamerPlaylist", QStringLiteral("") );
 }
