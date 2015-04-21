@@ -25,11 +25,11 @@ SOURCES += \
     src/dwutil.cpp \
     src/dwfieldbvh.cpp \
     src/dwfieldbvhnode.cpp \
-    src/sound/util/dwsoundrawstream.cpp \
-    src/sound/stb_vorbis/stb_vorbis.c \
     src/dwfieldobject.cpp \
     src/dwfophysicsbody.cpp \
-    src/dwfieldphysicscontactlistener.cpp
+    src/dwfieldphysicscontactlistener.cpp \
+    src/sound/stb_vorbis/nvorbisstream.cpp \
+    src/sound/wav/nwavestream.cpp
 
 RESOURCES +=
 
@@ -60,7 +60,6 @@ HEADERS += \
     src/sound/util/efx-util.h \
     src/sound/util/nEfxHelper.h \
     src/sound/dwsoundsystem.h \
-    src/sound/util/dwsoundrawstream.h \
     src/dwcomponentcache.h \
     src/dwplayerbase.h \
     src/dwutil.h \
@@ -68,7 +67,9 @@ HEADERS += \
     src/dwfieldbvhnode.h \
     src/dwfieldobject.h \
     src/dwfophysicsbody.h \
-    src/dwfieldphysicscontactlistener.h
+    src/dwfieldphysicscontactlistener.h \
+    src/sound/stb_vorbis/nvorbisstream.h \
+    src/sound/wav/nwavestream.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 

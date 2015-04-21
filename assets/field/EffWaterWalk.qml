@@ -64,7 +64,7 @@ Item
     DWSoundEffect
     {
         id: sfx
-        source: "water-walk/water-walk.wav"
+        source: "water-walk/water-walk.wav.ogg"
         gain: 0.25
     }
 }

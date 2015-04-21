@@ -151,7 +151,7 @@ DWFieldObject{
     DWSoundEffect
     {
         id: sfx
-        source: "sfx/ring.wav"
+        source: "sfx/ring.ogg"
     }
 
     SequentialAnimation

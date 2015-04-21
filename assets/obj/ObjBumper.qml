@@ -23,7 +23,7 @@ Image {
     DWSoundEffect
     {
         id: bumperSfx
-        source: "sfx/bumper.wav"
+        source: "sfx/bumper.wav.ogg"
     }
 
     DWEveryFrame

@@ -69,7 +69,7 @@ Item {
     DWSoundEffect
     {
         id: themeSfx
-        source: "dw/theme.wav"
+        source: "dw/theme.wav.ogg"
     }
 }
 

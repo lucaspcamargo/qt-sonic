@@ -71,7 +71,7 @@ DWFieldObject {
     DWSoundEffect
     {
         id: sfx
-        source: "sfx/checkpoint.wav"
+        source: "sfx/checkpoint.wav.ogg"
     }
 }
 

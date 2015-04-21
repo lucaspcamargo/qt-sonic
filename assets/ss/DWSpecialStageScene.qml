@@ -46,7 +46,7 @@ Item
 
     Audio
     {
-        source: "../music/atropos.mp3"
+        source: "../music/atropos.mp3.ogg"
         autoPlay: true
     }
 

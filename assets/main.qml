@@ -14,7 +14,7 @@ Window {
     width: 854
     height: 480
 
-    //flags: Qt.FramelessWindowHint
+    flags: Qt.FramelessWindowHint
 
     property alias cursorShape: cursorSetter.cursorShape
 

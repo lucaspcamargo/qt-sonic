@@ -62,7 +62,7 @@ DWFieldObject {
     DWSoundEffect
     {
         id: spikedSfx
-        source: "sfx/spiked.wav"
+        source: "sfx/spiked.wav.ogg"
     }
 }
 

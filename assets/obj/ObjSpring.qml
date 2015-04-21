@@ -52,7 +52,7 @@ Item {
     DWSoundEffect
     {
         id: springSfx
-        source: yellow? "sfx/spring.wav" : "sfx/spring2.wav"
+        source: yellow? "sfx/spring.wav.ogg" : "sfx/spring2.wav.ogg"
     }
 
     DWEveryFrame

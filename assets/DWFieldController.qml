@@ -17,7 +17,7 @@ Item {
     {
         controls.enterPressed.connect(togglePause);
         rootWindow.logoPressed.connect(togglePause);
-        drownBGMIndex = bgmPlayer.addBGM("field-drowning-sa.mp3", false);
+        drownBGMIndex = bgmPlayer.addBGM("field-drowning-sa.mp3.ogg", false);
     }
 
     function togglePause()

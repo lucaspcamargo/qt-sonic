@@ -75,7 +75,7 @@ DWFieldObject {
     DWSoundEffect
     {
         id: popSound
-        source: "sfx/pop.wav"
+        source: "sfx/pop.wav.ogg"
     }
 }
 

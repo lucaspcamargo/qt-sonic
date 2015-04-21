@@ -212,7 +212,7 @@ Item {
     Audio
     {
         id: mainScreenBgm
-        source: "music/main-alt.mp3"
+        source: "music/main-alt.mp3.ogg"
         loops: Audio.Infinite
         Behavior on volume { NumberAnimation { easing.type: Easing.Linear; duration: 800; } }
 
@@ -222,7 +222,7 @@ Item {
     {
         id: titleBgm
 
-        source: "music/title.mp3"
+        source: "music/title.mp3.ogg"
         loops: Audio.Infinite
         autoPlay: true
 
@@ -293,19 +293,19 @@ Item {
     DWSoundEffect
     {
         id: selectSfx
-        source: "ui/sfx/select.wav"
+        source: "ui/sfx/select.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: cancelSfx
-        source: "ui/sfx/cancel.wav"
+        source: "ui/sfx/cancel.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: changeSfx
-        source: "ui/sfx/change.wav"
+        source: "ui/sfx/change.wav.ogg"
     }
 
     function stack(url, details)

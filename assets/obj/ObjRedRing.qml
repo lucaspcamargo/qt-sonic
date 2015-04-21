@@ -51,7 +51,7 @@ AnimatedSprite{
     DWSoundEffect
     {
         id: sfx
-        source: "sfx/redring.wav"
+        source: "sfx/redring.wav.ogg"
     }
     SequentialAnimation
     {

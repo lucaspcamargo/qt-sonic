@@ -67,13 +67,13 @@ AnimatedSprite
     DWSoundEffect
     {
         id: eshieldUseSfx
-        source: "../sfx/eshield-use.wav"
+        source: "../sfx/eshield-use.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: eshieldWaterSfx
-        source: "../sfx/eshield-water.wav"
+        source: "../sfx/eshield-water.wav.ogg"
         gain: 50
     }
 

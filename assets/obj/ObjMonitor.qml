@@ -77,27 +77,27 @@ DWFieldObject {
     DWSoundEffect
     {
         id: popSfx
-        source: "sfx/pop.wav"
+        source: "sfx/pop.wav.ogg"
     }
     DWSoundEffect
     {
         id: ringSfx
-        source: "sfx/ring.wav"
+        source: "sfx/ring.wav.ogg"
     }
     DWSoundEffect
     {
         id: shieldSfx
-        source: "sfx/shield.wav"
+        source: "sfx/shield.wav.ogg"
     }
     DWSoundEffect
     {
         id: eshieldSfx
-        source: "sfx/eshield.wav"
+        source: "sfx/eshield.wav.ogg"
     }
     DWSoundEffect
     {
         id: fshieldSfx
-        source: "sfx/fshield.wav"
+        source: "sfx/fshield.wav.ogg"
     }
 
     DWEveryFrame

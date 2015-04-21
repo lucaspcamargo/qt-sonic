@@ -506,75 +506,75 @@ DWPlayerBase {
     DWSoundEffect
     {
         id: brakeSfx
-        source: "player/sfx/brake-sa.wav"
+        source: "player/sfx/brake-sa.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: jumpSfx
-        source: "player/sfx/jump.wav"
+        source: "player/sfx/jump.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: speedSfx
-        source: "player/sfx/speed.wav"
+        source: "player/sfx/speed.wav.ogg"
         gain: 0.2
     }
 
     DWSoundEffect
     {
         id: ringLossSfx
-        source: "player/sfx/lostrings.wav"
+        source: "player/sfx/lostrings.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: peeloutSfx
-        source: "player/sfx/peelout.wav"
+        source: "player/sfx/peelout.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: peeloutChargeSfx
-        source: "player/sfx/peeloutCharge.wav"
+        source: "player/sfx/peeloutCharge.wav.ogg"
         gain: 0.5
     }
 
     DWSoundEffect
     {
         id: hurtSfx
-        source: "player/sfx/no.wav"
+        source: "player/sfx/no.wav.ogg"
         gain: 2
     }
 
     DWSoundEffect
     {
         id: waterSfx
-        source: "player/sfx/water.wav"
+        source: "player/sfx/water.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: waterWarningSfx
-        source: "player/sfx/water-warning.wav"
+        source: "player/sfx/water-warning.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: breatheSfx
-        source: "player/sfx/breathe.wav"
+        source: "player/sfx/breathe.wav.ogg"
     }
 
     DWSoundEffect
     {
         id: landSfx
-        source: "player/sfx/land.wav"
+        source: "player/sfx/land.wav.ogg"
     }
     DWSoundEffect
     {
         id: readySfx
-        source: "player/sfx/ready.wav"
+        source: "player/sfx/ready.wav.ogg"
     }
 
     onPlayInvicibilityAnimation:

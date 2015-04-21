@@ -53,7 +53,7 @@ Image {
     {
         id: sfx
         gain: 2
-        source:  "title/start.wav"
+        source:  "title/start.wav.ogg"
     }
 
 }

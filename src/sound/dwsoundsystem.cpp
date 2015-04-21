@@ -12,7 +12,8 @@ DWSoundSystem::DWSoundSystem(QObject *parent) :
     connect(dwRoot::singleton(), &dwRoot::update, this, &DWSoundSystem::update);
 }
 
-#include "util/dwsoundrawstream.h"
+#include "wav/nwavestream.h"
+#include "stb_vorbis/nvorbisstream.h"
 #include <QFile>
 #include <QQmlApplicationEngine>
 #include <QNetworkAccessManager>
@@ -24,14 +25,29 @@ void DWSoundSystem::fillBuffer(nSoundBuffer *buf, QUrl url)
     {
         QFile file(url.toLocalFile());
         file.open(QIODevice::ReadOnly);
-        dwSoundRawStream stream(&file, SF_WAVE_HEADER, -1, -1, this);
-        buf->setData(&stream);
+
+        nSoundStream * stream;
+
+        if(file.fileName().endsWith(".ogg"))
+            stream = new nVorbisStream(&file, this);
+        else
+            stream = new nWaveStream (&file, SF_WAVE_HEADER, -1, -1, this);
+
+        buf->setData(stream);
+        delete stream;
     }else
     {
         QNetworkAccessManager * manager = dwRoot::singleton()->appEngine()->networkAccessManager();
         QNetworkReply * reply = manager->get(QNetworkRequest(url));
-        dwSoundRawStream stream(reply, SF_WAVE_HEADER, -1, -1, this);
-        buf->setData(&stream);
+
+        nSoundStream * stream;
+
+        if(url.toString().endsWith(".ogg"))
+            stream = new nVorbisStream(reply, this);
+        else
+            stream = new nWaveStream (reply, SF_WAVE_HEADER, -1, -1, this);
+
+        buf->setData(stream);
         delete reply;
     }
 }

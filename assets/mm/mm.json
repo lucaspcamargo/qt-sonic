@@ -1,12 +1,12 @@
 {
     "name": "Metallic Madness",
-    "subtitle": "ctrl CD, ctrl V",
+    "subtitle": "Engine test level o.o)",
     "prefix": "mm",
     "urlPrefix": "mm/",
     "bgms":[
 	{
 	    "type": "simple",
-	    "id": "pseudo-paradise-s0lv0.mp3",
+	    "id": "pseudo-paradise-s0lv0.mp3.ogg",
 	    "inPrefix": false
 	}
     ],
