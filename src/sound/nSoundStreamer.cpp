@@ -6,18 +6,14 @@
 #include "nSoundStreamerPlaylist.h"
 #include "AL/al.h"
 
+
 const int nSS_BUFFER_SIZE = 4096;
 
 nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStreamerPlaylist * playlist, nSoundSystem * parent) :
     QObject(parent)
 {
-    qDebug(QStringLiteral("nSoundStreamer %1").arg(playlist->itemCount()).toLocal8Bit());
-
     setObjectName(name);
     m_playlist = playlist;
-
-    ALfloat oldGain;
-    alGetSourcef(source->openalHandle(), AL_GAIN, &oldGain);
 
     // make sure we can stream to source
     alGetError();
@@ -49,8 +45,14 @@ nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStream
     if(m_keepStreaming) m_keepStreaming = fillAndQueueBuffer(m_buffer1);
     if(m_keepStreaming) m_keepStreaming = fillAndQueueBuffer(m_buffer2);
 
-    //weird bug workaround :P
-    alSourcef(source->openalHandle(), AL_GAIN, oldGain);
+    // start threaded updater
+    QThread * updaterThread = new QThread(this);
+    updaterThread->setObjectName(objectName() + "_THREAD");
+    nSoundStreamerUpdater * updater = new nSoundStreamerUpdater(this);
+    updater->moveToThread(updaterThread);
+    updaterThread->start();
+    updater->setup();
+
 }
 
 nSoundStreamer::~nSoundStreamer()
@@ -85,6 +87,9 @@ nSoundStreamer::~nSoundStreamer()
 
 void nSoundStreamer::update(float frameTime)
 {
+
+    QMutexLocker lock(&_mutex);
+
     if(m_keepStreaming)
     {
         unsigned int sourceHandle = m_source->openalHandle();
@@ -92,6 +97,7 @@ void nSoundStreamer::update(float frameTime)
         alGetError();
         int processedBuffers;
         alGetSourcei(sourceHandle, AL_BUFFERS_PROCESSED, &processedBuffers);
+
         while(processedBuffers--)
         {
             unsigned int buffer;
@@ -102,6 +108,7 @@ void nSoundStreamer::update(float frameTime)
             if(m_keepStreaming) m_keepStreaming = fillAndQueueBuffer(buffer);
         }
     }
+
 
 }
 
@@ -175,4 +182,25 @@ int nSoundStreamer::openalFormat(nSoundFormat format)
     }
 
     return -1;
+}
+
+
+nSoundStreamerUpdater::nSoundStreamerUpdater(nSoundStreamer *parent) : QObject(0),
+    _streamer(parent)
+{
+    startTimer(static_cast<int>(nSS_BUFFER_SIZE / 44100.0 * 1000));
+}
+
+nSoundStreamerUpdater::~nSoundStreamerUpdater()
+{
+
+}
+
+void nSoundStreamerUpdater::setup()
+{
+}
+
+void nSoundStreamerUpdater::timerEvent(QTimerEvent * evt)
+{
+    _streamer->update(0);
 }

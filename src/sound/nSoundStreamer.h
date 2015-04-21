@@ -2,6 +2,8 @@
 #define NSOUNDSTREAMER_H
 
 #include <QObject>
+#include <QThread>
+#include <QMutex>
 
 #include "nSoundFormat.h"
 
@@ -10,6 +12,9 @@ class nSoundSource;
 class nSoundBag;
 class nSoundStream;
 class nSoundStreamerPlaylist;
+
+
+class nSoundStreamerUpdater;
 
 class nSoundStreamer : public QObject
 {
@@ -60,6 +65,8 @@ public slots:
     }
 
 private:
+    friend class nSoundStreamerUpdater;
+
     bool fillAndQueueBuffer(unsigned int buffer);
     int openalFormat(nSoundFormat format);
 
@@ -71,5 +78,24 @@ private:
 
     bool m_keepStreaming;
     unsigned int m_buffer0, m_buffer1, m_buffer2;
+
+    QMutex _mutex;
+
 };
+
+
+class nSoundStreamerUpdater : public QObject
+{
+    Q_OBJECT
+
+public:
+    nSoundStreamerUpdater(nSoundStreamer * parent);
+    ~nSoundStreamerUpdater();
+
+    void setup();
+    void timerEvent(QTimerEvent *);
+private:
+    nSoundStreamer * _streamer;
+};
+
 #endif // NSOUNDSTREAMER_H

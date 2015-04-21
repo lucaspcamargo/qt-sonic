@@ -84,10 +84,12 @@ void nSoundSystem::update(qreal frameTime)
 
     m_listener->update(frameTime);
 
-    foreach(nSoundStreamer * streamer, m_streamers)
-    {
-        streamer->update(frameTime);
-    }
+//    Not necessary anymore, streamers update themselves in owned threads.
+
+//    foreach(nSoundStreamer * streamer, m_streamers)
+//    {
+//        streamer->update(frameTime);
+//    }
 
     QList<nSoundSource*> toDestroy;
     foreach(nSoundSource * source, m_sources)

@@ -67,7 +67,7 @@ QtObject {
     {
         var index = bgmIds.length;
 
-        var bgmC = Qt.createComponent("DWLevelBGMNew.qml");
+        var bgmC = Qt.createComponent("DWLevelBGM.qml");
         var bgmO = bgmC.createObject(scene, {"id": id, "volume": gain, "introId": introId, "prefix": (prefix? prefix : "") });
 
         bgmIds.push(id);
