@@ -18,13 +18,12 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
         dev->open(QIODevice::ReadOnly);
 
     _qtBuf = dev->readAll();
+    dev->close();
 
     if(_qtBuf.size())
     {
         _bufSize = _qtBuf.size();
         _buf = _qtBuf.data();
-        dev->read(_buf, _bufSize);
-        dev->close();
 
 
         int err = VORBIS__no_error;
@@ -56,7 +55,6 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
     else
     {
         qDebug("[nVorbisStream] Error reading QIODevice");
-        return;
     }
 }
 

@@ -16,7 +16,7 @@ void nSoundStreamerPlaylist::createItem(nSoundStream * stream, bool loop)
 
     if(!stream)
     {
-        qWarning("Attempted to create nSoundStreamerPlaylist with null stream pointer.");
+        qWarning("Attempted to create nSoundStreamerPlaylist item with null stream pointer.");
         return;
     }
 

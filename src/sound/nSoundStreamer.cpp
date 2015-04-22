@@ -15,6 +15,11 @@ nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStream
     setObjectName(name);
     m_playlist = playlist;
 
+    if(!playlist->itemCount()) {
+        qWarning("nSoundStreamer has no items in platylist");
+        return;
+    }
+
     // make sure we can stream to source
     alGetError();
     int sourceType;
@@ -32,6 +37,7 @@ nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStream
     m_buffer2 = buffers[2];
     if(alGetError()!=AL_NO_ERROR)
         throw QString("nSoundStreamer::nSoundStreamer(...): Failed to create streaming buffers for \"")+name+QString("\".");
+
 
     //reserve buffer memory
     m_currentStream = 0;
@@ -57,6 +63,10 @@ nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStream
 
 nSoundStreamer::~nSoundStreamer()
 {
+    if(!m_playlist->itemCount()) {
+        return;
+    }
+
     QMutexLocker lock(&_mutex);
 
     m_updater->_keepGoing = false;
@@ -91,6 +101,10 @@ nSoundStreamer::~nSoundStreamer()
 void nSoundStreamer::update(float frameTime)
 {
 
+    if(!m_playlist->itemCount()) {
+        return;
+    }
+
     QMutexLocker lock(&_mutex);
 
     if(m_keepStreaming)
@@ -117,6 +131,10 @@ void nSoundStreamer::update(float frameTime)
 
 void nSoundStreamer::rewind()
 {
+    if(!m_playlist->itemCount()) {
+        return;
+    }
+
     bool playing = m_source->state() == nSoundSource::SSS_PLAYING;
     m_source->stop();
     m_playlist->m_items[m_currentStream].m_soundStream->rewind();
