@@ -46,17 +46,20 @@ nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStream
     if(m_keepStreaming) m_keepStreaming = fillAndQueueBuffer(m_buffer2);
 
     // start threaded updater
-    QThread * updaterThread = new QThread(this);
+    QThread * updaterThread = new QThread(0);
     updaterThread->setObjectName(objectName() + "_THREAD");
-    nSoundStreamerUpdater * updater = new nSoundStreamerUpdater(this);
-    updater->moveToThread(updaterThread);
+    m_updater = new nSoundStreamerUpdater(this);
+    m_updater->moveToThread(updaterThread);
     updaterThread->start();
-    updater->setup();
+    m_updater->setup();
 
 }
 
 nSoundStreamer::~nSoundStreamer()
 {
+    QMutexLocker lock(&_mutex);
+
+    m_updater->_keepGoing = false;
     alGetError();
 
     m_source->stop();
@@ -186,14 +189,15 @@ int nSoundStreamer::openalFormat(nSoundFormat format)
 
 
 nSoundStreamerUpdater::nSoundStreamerUpdater(nSoundStreamer *parent) : QObject(0),
-    _streamer(parent)
+    _streamer(parent),
+    _keepGoing(true)
 {
     startTimer(static_cast<int>(nSS_BUFFER_SIZE / 44100.0 * 1000));
 }
 
 nSoundStreamerUpdater::~nSoundStreamerUpdater()
 {
-
+    qDebug("Deleting nSoundStreamerUpdater");
 }
 
 void nSoundStreamerUpdater::setup()
@@ -202,5 +206,11 @@ void nSoundStreamerUpdater::setup()
 
 void nSoundStreamerUpdater::timerEvent(QTimerEvent * evt)
 {
-    _streamer->update(0);
+    if(_keepGoing)
+        _streamer->update(0);
+    else {
+        deleteLater();
+        QThread::currentThread()->deleteLater();
+        QThread::currentThread()->exit(0);
+    }
 }

@@ -80,6 +80,7 @@ private:
     unsigned int m_buffer0, m_buffer1, m_buffer2;
 
     QMutex _mutex;
+    nSoundStreamerUpdater * m_updater;
 
 };
 
@@ -95,7 +96,9 @@ public:
     void setup();
     void timerEvent(QTimerEvent *);
 private:
+    friend class nSoundStreamer;
     nSoundStreamer * _streamer;
+    bool _keepGoing;
 };
 
 #endif // NSOUNDSTREAMER_H

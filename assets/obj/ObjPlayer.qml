@@ -46,7 +46,8 @@ DWPlayerBase {
                 "balancingF":[6, 2, 4, true, 266,    false],
                 "balancingB":[6, 1, 4, true, 266,    false],
                 "spindash": [0, 6, 5, true, 30,    false],
-                "dead": [5, 4, 1, true, 1000,   false]
+                "dead": [5, 4, 1, true, 1000,   false],
+                "drowned": [5, 4, 1, true, 1000,   false]
     }
 
     Item{
@@ -219,6 +220,7 @@ DWPlayerBase {
         }
         else
         {
+            fieldController.playerDrowning = false;
             secsInWater = 0;
             ySpeed *= 2;
         }
@@ -239,6 +241,7 @@ DWPlayerBase {
         if(playerState == DWPlayerBase.PS_AIR)
             setAnimation("falling");
 
+        fieldController.playerDrowning = false;
         secsInWater = 0;
         underwaterTimer.restart();
     }
@@ -254,13 +257,17 @@ DWPlayerBase {
 
     onSecsInWaterChanged:
     {
-        if( (secsInWater != 0) && (secsInWater < waterCountdownLimit) && (secsInWater % 5 == 0) )
-            waterWarningSfx.play();
-
         if( secsInWater == waterCountdownLimit )
         {
-
+            fieldController.playerDrowning = true;
         }
+        else if( (secsInWater != 0) && (secsInWater < waterCountdownLimit) && (secsInWater % 5 == 0) )
+            waterWarningSfx.play();
+        else if( secsInWater == waterCountdownLimit + 12 )
+        {
+            die(true);
+        }
+
     }
 
 
@@ -344,17 +351,21 @@ DWPlayerBase {
 
     function die( drowned )
     {
-        setAnimation("dead");
+        setAnimation(drowned? "drowned" : "dead");
 
         playerDead = true;
-        player.hasShield = false;
+        hasShield = false;
 
         field.fieldActive = false;
-        player.xSpeed = 0;
-        player.ySpeed = inWater? 0 : convertGenesisSpeed(-7);
-        player.z = fgZ;
+        xSpeed = 0;
+        ySpeed = inWater? 0 : convertGenesisSpeed(-7);
+        z = fgZ;
 
-        hurtSfx.play();
+        if(drowned)
+            drownSfx.play();
+        else
+            hurtSfx.play();
+
         fieldController.playerDied();
     }
 
@@ -448,6 +459,7 @@ DWPlayerBase {
             injectControl(controls.directionValueX, controls.directionValueY, controls.aPressed, controls.bPressed);
             numIterations = Math.max( Math.round(dt/0.01666666), 2 ) * (playerQuadModeVertical? 2 : 1);
             player.updateSim(dt);
+
         }
         else
         {
@@ -568,9 +580,16 @@ DWPlayerBase {
 
     DWSoundEffect
     {
+        id: drownSfx
+        source: "player/sfx/drown.ogg"
+    }
+
+    DWSoundEffect
+    {
         id: landSfx
         source: "player/sfx/land.wav.ogg"
     }
+
     DWSoundEffect
     {
         id: readySfx

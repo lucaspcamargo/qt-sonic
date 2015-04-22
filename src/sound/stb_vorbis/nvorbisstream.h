@@ -38,6 +38,7 @@ public slots:
 
 private:
     QIODevice * _device;
+    QByteArray _qtBuf;
     char * _buf;
     int _bufSize;
 

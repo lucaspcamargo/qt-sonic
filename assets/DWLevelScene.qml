@@ -83,6 +83,31 @@ Item {
             }
         }
 
+        Image
+        {
+            id: drownOverlay
+            source: "field/fx/drown-overlay.png"
+            anchors.fill: parent
+            opacity: 0
+
+            Behavior on opacity { NumberAnimation {} }
+
+            SequentialAnimation
+            {
+                id: drownOverlayAnim
+                running: false
+
+                PropertyAnimation
+                {
+                    target: drownOverlay
+                    property: "opacity"
+                    to: 1.0
+                    duration: 12000
+                }
+
+            }
+        }
+
         DWHud
         {
             id: hud

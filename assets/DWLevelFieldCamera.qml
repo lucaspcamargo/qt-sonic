@@ -53,7 +53,7 @@ QtObject {
         field.viewCenterAtX = viewCenterX;
         field.viewCenterAtY = viewCenterY;
 
-        if(player.y > maxYBoundary ) player.die(false);
+        if(player.y > maxYBoundary && !player.playerDead ) player.die(false);
     }
 
 }

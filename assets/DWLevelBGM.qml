@@ -8,6 +8,7 @@ QtObject {
     property string id: ""
     property string introId: ""
     property string prefix: ""
+    property bool loop: true
     property url source: (prefix != ""? prefix : "music/") + id
     property url introSource: introId == ""? "" : ((prefix != ""? prefix : "music/") + introId)
 
@@ -50,8 +51,9 @@ QtObject {
         {
             sndPlaylist.createItem(sndIntroStream, false);
         }
-        sndPlaylist.createItem(sndStream, true);
+        sndPlaylist.createItem(sndStream, loop);
 
+        console.log(loop);
         sndStreamer = sndSys.createStreamer(name, sndSource, sndPlaylist);
     }
 
@@ -70,6 +72,14 @@ QtObject {
 
     function pause() {
         sndSource.pause();
+    }
+
+    function stop() {
+        sndSource.stop();
+    }
+
+    function rewind() {
+        sndStreamer.rewind();
     }
 
     function seekZero() {

@@ -17,12 +17,15 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
     if(!dev->isOpen())
         dev->open(QIODevice::ReadOnly);
 
-    if(dev->bytesAvailable())
+    _qtBuf = dev->readAll();
+
+    if(_qtBuf.size())
     {
-        _bufSize = dev->bytesAvailable();
-        _buf = new char[_bufSize];
+        _bufSize = _qtBuf.size();
+        _buf = _qtBuf.data();
         dev->read(_buf, _bufSize);
         dev->close();
+
 
         int err = VORBIS__no_error;
         _vorbis = stb_vorbis_open_memory((unsigned char*)_buf, _bufSize, &err,  0 );
@@ -59,8 +62,8 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
 
 nVorbisStream::~nVorbisStream()
 {
-    delete[] _buf;
-
+    stb_vorbis_close(_vorbis);
+    _qtBuf.clear();
 }
 
 nSoundBag *nVorbisStream::createSoundBag(QObject *parent)

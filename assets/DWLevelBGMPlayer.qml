@@ -23,7 +23,7 @@ QtObject {
 
             if(bgmDef.type ==="simple")
             {
-                addBGM(bgmDef.id, bgmDef.inPrefix? levelData.urlPrefix : null, bgmDef.introId? bgmDef.introId : null);
+                addBGM(bgmDef.id, true, bgmDef.inPrefix? levelData.urlPrefix : null, bgmDef.introId? bgmDef.introId : null);
             }
             else if(bgmDef === "playlist")
             {
@@ -36,7 +36,9 @@ QtObject {
     {
         if(currentBGMBuffer >= 0 && currentBGMBuffer < bgms.length)
         {
-            bgms[currentBGMBuffer].volume = 0;
+            if(bgms[currentBGMBuffer].playing())
+                bgms[currentBGMBuffer].volume = 0;
+
             console.log("stopping BGM "+currentBGMBuffer);
         }
 
@@ -63,12 +65,12 @@ QtObject {
 
 
 
-    function addBGM( id, prefix, introId )
+    function addBGM( id, loop, prefix, introId )
     {
         var index = bgmIds.length;
 
         var bgmC = Qt.createComponent("DWLevelBGM.qml");
-        var bgmO = bgmC.createObject(scene, {"id": id, "volume": gain, "introId": introId, "prefix": (prefix? prefix : "") });
+        var bgmO = bgmC.createObject(scene, {"id": id, "volume": gain, "loop": loop, "introId": introId, "prefix": (prefix? prefix : "") });
 
         bgmIds.push(id);
         bgms.push(bgmO);

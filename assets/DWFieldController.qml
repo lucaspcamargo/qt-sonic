@@ -13,11 +13,13 @@ Item {
     property int previousBGMIndex: -1
     property int drownBGMIndex: -1
 
+    property bool playerDrowning: false
+
     Component.onCompleted:
     {
         controls.enterPressed.connect(togglePause);
         rootWindow.logoPressed.connect(togglePause);
-        drownBGMIndex = bgmPlayer.addBGM("field-drowning-sa.ogg", false);
+        drownBGMIndex = bgmPlayer.addBGM("field-drowning-sa.ogg", false, false);
     }
 
     function togglePause()
@@ -48,36 +50,47 @@ Item {
     function playerDied()
     {
         deathAnimation.running = true;
-    }    
+
+        if(playerDrowning)
+            bgmPlayer.getBGM(bgmPlayer.currentBGM).pause();
+    }
 
     SequentialAnimation
     {
         id: deathAnimation
 
+
+        // give player some time to fall down
         PauseAnimation {
-            duration: 2000
+            duration: 2500
         }
 
+        // player is out of screen
+        // start fade and stop music
+        // clear drowning state
         ScriptAction
         {
             script:
             {
                 controls.keyboardHandler.focus = false;
                 sceneFader.opacity = 1.0
+                playerDrowning = false;
                 previousBGMIndex = bgmPlayer.currentBGM;
                 bgmPlayer.currentBGM = -1;
             }
         }
 
-
+        // wait for fades
         PauseAnimation {
             duration: 1500
         }
 
+        // all black, lets reset
         ScriptAction
         {
             script:
             {
+
                 if(checkpointReached)
                 {
                     player.x = checkpointPlayerX;
@@ -97,5 +110,19 @@ Item {
             }
         }
     }
-}
 
+    onPlayerDrowningChanged: {
+
+        if(playerDrowning)
+        {
+            drownOverlayAnim.start();
+            previousBGMIndex = bgmPlayer.currentBGM;
+            bgmPlayer.currentBGM = drownBGMIndex;
+        }else{
+            drownOverlayAnim.stop();
+            if(!deathAnimation.running)drownOverlay.opacity = 0;
+            bgmPlayer.currentBGM = previousBGMIndex;
+            bgmPlayer.getBGM(drownBGMIndex).rewind();
+        }
+    }
+}
