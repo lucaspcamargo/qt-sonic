@@ -263,7 +263,7 @@ DWPlayerBase {
         }
         else if( (secsInWater != 0) && (secsInWater < waterCountdownLimit) && (secsInWater % 5 == 0) )
             waterWarningSfx.play();
-        else if( secsInWater == waterCountdownLimit + 12 )
+        else if( secsInWater == waterCountdownLimit + 13 )
         {
             die(true);
         }

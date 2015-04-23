@@ -8,7 +8,7 @@ Window {
     title: "dw"
 
     visible: true
-    visibility: Qt.platform.os == "android"? Window.FullScreen : Window.Windowed
+    visibility: _DW_MOBILE? Window.FullScreen : Window.Windowed
     color: "black"
 
     width: 854
@@ -43,7 +43,7 @@ Window {
             anchors.centerIn: parent
 
             active: false
-            source: "DWMainScreen.qml"
+            source: "DWLevelScene.qml"
         }
 
         Keys.onDigit1Pressed: renderSampleSharp = !renderSampleSharp
@@ -352,7 +352,7 @@ Window {
         interval: 16
         running: true
         repeat: false
-        onTriggered: {mainContentLoader.active = true;}
+        onTriggered: {console.log("Loading main screen"); mainContentLoader.active = true;}
     }
 
     DWGlobalResources

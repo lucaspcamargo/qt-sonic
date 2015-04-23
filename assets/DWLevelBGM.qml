@@ -42,10 +42,18 @@ QtObject {
 
         sndSource = sndSys.createSource(name);
 
+        if(!sndSource) {
+            console.log("Failed to create source");
+            return;
+        }
+
         sndStream = sndSys.createStreamUrl(source, sndSource);
-        if(introSource != "") sndIntroStream = sndSys.createStreamUrl(introSource, sndSource);
+        console.log("created stream 1");
+        if(introId != "") sndIntroStream = sndSys.createStreamUrl(introSource, sndSource);
+        console.log("created streams");
 
         sndPlaylist = sndSys.createStreamerPlaylist(sndSource);
+        console.log("created playlist");
 
         if(sndIntroStream)
         {
@@ -53,8 +61,8 @@ QtObject {
         }
         sndPlaylist.createItem(sndStream, loop);
 
-        console.log(loop);
         sndStreamer = sndSys.createStreamer(name, sndSource, sndPlaylist);
+        console.log("created streamer");
     }
 
     Component.onDestruction: {

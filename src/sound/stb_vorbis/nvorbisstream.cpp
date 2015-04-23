@@ -50,12 +50,12 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
             _format = SF_UNDEFINED;
             break;
         }
-
     }
     else
     {
         qDebug("[nVorbisStream] Error reading QIODevice");
     }
+
 }
 
 nVorbisStream::~nVorbisStream()

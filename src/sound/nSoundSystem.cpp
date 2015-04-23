@@ -30,10 +30,10 @@ nSoundSystem::nSoundSystem(QObject *parent) :
 
     alcMakeContextCurrent(m_context);
     if( alGetError()!=AL_NO_ERROR)
-        throw QString("nSoundSystem::nSoundSystem(): Failed to set context as current.");
+        qWarning("nSoundSystem::nSoundSystem(): Failed to set context as current.");
 
     if(!nEfxHelper::initialize(m_device))
-        throw QString("nSoundSystem::nSoundSystem(): nEfxHelper initialization failed.");
+        qWarning("nSoundSystem::nSoundSystem(): nEfxHelper initialization failed.");
 
     m_listener = new nSoundListener(this);
     m_success = true;

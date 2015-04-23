@@ -30,6 +30,8 @@ Image{
 
     DWEveryFrame
     {
+        enabled: field.fieldActive
+
         onUpdate:
         {
             yAccum -= dt * (32 + 16*((5-size)/5));

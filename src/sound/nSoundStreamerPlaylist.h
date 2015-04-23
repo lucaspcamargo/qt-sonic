@@ -8,9 +8,9 @@ class nSoundStream;
 
 typedef struct _nSoundStreamerItem
 {
-    nSoundStream * m_soundStream;
+    nSoundStream * m_soundStream = 0;
     bool m_loop;
-} nSoundSteamerItem;
+} nSoundStreamerItem;
 
 class nSoundStreamerPlaylist : public QObject
 {
@@ -19,7 +19,7 @@ class nSoundStreamerPlaylist : public QObject
 public:
     explicit nSoundStreamerPlaylist(QObject *parent = 0);
     virtual ~nSoundStreamerPlaylist();
-    nSoundSteamerItem item(int index);
+    nSoundStreamerItem item(int index);
 
     bool loopPlaylist(){return m_loopPlaylist;}
     void setLoopPlaylist(bool b){m_loopPlaylist = b;}
@@ -33,7 +33,7 @@ public slots:
 
 private:
     friend class nSoundStreamer;
-    QList<nSoundSteamerItem> m_items;
+    QList<nSoundStreamerItem> m_items;
     bool m_loopPlaylist;
 
 };

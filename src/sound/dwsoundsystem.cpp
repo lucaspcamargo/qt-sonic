@@ -31,9 +31,9 @@ nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
         file->open(QIODevice::ReadOnly);
 
         if(file->fileName().endsWith(".ogg"))
-            stream = new nVorbisStream(file, this);
+            stream = new nVorbisStream(file, parentObj);
         else
-            stream = new nWaveStream (file, SF_WAVE_HEADER, -1, -1, this);
+            stream = new nWaveStream (file, SF_WAVE_HEADER, -1, -1, parentObj);
 
         file->setParent(stream);
     }else
@@ -44,21 +44,25 @@ nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
         nSoundStream * stream;
 
         if(url.toString().endsWith(".ogg"))
-            stream = new nVorbisStream(reply, this);
+            stream = new nVorbisStream(reply, parentObj);
         else
-            stream = new nWaveStream (reply, SF_WAVE_HEADER, -1, -1, this);
+            stream = new nWaveStream (reply, SF_WAVE_HEADER, -1, -1, parentObj);
 
         reply->setParent(stream);
     }
 
-    stream->setParent(parentObj);
+
+    qDebug("creating Stream done");
 
     return stream;
+
 }
 
 void DWSoundSystem::fillBuffer(nSoundBuffer *buf, QUrl url)
 {
+    qDebug("Filling Buffer");
     nSoundStream * stream = createStreamUrl(url, 0);
     buf->setData(stream);
     delete stream;
+    qDebug("Filling Buffer Done");
 }

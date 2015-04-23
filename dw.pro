@@ -1,6 +1,7 @@
 TEMPLATE = app
 
-QT += qml quick widgets network multimedia
+QT += qml quick network multimedia
+!android{ QT += widgets }
 
 SOURCES += \
     src/dwroot.cpp \

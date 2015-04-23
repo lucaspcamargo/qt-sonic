@@ -3,7 +3,7 @@
 nSoundStreamerPlaylist::nSoundStreamerPlaylist(QObject *parent) :
     QObject(parent),
     m_loopPlaylist(false),
-    m_items(QList<nSoundSteamerItem>())
+    m_items(QList<nSoundStreamerItem>())
 {
 }
 
@@ -13,6 +13,7 @@ nSoundStreamerPlaylist::~nSoundStreamerPlaylist()
 
 void nSoundStreamerPlaylist::createItem(nSoundStream * stream, bool loop)
 {
+    qDebug("Item");
 
     if(!stream)
     {
@@ -20,14 +21,14 @@ void nSoundStreamerPlaylist::createItem(nSoundStream * stream, bool loop)
         return;
     }
 
-    nSoundSteamerItem item;
+    nSoundStreamerItem item;
     item.m_soundStream = stream;
     item.m_loop = loop;
     m_items.append(item);
 
 }
 
-nSoundSteamerItem nSoundStreamerPlaylist::item(int index)
+nSoundStreamerItem nSoundStreamerPlaylist::item(int index)
 {
     return m_items[index];
 }

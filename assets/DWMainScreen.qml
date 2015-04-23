@@ -268,7 +268,7 @@ Item {
 
         anchors.margins: 13
         anchors.leftMargin: 20
-        visible: true//(mainStackView.depth > 0)
+        visible: true
 
         Repeater
         {

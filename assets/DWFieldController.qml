@@ -19,7 +19,7 @@ Item {
     {
         controls.enterPressed.connect(togglePause);
         rootWindow.logoPressed.connect(togglePause);
-        drownBGMIndex = bgmPlayer.addBGM("field-drowning-sa.ogg", false, false);
+        drownBGMIndex = bgmPlayer.addBGM("field-drowning.ogg", false, false);
     }
 
     function togglePause()
@@ -52,7 +52,9 @@ Item {
         deathAnimation.running = true;
 
         if(playerDrowning)
+        {
             bgmPlayer.getBGM(bgmPlayer.currentBGM).pause();
+        }
     }
 
     SequentialAnimation
@@ -107,6 +109,7 @@ Item {
                 hud.ringsValue = 0;
                 titleAnimation.bgmIndexToPlay = previousBGMIndex;
                 titleAnimation.running = true;
+                drownOverlay.opacity = 0;
             }
         }
     }
@@ -121,6 +124,7 @@ Item {
         }else{
             drownOverlayAnim.stop();
             if(!deathAnimation.running)drownOverlay.opacity = 0;
+            bgmPlayer.getBGM(drownBGMIndex).stop();
             bgmPlayer.currentBGM = previousBGMIndex;
             bgmPlayer.getBGM(drownBGMIndex).rewind();
         }
