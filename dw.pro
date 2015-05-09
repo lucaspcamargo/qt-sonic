@@ -132,6 +132,7 @@ DISTFILES += \
     assets/ui/DWUIButtonInstruction.qml \
     assets/ui/DWUIScreenTemplate.qml \
     assets/ui/DWUIButton.qml \
+    assets/ui/DWIntroSequence.qml \
     assets/ui/DWExtrasScreen.qml \
     assets/ui/DWUICSetting.qml \
     assets/ui/DWTitleScreen.qml \

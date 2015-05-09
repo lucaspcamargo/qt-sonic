@@ -1,62 +1,106 @@
 import QtQuick 2.0
 import ".."
+import dw 1.0
 
-Rectangle {
-    width: 100
-    height: 62
+Item {
+    id: titleScreen
+    anchors.fill: parent
 
-    color: "white"
-
-    Image {
-
-        source: "title/newicon-wide.png"
-
+    Rectangle
+    {
+        id: dwSplash
+        color: "white"
         anchors.fill: parent
-        anchors.margins: parent.height / 3
-        fillMode: Image.PreserveAspectFit
+
+        Image
+        {
+            source: "intro/dwlogo.png"
+
+            anchors.fill: parent
+            anchors.margins: parent.height/3
+            fillMode: Image.PreserveAspectFit
+            visible: true
+            smooth: true
+        }
 
     }
 
-    SequentialAnimation {
+    Rectangle
+    {
+        id: disclaimer
+        anchors.fill: parent
+        color: "black"
+
+        Image
+        {
+            source: "intro/disclaimer.png"
+            fillMode: Image.PreserveAspectFit
+            anchors.fill: parent
+        }
+    }
+
+    SequentialAnimation
+    {
         running: true
 
         ScriptAction
         {
-            script: {
-                dwSfx.play()
-                globalFader.opacity = 0
-            }
+            script: {globalFader.opacity = 0;}
         }
 
-
         PauseAnimation {
-            duration: 4000
+            duration: 6000
         }
         ScriptAction
         {
-            script: {
-                globalFader.opacity = 1
-            }
+            script: globalFader.opacity = 1
+        }
+        PauseAnimation
+        {
+            duration: 550
         }
 
 
-        PauseAnimation {
-            duration: 600
-        }
 
         ScriptAction
         {
-            script: {
+            script: {disclaimer.destroy(); globalFader.opacity = 0; themeSfx.play()}
+        }
+
+        PauseAnimation {
+            duration: 3000
+        }
+        ScriptAction
+        {
+            script: globalFader.opacity = 1
+        }
+        PauseAnimation
+        {
+            duration: 550
+        }
+
+
+
+
+        ScriptAction
+        {
+            script: dwSplash.destroy();
+        }
+        ScriptAction
+        {
+            script:
+            {
                 mainContentLoader.source = Qt.resolvedUrl("../DWMainScreen.qml");
+                //titleScreen.destroy();
             }
         }
 
     }
 
-    DWSoundEffect {
-        id: dwSfx
-        source: "../dw/theme.wav.ogg"
+    DWSoundEffect
+    {
+        id: themeSfx
+        source: "intro/dwtheme.ogg"
     }
-
 }
 

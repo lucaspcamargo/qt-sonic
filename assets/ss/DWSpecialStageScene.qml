@@ -46,12 +46,12 @@ Item
 
     Audio
     {
-        source: "../music/atropos.ogg"
+        source: "../music/pseudo-paradise-s0lv0.ogg"
         autoPlay: true
     }
 
 
-    DWHud
+    DWLevelHud
     {
         id: hud
     }

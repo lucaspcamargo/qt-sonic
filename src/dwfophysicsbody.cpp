@@ -20,6 +20,7 @@ dwFOPhysicsBody::dwFOPhysicsBody(QObject *parent) : QObject(parent)
     m_sensor = false;
     m_shapeCategory = dwFieldPhysicsWorld::CC_DYNAMIC;
     m_shapeCollisionMask = dwFieldPhysicsWorld::CC_LAYER_A | dwFieldPhysicsWorld::CC_LAYER_B | dwFieldPhysicsWorld::CC_DYNAMIC;
+    connect(dwFieldPhysicsWorld::singleton(), &dwFieldPhysicsWorld::destroyed, this, &dwFOPhysicsBody::_worldDestroyed);
 }
 
 dwFOPhysicsBody::~dwFOPhysicsBody()
@@ -27,6 +28,20 @@ dwFOPhysicsBody::~dwFOPhysicsBody()
     if(m_body) m_world->DestroyBody(m_body);
 }
 
+void dwFOPhysicsBody::_worldDestroyed()
+{
+    m_world = 0;
+
+    if(m_body)
+    {
+        // make sure we wont try to update a body that does not exist enymore
+        disconnect(m_object, &dwFieldObject::xChanged, this, &dwFOPhysicsBody::updateBodyTransform);
+        disconnect(m_object, &dwFieldObject::yChanged, this, &dwFOPhysicsBody::updateBodyTransform);
+        disconnect(m_object, &dwFieldObject::rotationChanged, this, &dwFOPhysicsBody::updateBodyTransform);
+    }
+
+    m_body = 0;
+}
 
 bool dwFOPhysicsBody::ensureParent()
 {
@@ -36,6 +51,8 @@ bool dwFOPhysicsBody::ensureParent()
 
 void dwFOPhysicsBody::rebuildBody()
 {
+    if(!m_world) return;
+
     if(m_body)
     {
         switch (m_bodyType) {

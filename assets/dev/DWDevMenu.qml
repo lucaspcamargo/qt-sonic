@@ -79,7 +79,7 @@ Item {
 
         anchors.horizontalCenter: parent.horizontalCenter
         y: parent.height - 16
-        text: "Lucas Camargo - cmake - " + globalBuildDate
+        text: "Lucas Camargo - cmakeshift - " + globalBuildDate
 
     }
 

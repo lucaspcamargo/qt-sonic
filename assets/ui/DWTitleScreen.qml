@@ -40,14 +40,6 @@ Image {
         onClicked: startGame();
     }
 
-    Image {
-        id: stamp
-        source: "title/demo.png"
-        width: 150
-        height: 41*1.5
-        anchors.centerIn: parent
-        anchors.verticalCenterOffset: -16
-    }
 
     DWSoundEffect
     {

@@ -123,6 +123,8 @@ signals:
 
 public slots:
 
+    void _worldDestroyed();
+
     void rebuildBody();
     void updateBodyTransform();
     void updateObjectTransform();
@@ -239,6 +241,7 @@ public slots:
     }
 
 private:
+
     QQuickItem * m_object;
     QVector4D m_shapeData;
     QPointF m_origin;
