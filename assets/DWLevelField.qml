@@ -180,6 +180,9 @@ DWField {
         resetted();
     }
 
+
+    Component.onDestruction: screenRenderer.waterEnabled = false;
+
     DWEveryFrame
     {
         onUpdate:

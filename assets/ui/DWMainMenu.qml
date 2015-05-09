@@ -44,7 +44,7 @@ DWUIScreenTemplate
             mainScreen.stack(Qt.resolvedUrl("DWConfigScreen.qml"));
             break;
         case 2:
-            mainScreen.stack(Qt.resolvedUrl("DWExtrasScreen.qml"));
+            mainContentLoader.source = Qt.resolvedUrl("../dev/DWDevMenu.qml"); //mainScreen.stack(Qt.resolvedUrl("DWExtrasScreen.qml"));
             break;
         case 3:
             mainScreen.fadeAction = Qt.quit;

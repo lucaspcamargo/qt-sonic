@@ -6,6 +6,9 @@ Item {
     id: titleScreen
     anchors.fill: parent
 
+
+    Component.onCompleted: offscreen = false
+
     Rectangle
     {
         id: dwSplash

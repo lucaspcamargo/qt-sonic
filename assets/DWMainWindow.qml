@@ -28,7 +28,6 @@ Window {
         onDoubleClicked: backgroundPressed()
     }
 
-
     Item
     {
         id: container
@@ -44,7 +43,7 @@ Window {
             anchors.centerIn: parent
 
             active: false
-            source: "ui/DWIntroSequence.qml"//"dev/DWDevMenu.qml"
+            source: (!_DW_MOBILE)? "dev/DWDevMenu.qml" : "ui/DWIntroSequence.qml"
         }
 
         Keys.onDigit1Pressed: renderSampleSharp = !renderSampleSharp
@@ -144,17 +143,17 @@ Window {
                                       DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_fp.glsl"))
     }
 
-//    Colorize
-//    {
-//        source: screenRenderer
-//        anchors.fill: screenRenderer
+    //    Colorize
+    //    {
+    //        source: screenRenderer
+    //        anchors.fill: screenRenderer
 
-//        NumberAnimation on hue { running: true; loops: Animation.Infinite; from: 0; to: 1; }
+    //        NumberAnimation on hue { running: true; loops: Animation.Infinite; from: 0; to: 1; }
 
-//        saturation: 1
+    //        saturation: 1
 
 
-//    }
+    //    }
 
     Image {
         id: dwLogo
@@ -176,7 +175,15 @@ Window {
             scale: 2
             anchors.fill: parent
             onClicked: rootWindow.logoPressed()
-            onDoubleClicked: Qt.quit(0)
+            onDoubleClicked: {
+
+                var devMenu = Qt.resolvedUrl("dev/DWDevMenu.qml");
+
+                if(mainContentLoader.source != devMenu)
+                    mainContentLoader.source = devMenu;
+                else
+                    Qt.quit();
+            }
         }
     }
 

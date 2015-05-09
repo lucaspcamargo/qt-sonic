@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
 #endif
     QString buildDate = QString::fromLocal8Bit(__DATE__);
 
-    applicationEngine.rootContext()->setContextProperty("globalDebug", isDebug);
-    applicationEngine.rootContext()->setContextProperty("globalBuildDate", buildDate);
+    applicationEngine.rootContext()->setContextProperty("globalDebug", QVariant(isDebug));
+    applicationEngine.rootContext()->setContextProperty("globalBuildDate", QVariant(buildDate));
 
     dwRoot root(&applicationEngine);
 
@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 #else
                                     "assets";
 #endif
+
+    applicationEngine.rootContext()->setContextProperty("resBase", QUrl(resourceBase + "/"));
 
 
     applicationEngine.load(QUrl(resourceBase + "/DWMainWindow.qml"));

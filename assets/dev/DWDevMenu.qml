@@ -14,7 +14,7 @@ Item {
     {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 16
-        text: "DEV MENU"
+        text: "DW DEV MENU"
     }
 
     FocusScope {
