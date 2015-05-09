@@ -71,11 +71,12 @@ nVorbisStream::~nVorbisStream()
 
 void nVorbisStream::rewind()
 {
-    stb_vorbis_seek_start(_vorbis);
+    if(_vorbis) stb_vorbis_seek_start(_vorbis);
 }
 
 quint64 nVorbisStream::read(void *data, unsigned long frames)
 {
+    if(!frames) return 0;
     return stb_vorbis_get_samples_short_interleaved(_vorbis, _channels, (short*) data, frames * _channels );
 
 }

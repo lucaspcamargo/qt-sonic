@@ -1,0 +1,9 @@
+module chunk
+PLevelChunk 1.0 PLevelChunk.qml
+PLevelChunkGArc 1.0 PLevelChunkGArc.qml
+PLevelChunkGPill 1.0 PLevelChunkGPill.qml
+PLevelChunkGRamp 1.0 PLevelChunkGRamp.qml
+PLevelChunkGTop 1.0 PLevelChunkGTop.qml
+PLevelChunkObject 1.0 PLevelChunkObject.qml
+PLevelChunkVisual 1.0 PLevelChunkVisual.qml
+PLevelChunkVisualPaletted 1.0 PLevelChunkVisualPaletted.qml

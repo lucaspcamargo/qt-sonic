@@ -44,7 +44,6 @@ void dwTypes::registerTypes()
     qmlRegisterType<dwComponentCache>(PACKAGE_VERSION "DWComponentCache");
     qmlRegisterType<dwPlayerBase>(PACKAGE_VERSION "DWPlayerBase");
 
-
     // SINGLETONS
     qmlRegisterSingletonType<dwUtil>( PACKAGE_VERSION "DWUtil", dwutil_singletontype_provider);
 

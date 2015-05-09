@@ -5,7 +5,6 @@ QT += qml quick network multimedia
 
 SOURCES += \
     src/dwroot.cpp \
-    src/main.cpp \
     src/dwfieldphysicsworld.cpp \
     src/dwtypes.cpp \
     src/dweveryframe.cpp \
@@ -30,7 +29,8 @@ SOURCES += \
     src/dwfophysicsbody.cpp \
     src/dwfieldphysicscontactlistener.cpp \
     src/sound/stb_vorbis/nvorbisstream.cpp \
-    src/sound/wav/nwavestream.cpp
+    src/sound/wav/nwavestream.cpp \
+    src/dwmain.cpp
 
 
 
@@ -74,6 +74,7 @@ ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 OTHER_FILES += \
     android/AndroidManifest.xml
 
+RESOURCES += qml.qrc
 
 ### LIQUIDFUN
 
@@ -109,43 +110,5 @@ android {
     LIBS += $$PWD/android/obj/local/armeabi/libOpenAL-MOB.a
     LIBS += -lOpenSLES
 }
-
-DISTFILES += \
-    assets/*.qml \
-    assets/obj/*.qml \
-    assets/obj/player/*.qml \
-    assets/field/*.qml \
-    assets/field/water-perspective/*.glsl \
-    assets/ss/*.qml \
-    assets/etc/*.qml \
-    assets/mm/*.qml \
-    assets/mm/*.json \
-    assets/oz/*.qml \
-    assets/oz/*.json \
-    assets/mm/obj/*.qml \
-    assets/tools/*.qml \
-    assets/tools/editor/*.qml \
-    assets/ui/DWMainMenu.qml \
-    assets/DWMainScreen.qml \
-    assets/DWGlobalResources.qml \
-    assets/ui/DWConfigScreen.qml \
-    assets/ui/DWUIButtonInstruction.qml \
-    assets/ui/DWUIScreenTemplate.qml \
-    assets/ui/DWUIButton.qml \
-    assets/ui/DWIntroSequence.qml \
-    assets/ui/DWExtrasScreen.qml \
-    assets/ui/DWUICSetting.qml \
-    assets/ui/DWTitleScreen.qml \
-    assets/obj/ObjMovingPlatformBase.qml \
-    assets/obj/ObjMovingPlatform.qml \
-    assets/obj/ObjHarmfulBase.qml \
-    assets/obj/ObjBox.qml \
-    assets/obj/ObjGib.qml \
-    assets/DWLevelBGM.qml \
-    assets/dev/DWDevMenu.qml \
-    assets/dev/DWDevText.qml \
-    assets/dev/DWDevBG.qml \
-    assets/dev/DWDevButton.qml \
-    assets/dev/DWDevSwitch.qml
 
 
