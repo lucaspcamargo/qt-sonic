@@ -26,10 +26,6 @@ DWSoundSystem::DWSoundSystem(QObject *parent) :
 nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
 {
 
-//#ifdef ANDROID
-//    return 0;
-//#endif
-
     nSoundStream * stream;
     QIODevice * device;
 

@@ -1,6 +1,5 @@
 import QtQuick 2.0
-import ".." 1.0
-import "../obj" 1.0
+import "qrc:/core/qml/chunk" 1.0
 
 PLevelChunk {
 
