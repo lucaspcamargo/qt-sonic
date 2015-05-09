@@ -57,6 +57,7 @@ nSoundStreamer::nSoundStreamer(QString name, nSoundSource * source, nSoundStream
     m_updater = new nSoundStreamerUpdater(this);
     m_updater->moveToThread(updaterThread);
     updaterThread->start();
+    updaterThread->setPriority(QThread::LowPriority);
     m_updater->setup();
 
 }

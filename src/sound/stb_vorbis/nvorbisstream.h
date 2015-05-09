@@ -28,8 +28,6 @@ public slots:
     virtual int channels() { return _channels; }
     virtual int frequency() { return _frequency; }
 
-    virtual nSoundBag * createSoundBag(QObject * parent = 0);
-
     virtual nSoundFormat format() { return _format; }
     virtual bool suggestStreaming() { return _totalFrames > 88200; }
 

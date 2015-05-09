@@ -6,7 +6,7 @@ ShaderEffect {
     id: waterPerspective
 
     width: field.viewWidth
-    height: Math.round(Math.abs(field.viewCenterAtY - field.waterY /*fix for water bobbing up and down at the horizon - (field.waterY - field.waterYCenter)*/ )/1.75)
+    height: Math.round(Math.abs(field.viewCenterAtY - field.waterY /*fix for water bobbing up and down at the horizon - (field.waterY - field.waterYCenter)*/ )/1.5)
 
     y: field.waterY - (underwater? 0 : height)
     x: -field.x

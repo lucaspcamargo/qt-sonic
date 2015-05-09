@@ -21,8 +21,7 @@ public:
     virtual int channels()=0;
     virtual int frequency()=0;
 
-    virtual nSoundBag * createSoundBag(QObject * parent = 0) = 0;
-
+    virtual nSoundBag * createSoundBag(QObject * parent = 0);
     virtual nSoundFormat format() = 0;
     virtual bool suggestStreaming() = 0;
 

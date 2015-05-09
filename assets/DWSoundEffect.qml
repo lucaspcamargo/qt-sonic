@@ -15,7 +15,9 @@ QtObject {
         if(soundBuffer == null)
         {
             soundBuffer = DWRoot.soundSystem.createBuffer(source);
-            DWRoot.soundSystem.fillBuffer(soundBuffer, source)
+
+            DWRoot.soundSystem.fillBuffer(soundBuffer, source);
+
         }
     }
 

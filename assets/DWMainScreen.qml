@@ -179,7 +179,7 @@ Item {
         Text
         {
             id: bgText3
-            text: "HEDGEHOG DW · SONIC THE HEDGEHOG DW · SONIC THE "
+            text: "HOG DW · SONIC THE HEDGEHOG DW · SONIC THE HEDGE"
             font.family: globalResources.dwFont.name
             font.pixelSize: 128
             color: "#10ffffff"

@@ -12,41 +12,53 @@ Image {
 
     property bool notStub: true
     property int managerIndex: -1
-    property alias active: updater.enabled
-    visible: updater.enabled
-    function activate(){ objManager.objCount++; updater.enabled = true; }
-    function deactivate(){ objManager.objCount--; updater.enabled = false; }
+    property bool active: true
+    visible: active
+    function activate(){ active = true; objManager.objCount++; }
+    function deactivate(){ active = false; objManager.objCount--; }
 
     source: "obj/bumper-32.png"
+
+    DWFOPhysicsBody {
+        id: physicsBody
+        active: bumper.active
+        bodyType: DWFOPhysicsBody.BT_DYNAMIC_SENSOR
+        shapeType: DWFOPhysicsBody.ST_CIRCLE
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_PLAYER
+        shapeData: Qt.vector4d(16, 16, 0, 0)
+        origin: Qt.point(16, 16)
+
+        Component.onCompleted: rebuildBody();
+
+        collisionCallbackEnabled: true
+        onCollision: {
+            collided();
+        }
+    }
+
+
+    function collided()
+    {
+        var spd = convertGenesisSpeed(7);
+        var xC = x + width/2;
+        var yC = y + height/2;
+        var dir = Qt.vector2d(player.x - xC, player.y - yC);
+        dir = dir.normalized();
+        player.xSpeed = dir.x * spd;
+        player.ySpeed = dir.y * spd;
+        player.playerState = DWPlayerBase.PS_AIR;
+        player.playerJumping = false;
+        bumperSfx.play();
+        animation.restart();
+        //if(!player.playerRolling)player.onAnimationChanged("hurt");
+    }
 
 
     DWSoundEffect
     {
         id: bumperSfx
         source: "sfx/bumper.wav.ogg"
-    }
-
-    DWEveryFrame
-    {
-        id: updater
-        onUpdate:
-        {
-            if(overlapPlayerI(bumper))
-            {
-                var spd = convertGenesisSpeed(7);
-                var xC = x + width/2;
-                var yC = y + height/2;
-                var dir = Qt.vector2d(player.x - xC, player.y - yC);
-                dir = dir.normalized();
-                player.xSpeed = dir.x * spd;
-                player.ySpeed = dir.y * spd;
-                player.playerState = DWPlayerBase.PS_AIR;
-                player.playerJumping = false;
-                bumperSfx.play();
-                animation.restart();
-                //if(!player.playerRolling)player.onAnimationChanged("hurt");
-            }
-        }
     }
 
 

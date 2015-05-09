@@ -66,6 +66,11 @@ function addVisStub( x, y, xc, yc, radius, source, layerB, visBg, visObj )
     visStubsCount++;
 }
 
+function fieldReset()
+{
+
+}
+
 function update(dt)
 {
     // nothing here anymore, thx bvh <3

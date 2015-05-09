@@ -2,7 +2,11 @@ import QtQuick 2.0
 
 Item {
 
+    id: fieldController
+
     property bool paused: false
+
+    property int rings: 0
 
     property bool checkpointReached: false
 
@@ -14,6 +18,26 @@ Item {
     property int drownBGMIndex: -1
 
     property bool playerDrowning: false
+
+    property var redRingsRef: []
+    property var redRings: [false, false, false, false, false]
+
+    property bool hasHundredRingRedRing: false
+
+    onRingsChanged: {
+
+        if(!hasHundredRingRedRing)
+        {
+            if(rings >= 100)
+            {
+                hasHundredRingRedRing = true;
+                var buf = redRings;
+                buf[redRings.length-1] = true;
+                redRings = buf;
+                redRingSfx.play();
+            }
+        }
+    }
 
     Component.onCompleted:
     {
@@ -35,6 +59,8 @@ Item {
             bgm.pause();
         else
             bgm.play();
+
+        pauseSfx.play();
 
         field.fieldActive = !paused;
     }
@@ -95,18 +121,19 @@ Item {
 
                 if(checkpointReached)
                 {
-                    player.x = checkpointPlayerX;
-                    player.y = checkpointPlayerY;
+                    field.player.x = checkpointPlayerX;
+                    field.player.y = checkpointPlayerY;
                     titleAnimation.timeToResetTo = checkpointFieldTime;
                 }else
                 {
-                    player.x = levelData.playerX;
-                    player.y = levelData.playerY;
+                    field.player.x = levelData.playerX;
+                    field.player.y = levelData.playerY;
                     field.fieldTime = 0;
                 }
-                player.reset();
+                field.player.reset();
+                field.reset();
 
-                hud.ringsValue = 0;
+                fieldController.rings = 0;
                 titleAnimation.bgmIndexToPlay = previousBGMIndex;
                 titleAnimation.running = true;
                 drownOverlay.opacity = 0;
@@ -129,4 +156,110 @@ Item {
             bgmPlayer.getBGM(drownBGMIndex).rewind();
         }
     }
+
+    Rectangle {
+        id: pauseOverlay
+        parent: hud
+
+        color: "#80000000"
+        anchors.fill: parent
+        visible: paused && !_DW_DEBUG
+
+        Image {
+            source: "field/fx/drown-overlay.png"
+            anchors.fill: parent
+        }
+
+        DWTextBitmap
+        {
+            anchors.centerIn: parent
+            text: "PAUSE"
+            spacing: 2
+        }
+
+    }
+
+    onRedRingsChanged: redRingsDisplayAnim.start();
+
+    Item {
+        id: redRingsDisplay
+        parent: hud
+        z: 10
+
+        width: 7 + 17 * redRings.length
+        height: 22
+
+        Rectangle {color: "#A0000000"; opacity: 1.0; anchors.fill: parent; radius: height/2; border.color: "white"; border.width: 1 }
+
+        Row {
+            anchors.fill: parent
+            anchors.margins: 5
+            anchors.topMargin: 4
+            anchors.bottomMargin: 4
+            spacing: 3
+
+            Repeater
+            {
+                id: rrr
+                model: redRings.length
+
+                Image {
+
+                    property bool collected: redRings[index]
+                    source: "ui/hud/red-ring" + (collected? ".png" : "-gray.png")
+                }
+            }
+        }
+
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: paused? 8 : topMarginProxy
+
+        property real topMarginProxy: -22
+
+        Behavior on anchors.topMargin {
+            NumberAnimation {
+                duration: 400
+                easing.type: Easing.InOutQuad
+            }
+        }
+
+        SequentialAnimation
+        {
+            id: redRingsDisplayAnim
+
+            PauseAnimation {
+                duration: 500
+            }
+
+            ScriptAction {
+                script: redRingsDisplay.topMarginProxy = 8
+            }
+
+            PauseAnimation {
+                duration: 4500
+            }
+
+            ScriptAction {
+                script: redRingsDisplay.topMarginProxy = -22
+            }
+
+        }
+
+    }
+
+
+
+    DWSoundEffect {
+        id: pauseSfx
+        source: "field/sfx/pause.ogg"
+    }
+
+    DWSoundEffect
+    {
+        id: redRingSfx
+        source: "obj/sfx/redring.wav.ogg"
+    }
+
+
 }

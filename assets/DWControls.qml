@@ -247,7 +247,6 @@ FocusScope {
 
         Keys.onReturnPressed: enterPressed();
         Keys.onEscapePressed: escapePressed();
-        Keys.onDigit0Pressed: mainContentLoader.source = Qt.resolvedUrl("DWMainScreen.qml")
 
         function kbdRecalcDirection()
         {

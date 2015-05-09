@@ -7,6 +7,8 @@
 
 #include <AL/al.h>
 #include <AL/alc.h>
+#include <AL/alext.h>
+
 #include "util/nEfxHelper.h"
 #include <QSettings>
 #include <QUuid>
@@ -37,6 +39,12 @@ nSoundSystem::nSoundSystem(QObject *parent) :
 
     m_listener = new nSoundListener(this);
     m_success = true;
+
+#ifdef ANDROID
+#ifdef MOB
+    alcDeviceEnableHrtfMOB( m_device, false );
+#endif
+#endif
 
     qDebug("nSoundSystem initialized successfully.");
 

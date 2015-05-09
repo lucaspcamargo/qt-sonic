@@ -5,11 +5,11 @@ QtObject {
 
     id: bgm
 
-    property string id: ""
+    property string mainId: ""
     property string introId: ""
     property string prefix: ""
     property bool loop: true
-    property url source: (prefix != ""? prefix : "music/") + id
+    property url source: (prefix != ""? prefix : "music/") + mainId
     property url introSource: introId == ""? "" : ((prefix != ""? prefix : "music/") + introId)
 
     property real volume: 1.0
@@ -41,6 +41,7 @@ QtObject {
         var name = "BGM" + Math.random();
 
         sndSource = sndSys.createSource(name);
+        sndSource.setGain(volume);
 
         if(!sndSource) {
             console.log("Failed to create source");
@@ -48,12 +49,11 @@ QtObject {
         }
 
         sndStream = sndSys.createStreamUrl(source, sndSource);
-        console.log("created stream 1");
+        if(!sndStream) return;
+
         if(introId != "") sndIntroStream = sndSys.createStreamUrl(introSource, sndSource);
-        console.log("created streams");
 
         sndPlaylist = sndSys.createStreamerPlaylist(sndSource);
-        console.log("created playlist");
 
         if(sndIntroStream)
         {
@@ -62,7 +62,7 @@ QtObject {
         sndPlaylist.createItem(sndStream, loop);
 
         sndStreamer = sndSys.createStreamer(name, sndSource, sndPlaylist);
-        console.log("created streamer");
+
     }
 
     Component.onDestruction: {

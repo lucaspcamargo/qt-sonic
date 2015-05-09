@@ -1,10 +1,12 @@
 #include "nvorbisstream.h"
 
+#include <QIODevice>
+#include "../nSoundBag.h"
+
+
 #define STB_VORBIS_MAX_CHANNELS     2
 #include "stb_vorbis.c"
 
-#include <QIODevice>
-#include "../nSoundBag.h"
 
 nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(parent),
     _device(dev),
@@ -14,10 +16,13 @@ nVorbisStream::nVorbisStream(QIODevice * dev, QObject *parent) : nSoundStream(pa
     _frequency(0),
     _format(SF_16BIT_STEREO)
 {
+    _vorbis = 0;
+
     if(!dev->isOpen())
         dev->open(QIODevice::ReadOnly);
 
     _qtBuf = dev->readAll();
+
     dev->close();
 
     if(_qtBuf.size())
@@ -62,13 +67,6 @@ nVorbisStream::~nVorbisStream()
 {
     stb_vorbis_close(_vorbis);
     _qtBuf.clear();
-}
-
-nSoundBag *nVorbisStream::createSoundBag(QObject *parent)
-{
-    nSoundBag * bag = new nSoundBag( _format, _totalFrames, _frequency );
-    read(bag->m_data, _totalFrames);
-    return bag;
 }
 
 void nVorbisStream::rewind()

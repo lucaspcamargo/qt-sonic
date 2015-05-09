@@ -139,7 +139,7 @@ DWFieldObject{
         flying = false;
         attraction = false;
         collectedTimer.running = true;
-        hud.ringsValue += 1;
+        fieldController.rings += 1;
 
         sfx.play( 1, 1, 1-2*Math.random(), 0, -0.75 );
 

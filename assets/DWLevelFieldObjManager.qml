@@ -51,10 +51,6 @@ QtObject
         }
     }
 
-    function update(dt)
-    {
-        updateObjects(dt);
-    }
 
     function init()
     {
@@ -62,13 +58,24 @@ QtObject
             createObject(i);
     }
 
-    function objectDestroyed(index, recreateLater)
+    function update(dt)
+    {
+        updateObjects(dt);
+    }
+
+    function fieldReset()
+    {
+        for(var i = 0; i < objStubs.length; i++)
+            createObject(i);
+    }
+
+    function objectDestroyed(index, dontRecreateLater)
     {
         objBVHNode[index].disconnectActivationSignals();
 
         objCreated[index] = false;
         objs[index] = 0;
-        recreateObj[index] = (recreateLater? true : false);
+        recreateObj[index] = (dontRecreateLater? false : true);
         objCount--;
     }
 

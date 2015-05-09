@@ -13,6 +13,8 @@ DWField {
     property real fieldTime: 0
     property bool fieldEditMode: false
 
+    signal resetted()
+
     property real bgZ: -5
     property real visualBgZ: -4
     property real layerBZ: -3
@@ -44,11 +46,6 @@ DWField {
     }*/
 
     onWaterColorChanged: screenRenderer.waterColor = waterColor
-
-    DWFieldController
-    {
-        id: fieldController
-    }
 
     DWFieldBVH
     {
@@ -174,6 +171,13 @@ DWField {
 
         gc();
 
+    }
+
+    function reset()
+    {
+        objManager.fieldReset();
+        visManager.fieldReset();
+        resetted();
     }
 
     DWEveryFrame

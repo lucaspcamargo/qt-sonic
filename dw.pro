@@ -32,10 +32,7 @@ SOURCES += \
     src/sound/stb_vorbis/nvorbisstream.cpp \
     src/sound/wav/nwavestream.cpp
 
-RESOURCES +=
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
 
 
 # Default rules for deployment.
@@ -143,6 +140,11 @@ DISTFILES += \
     assets/obj/ObjHarmfulBase.qml \
     assets/obj/ObjBox.qml \
     assets/obj/ObjGib.qml \
-    assets/DWLevelBGM.qml
+    assets/DWLevelBGM.qml \
+    assets/dev/DWDevMenu.qml \
+    assets/dev/DWDevText.qml \
+    assets/dev/DWDevBG.qml \
+    assets/dev/DWDevButton.qml \
+    assets/dev/DWDevSwitch.qml
 
 

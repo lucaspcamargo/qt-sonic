@@ -12,16 +12,16 @@ DWFieldObject{
     property bool collected: false
 
 
-AnimatedSprite{
-    source: "spr/redRing.png"
-    width: 32
-    height: 32
-    frameWidth: 32
-    frameHeight: 32
-    frameCount: 8
-    frameDuration: convertGenesisTime(4) * 1000
-    interpolate: false
-}
+    AnimatedSprite{
+        source: "spr/redRing.png"
+        width: 32
+        height: 32
+        frameWidth: 32
+        frameHeight: 32
+        frameCount: 8
+        frameDuration: convertGenesisTime(4) * 1000
+        interpolate: false
+    }
     Item
     {
         id: collision
@@ -36,7 +36,7 @@ AnimatedSprite{
         id: updater
         enabled: active
         onUpdate:
-        {            
+        {
             if(!collected && overlapPlayerI(collision))
             {
                 if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
@@ -65,13 +65,29 @@ AnimatedSprite{
             from: 1
             to: 0
             easing.type: Easing.InOutQuad
+
         }
 
         ScriptAction
         {
             script:
             {
+
+                var tmp = fieldController.redRings;
+
+                for(var i = 0; i < tmp.length; i++)
+                {
+                    if(tmp[i] === false)
+                    {
+                        tmp[i] = true;
+                        break;
+                    }
+                }
+
+                fieldController.redRings = tmp;
+
                 ring.destroy();
+
             }
         }
     }

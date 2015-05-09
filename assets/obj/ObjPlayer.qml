@@ -306,8 +306,8 @@ DWPlayerBase {
             return;
         }
 
-        var amount = Math.min(hud.ringsValue, 32);
-        hud.ringsValue = 0;
+        var amount = Math.min(fieldController.rings, 32);
+        fieldController.rings = 0;
 
         if(amount == 0)
         {
@@ -506,7 +506,7 @@ DWPlayerBase {
     onPlaySfx:
     {
         if(sfx == "brake") brakeSfx.play();
-        // else if(sfx == "land" && !inWater) landSfx.play(); do not play land sfx
+        else if(sfx == "land" && !inWater) landSfx.play();
         else if(sfx == "jump") jumpSfx.play();
         else if(sfx == "speed") speedSfx.play(1.0, pitch);
         else if(sfx == "ringLoss") ringLossSfx.play();
@@ -588,6 +588,7 @@ DWPlayerBase {
     {
         id: landSfx
         source: "player/sfx/land.wav.ogg"
+        gain: 0.5
     }
 
     DWSoundEffect

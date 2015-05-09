@@ -1950,7 +1950,7 @@ PLevelChunkGRect {
             id: image93
             x: 170
             y: 192
-            source: "../obj/obj/monitor-eshield.png"
+            source: "../obj/obj/monitor-rings.png"
         }
 
         Image {
@@ -3879,7 +3879,7 @@ PLevelChunkGRect {
         id: image95
         x: 5955
         y: 1386
-        source: "../obj/obj/monitor-shield.png"
+        source: "../obj/obj/monitor-rings.png"
     }
 
     PLevelChunkVisual {

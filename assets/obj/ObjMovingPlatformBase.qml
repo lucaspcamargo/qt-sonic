@@ -20,6 +20,21 @@ DWFieldObject {
     property real deltaXLastUpdate: 0
     property real deltaYLastUpdate: 0
 
+    property int _MT_STRAIGHT: 1
+    property int _MT_SWING: 2
+
+    property int _SEQ_LEFT: 1
+    property int _SEQ_RIGHT: 2
+    property int _SEQ_UP: 3
+    property int _SEQ_DOWN: 4
+    property int _SEQ_WAIT: 5
+
+    property int movementType: _MT_STRAIGHT
+    property int movementAmplitude: 64
+    property var sequence: []
+    property int sequenceIndex: 0
+    property real sequenceProgress: 0.0
+
     function updatePlatform( dt )
     {
         playerInHorizontalRange = (player.x + player.playerHalfWidth > x && player.x - player.playerHalfWidth < x + width );

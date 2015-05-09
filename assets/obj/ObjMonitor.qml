@@ -10,6 +10,7 @@ DWFieldObject {
     height: 32
     z: field.objBZ
 
+    property string originalType: "rings"
     property string type: "rings"
     property string effect: type
     property int prefabId: -1
@@ -19,8 +20,22 @@ DWFieldObject {
         if(opts.length)
         {
             type = opts[0];
+            originalType = type;
         }
     }
+
+    function reset()
+    {
+        type = originalType;
+        effectIcon.x = monitor.x + 6
+        effectIcon.y = monitor.y + 4
+        effectIcon.opacity = 1
+        effectIcon.visible = false
+        effectIconRotation.angle = 0
+    }
+
+    Component.onCompleted: field.resetted.connect(reset);
+    //Component.onDestroyed: field.resetted.disconnect(reset);
 
     AnimatedSprite
     {
@@ -141,6 +156,7 @@ DWFieldObject {
                 if( prefabId >= 0 )
                 {
                     physicsWorld.removeLevelGeom(prefabId);
+                    prefabId = -1;
                 }
             }
         }
@@ -205,7 +221,7 @@ DWFieldObject {
         loops: 10
         ScriptAction
         {
-            script: {ringSfx.play(); hud.ringsValue++}
+            script: {ringSfx.play(); fieldController.rings++}
         }
 
         PauseAnimation {

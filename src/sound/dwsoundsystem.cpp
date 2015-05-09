@@ -21,38 +21,37 @@ DWSoundSystem::DWSoundSystem(QObject *parent) :
     connect(dwRoot::singleton(), &dwRoot::preUpdate, this, &DWSoundSystem::update);
 }
 
+#include "qt/qtaudiostream.h"
+
 nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
 {
+
+//#ifdef ANDROID
+//    return 0;
+//#endif
+
     nSoundStream * stream;
+    QIODevice * device;
 
     if(!url.toLocalFile().isEmpty())
     {
         QFile * file = new QFile(url.toLocalFile());
         file->open(QIODevice::ReadOnly);
+        device = file;
 
-        if(file->fileName().endsWith(".ogg"))
-            stream = new nVorbisStream(file, parentObj);
-        else
-            stream = new nWaveStream (file, SF_WAVE_HEADER, -1, -1, parentObj);
-
-        file->setParent(stream);
     }else
     {
         QNetworkAccessManager * manager = dwRoot::singleton()->appEngine()->networkAccessManager();
-        QNetworkReply * reply = manager->get(QNetworkRequest(url));
-
-        nSoundStream * stream;
-
-        if(url.toString().endsWith(".ogg"))
-            stream = new nVorbisStream(reply, parentObj);
-        else
-            stream = new nWaveStream (reply, SF_WAVE_HEADER, -1, -1, parentObj);
-
-        reply->setParent(stream);
+        QNetworkReply * reply = manager->get(QNetworkRequest(url));      
+        device = reply;
     }
 
+    if(url.toString().endsWith(".ogg"))
+        stream = new nVorbisStream(device, parentObj);
+    else
+        stream = new nWaveStream (device, SF_WAVE_HEADER, -1, -1, parentObj);
 
-    qDebug("creating Stream done");
+    device->setParent(stream);
 
     return stream;
 
@@ -60,9 +59,13 @@ nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
 
 void DWSoundSystem::fillBuffer(nSoundBuffer *buf, QUrl url)
 {
-    qDebug("Filling Buffer");
+
     nSoundStream * stream = createStreamUrl(url, 0);
-    buf->setData(stream);
-    delete stream;
-    qDebug("Filling Buffer Done");
+
+    if(stream)
+    {
+        buf->setData(stream);
+
+        delete stream;
+    }
 }

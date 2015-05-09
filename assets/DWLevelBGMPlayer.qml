@@ -38,8 +38,6 @@ QtObject {
         {
             if(bgms[currentBGMBuffer].playing())
                 bgms[currentBGMBuffer].volume = 0;
-
-            console.log("stopping BGM "+currentBGMBuffer);
         }
 
         if(currentBGM >= 0 && currentBGM < bgms.length )
@@ -47,8 +45,6 @@ QtObject {
             bgms[currentBGM].play();
             bgms[currentBGM].volume = gain;
             currentBGMBuffer = currentBGM;
-            console.log("starting BGM "+currentBGM);
-
         }
     }
 
@@ -70,7 +66,7 @@ QtObject {
         var index = bgmIds.length;
 
         var bgmC = Qt.createComponent("DWLevelBGM.qml");
-        var bgmO = bgmC.createObject(scene, {"id": id, "volume": gain, "loop": loop, "introId": introId, "prefix": (prefix? prefix : "") });
+        var bgmO = bgmC.createObject(scene, {"mainId": id, "volume": gain, "loop": loop, "introId": introId, "prefix": (prefix? prefix : "") });
 
         bgmIds.push(id);
         bgms.push(bgmO);

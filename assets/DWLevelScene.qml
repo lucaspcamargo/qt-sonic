@@ -52,6 +52,13 @@ Item {
             id: field
         }
 
+
+        DWFieldController
+        {
+            id: fieldController
+        }
+
+
         Image
         {
             id: hurtOverlay
@@ -108,16 +115,6 @@ Item {
             }
         }
 
-        DWHud
-        {
-            id: hud
-            anchors.fill: parent
-
-            z: field.hudZ
-
-            timeValue: field.fieldTime
-        }
-
     }
 
     DWLevelBGMPlayer
@@ -129,7 +126,11 @@ Item {
     {
         offscreen = true;
         if(_DW_DEBUG) controls.escapePressed.connect(levelEditor.toggleVisible);
+
+        field.init();
+        titleAnimation.running = true;
     }
+
 
 
     DWControls
@@ -143,6 +144,17 @@ Item {
         visible: _DW_MOBILE
 
         dPadMode: true
+    }
+
+    DWLevelHud
+    {
+        id: hud
+        anchors.fill: parent
+
+        //z: field.hudZ
+
+        timeValue: field.fieldTime
+        ringsValue: fieldController.rings
     }
 
     Rectangle
@@ -222,20 +234,6 @@ Item {
 
     }
 
-    property int frame: 0
-    DWEveryFrame
-    {
-        onUpdate:
-        {
-            if(frame == 1)
-                field.init();
-
-            if(frame == 2)
-                titleAnimation.running = true;
-
-            frame++;
-        }
-    }
 
     SequentialAnimation
     {
@@ -291,7 +289,7 @@ Item {
                 field.fieldTime = titleAnimation.timeToResetTo;
                 controls.keyboardHandler.forceActiveFocus();
 
-                dwLogo.visible = true;
+                if(_DW_MOBILE) dwLogo.visible = true;
 
                 sceneTitle.animDuration = 300;
             }

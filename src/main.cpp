@@ -22,8 +22,10 @@ int main(int argc, char *argv[])
 #else
     const bool isDebug = false;
 #endif
+    QString buildDate = QString::fromLocal8Bit(__DATE__);
 
     applicationEngine.rootContext()->setContextProperty("globalDebug", isDebug);
+    applicationEngine.rootContext()->setContextProperty("globalBuildDate", buildDate);
 
     dwRoot root(&applicationEngine);
 
@@ -37,7 +39,7 @@ int main(int argc, char *argv[])
 #endif
 
 
-    applicationEngine.load(QUrl(resourceBase + "/main.qml"));
+    applicationEngine.load(QUrl(resourceBase + "/DWMainWindow.qml"));
 
     root.onLoaded();
 
