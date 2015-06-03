@@ -8,18 +8,19 @@ SOURCES += \
     src/dwfieldphysicsworld.cpp \
     src/dwtypes.cpp \
     src/dweveryframe.cpp \
-    src/sound/nSoundBag.cpp \
-    src/sound/nSoundBuffer.cpp \
-    src/sound/nSoundEffectParameters.cpp \
-    src/sound/nSoundListener.cpp \
-    src/sound/nSoundScriptMetatypes.cpp \
-    src/sound/nSoundSource.cpp \
-    src/sound/nSoundStream.cpp \
-    src/sound/nSoundStreamer.cpp \
-    src/sound/nSoundStreamerPlaylist.cpp \
-    src/sound/nSoundSystem.cpp \
-    src/sound/util/nEfxHelper.cpp \
-    src/sound/dwsoundsystem.cpp \
+    thirdparty/neiasound/src/nSoundBag.cpp \
+    thirdparty/neiasound/src/nSoundBuffer.cpp \
+    thirdparty/neiasound/src/nSoundEffectParameters.cpp \
+    thirdparty/neiasound/src/nSoundListener.cpp \
+    thirdparty/neiasound/src/nSoundSource.cpp \
+    thirdparty/neiasound/src/nSoundStream.cpp \
+    thirdparty/neiasound/src/nSoundStreamer.cpp \
+    thirdparty/neiasound/src/nSoundStreamerPlaylist.cpp \
+    thirdparty/neiasound/src/nSoundSystem.cpp \
+    thirdparty/neiasound/src/util/nEfxHelper.cpp \
+    thirdparty/neiasound/src/stb_vorbis/nvorbisstream.cpp \
+    thirdparty/neiasound/src/wav/nwavestream.cpp \
+    src/dwsoundsystem.cpp \
     src/dwcomponentcache.cpp \
     src/dwplayerbase.cpp \
     src/dwutil.cpp \
@@ -28,8 +29,6 @@ SOURCES += \
     src/dwfieldobject.cpp \
     src/dwfophysicsbody.cpp \
     src/dwfieldphysicscontactlistener.cpp \
-    src/sound/stb_vorbis/nvorbisstream.cpp \
-    src/sound/wav/nwavestream.cpp \
     src/dwmain.cpp
 
 
@@ -43,21 +42,22 @@ HEADERS += \
     src/dwfieldphysicsworld.h \
     src/dwtypes.h \
     src/dweveryframe.h \
-    src/sound/nSoundBag.h \
-    src/sound/nSoundBuffer.h \
-    src/sound/nSoundEffectParameters.h \
-    src/sound/nSoundFormat.h \
-    src/sound/nSoundListener.h \
-    src/sound/nSoundScriptMetatypes.h \
-    src/sound/nSoundSource.h \
-    src/sound/nSoundSourceRole.h \
-    src/sound/nSoundStream.h \
-    src/sound/nSoundStreamer.h \
-    src/sound/nSoundStreamerPlaylist.h \
-    src/sound/nSoundSystem.h \
-    src/sound/util/efx-util.h \
-    src/sound/util/nEfxHelper.h \
-    src/sound/dwsoundsystem.h \
+    thirdparty/neiasound/src/nSoundBag.h \
+    thirdparty/neiasound/src/nSoundBuffer.h \
+    thirdparty/neiasound/src/nSoundEffectParameters.h \
+    thirdparty/neiasound/src/nSoundFormat.h \
+    thirdparty/neiasound/src/nSoundListener.h \
+    thirdparty/neiasound/src/nSoundSource.h \
+    thirdparty/neiasound/src/nSoundSourceRole.h \
+    thirdparty/neiasound/src/nSoundStream.h \
+    thirdparty/neiasound/src/nSoundStreamer.h \
+    thirdparty/neiasound/src/nSoundStreamerPlaylist.h \
+    thirdparty/neiasound/src/nSoundSystem.h \
+    thirdparty/neiasound/src/util/efx-util.h \
+    thirdparty/neiasound/src/util/nEfxHelper.h \
+    thirdparty/neiasound/src/stb_vorbis/nvorbisstream.h \
+    thirdparty/neiasound/src/wav/nwavestream.h \
+    src/dwsoundsystem.h \
     src/dwcomponentcache.h \
     src/dwplayerbase.h \
     src/dwutil.h \
@@ -65,9 +65,7 @@ HEADERS += \
     src/dwfieldbvhnode.h \
     src/dwfieldobject.h \
     src/dwfophysicsbody.h \
-    src/dwfieldphysicscontactlistener.h \
-    src/sound/stb_vorbis/nvorbisstream.h \
-    src/sound/wav/nwavestream.h
+    src/dwfieldphysicscontactlistener.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 

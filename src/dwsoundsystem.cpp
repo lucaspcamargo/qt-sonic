@@ -1,12 +1,13 @@
 #include "dwsoundsystem.h"
-#include "nSoundSystem.h"
-#include "nSoundStream.h"
-#include "nSoundBuffer.h"
-#include "nSoundListener.h"
-#include "../dwroot.h"
+#include "../thirdparty/neiasound/src/nSoundSystem.h"
+#include "../thirdparty/neiasound/src/nSoundStream.h"
+#include "../thirdparty/neiasound/src/nSoundBuffer.h"
+#include "../thirdparty/neiasound/src/nSoundListener.h"
+#include "../thirdparty/neiasound/src/wav/nwavestream.h"
+#include "../thirdparty/neiasound/src/stb_vorbis/nvorbisstream.h"
 
-#include "wav/nwavestream.h"
-#include "stb_vorbis/nvorbisstream.h"
+#include "dwroot.h"
+
 #include <QFile>
 #include <QQmlApplicationEngine>
 #include <QNetworkAccessManager>
@@ -20,8 +21,6 @@ DWSoundSystem::DWSoundSystem(QObject *parent) :
     listener();
     connect(dwRoot::singleton(), &dwRoot::preUpdate, this, &DWSoundSystem::update);
 }
-
-#include "qt/qtaudiostream.h"
 
 nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
 {

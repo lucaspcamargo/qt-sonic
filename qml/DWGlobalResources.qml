@@ -4,7 +4,7 @@ QtObject {
 
     property var dwFont: FontLoader
     {
-        source: "dw/bandless.ttf"
+        source: resBase + "core/dw/bandless.ttf"
     }
 
 }

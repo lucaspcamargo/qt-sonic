@@ -241,4 +241,53 @@ Window {
         id: globalResources
     }
 
+    Text
+    {
+        id: fpsCounter
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 20
+        font.family: "monospace"; font.weight: Font.Bold
+        text: visible? DWRoot.profilerFPS.toFixed(2) : ""
+        visible: _DW_DEBUG
+        color: "white"
+        style: Text.Outline
+        styleColor: "black"
+
+        font.pixelSize: 16
+    }
+
+    Text
+    {
+        id: worstFpsCounter
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 20
+        anchors.bottomMargin: 40
+        font.family: "monospace"; font.weight: Font.Bold
+        color: (visible && DWRoot.profilerWorstFrameTime > 0.010)? "#ff8033" : "#ffff33"
+        text: visible? (DWRoot.profilerWorstFrameTime * 1000).toFixed(2) : ""
+        visible: _DW_DEBUG
+        style: Text.Outline
+        styleColor: "black"
+
+        font.pixelSize: 16
+    }
+
+    Text
+    {
+        id: frameTimeCounter
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 20
+        anchors.bottomMargin: 60
+        font.family: "monospace"; font.weight: Font.Bold;
+        text: visible? (DWRoot.profilerFrameTime * 1000).toFixed(2) : ""
+        visible: _DW_DEBUG
+        color: "white"
+        style: Text.Outline
+        styleColor: "black"
+
+        font.pixelSize: 16
+    }
 }

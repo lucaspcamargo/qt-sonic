@@ -329,39 +329,6 @@ Item {
         Component.onCompleted: { if(!_DW_DEBUG) { editorCheckerboard.destroy(); levelEditor.destroy(); } }
     }
 
-    DWTextBitmap
-    {
-        id: fpsCounter
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.margins: 10
-        font: "xexex-multi"
-        text: visible? DWRoot.profilerFPS.toFixed(2) : ""
-        visible: _DW_DEBUG
-    }
 
-    DWTextBitmap
-    {
-        id: worstFpsCounter
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.margins: 10
-        anchors.bottomMargin: 20
-        font: "xexex-multi"; offset: (visible && DWRoot.profilerWorstFrameTime > 0.010)? 5*95: 0
-        text: visible? (DWRoot.profilerWorstFrameTime * 1000).toFixed(2) : ""
-        visible: _DW_DEBUG
-    }
-
-    DWTextBitmap
-    {
-        id: frameTimeCounter
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.margins: 10
-        anchors.bottomMargin: 30
-        font: "xexex-multi";
-        text: visible? (DWRoot.profilerFrameTime * 1000).toFixed(2) : ""
-        visible: _DW_DEBUG
-    }
 
 }

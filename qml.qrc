@@ -87,13 +87,6 @@
         <file>qml/ui/DWUICSetting.qml</file>
         <file>qml/ui/DWUIScreenTemplate.qml</file>
         <file>qml/ui/icon.png</file>
-        <file>qml/dw/bandless.ttf</file>
-        <file>qml/dw/OpenSans_Bold.ttf</file>
-        <file>qml/dw/OpenSans_Italic.ttf</file>
-        <file>qml/dw/OpenSans_Light.ttf</file>
-        <file>qml/dw/OpenSans_LightItalic.ttf</file>
-        <file>qml/dw/OpenSans_Regular.ttf</file>
-        <file>qml/dw/OpenSans_Semibold.ttf</file>
         <file>qml/chunk/PLevelChunk.qml</file>
         <file>qml/chunk/PLevelChunkGArc.qml</file>
         <file>qml/chunk/PLevelChunkGPill.qml</file>

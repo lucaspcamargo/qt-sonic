@@ -333,7 +333,7 @@ DWPlayerBase {
             o.y = y-8;
             o.flying = true;
             o.yS = -Math.sin(angle)*speed; //set the ring's vertical speed to -sine(angle)*speed
-            o.xS = Math.cos(angle)*speed; //set the ring's horizontal speed to cosine(angle)*speed
+            o.xS = -Math.cos(angle)*speed; //set the ring's horizontal speed to cosine(angle)*speed
             if(n)
             {
                 o.xS *= -1; //multiply the ring's horizontal speed by -1

@@ -1,0 +1,3 @@
+[submodule "thirdparty/neiasound"]
+	path = thirdparty/neiasound
+	url = git@github.com:lucaspcamargo/neiasound.git

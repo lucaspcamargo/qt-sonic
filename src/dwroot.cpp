@@ -5,7 +5,7 @@
 #include <QQmlApplicationEngine>
 #include <QElapsedTimer>
 
-#include "sound/dwsoundsystem.h"
+#include "dwsoundsystem.h"
 
 dwRoot * dwRoot::m_singleton = 0;
 

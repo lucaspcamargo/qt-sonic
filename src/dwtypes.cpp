@@ -11,14 +11,14 @@
 #include "dwplayerbase.h"
 #include "dwutil.h"
 
-#include "sound/dwsoundsystem.h"
-#include "sound/nSoundBag.h"
-#include "sound/nSoundBuffer.h"
-#include "sound/nSoundListener.h"
-#include "sound/nSoundSource.h"
-#include "sound/nSoundStream.h"
-#include "sound/nSoundStreamer.h"
-#include "sound/nSoundStreamerPlaylist.h"
+#include "dwsoundsystem.h"
+#include "../thirdparty/neiasound/src/nSoundBag.h"
+#include "../thirdparty/neiasound/src/nSoundBuffer.h"
+#include "../thirdparty/neiasound/src/nSoundListener.h"
+#include "../thirdparty/neiasound/src/nSoundSource.h"
+#include "../thirdparty/neiasound/src/nSoundStream.h"
+#include "../thirdparty/neiasound/src/nSoundStreamer.h"
+#include "../thirdparty/neiasound/src/nSoundStreamerPlaylist.h"
 
 static QObject *dwutil_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {

@@ -27,6 +27,7 @@ Item {
         id: editorMouseArea
         anchors.fill: parent
         hoverEnabled: true
+        acceptedButtons: Qt.AllButtons
         cursorShape: panning? Qt.SizeAllCursor : Qt.BlankCursor
 
         property bool panning: false
@@ -38,7 +39,7 @@ Item {
         onPressed:
         {
             console.log(mouse.button);
-            if(mouse.button == Qt.LeftButton)
+            if(mouse.button == Qt.MiddleButton)
             {
                 panning = true;
                 panOriginalX = mouse.x
@@ -53,7 +54,7 @@ Item {
         onReleased:
         {
             console.log(mouse.button);
-            if(mouse.button == Qt.LeftButton)
+            if(mouse.button == Qt.MiddleButton)
             {
                 panning = false;
             }
