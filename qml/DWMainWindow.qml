@@ -25,7 +25,12 @@ Window {
         anchors.fill: parent
         cursorShape: Qt.BlankCursor
 
-        onDoubleClicked: backgroundPressed()
+        onDoubleClicked: {backgroundPressed();
+
+            if(renderShaderIndex == (renderShaders.length - 1))
+                renderShaderIndex = -1;
+            else renderShaderIndex++;
+        }
     }
 
     Item
@@ -47,8 +52,12 @@ Window {
         }
 
         Keys.onDigit1Pressed: renderSampleSharp = !renderSampleSharp
-        Keys.onDigit2Pressed: renderSuper2xSai = !renderSuper2xSai
-        Keys.onDigit3Pressed: renderScanlines = !renderScanlines
+        Keys.onDigit2Pressed: {
+            if(renderShaderIndex == (renderShaders.length - 1))
+                renderShaderIndex = -1;
+            else renderShaderIndex++;
+        }
+        Keys.onDigit3Pressed: {}
         Keys.onDigit4Pressed: offscreen = !offscreen
         Keys.onDigit9Pressed: mainContentLoader.source = Qt.resolvedUrl("ui/DWIntroSequence.qml")
         Keys.onDigit0Pressed: mainContentLoader.source = Qt.resolvedUrl("dev/DWDevMenu.qml")
@@ -76,6 +85,9 @@ Window {
     property bool _DW_MOBILE: Qt.platform.os == "android"
     // set by main
     property bool _DW_DEBUG: globalDebug //Qt.platform.os != "android"
+    property int _DW_FRAME_COUNT: 0
+
+    onFrameSwapped: _DW_FRAME_COUNT++
 
     property bool _DW_DEBUG_FIELD_INFO: false
     property bool _DW_DEBUG_PHYSICS_DRAW: false
@@ -84,9 +96,16 @@ Window {
     signal backgroundPressed()
 
     property bool offscreen: false
-    property bool renderSampleSharp: !(renderSuper2xSai)
-    property bool renderSuper2xSai: Qt.platform.os != "android"
-    property bool renderScanlines: true
+    property bool renderSampleSharp: !(renderUseShader)
+    property int renderShaderIndex: _DW_MOBILE? -1 : 0
+    property bool renderUseShader: renderShaderIndex >= 0
+
+    property var renderShaders:[ "hq2x", "SuperEagle", "Super2xSai", "5xBR", "Phosphorish", "CRTGeomInterlacedCurved", "Dot'n'Bloom", "Calgari", "CalgariTriad", "CalgariMG", "MCGreen" ]
+    property var renderShaders_scale:[ 2, 2, 2, 5, 3, 3, -1, -1, -1, -1, 1 ]
+    property var renderShaders_sourceSmooth:[ false, false, false, false, false, false, false, false, false, false, false ]
+    property var renderShaders_hasVP:[ false, false, false, true, false, true, true, false, false, false, false ]
+
+    onRenderShaderIndexChanged: debugMessage.text = ("Using shader \"%1\"").arg(["NONE"].concat(renderShaders)[renderShaderIndex+1])
 
 
     ShaderEffectSource
@@ -94,31 +113,43 @@ Window {
         id: videoSource
         sourceItem: offscreen? mainContentLoader : null
         hideSource: true
-        smooth: renderSuper2xSai? false : !renderSampleSharp
+        smooth: renderUseShader? renderShaders_sourceSmooth[renderShaderIndex] : !renderSampleSharp
         textureSize: mainContentLoader.width + "x" + mainContentLoader.height
 
     }
     ShaderEffect
     {
-        id: super2XSai
-        property variant decal: videoSource
+        id: shaderRenderer
+        property var decal: videoSource
         property vector2d texture_size: Qt.vector2d(mainContentLoader.width, mainContentLoader.height)
-        visible: offscreen && renderSuper2xSai
+        visible: offscreen && renderUseShader
         blending: false
 
-        opacity: 1.0
 
-        width: 2 * mainContentLoader.width
-        height: 2 * mainContentLoader.height
+        property real shaderScale: renderShaders_scale[renderShaderIndex]
+        width: shaderScale > 0? shaderScale * mainContentLoader.width : rootWindow.width
+        height: shaderScale > 0? shaderScale * mainContentLoader.height : rootWindow.height
 
-        vertexShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/2xsai_vp.glsl"))
-        fragmentShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/2xsai_"+(renderScanlines? "scanlines_": "")+"fp.glsl"))
+        // Compatibility properties
+        property vector2d rubyInputSize: texture_size
+        property vector2d rubyTextureSize: texture_size
+        property var rubyTexture: decal
+        property vector2d rubyOutputSize: Qt.vector2d(width, height)
+        property int rubyFrameCount: _DW_FRAME_COUNT
+        // End Compatibility properties
+
+        vertexShader: (renderUseShader && renderShaderIndex>=0 && renderShaders_hasVP[renderShaderIndex])?
+                          DWUtil.readTextFile(Qt.resolvedUrl("glsl/"+renderShaders[renderShaderIndex].toLowerCase()+"_vp.glsl")) :
+                          DWUtil.readTextFile(Qt.resolvedUrl("glsl/generic_vp.glsl"))
+
+        fragmentShader: (renderUseShader && renderShaderIndex>=0)?
+                            DWUtil.readTextFile(Qt.resolvedUrl("glsl/"+renderShaders[renderShaderIndex].toLowerCase()+"_fp.glsl")) : ""
     }
 
     ShaderEffectSource
     {
-        id: super2XSaiSource
-        sourceItem: offscreen && renderSuper2xSai? super2XSai : null
+        id: shaderRendererSource
+        sourceItem: offscreen && renderUseShader? shaderRenderer : null
         hideSource: true
         smooth: !renderSampleSharp
     }
@@ -130,7 +161,7 @@ Window {
         visible: offscreen
         blending: false
 
-        property var src: renderSuper2xSai? super2XSaiSource : videoSource
+        property var src: renderUseShader? shaderRendererSource : videoSource
         property bool waterEnabled: false
         property real waterLevel: 1.0
         property color waterColor: "white"
@@ -287,6 +318,35 @@ Window {
         color: "white"
         style: Text.Outline
         styleColor: "black"
+
+        font.pixelSize: 16
+    }
+
+    Text
+    {
+        id: debugMessage
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.margins: 20
+        font.family: "monospace"; font.weight: Font.Bold;
+        text: ""
+        visible: _DW_DEBUG
+        color: "lime"
+        style: Text.Outline
+        styleColor: "black"
+
+        NumberAnimation on opacity
+        {
+            id: debugMessageAnim
+            from: 1
+            to: 0
+            duration: 6500
+        }
+
+        onTextChanged: {
+            if(_DW_DEBUG)
+                debugMessageAnim.restart();
+        }
 
         font.pixelSize: 16
     }

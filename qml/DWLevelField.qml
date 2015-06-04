@@ -63,17 +63,17 @@ DWField {
         physicsScale: 1/convertGenesisDimension(32)
     }
 
-    DWLevelFieldVisManager
+    property var visualManager: DWLevelFieldVisManager
     {
         id: visManager
     }
 
-    DWLevelFieldObjManager
+    property var objectManager: DWLevelFieldObjManager
     {
         id: objManager
     }
 
-    DWLevelFieldCamera
+    property var camera: DWLevelFieldCamera
     {
         id: fieldCamera
     }

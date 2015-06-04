@@ -19,6 +19,10 @@ FocusScope {
     signal enterPressed()
     signal escapePressed()
 
+    function getFocus()
+    {
+        keyboardHandler.forceActiveFocus();
+    }
 
     function recalcXY()
     {

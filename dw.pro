@@ -96,7 +96,6 @@ android {
     LIBS += $$PWD/../liquidfun/liquidfun/Box2D/obj/local/armeabi-v7a/libliquidfun_static.a
 }
 
-
 ## OPENAL
 !android {
 unix: CONFIG += link_pkgconfig
@@ -108,5 +107,8 @@ android {
     LIBS += $$PWD/android/obj/local/armeabi/libOpenAL-MOB.a
     LIBS += -lOpenSLES
 }
+
+DISTFILES += \
+    qml/glsl/phosphorish_fp.glsl
 
 

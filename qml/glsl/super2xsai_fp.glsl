@@ -3,6 +3,7 @@ const vec3 dtt = vec3(65536.0,255.0,1.0);
 uniform highp vec2 texture_size;
 uniform sampler2D decal;
 varying highp vec2 texCoord;
+
 int GET_RESULT(float A, float B, float C, float D)
 {
     int x = 0; int y = 0; int r = 0;

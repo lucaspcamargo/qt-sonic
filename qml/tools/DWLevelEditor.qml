@@ -4,6 +4,7 @@ import "editor" 1.0
 
 Item {
 
+    id: levelEditor
     anchors.fill: parent
     visible: false
 
@@ -21,6 +22,8 @@ Item {
     property var editModeNames: [ "OBJECTS", "TILES", "TILESET", "GEOMETRY" ]
     function changeEditMode() { editMode = (editMode+1)%editModeNames.length; }
 
+    property var handlesLayer: null
+
 
     MouseArea
     {
@@ -31,19 +34,27 @@ Item {
         cursorShape: panning? Qt.SizeAllCursor : Qt.BlankCursor
 
         property bool panning: false
-        property int panOriginalX: 0
-        property int panOriginalY: 0
+        property bool selecting: false
+        property int selectX: 0
+        property int selectY: 0
+        property int originalX: 0
+        property int originalY: 0
         property real fieldOriginalX: 0
         property real fieldOriginalY: 0
 
         onPressed:
         {
-            console.log(mouse.button);
+            if(mouse.button == Qt.LeftButton)
+            {
+                selectX = cursorX;
+                selectY = cursorY;
+            }
+
             if(mouse.button == Qt.MiddleButton)
             {
                 panning = true;
-                panOriginalX = mouse.x
-                panOriginalY = mouse.y
+                originalX = mouse.x
+                originalY = mouse.y
                 fieldOriginalX = field.viewCenterAtX;
                 fieldOriginalY = field.viewCenterAtY;
             }
@@ -53,7 +64,12 @@ Item {
 
         onReleased:
         {
-            console.log(mouse.button);
+            if(mouse.button == Qt.LeftButton)
+            {
+                selecting = false;
+                handlesLayer.selectionRect.set(false);
+            }
+
             if(mouse.button == Qt.MiddleButton)
             {
                 panning = false;
@@ -64,10 +80,21 @@ Item {
 
         onPositionChanged:
         {
+            if(!selecting && (mouse.buttons & Qt.LeftButton))
+            {
+                selecting = true;
+            }
+
+            if(selecting)
+            {
+                handlesLayer.selectionRect.set(true, Qt.point(cursorX, cursorY), Qt.point(selectX, selectY));
+                console.log(selecting);
+            }
+
             if(panning)
             {
-                field.viewCenterAtX = fieldOriginalX - (mouse.x - panOriginalX)/field.viewScale;
-                field.viewCenterAtY = fieldOriginalY - (mouse.y - panOriginalY)/field.viewScale;
+                field.viewCenterAtX = fieldOriginalX - (mouse.x - originalX)/field.viewScale;
+                field.viewCenterAtY = fieldOriginalY - (mouse.y - originalY)/field.viewScale;
             }
 
             mouse.accepted = true
@@ -207,16 +234,25 @@ Item {
     {
         visible = !visible;
 
+        if(visible) forceActiveFocus();
+        else controls.getFocus();
+
         field.fieldActive = !visible;
         field.fieldEditMode = visible;
         field.viewScale = 1;
 
         hud.visible = !visible;
-        dwLogo.visible = !visible;
         offscreen = !visible;
+        dwLogo.visible = !visible;
+        editorCheckerboard.visible = visible;
 
-        if(visible) forceActiveFocus();
-        else controls.keyboardHandler.forceActiveFocus();
+        if(visible)
+            field.objectManager.resetObjects();
+
+        if(visible)
+            handlesLayer.createHandles();
+        else
+            handlesLayer.destroyHandles();
     }
 
     Keys.onEscapePressed:
@@ -234,6 +270,15 @@ Item {
 
         if(event.key == Qt.Key_A)
             changeSnapAmount();
+    }
+
+    Component.onCompleted:
+    {
+        controls.escapePressed.connect(levelEditor.toggleVisible);
+
+        // create field surface
+        var c = Qt.createComponent("editor/EHandlesLayer.qml");
+        handlesLayer = c.createObject(fieldContainer);
     }
 }
 

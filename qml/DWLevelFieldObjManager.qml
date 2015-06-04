@@ -65,7 +65,12 @@ QtObject
 
     function fieldReset()
     {
-        for(var i = 0; i < objStubs.length; i++)
+        resetObjects();
+    }
+
+    function resetObjects()
+    {
+        for(var i = 0; i < objStubsCount; i++)
             createObject(i);
     }
 
@@ -74,7 +79,7 @@ QtObject
         objBVHNode[index].disconnectActivationSignals();
 
         objCreated[index] = false;
-        objs[index] = 0;
+        objs[index] = null;
         recreateObj[index] = (dontRecreateLater? false : true);
         objCount--;
     }

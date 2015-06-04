@@ -2,15 +2,14 @@
     <qresource prefix="/core">
         <file>qml/DWFieldPhysicsDrawer.qml</file>
         <file>qml/DWGlobalResources.qml</file>
-        <file>qml/DWLevelBackground.qml</file>
+        <file>qml/level/DWLevelBackground.qml</file>
         <file>qml/DWLevelBGM.qml</file>
-        <file>qml/DWLevelBGMOld.qml</file>
         <file>qml/DWLevelBGMPlayer.qml</file>
         <file>qml/DWLevelField.qml</file>
         <file>qml/DWLevelFieldCamera.qml</file>
         <file>qml/DWLevelFieldObjManager.qml</file>
         <file>qml/DWLevelFieldVisManager.qml</file>
-        <file>qml/DWLevelHud.qml</file>
+        <file>qml/level/DWLevelHud.qml</file>
         <file>qml/DWLevelScene.qml</file>
         <file>qml/DWMainScreen.qml</file>
         <file>qml/DWMainWindow.qml</file>
@@ -32,9 +31,9 @@
         <file>qml/field/EffRain.qml</file>
         <file>qml/field/EffWaterPerspective.qml</file>
         <file>qml/field/EffWaterWalk.qml</file>
-        <file>qml/glsl/2xsai_fp.glsl</file>
+        <file>qml/glsl/super2xsai_fp.glsl</file>
         <file>qml/glsl/2xsai_scanlines_fp.glsl</file>
-        <file>qml/glsl/2xsai_vp.glsl</file>
+        <file>qml/glsl/generic_vp.glsl</file>
         <file>qml/glsl/screen_renderer_fp.glsl</file>
         <file>qml/glsl/screen_renderer_vp.glsl</file>
         <file>qml/glsl/screen_renderer_water_fp.glsl</file>
@@ -97,5 +96,20 @@
         <file>qml/chunk/PLevelChunkVisual.qml</file>
         <file>qml/chunk/PLevelChunkVisualPaletted.qml</file>
         <file>qml/chunk/qmldir</file>
+        <file>qml/tools/editor/EHandlesLayer.qml</file>
+        <file>qml/glsl/hq2x_fp.glsl</file>
+        <file>qml/glsl/supereagle_fp.glsl</file>
+        <file>qml/glsl/mcgreen_fp.glsl</file>
+        <file>qml/glsl/phosphorish_fp.glsl</file>
+        <file>qml/glsl/5xbr_fp.glsl</file>
+        <file>qml/glsl/5xbr_vp.glsl</file>
+        <file>qml/field/DWLevelTitlecard.qml</file>
+        <file>qml/glsl/crtgeominterlacedcurved_fp.glsl</file>
+        <file>qml/glsl/crtgeominterlacedcurved_vp.glsl</file>
+        <file>qml/glsl/dot'n'bloom_fp.glsl</file>
+        <file>qml/glsl/dot'n'bloom_vp.glsl</file>
+        <file>qml/glsl/calgari_fp.glsl</file>
+        <file>qml/glsl/calgarimg_fp.glsl</file>
+        <file>qml/glsl/calgaritriad_fp.glsl</file>
     </qresource>
 </RCC>
