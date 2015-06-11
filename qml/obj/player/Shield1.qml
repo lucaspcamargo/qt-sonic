@@ -24,7 +24,7 @@ AnimatedSprite
     Behavior on scale { NumberAnimation { duration: 100 } }
 
 
-    x: - ( player.x - Math.round(player.x)) - width/2
+    x: - ( player.x - Math.round(player.x))
     y: - ( player.y - Math.round(player.y)) - height/2
     z: 1
 
@@ -48,6 +48,14 @@ AnimatedSprite
         to: 0.75
     }
 */
+
+
+    function update()
+    {
+        x = - ( player.x - Math.round(player.x)) - width/2;
+        y = - ( player.y - Math.round(player.y)) - height/2;
+    }
+
 
     function action()
     {

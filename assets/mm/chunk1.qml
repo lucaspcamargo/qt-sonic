@@ -1,5 +1,6 @@
 import QtQuick 2.0
-import "qrc:/core/qml/chunk" 1.0
+import ".." 1.0
+import "../obj" 1.0
 
 PLevelChunk {
 
@@ -2655,7 +2656,7 @@ PLevelChunkGRect {
             y: 128
             source: "../obj/obj/monitor-rings.png"
         }
-        source: "../mm/tileset-extra/smw-yoshi.png"
+        source: "../tl/tileset/smw-yoshi.png"
     }
 
     PLevelChunkVisual {

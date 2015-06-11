@@ -38,7 +38,8 @@ QtObject {
 
     Component.onCompleted:
     {
-        var sndSys = DWRoot.soundSystem;
+        if(!dwSoundSystem) return;
+        var sndSys = dwSoundSystem;
         var name = "BGM" + Math.random();
 
         sndSource = sndSys.createSource(name);
@@ -67,39 +68,45 @@ QtObject {
     }
 
     Component.onDestruction: {
-        if(!DWRoot) return;
-        var sndSys = DWRoot.soundSystem;
+        if(!dwSoundSystem) return;
 
-        sndSys.destroyStreamer(sndStreamer);
-        sndSys.destroySource(sndSource);
+        dwSoundSystem.destroyStreamer(sndStreamer);
+        dwSoundSystem.destroySource(sndSource);
 
     }
 
     function play() {
+        if(!dwSoundSystem) return;
         sndSource.play();
     }
 
     function pause() {
+        if(!dwSoundSystem) return;
         sndSource.pause();
     }
 
     function stop() {
+        if(!dwSoundSystem) return;
         sndSource.stop();
     }
 
     function rewind() {
+        if(!dwSoundSystem) return;
         sndStreamer.rewind();
     }
 
     function seekZero() {
+        if(!dwSoundSystem) return;
         sndStreamer.rewind();
     }
 
     function playing() {
+        if(!dwSoundSystem) return;
         return sndSource.state == NSoundSource.SSS_PLAYING;
     }
 
     function paused() {
+        if(!dwSoundSystem) return;
         return sndSource.state == NSoundSource.SSS_PAUSED;
     }
 }

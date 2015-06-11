@@ -5,6 +5,7 @@
 #include <QQmlApplicationEngine>
 #include <QElapsedTimer>
 
+#include "dwtexturecache.h"
 #include "dwsoundsystem.h"
 
 dwRoot * dwRoot::m_singleton = 0;
@@ -24,7 +25,9 @@ dwRoot::dwRoot(QQmlApplicationEngine *parent) :
     setObjectName("dwRoot");
     m_engine->rootContext()->setContextProperty("DWRoot", this);
 
-    m_soundSystem = new DWSoundSystem(this);
+    m_textureCache = new dwTextureCache(this);
+    m_soundSystem = new dwSoundSystem(this);
+    m_engine->rootContext()->setContextProperty("dwTextureCache", m_soundSystem);
     m_engine->rootContext()->setContextProperty("dwSoundSystem", m_soundSystem);
 
     m_timer = new QElapsedTimer();
@@ -33,9 +36,10 @@ dwRoot::dwRoot(QQmlApplicationEngine *parent) :
 
 void dwRoot::onLoaded()
 {
-    m_window =  reinterpret_cast<QQuickWindow*>(m_engine->rootObjects()[0]);
+    m_window = reinterpret_cast<QQuickWindow*>(m_engine->rootObjects()[0]);
     m_window->setClearBeforeRendering(false);
     connect(m_window, &QQuickWindow::afterAnimating, this, &dwRoot::doFrameUpdate);
+    connect(m_window, &QQuickWindow::afterRendering, m_textureCache, &dwTextureCache::onAfterRendering);
 }
 
 void dwRoot::doFrameUpdate()

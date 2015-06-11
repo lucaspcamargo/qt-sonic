@@ -2,6 +2,7 @@
 #include <QtQml>
 
 #include "dweveryframe.h"
+#include "dwimageitem.h"
 #include "dwfieldbvh.h"
 #include "dwfieldbvhnode.h"
 #include "dwfieldobject.h"
@@ -37,6 +38,7 @@ void dwTypes::registerTypes()
 
     // INSTANTIABLE TYPES
     qmlRegisterType<dwEveryFrame>(PACKAGE_VERSION "DWEveryFrame");
+    qmlRegisterType<dwImageItem>(PACKAGE_VERSION "DWImageItem");
     qmlRegisterType<dwFieldBVH>(PACKAGE_VERSION "DWFieldBVH");
     qmlRegisterType<dwFieldObject>(PACKAGE_VERSION "DWFieldObject");
     qmlRegisterType<dwFOPhysicsBody>(PACKAGE_VERSION "DWFOPhysicsBody");
@@ -50,7 +52,7 @@ void dwTypes::registerTypes()
     // NON-INSTANTIABLE TYPES
     qmlRegisterUncreatableType<dwFieldBVHNode>( PACKAGE_VERSION "DWFieldBVHNode", QStringLiteral("") );
 
-    qmlRegisterUncreatableType<DWSoundSystem>( PACKAGE_VERSION "DWSoundSystem", QStringLiteral("") );
+    qmlRegisterUncreatableType<dwSoundSystem>( PACKAGE_VERSION "DWSoundSystem", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundSystem>( PACKAGE_VERSION "NSoundSystem", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundBag>( PACKAGE_VERSION "NSoundBag", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundBuffer>( PACKAGE_VERSION "NSoundBuffer", QStringLiteral("") );

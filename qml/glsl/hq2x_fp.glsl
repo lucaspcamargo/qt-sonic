@@ -1,3 +1,7 @@
+#ifdef GL_ES
+precision highp float;
+#endif
+
 uniform highp vec2 texture_size;
 uniform sampler2D decal;
 varying highp vec2 texCoord;

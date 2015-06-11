@@ -4,10 +4,12 @@
 #include <QImage>
 #include <QFile>
 
+dwUtil * dwUtil::ms_singleton = 0;
 
 dwUtil::dwUtil(QObject *parent) :
     QObject(parent)
 {
+    ms_singleton = this;
 }
 
 void dwUtil::reparent(QObject *child, QObject *parent)
@@ -19,16 +21,35 @@ void dwUtil::reparent(QObject *child, QObject *parent)
 #include <QQmlApplicationEngine>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+
+QIODevice *dwUtil::getDeviceFromUrl(QUrl url)
+{
+    QIODevice * device;
+
+    if(!url.toLocalFile().isEmpty())
+    {
+        QFile * file = new QFile(url.toLocalFile());
+        file->open(QIODevice::ReadOnly);
+        device = file;
+
+    }else
+    {
+        QNetworkAccessManager * manager = dwRoot::singleton()->appEngine()->networkAccessManager();
+        QNetworkReply * reply = manager->get(QNetworkRequest(url));
+        device = reply;
+    }
+
+    return device;
+}
+
 #include <QScopedPointer>
 #include <QTextStream>
 
 QString dwUtil::readTextFile(QUrl url)
 {
-    QQmlApplicationEngine * engine = dwRoot::singleton()->appEngine();
-    QNetworkAccessManager * manager = engine->networkAccessManager();
-    QNetworkReply * reply = manager->get(QNetworkRequest(url));
-    QScopedPointer<QNetworkReply> replyPtr(reply);
-    QTextStream stream(reply);
+    QIODevice * dev = getDeviceFromUrl(url);
+    QScopedPointer<QIODevice> devPtr(dev);
+    QTextStream stream(dev);
     return stream.readAll();
 }
 

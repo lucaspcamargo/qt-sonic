@@ -9,15 +9,15 @@ QtObject {
     Component.onCompleted:
     {
         if(source == "") return;
+        if(!dwSoundSystem) return;
 
-        soundBuffer = DWRoot.soundSystem.buffer(source);
+        soundBuffer = dwSoundSystem.buffer(source);
 
         if(soundBuffer == null)
         {
             soundBuffer = DWRoot.soundSystem.createBuffer(source);
 
             DWRoot.soundSystem.fillBuffer(soundBuffer, source);
-
         }
     }
 
@@ -25,6 +25,8 @@ QtObject {
 
     function play(gainArg, pitch, xPos, yPos, zPos, attenuationScale)
     {
+        if((!soundBuffer) || (!dwSoundSystem)) return;
+
         var src = DWRoot.soundSystem.createSource(NSoundSource.SSR_SFX);
         src.gain *= gain;
 

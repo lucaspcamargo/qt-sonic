@@ -6,11 +6,11 @@
 
 class nSoundStream;
 
-class DWSoundSystem : public nSoundSystem
+class dwSoundSystem : public nSoundSystem
 {
     Q_OBJECT
 public:
-    explicit DWSoundSystem(QObject *parent = 0);
+    explicit dwSoundSystem(QObject *parent = 0);
 
 signals:
 

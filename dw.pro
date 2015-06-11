@@ -29,7 +29,10 @@ SOURCES += \
     src/dwfieldobject.cpp \
     src/dwfophysicsbody.cpp \
     src/dwfieldphysicscontactlistener.cpp \
-    src/dwmain.cpp
+    src/dwmain.cpp \
+    src/dwimageitem.cpp \
+    src/dwtexturecache.cpp \
+    src/dwtexture.cpp
 
 
 
@@ -65,7 +68,10 @@ HEADERS += \
     src/dwfieldbvhnode.h \
     src/dwfieldobject.h \
     src/dwfophysicsbody.h \
-    src/dwfieldphysicscontactlistener.h
+    src/dwfieldphysicscontactlistener.h \
+    src/dwimageitem.h \
+    src/dwtexturecache.h \
+    src/dwtexture.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 

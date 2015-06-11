@@ -64,7 +64,7 @@ DWFieldObject {
         badnikBase.destroy();
 
 
-        hud.score += 100;
+        fieldController.score += 100;
     }
 
     function hitPlayer()

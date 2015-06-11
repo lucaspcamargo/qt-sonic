@@ -3,7 +3,7 @@ import dw 1.0
 import ".."
 
 
-Image {
+DWImageItem {
 
     id: bumper
 

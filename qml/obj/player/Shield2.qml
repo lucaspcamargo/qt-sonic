@@ -5,9 +5,6 @@ Item
     id: shield
     visible: false
 
-
-    x: - ( player.x - Math.round(player.x))
-    y: - ( player.y - Math.round(player.y))
     z: 1
 
 
@@ -40,6 +37,12 @@ Item
         to: 2 * Math.PI
         duration: 750
         loops: Animation.Infinite
+    }
+
+    function update()
+    {
+        x = - ( player.x - Math.round(player.x));
+        y = - ( player.y - Math.round(player.y));
     }
 
     function action()

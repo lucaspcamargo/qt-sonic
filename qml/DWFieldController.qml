@@ -6,6 +6,7 @@ Item {
 
     property bool paused: false
 
+    property int score: 0
     property int rings: 0
 
     property bool checkpointReached: false

@@ -22,9 +22,6 @@ AnimatedSprite
     scale: visible? 1 : 3
     Behavior on scale { NumberAnimation { duration: 100 } }
 
-
-    x: - ( player.x - Math.round(player.x)) - width/2
-    y: - ( player.y - Math.round(player.y)) - height/2
     z: 1
 
 
@@ -44,10 +41,16 @@ AnimatedSprite
         visible: shield.visible
         opacity: shield.opacity
         scale: shield.scale
-
-        x: - ( player.x - Math.round(player.x)) - width/2
-        y: - ( player.y - Math.round(player.y)) - height/2
         z: -1
+    }
+
+
+    function update()
+    {
+        x = - ( player.x - Math.round(player.x)) - width/2;
+        y = - ( player.y - Math.round(player.y)) - height/2;
+        shieldBg.x = - ( player.x - Math.round(player.x)) - width/2;
+        shieldBg.y = - ( player.y - Math.round(player.y)) - height/2;
     }
 
     function action()

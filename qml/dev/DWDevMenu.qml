@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import ".."
+import dw 1.0
 
 Item {
     width: 427
@@ -98,6 +99,15 @@ Item {
         running: true
         interval: 32
         onTriggered: bgm.play()
+    }
+
+
+    DWImageItem
+    {
+        id: testImage
+        x: 40
+        y: 40
+        source: resBase + "obj/player/spr/sonic-cd.png"
     }
 }
 

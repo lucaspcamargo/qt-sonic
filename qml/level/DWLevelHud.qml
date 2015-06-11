@@ -5,8 +5,8 @@ import ".."
 Item {
 
 
-    property bool showScore: false
-    property int score: 0
+    property bool showScore: true
+    property int scoreValue: 0
     property int ringsValue: 0
     property real timeValue: 0
 
@@ -66,7 +66,7 @@ Item {
     {
         x: 56
         y: 9
-        text: ("      " + score).slice(-7)
+        text: ("      " + scoreValue).slice(-7)
         spacing: 2
         visible: showScore
     }

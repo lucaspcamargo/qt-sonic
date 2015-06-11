@@ -7,6 +7,7 @@
 #include "../thirdparty/neiasound/src/stb_vorbis/nvorbisstream.h"
 
 #include "dwroot.h"
+#include "dwutil.h"
 
 #include <QFile>
 #include <QQmlApplicationEngine>
@@ -14,32 +15,20 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
-DWSoundSystem::DWSoundSystem(QObject *parent) :
+dwSoundSystem::dwSoundSystem(QObject *parent) :
     nSoundSystem(parent)
 {
     listener()->updateManual(QVector3D(0,0,0), QVector3D(0,0,-1), QVector3D(0,1,0), QVector3D(0,0,0));
     listener();
-    connect(dwRoot::singleton(), &dwRoot::preUpdate, this, &DWSoundSystem::update);
+    connect(dwRoot::singleton(), &dwRoot::preUpdate, this, &dwSoundSystem::update);
 }
 
-nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
+
+nSoundStream* dwSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
 {
 
     nSoundStream * stream;
-    QIODevice * device;
-
-    if(!url.toLocalFile().isEmpty())
-    {
-        QFile * file = new QFile(url.toLocalFile());
-        file->open(QIODevice::ReadOnly);
-        device = file;
-
-    }else
-    {
-        QNetworkAccessManager * manager = dwRoot::singleton()->appEngine()->networkAccessManager();
-        QNetworkReply * reply = manager->get(QNetworkRequest(url));      
-        device = reply;
-    }
+    QIODevice * device = dwUtil::singleton()->getDeviceFromUrl(url);
 
     if(url.toString().endsWith(".ogg"))
         stream = new nVorbisStream(device, parentObj);
@@ -49,10 +38,10 @@ nSoundStream* DWSoundSystem::createStreamUrl(QUrl url, QObject *parentObj)
     device->setParent(stream);
 
     return stream;
-
 }
 
-void DWSoundSystem::fillBuffer(nSoundBuffer *buf, QUrl url)
+
+void dwSoundSystem::fillBuffer(nSoundBuffer *buf, QUrl url)
 {
 
     nSoundStream * stream = createStreamUrl(url, 0);

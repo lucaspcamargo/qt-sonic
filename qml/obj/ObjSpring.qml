@@ -32,7 +32,7 @@ Item {
         else yellow = false;
     }
 
-    Image
+    DWImageItem
     {
         id: sprite
         source: resBase + (yellow? "obj/obj/spring-y.png" : "obj/obj/spring.png")
@@ -40,7 +40,7 @@ Item {
         visible: openFrames == 0
     }
 
-    Image
+    DWImageItem
     {
         id: openSprite
         source: resBase + (yellow? "obj/spr/spring-y-open.png" : "obj/spr/spring-open.png")

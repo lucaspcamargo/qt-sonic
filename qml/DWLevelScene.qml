@@ -100,6 +100,10 @@ Item {
 
             Behavior on opacity { NumberAnimation {} }
 
+            property real originalChromatic: 0
+            Component.onCompleted: originalChromatic = screenRendererWater.chromatic;
+            onOpacityChanged: screenRendererWater.chromatic = originalChromatic + 5 * opacity;
+
             SequentialAnimation
             {
                 id: drownOverlayAnim
@@ -138,6 +142,8 @@ Item {
 
         //z: field.hudZ
 
+        showScore: false
+        scoreValue: fieldController.score
         timeValue: field.fieldTime
         ringsValue: fieldController.rings
     }

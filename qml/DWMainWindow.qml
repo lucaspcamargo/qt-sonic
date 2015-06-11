@@ -84,7 +84,7 @@ Window {
 
     property bool _DW_MOBILE: Qt.platform.os == "android"
     // set by main
-    property bool _DW_DEBUG: globalDebug //Qt.platform.os != "android"
+    property bool _DW_DEBUG: globalDebug
     property int _DW_FRAME_COUNT: 0
 
     onFrameSwapped: _DW_FRAME_COUNT++
@@ -96,14 +96,15 @@ Window {
     signal backgroundPressed()
 
     property bool offscreen: false
-    property bool renderSampleSharp: !(renderUseShader)
-    property int renderShaderIndex: _DW_MOBILE? -1 : 0
-    property bool renderUseShader: renderShaderIndex >= 0
 
     property var renderShaders:[ "hq2x", "SuperEagle", "Super2xSai", "5xBR", "Phosphorish", "CRTGeomInterlacedCurved", "Dot'n'Bloom", "Calgari", "CalgariTriad", "CalgariMG", "MCGreen" ]
     property var renderShaders_scale:[ 2, 2, 2, 5, 3, 3, -1, -1, -1, -1, 1 ]
     property var renderShaders_sourceSmooth:[ false, false, false, false, false, false, false, false, false, false, false ]
     property var renderShaders_hasVP:[ false, false, false, true, false, true, true, false, false, false, false ]
+
+    property int renderShaderIndex: _DW_MOBILE? -1 : 0
+    property bool renderUseShader: renderShaderIndex >= 0
+    property bool renderSampleSharp: !(renderUseShader)
 
     onRenderShaderIndexChanged: debugMessage.text = ("Using shader \"%1\"").arg(["NONE"].concat(renderShaders)[renderShaderIndex+1])
 
@@ -157,34 +158,43 @@ Window {
     ShaderEffect
     {
         id: screenRenderer
-        anchors.fill: parent
-        visible: offscreen
+        width: parent.width
+        height: parent.height * waterLevel
+        visible: offscreen && height
         blending: false
 
         property var src: renderUseShader? shaderRendererSource : videoSource
         property bool waterEnabled: false
         property real waterLevel: 1.0
         property color waterColor: "white"
+
         property real time: 0
-        property real waveYDelta: 0
         property real invScreenWidth: 1.5 / mainContentLoader.width
+
         vertexShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_vp.glsl"))
-
-        fragmentShader: waterEnabled? DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_water_fp.glsl")) :
-                                      DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_fp.glsl"))
+        fragmentShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_fp.glsl"))
     }
+    ShaderEffect
+    {
+        id: screenRendererWater
+        width: parent.width
+        height: parent.height - screenRenderer.height
+        anchors.top: screenRenderer.bottom
+        visible: offscreen && screenRenderer.waterEnabled && height
+        blending: false
 
-    //    Colorize
-    //    {
-    //        source: screenRenderer
-    //        anchors.fill: screenRenderer
+        property var src: screenRenderer.src
+        property bool waterEnabled: screenRenderer.waterEnabled
+        property real waterLevel: screenRenderer.waterLevel
+        property color waterColor: screenRenderer.waterColor
+        property real chromatic: _DW_MOBILE? 2.0 : 3.5
 
-    //        NumberAnimation on hue { running: true; loops: Animation.Infinite; from: 0; to: 1; }
+        property real time: screenRenderer.time
+        property real invScreenWidth: screenRenderer.invScreenWidth
 
-    //        saturation: 1
-
-
-    //    }
+        vertexShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_water_vp.glsl"))
+        fragmentShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_water_fp.glsl"))
+    }
 
     Image {
         id: dwLogo
@@ -250,7 +260,7 @@ Window {
         interval: 16
         running: true
         repeat: false
-        onTriggered: {console.log("Loading main screen"); mainContentLoader.active = true;}
+        onTriggered: {mainContentLoader.active = true;}
     }
 
     Rectangle {
@@ -350,4 +360,5 @@ Window {
 
         font.pixelSize: 16
     }
+
 }

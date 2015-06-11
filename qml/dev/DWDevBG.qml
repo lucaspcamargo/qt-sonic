@@ -72,12 +72,11 @@ Item {
     }
 */
 
-    Image
+    DWImageItem
     {
         anchors.fill: parent
         opacity: 0.2
         source: "bg/bayonetta.jpg"
-        fillMode: Image.PreserveAspectCrop
     }
 
     MouseArea

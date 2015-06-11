@@ -108,6 +108,8 @@ DWPlayerBase {
         {
             shield = shields[shieldType];
             shield.visible = true;
+            if(shield.update)
+                shield.update();
         }else
         {
             shield.visible = false;
@@ -493,6 +495,9 @@ DWPlayerBase {
                 o.timeToFullSize = 0.75
             }
         }
+
+        if(hasShield && shield.update)
+            shield.update(dt);
 
         if(rememberPreviousPos)
         {

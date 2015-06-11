@@ -214,8 +214,7 @@ DWField {
 
             if(water)
             {
-                screenRenderer.waterLevel = (waterY - (viewCenterAtY - viewHeight/2))/viewHeight;
-                screenRenderer.waveYDelta = - viewCenterAtY / viewHeight;
+                screenRenderer.waterLevel = Math.min(1.0, Math.max(0, (waterY - (viewCenterAtY - viewHeight/2))/viewHeight));
             }
 
             if(physicsWorldDrawer && physicsWorldDrawer.visible)

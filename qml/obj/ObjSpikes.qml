@@ -25,12 +25,8 @@ DWFieldObject {
         height: vertical? 32 : 27
     }
 
-    AnimatedSprite{
+    DWImageItem{
         source: resBase + "obj/obj/spikes.png"
-        frameWidth: 32
-        frameHeight: 32
-        width: frameWidth
-        height: frameHeight
     }
 
     Component.onCompleted: objManager.updateObjects.connect(update);

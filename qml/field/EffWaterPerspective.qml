@@ -14,7 +14,7 @@ ShaderEffect {
 
     visible: !( y > ( field.viewCenterAtY + field.viewHeight ) || (y + height) < ( field.viewCenterAtY - field.viewHeight ) )
 
-    property bool reflectionEnabled: true
+    property bool reflectionEnabled: !_DW_MOBILE
     opacity: 0.75
     property color coloring: Qt.darker( field.waterColor )
     property var src: ses
@@ -45,7 +45,7 @@ ShaderEffect {
     {
         id: imgSrc
         parent: null
-        source: resBase + "field/water-perspective/water-texture.jpg"
+        source: resBase + "field/water-perspective/water-texture.png"
     }
 
     ShaderEffectSource

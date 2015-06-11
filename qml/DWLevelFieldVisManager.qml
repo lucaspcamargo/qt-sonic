@@ -87,12 +87,12 @@ function init()
 
 function createVis(i)
 {
-    var c = Qt.createComponent("chunk/PLevelChunkVisual.qml");
+    var c = Qt.createComponent("chunk/PLevelChunkVisImpl.qml");
     var cp = Qt.createComponent("chunk/PLevelChunkVisualPaletted.qml");
 
     if(c)
     {
-        var paletted = String(visStubs[i]["source"]).indexOf("/tileset/") >= 0;
+        var paletted = false;//String(visStubs[i]["source"]).indexOf("/tileset/") >= 0;
         var v = (paletted ? cp : c).createObject(field);
         if(v)
         {
