@@ -19,7 +19,7 @@ ObjBadnikBase {
     DWEveryFrame
     {
         id: updater
-        enabled: active
+        enabled: badnik.active && field.fieldActive
         onUpdate:
         {
             if(previousXDelta - xDelta) sprite.mirror = (previousXDelta - xDelta > 0);

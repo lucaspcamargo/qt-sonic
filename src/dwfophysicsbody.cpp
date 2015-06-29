@@ -12,7 +12,8 @@ dwFOPhysicsBody::dwFOPhysicsBody(QObject *parent) : QObject(parent)
 
     m_enabled = true;
     m_collisionCallbackEnabled = false;
-    m_autorebuild = 0;
+    m_collisionEndCallbackEnabled = false;
+    m_autorebuild = false;
 
     m_bodyType = BT_STATIC;
     m_shapeType = ST_CIRCLE;
@@ -103,6 +104,8 @@ void dwFOPhysicsBody::rebuildBody()
     if(!shape)
         return;
 
+    QScopedPointer<b2Shape> shapeDeleter(shape);
+
     b2FixtureDef fixture;
     fixture.shape = shape;
     fixture.density = 1;
@@ -138,10 +141,15 @@ void dwFOPhysicsBody::rebuildBody()
     def.angle = 0;
 
     m_body = m_world->CreateBody(&def);
+
+    if(!m_body)
+    {
+        qDebug("[dwFOPhysicsBody] Could not create body. Rebuilding during collision callback?");
+        return;
+    }
+
     m_body->CreateFixture(&fixture)->SetUserData(this);
     m_body->SetUserData(this);
-
-    delete shape;
 
     switch (m_bodyType) {
     case BT_STATIC:

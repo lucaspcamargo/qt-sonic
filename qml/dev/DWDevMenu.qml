@@ -11,6 +11,15 @@ Item {
 
     }
 
+
+    DWImageItem
+    {
+        id: testImage
+        source: "bg/bayonetta.jpg"
+        opacity: 0.3
+        anchors.fill: parent
+    }
+
     DWDevText
     {
         anchors.horizontalCenter: parent.horizontalCenter
@@ -101,13 +110,5 @@ Item {
         onTriggered: bgm.play()
     }
 
-
-    DWImageItem
-    {
-        id: testImage
-        x: 40
-        y: 40
-        source: resBase + "obj/player/spr/sonic-cd.png"
-    }
 }
 

@@ -18,6 +18,7 @@ class dwTextureCache : public QObject
 
 public:
     explicit dwTextureCache(QObject *parent = 0);
+    virtual ~dwTextureCache();
 
     inline static dwTextureCache * singleton(){ return ms_singleton; }
 

@@ -55,7 +55,7 @@ Item {
         }
 
         ScriptAction {
-            script: gib.destroy();
+            script: field.destroyLater(gib);
         }
     }
 }

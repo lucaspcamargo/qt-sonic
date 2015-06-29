@@ -3,7 +3,7 @@
 #include "dwroot.h"
 #include "dwfieldphysicscontactlistener.h"
 
-dwFieldPhysicsWorld * dwFieldPhysicsWorld::_instance = 0;
+dwFieldPhysicsWorld * dwFieldPhysicsWorld::m_instance = 0;
 
 dwFieldPhysicsWorld::dwFieldPhysicsWorld(QObject *parent) :
     QObject(parent),
@@ -11,12 +11,12 @@ dwFieldPhysicsWorld::dwFieldPhysicsWorld(QObject *parent) :
     refCounter(0),
     m_physicsScale(1)
 {
-    _instance = this;
+    m_instance = this;
 
     m_drawFlags = (e_shapeBit | e_jointBit | e_pairBit);
-    _world = new b2World(b2Vec2(0, 9.81));
-    _world->SetDebugDraw(this);
-    _world->SetContactListener( new dwFieldPhysicsContactListener(this) );
+    m_world = new b2World(b2Vec2(0, 9.81));
+    m_world->SetDebugDraw(this);
+    m_world->SetContactListener( m_contactListener = new dwFieldPhysicsContactListener(this) );
 
     m_doingDebugDraw = false;
 
@@ -28,7 +28,8 @@ void dwFieldPhysicsWorld::update(float dt)
 {
     emit beforeUpdating(dt);
 
-    _world->Step(dt, 8, 3, 3);
+    m_world->Step(dt, 8, 3, 3);
+    m_contactListener->processCallbacks();
 
 //    for ( b2Body* b = _world->GetBodyList(); b; b = b->GetNext())
 //    {
@@ -54,7 +55,7 @@ int dwFieldPhysicsWorld::addLevelGeomRect(float centerX, float centerY, float ha
     def.position = b2Vec2(centerX*m_physicsScale, centerY*m_physicsScale);
     def.angle = rotationDeg * M_PI / 180.0;
 
-    b2Body * body = _world->CreateBody(&def);
+    b2Body * body = m_world->CreateBody(&def);
 
     b2PolygonShape shape;
     shape.SetAsBox(halfWidth*m_physicsScale, halfHeight*m_physicsScale, b2Vec2(0,0), 0 );
@@ -74,7 +75,7 @@ int dwFieldPhysicsWorld::addLevelGeomEdge(float x1, float y1, float x2, float y2
     def.type = b2_staticBody;
     def.position = b2Vec2(x1*m_physicsScale, y1*m_physicsScale);
 
-    b2Body * body = _world->CreateBody(&def);
+    b2Body * body = m_world->CreateBody(&def);
 
     b2EdgeShape shape;
     shape.Set(b2Vec2(0,0), b2Vec2((x2-x1)*m_physicsScale, (y2-y1)*m_physicsScale));
@@ -96,7 +97,7 @@ int dwFieldPhysicsWorld::addLevelGeomArc(float centerX, float centerY, float rad
     def.angle = rotationDeg*M_PI/180.0 - M_PI_2 * quadrant;
 
 
-    b2Body * body = _world->CreateBody(&def);
+    b2Body * body = m_world->CreateBody(&def);
 
     int ARC_SEGMENTS = static_cast<int>(qMax(radius / 8.0 , 1.0));
     b2ChainShape shape;
@@ -133,7 +134,7 @@ void dwFieldPhysicsWorld::removeLevelGeom(int id)
 {
     if(_refBodies.contains(id))
     {
-        _world->DestroyBody(_refBodies[id]);
+        m_world->DestroyBody(_refBodies[id]);
         _refBodies.remove(id);
     }
 }
@@ -142,7 +143,7 @@ void dwFieldPhysicsWorld::removeAllLevelGeom()
 {
     foreach (b2Body * body, _refBodies)
     {
-        _world->DestroyBody(body);
+        m_world->DestroyBody(body);
     }
 
     _refBodies.clear();
@@ -183,7 +184,7 @@ QVector4D dwFieldPhysicsWorld::raycast(float x1, float y1, float x2, float y2, i
 {
 
     MyFilteredRayCastCallback callback(categories);
-    _world->RayCast(&callback, b2Vec2(x1*m_physicsScale, y1*m_physicsScale), b2Vec2(x2*m_physicsScale, y2*m_physicsScale) );
+    m_world->RayCast(&callback, b2Vec2(x1*m_physicsScale, y1*m_physicsScale), b2Vec2(x2*m_physicsScale, y2*m_physicsScale) );
 
     if(m_doingDebugDraw && m_raysDrawBeginPoints.length() < 32)
     {
@@ -201,7 +202,7 @@ void dwFieldPhysicsWorld::makeMeABox(QQuickItem *item)
     def.position = b2Vec2((item->x() + item->width()/2)*m_physicsScale, (item->y() + item->height()/2)*m_physicsScale);
     def.angle = item->rotation() * M_PI / 180.0;
 
-    b2Body * body = _world->CreateBody(&def);
+    b2Body * body = m_world->CreateBody(&def);
     _refBodies.insert(++refCounter, body);
 
     b2PolygonShape shape;
@@ -219,7 +220,7 @@ void dwFieldPhysicsWorld::makeMeABox(QQuickItem *item)
 void dwFieldPhysicsWorld::debugDraw()
 {
     m_doingDebugDraw = true;
-    _world->DrawDebugData();
+    m_world->DrawDebugData();
 
     for(int i = 0; i < m_raysDrawBeginPoints.length(); i++)
     {

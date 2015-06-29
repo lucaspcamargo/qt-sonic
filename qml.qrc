@@ -113,5 +113,6 @@
         <file>qml/glsl/calgaritriad_fp.glsl</file>
         <file>qml/glsl/screen_renderer_water_vp.glsl</file>
         <file>qml/chunk/PLevelChunkVisImpl.qml</file>
+        <file>qml/tools/editor/EObjectDisplay.qml</file>
     </qresource>
 </RCC>

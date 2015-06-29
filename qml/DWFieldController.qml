@@ -18,6 +18,7 @@ Item {
     property int previousBGMIndex: -1
     property int drownBGMIndex: -1
 
+    property bool playerDead: false
     property bool playerDrowning: false
 
     property var redRingsRef: []
@@ -49,7 +50,11 @@ Item {
 
     function togglePause()
     {
-        paused = !paused;
+        if(paused)
+            paused = false;
+        else
+            if(!playerDead)
+                paused = true;
     }
 
     onPausedChanged:
@@ -76,6 +81,7 @@ Item {
 
     function playerDied()
     {
+        playerDead = true;
         deathAnimation.running = true;
 
         if(playerDrowning)
@@ -87,7 +93,6 @@ Item {
     SequentialAnimation
     {
         id: deathAnimation
-
 
         // give player some time to fall down
         PauseAnimation {
@@ -119,6 +124,7 @@ Item {
         {
             script:
             {
+                playerDead = false;
 
                 if(checkpointReached)
                 {
@@ -131,10 +137,11 @@ Item {
                     field.player.y = levelData.playerY;
                     field.fieldTime = 0;
                 }
+
                 field.player.reset();
                 field.reset();
 
-                fieldController.rings = 0;
+                rings = 0;
                 titleAnimation.bgmIndexToPlay = previousBGMIndex;
                 titleAnimation.running = true;
                 drownOverlay.opacity = 0;

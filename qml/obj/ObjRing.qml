@@ -82,6 +82,7 @@ DWFieldObject{
                     x += xS*dt;
                     y += yS*dt;
                 }
+
             }else if(attraction && !flying)
             {
                 flying = true;
@@ -174,7 +175,7 @@ DWFieldObject{
 
         ScriptAction
         {
-            script: ring.destroy()
+            script: field.destroyLater(ring)
         }
 
     }
@@ -198,10 +199,7 @@ DWFieldObject{
 
         ScriptAction
         {
-            script:
-            {
-                ring.destroy();
-            }
+            script: field.destroyLater(ring)
         }
     }
 }

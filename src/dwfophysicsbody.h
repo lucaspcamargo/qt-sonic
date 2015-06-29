@@ -14,6 +14,7 @@ class dwFOPhysicsBody : public QObject
 
     Q_PROPERTY(bool active READ enabled WRITE setEnabled NOTIFY enabledChanged)
     Q_PROPERTY(bool collisionCallbackEnabled READ collisionCallbackEnabled WRITE setCollisionCallbackEnabled NOTIFY collisionCallbackEnabledChanged)
+    Q_PROPERTY(bool collisionEndCallbackEnabled READ collisionEndCallbackEnabled WRITE setCollisionEndCallbackEnabled NOTIFY collisionEndCallbackEnabledChanged)
     Q_PROPERTY(bool autorebuild READ autorebuild WRITE setAutorebuild NOTIFY autorebuildChanged)
 
     Q_PROPERTY(QPointF origin READ origin WRITE setOrigin NOTIFY originChanged)
@@ -25,6 +26,8 @@ class dwFOPhysicsBody : public QObject
     Q_PROPERTY(int shapeCategory READ shapeCategory WRITE setShapeCategory NOTIFY shapeCategoryChanged)
     Q_PROPERTY(int shapeCollisionMask READ shapeCollisionMask WRITE setShapeCollisionMask NOTIFY shapeCollisionMaskChanged)
     Q_PROPERTY(bool sensor READ sensor WRITE setSensor NOTIFY sensorChanged)
+
+    Q_PROPERTY(QQuickItem* fieldObject READ fieldObject CONSTANT)
 
 public:
 
@@ -97,9 +100,21 @@ public:
         return m_collisionCallbackEnabled;
     }
 
+    QQuickItem* fieldObject()
+    {
+        return m_object;
+    }
+
+    bool collisionEndCallbackEnabled() const
+    {
+        return m_collisionEndCallbackEnabled;
+    }
+
 signals:
 
     void collision(int colliderCategory, QObject * collider);
+
+    void collisionEnd(int colliderCategory, QObject * collider);
 
     void shapeDataChanged(QVector4D arg);
 
@@ -120,6 +135,8 @@ signals:
     void sensorChanged(bool arg);
 
     void collisionCallbackEnabledChanged(bool arg);
+
+    void collisionEndCallbackEnabledChanged(bool collisionEndCallbackEnabled);
 
 public slots:
 
@@ -240,6 +257,15 @@ public slots:
             m_body->SetAngularVelocity( velocity );
     }
 
+    void setCollisionEndCallbackEnabled(bool collisionEndCallbackEnabled)
+    {
+        if (m_collisionEndCallbackEnabled == collisionEndCallbackEnabled)
+            return;
+
+        m_collisionEndCallbackEnabled = collisionEndCallbackEnabled;
+        emit collisionEndCallbackEnabledChanged(collisionEndCallbackEnabled);
+    }
+
 private:
 
     QQuickItem * m_object;
@@ -260,6 +286,7 @@ private:
     qreal m_scale;
     qreal m_invScale;
     bool m_collisionCallbackEnabled;
+    bool m_collisionEndCallbackEnabled;
 };
 
 #endif // DWFOPHYSICSBODY_H

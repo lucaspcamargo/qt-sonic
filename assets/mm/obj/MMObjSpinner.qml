@@ -1,14 +1,12 @@
 import QtQuick 2.0
 import dw 1.0
-import ".."
+import "qrc:/core/qml/obj"
 
-
-DWFieldObject
+ObjHarmfulBase
 {
     id: obstacle
     width: 64
     height: 8
-    z: field.objAZ
 
     AnimatedSprite
     {
@@ -21,18 +19,6 @@ DWFieldObject
         interpolate: false
     }
 
-    DWEveryFrame
-    {
-        id: updater
-        enabled: active
-
-        onUpdate:
-        {
-            if(overlapPlayerI(obstacle) && !player.playerInvincible )
-            {
-                player.getHit(obstacle.x + obstacle.width/2, obstacle.y + obstacle.height / 2);
-            }
-        }
-    }
+    Component.onCompleted: buildPhysicsBody()
 
 }

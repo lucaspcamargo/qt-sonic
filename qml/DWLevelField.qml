@@ -12,7 +12,10 @@ DWField {
     property real fieldTime: 0
     property bool fieldEditMode: false
 
-    signal resetted()
+    signal resetted
+
+    signal preUpdate
+    signal postUpdate
 
     property real bgZ: -5
     property real visualBgZ: -4
@@ -170,7 +173,6 @@ DWField {
             var effect = effectComponent.createObject(this, effectData.effectParams);
         }
 
-        gc();
 
     }
 
@@ -182,12 +184,19 @@ DWField {
     }
 
 
-    Component.onDestruction: screenRenderer.waterEnabled = false;
+    Component.onDestruction:
+    {
+        screenRenderer.waterEnabled = false;
+        screenRenderer.waterLevel = 1;
+        gc();
+    }
 
     DWEveryFrame
     {
         onUpdate:
         {
+            preUpdate();
+
             if(fieldActive)
             {
                 fieldTime += dt;
@@ -219,7 +228,26 @@ DWField {
 
             if(physicsWorldDrawer && physicsWorldDrawer.visible)
                 physicsWorldDrawer.updateNow();
+
+            postUpdate();
         }
+
+    }
+
+    property var destroyList: []
+
+    function destroyLater(d)
+    {
+        destroyList.push(d);
+    }
+
+    onPostUpdate: {
+        for(var i = 0; i < destroyList.length; i++)
+        {
+            destroyList[i].destroy();
+        }
+
+        destroyList = [];
     }
 
     function createExplosion(x, y)

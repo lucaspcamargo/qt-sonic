@@ -5,12 +5,16 @@ import "editor" 1.0
 Item {
 
     id: levelEditor
-    anchors.fill: parent
+
+    width: parent.width/levelEditor.scale
+    height: parent.height/levelEditor.scale
+    scale: Math.max(0.5, parent.width / rootWindow.width)
+    anchors.centerIn: parent
     visible: false
 
     property bool cursorOnField: editorMouseArea.containsMouse
-    property int cursorPreciseX: (editorMouseArea.mouseX - field.x)/field.viewScale
-    property int cursorPreciseY: (editorMouseArea.mouseY - field.y)/field.viewScale
+    property int cursorPreciseX: (editorMouseArea.mouseX*levelEditor.scale - field.x)/field.viewScale
+    property int cursorPreciseY: (editorMouseArea.mouseY*levelEditor.scale - field.y)/field.viewScale
     property int cursorX: snapEnabled? Math.round(cursorPreciseX/snapAmount) * snapAmount : cursorPreciseX
     property int cursorY: snapEnabled? Math.round(cursorPreciseY/snapAmount) * snapAmount : cursorPreciseY
 
@@ -24,6 +28,9 @@ Item {
 
     property var handlesLayer: null
 
+    property var objLib: [
+        {name: "Ring", },
+    ]
 
     MouseArea
     {
@@ -34,7 +41,7 @@ Item {
         cursorShape: panning? Qt.SizeAllCursor : Qt.BlankCursor
 
         property bool panning: false
-        property bool selecting: false
+        property bool selectingRect: false
         property int selectX: 0
         property int selectY: 0
         property int originalX: 0
@@ -46,8 +53,7 @@ Item {
         {
             if(mouse.button == Qt.LeftButton)
             {
-                selectX = cursorX;
-                selectY = cursorY;
+                handlesLayer.selectAt(cursorX, cursorY);
             }
 
             if(mouse.button == Qt.MiddleButton)
@@ -64,13 +70,17 @@ Item {
 
         onReleased:
         {
-            if(mouse.button == Qt.LeftButton)
+            if(mouse.button === Qt.LeftButton)
             {
-                selecting = false;
-                handlesLayer.selectionRect.set(false);
+                if(selectingRect)
+                {
+                    handlesLayer.selectRect();
+                    handlesLayer.selectionRect.set(false);
+                    selectingRect = false;
+                }
             }
 
-            if(mouse.button == Qt.MiddleButton)
+            if(mouse.button === Qt.MiddleButton)
             {
                 panning = false;
             }
@@ -80,15 +90,16 @@ Item {
 
         onPositionChanged:
         {
-            if(!selecting && (mouse.buttons & Qt.LeftButton))
-            {
-                selecting = true;
-            }
-
-            if(selecting)
+            if(selectingRect)
             {
                 handlesLayer.selectionRect.set(true, Qt.point(cursorX, cursorY), Qt.point(selectX, selectY));
-                console.log(selecting);
+            }
+
+            if(!selectingRect && (mouse.buttons & Qt.LeftButton))
+            {
+                selectingRect = true;
+                selectX = cursorX;
+                selectY = cursorY;
             }
 
             if(panning)
@@ -120,7 +131,7 @@ Item {
         id: cursorGuideVertical
         height: parent.height
         width: 1
-        x: Math.round(cursorX*field.viewScale + field.x)
+        x: Math.round( cursorX * field.viewScale + field.x)/levelEditor.scale
         visible: editorMouseArea.containsMouse
     }
 
@@ -129,7 +140,7 @@ Item {
         id: cursorGuideHorizontal
         width: parent.width
         height: 1
-        y: Math.round(cursorY*field.viewScale + field.y)
+        y: Math.round(cursorY*field.viewScale + field.y)/levelEditor.scale
         visible: editorMouseArea.containsMouse
     }
 
@@ -147,13 +158,18 @@ Item {
     {
         id: editorMenuBar
 
-        height: 12
+        height: 14
         width: parent.width
 
         color: "black"
 
-        DWTextBitmap
-        {
+        MouseArea        {
+            //intercept
+            anchors.fill: parent
+            hoverEnabled: true
+        }
+
+        DWTextBitmap        {
             x: 2
             y: 2
             font: "xexex-multi"
@@ -162,44 +178,37 @@ Item {
             text: "Level Editor"
         }
 
-        Row
-        {
+        Row        {
             spacing: 2
             anchors.right: parent.right
 
-            EButton
-            {
+            EButton            {
                 text: "RELOAD"
                 onClicked: changeEditMode()
             }
 
-            EButton
-            {
+            EButton            {
                 text: "SAVE"
                 onClicked: changeEditMode()
             }
 
-            EButton
-            {
+            EButton            {
                 text: editModeNames[editMode]
                 onClicked: changeEditMode()
             }
 
-            EButton
-            {
+            EButton            {
                 text: snapEnabled? "SNAP" : "PRECISE"
                 onClicked: snapEnabled = !snapEnabled
             }
 
-            EButton
-            {
+            EButton            {
                 text: snapAmount
                 visible: snapEnabled
                 onClicked: changeSnapAmount()
             }
 
-            EButton
-            {
+            EButton            {
                 text: "DONE"
                 onClicked: toggleVisible()
             }
@@ -207,6 +216,35 @@ Item {
 
     }
 
+    Row
+    {
+        id: objShortcutsRow
+
+        x: 2
+        y: 16
+
+        spacing: 2
+
+        EObjectDisplay
+        {
+            id: objDisplayCurrent
+
+            label: "CURR"
+            name: "RING"
+        }
+        Repeater
+        {
+            model: 10
+
+            EObjectDisplay
+            {
+                label: (index + 1) % 10
+                name: "RING"
+            }
+        }
+
+
+    }
 
     Rectangle
     {
@@ -217,6 +255,13 @@ Item {
         width: parent.width
 
         color: "black"
+
+        MouseArea
+        {
+            //intercept
+            anchors.fill: parent
+            hoverEnabled: true
+        }
 
         DWTextBitmap
         {
@@ -229,9 +274,19 @@ Item {
         }
     }
 
+    function addObject( historyIndex )
+    {
+        if(!historyIndex)
+        {
+
+        }
+    }
+
 
     function toggleVisible()
     {
+        fieldController.paused = false;
+
         visible = !visible;
 
         if(visible) forceActiveFocus();
@@ -270,6 +325,16 @@ Item {
 
         if(event.key == Qt.Key_A)
             changeSnapAmount();
+
+        if(event.key == Qt.Key_Delete || event.key == Qt.Key_X || event.key == Qt.Key_Backspace )
+            handlesLayer.deleteSelection();
+
+        event.accepted = true;
+    }
+
+    Keys.onSpacePressed:
+    {
+        addObject();
     }
 
     Component.onCompleted:

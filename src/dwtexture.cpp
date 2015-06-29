@@ -18,8 +18,11 @@ dwTexture::dwTexture( QUrl source, QImage image ) :
 
 dwTexture::~dwTexture()
 {
-    if(m_texture) dwTextureCache::singleton()->deleteAfterRendering(m_texture);
-    if(m_glTexture) dwTextureCache::singleton()->deleteAfterRendering(m_glTexture);
+    dwTextureCache * c = dwTextureCache::singleton();
+    if(!c) return;
+
+    if(m_texture) c->deleteAfterRendering(m_texture);
+    if(m_glTexture) c->deleteAfterRendering(m_glTexture);
 }
 
 #include <QQuickWindow>
@@ -100,8 +103,6 @@ void dwTexture::realize(QQuickWindow *window)
 
             m_glTexture->allocateStorage();
             m_glTexture->setData(0, pixFmt, pixType, (const void*) m_image.bits());
-
-            qDebug() << "TEXTURE FORMAT " << static_cast<int>(m_glTexture->format());
 
             QQuickWindow::CreateTextureOptions opts = m_image.hasAlphaChannel()?
                         QQuickWindow::TextureHasAlphaChannel :

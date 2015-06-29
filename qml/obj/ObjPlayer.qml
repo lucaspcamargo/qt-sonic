@@ -297,7 +297,15 @@ DWPlayerBase {
         }
     }
 
+    // we need to process getting hit on object update, not in physics step
+    property bool hitFlag: false
+
     onGotHit:
+    {
+            hitFlag = true;
+    }
+
+    function handleHit()
     {
         hurtOverlay.playAnimation()
 
@@ -456,6 +464,12 @@ DWPlayerBase {
 
     function update(dt)
     {
+        if(hitFlag)
+        {
+            hitFlag = false;
+            handleHit();
+        }
+
         if(!playerDead)
         {
             injectControl(controls.directionValueX, controls.directionValueY, controls.aPressed, controls.bPressed);

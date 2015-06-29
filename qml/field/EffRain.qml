@@ -6,32 +6,23 @@ Image {
     id: rainOverlay
     source: resBase + "field/rain/overlay.png"
 
-    width: field.viewWidth + sourceSize.width * 2
+    width: field.viewWidth + sourceSize.width * 4
     height: Math.max( 0, Math.min( field.viewHeight + sourceSize.height * 2, field.waterY - y ) )
+    fillMode: Image.Tile
 
-    x: -field.x - offsetX%sourceSize.width - sourceSize.width
-    y: -field.y - offsetY%sourceSize.height - sourceSize.height
+    x: field.viewCenterAtX - offsetX%sourceSize.width - 2*sourceSize.width
+    y: field.viewCenterAtY - offsetY%sourceSize.height - 2*sourceSize.height
     z: field.fgZ
 
     property var splashes: []
-    property int numSplashes: Qt.platform.os == "android"? 4 : 6
+    property int numSplashes: _DW_MOBILE? 4 : 6
     property int offsetX: 0
     property int offsetY: 0
 
-    enabled: true
-    opacity: enabled? 1 : 0
+    property bool active: true
+    opacity: active? 1 : 0
 
-    Behavior on opacity {
-        NumberAnimation
-        {
-            duration: 1500
-        }
-    }
-
-
-    fillMode: Image.Tile
-
-
+    OpacityAnimator { duration: 5000 }
 
     DWEveryFrame
     {
@@ -64,7 +55,8 @@ Image {
 
                 var closest = physicsWorld.raycastClosestDistance(rayX, rayY, rayX, rayYEnd,
                                                     DWFieldPhysicsWorld.CC_LAYER_A | DWFieldPhysicsWorld.CC_LAYER_A_ONLYTOP |
-                                                    DWFieldPhysicsWorld.CC_LAYER_B | DWFieldPhysicsWorld.CC_LAYER_B_ONLYTOP );
+                                                    DWFieldPhysicsWorld.CC_LAYER_B | DWFieldPhysicsWorld.CC_LAYER_B_ONLYTOP |
+                                                    DWFieldPhysicsWorld.CC_DYNAMIC | DWFieldPhysicsWorld.CC_PLAYER );
                 if(closest > 0 || hitsWater)
                 {
                     splashes[i].x = Math.round(-x + rayX - splashes[i].width/2);
@@ -89,7 +81,7 @@ Image {
         {
             id: splash
             source: resBase + "field/rain/splash.png";
-            Component.onCompleted: splashes[index] = splash
+            Component.onCompleted: splashes.push(splash)
         }
 
     }

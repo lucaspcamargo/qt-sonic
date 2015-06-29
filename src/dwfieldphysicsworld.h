@@ -9,6 +9,8 @@
 #include <QVector2D>
 #include <QVector4D>
 
+class dwFieldPhysicsContactListener;
+
 class dwFieldPhysicsWorld : public QObject, public b2Draw
 {
     Q_OBJECT
@@ -48,8 +50,8 @@ public:
     void DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color);
     void DrawTransform(const b2Transform& xf);
 
-    static dwFieldPhysicsWorld * singleton(){ return _instance; }
-    b2World * world() {return _world;}
+    static dwFieldPhysicsWorld * singleton(){ return m_instance; }
+    b2World * world() {return m_world;}
 
 signals:
     void beforeUpdating(float dt);
@@ -90,11 +92,12 @@ public slots:
 
 private:
     int refCounter;
-    b2World * _world;
+    b2World * m_world;
+    dwFieldPhysicsContactListener * m_contactListener;
     QMap<int, b2Body *> _refBodies;
     float m_physicsScale;
 
-    static dwFieldPhysicsWorld * _instance;
+    static dwFieldPhysicsWorld * m_instance;
 
     bool m_doingDebugDraw;
     QList<QVector2D> m_raysDrawBeginPoints;

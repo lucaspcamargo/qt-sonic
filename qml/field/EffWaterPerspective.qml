@@ -6,7 +6,7 @@ ShaderEffect {
     id: waterPerspective
 
     width: field.viewWidth
-    height: Math.round(Math.abs(field.viewCenterAtY - field.waterY /*fix for water bobbing up and down at the horizon - (field.waterY - field.waterYCenter)*/ )/1.5)
+    height: Math.round(Math.abs(field.viewCenterAtY - field.waterY )/1.3)
 
     y: field.waterY - (underwater? 0 : height)
     x: -field.x
@@ -66,7 +66,7 @@ ShaderEffect {
         live: reflectionEnabled && waterPerspective.visible
         sourceItem: bg
         sourceRect: reflRect
-        textureSize: Qt.size(waterPerspective.width, 64)
+        textureSize: Qt.size(waterPerspective.width, _DW_MOBILE? 64 : 128)
         parent: null
         wrapMode: ShaderEffectSource.ClampToEdge
     }

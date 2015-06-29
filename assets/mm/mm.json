@@ -20,7 +20,7 @@
 	    "inPrefix": true
 	}
     ],
-    
+
     "chunks": [
 	{
 	    "chunkSource": "chunk0.qml",
@@ -34,7 +34,7 @@
 	}
 
     ],
-    
+
     "effects": [
 	{
 	    "effect": "EffWaterPerspective",
@@ -48,7 +48,7 @@
 	    "effectParams": {
 	    },
 	    "inPrefix": false
-    }
+        }
     ],
 
     "playerX": -396,
@@ -63,8 +63,8 @@
     "waterColor": "#8df",
     "waterYCenter": 1000,
     "waterYAmplitude": 8,
-    
+
     "objStubs": "",
     "visStubs": "",
     "geometryStubs": ""
-} 
+}

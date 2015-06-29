@@ -4,7 +4,7 @@ Row {
     id: row
     property string text: ""
     property string font: "chaotix-hud"
-    property bool asyncronous: true
+    property bool asyncronous: false
     property bool active: visible
     property int offset: 0
 

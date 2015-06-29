@@ -70,7 +70,6 @@ Item {
             duration: 500
         }
     }
-*/
 
     DWImageItem
     {
@@ -78,6 +77,7 @@ Item {
         opacity: 0.2
         source: "bg/bayonetta.jpg"
     }
+*/
 
     MouseArea
     {

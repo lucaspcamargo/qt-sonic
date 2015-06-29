@@ -63,7 +63,7 @@ Image{
 
             x += Math.round((1 - size/5) * 2 * (0.5-Math.random()));
 
-            if(!field.overlapViewI(bubble) || (y + height/2) < field.waterY)
+            if(!field.overlapView2I(bubble) || (y + height/2) < field.waterY)
             {
                 bubble.destroy();
             }

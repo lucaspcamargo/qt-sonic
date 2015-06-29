@@ -114,7 +114,6 @@ android {
     LIBS += -lOpenSLES
 }
 
-DISTFILES += \
-    qml/glsl/phosphorish_fp.glsl
+DISTFILES +=
 
 

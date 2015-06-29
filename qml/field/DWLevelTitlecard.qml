@@ -81,7 +81,7 @@ Item
                 field.fieldActive = true;
 
                 sceneTitle.visible = true;
-                sceneTitle.animDuration = 750;
+                sceneTitle.animDuration = _DW_DEBUG? 0 : 750;
                 globalFader.opacity = 0;
                 title.x = 128 + 4
                 titleDecoration.x = 0
@@ -103,7 +103,7 @@ Item
 
 
         PauseAnimation {
-            duration: 1500
+            duration: _DW_DEBUG? 0 : 1500
         }
 
         ScriptAction {
@@ -111,7 +111,7 @@ Item
         }
 
         PauseAnimation {
-            duration: 500
+            duration: _DW_DEBUG? 0 : 500
         }
 
         ScriptAction {
@@ -122,12 +122,12 @@ Item
 
                 if(_DW_MOBILE) dwLogo.visible = true;
 
-                sceneTitle.animDuration = 300;
+                sceneTitle.animDuration = _DW_DEBUG? 0 : 300;
             }
         }
 
         PauseAnimation {
-            duration: 500
+            duration: _DW_DEBUG? 0 : 500
         }
 
         ScriptAction {
@@ -140,14 +140,14 @@ Item
         }
 
         PauseAnimation {
-            duration: sceneTitle.animDuration
+            duration: _DW_DEBUG? 0 : sceneTitle.animDuration
         }
 
         ScriptAction {
             script:
             {
                 sceneTitle.visible = false;
-                sceneTitle.animDuration = 750;
+                sceneTitle.animDuration = _DW_DEBUG? 0 : 750;
             }
         }
 

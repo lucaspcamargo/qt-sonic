@@ -9,6 +9,7 @@ Item {
     scale: field.scale
 
     property var handles: []
+    property var selectedHandles: []
 
     Component {
         id: handleComponent
@@ -16,11 +17,14 @@ Item {
         Rectangle {
 
             id: handle
+
+            property int index: -1
             property var ref: null
             property var stubRef: null
+            property bool selected: false
 
-            color: Qt.rgba(1,0,1,0.25)
-            border.color: "magenta"
+            color: selected? Qt.rgba(1,1,0,0.3) : Qt.rgba(1,0,1,0.25)
+            border.color: selected? "yellow" : "magenta"
             border.width: 1
 
             function setup()
@@ -29,6 +33,12 @@ Item {
                 y = ref.y;
                 width = ref.width;
                 height = ref.height;
+            }
+
+            function deleteObject()
+            {
+                field.objectManager.removeObjStub(index);
+                destroy();
             }
 
             MouseArea {
@@ -47,6 +57,7 @@ Item {
             if(obj)
             {
                 var h = handleComponent.createObject(handlesLayer);
+                h.index = i;
                 h.ref = obj;
                 h.setup();
 
@@ -61,7 +72,7 @@ Item {
 
     }
 
-    property var selectionRect: Rectangle {
+    property Rectangle selectionRect: Rectangle {
         parent: handlesLayer
         visible: false
         color: Qt.rgba(0,1,1,0.5)
@@ -84,6 +95,59 @@ Item {
 
                 visible = false;
             }
+
+        }
+    }
+
+    function clearSelection()
+    {
+        for(var i = 0; i < selectedHandles.length; i++)
+        {
+            selectedHandles[i].selected = false;
+        }
+
+        selectedHandles = [];
+    }
+
+    function deleteSelection()
+    {
+        for(var i = 0; i < selectedHandles.length; i++)
+        {
+            handles.splice(handles.indexOf(selectedHandles[i]), 1);
+            selectedHandles[i].deleteObject();
+        }
+
+        selectedHandles = [];
+    }
+
+    function selectRect()
+    {
+        clearSelection();
+
+        for(var i = 0; i < handlesLayer.children.length; i++)
+        {
+            var child = handlesLayer.children[i];
+            if(child === selectionRect) continue;
+            var childOverlaps = field.overlapI(selectionRect, child);
+            if(childOverlaps)
+            {
+                child.selected = true;
+                selectedHandles.push(child);
+            }
+        }
+    }
+
+    function selectAt(x, y)
+    {
+        clearSelection();
+
+        var child = childAt(x, y);
+        if(child)
+        {
+            if(child === selectionRect) return;
+
+            child.selected = true;
+            selectedHandles.push(child);
         }
     }
 }

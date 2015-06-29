@@ -38,24 +38,22 @@ QtObject
         objStubsCount++;
     }
 
-    function warmupCaches()
-    {
-        for(var i = 0; i < objStubs.length; i ++)
-        {
-            if(recreate[i] && objCreated[i] != true)
-            {
-                var o = createObject(i);
-                objectDestroyed(i, true);
-                o.destroy();
-            }
-        }
-    }
-
-
     function init()
     {
         for(var i = 0; i < objStubs.length; i++)
-            createObject(i);
+            if(objStubs[i])
+                createObject(i);
+    }
+
+    function removeObjStub(index)
+    {
+        if(objs[index])
+        {
+            objs[index].destroy();
+            objectDestroyed(index, true);
+        }
+
+        objStubs[index] = null;
     }
 
     function update(dt)
@@ -127,10 +125,17 @@ QtObject
 
                 }
 
-                var bvhNode = fieldBVH.createNode(objXC[i], objYC[i], obj.radius? obj.radius : objRadius[i], fieldBVH.rootNode);
+
+                var bvhNode = objBVHNode[i];
+
+                if(!bvhNode)
+                {
+                    bvhNode = fieldBVH.createNode(objXC[i], objYC[i], obj.radius? obj.radius : objRadius[i], fieldBVH.rootNode);
+                    objBVHNode[i] = bvhNode;
+                }
+
                 bvhNode.activated.connect(obj.activate);
                 bvhNode.deactivated.connect(obj.deactivate);
-                objBVHNode[i] = bvhNode;
 
                 return obj;
             }

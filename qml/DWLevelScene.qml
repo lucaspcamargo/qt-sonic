@@ -153,7 +153,7 @@ Item {
         id: sceneFader
         color: "black"
         anchors.fill: parent
-        visible: opacity != 0
+        visible: (!_DW_DEBUG) && opacity != 0
 
         Behavior on opacity { NumberAnimation{duration: 500}}
     }

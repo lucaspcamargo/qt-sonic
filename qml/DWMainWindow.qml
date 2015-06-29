@@ -147,6 +147,7 @@ Window {
                             DWUtil.readTextFile(Qt.resolvedUrl("glsl/"+renderShaders[renderShaderIndex].toLowerCase()+"_fp.glsl")) : ""
     }
 
+
     ShaderEffectSource
     {
         id: shaderRendererSource

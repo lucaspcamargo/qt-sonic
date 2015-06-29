@@ -32,41 +32,57 @@ AnimatedSprite{
     {
         onUpdate:
         {
-                yS += 0.25 * 60 * 60 * dt;
+            yS += 0.25 * 60 * 60 * dt;
 
-                flicky.x += xS * dt;
-                flicky.y += yS * dt;
+            flicky.x += xS * dt;
+            flicky.y += yS * dt;
 
-                var categoriesDown = 0x04 | 0x08 | 0x10 | 0x20;
-                var categories = 0x04 | 0x08;
+            var categoriesDown = 0x04 | 0x08 | 0x10 | 0x20;
+            var categories = 0x04 | 0x08;
 
-                if(yS > 0)
+            if(yS > 0)
+            {
+                var rayCastDown = physicsWorld.raycastClosestDistance(flicky.x + flicky.width / 2, flicky.y + flicky.height / 2, flicky.x + flicky.width / 2, flicky.y+flicky.height, categoriesDown);
+                if(rayCastDown > 0)
                 {
-                    var rayCastDown = physicsWorld.raycastClosestDistance(flicky.x + flicky.width / 2, flicky.y + flicky.height / 2, flicky.x + flicky.width / 2, flicky.y+flicky.height, categoriesDown);
-                    if(rayCastDown > 0)
-                    {
-                        flicky.yS *= -1;
-                        if(flicky.yS > -60) flicky.yS = 60;
-                        flicky.y -= (flicky.height/2)*rayCastDown;
+                    flicky.yS *= -1;
+                    if(flicky.yS > -60) flicky.yS = 60;
+                    flicky.y -= (flicky.height/2)*rayCastDown;
 
-                        if(!goingAway)
-                        {
-                            xS = (field.viewCenterAtX > x)? -100 : 100;
-                            frameX = 24;
-                            frameCount = 2;
-                            yS = -5*60;
-                            goingAway = true;
-                        }
+                    if(!goingAway)
+                    {
+                        xS = (field.viewCenterAtX > x)? -100 : 100;
+                        frameX = 24;
+                        frameCount = 2;
+                        yS = -5*60;
+                        goingAway = true;
                     }
                 }
+            }
+        }
+    }
 
-                if(goingAway && !overlapViewI(flicky))
-                {
-                    flicky.destroy();
-                    if(managerIndex > 0) objManager.objectDestroyed(managerIndex);
-                }
+    SequentialAnimation
+    {
+        id: awayAnim
+        running: goingAway
 
+        PauseAnimation { duration: 6000 }
+
+        PropertyAnimation
+        {
+            id: fadeAnimation
+            target: flicky
+            property: "opacity"
+            to: 0.0
+            duration: 3000
 
         }
+
+        ScriptAction
+        {
+            script: field.destroyLater(flicky)
+        }
+
     }
 }

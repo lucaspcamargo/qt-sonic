@@ -26,6 +26,11 @@ dwTextureCache::dwTextureCache(QObject *parent) : QObject(parent)
     qDebug(initStr.toLocal8Bit());
 }
 
+dwTextureCache::~dwTextureCache()
+{
+    ms_singleton = 0;
+}
+
 QSharedPointer<dwTexture> dwTextureCache::getTexture(QUrl source, QQuickWindow *window)
 {
     source = source.adjusted(QUrl::NormalizePathSegments);
