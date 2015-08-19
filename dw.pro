@@ -8,16 +8,17 @@ SOURCES += \
     src/dwfieldphysicsworld.cpp \
     src/dwtypes.cpp \
     src/dweveryframe.cpp \
-    thirdparty/neiasound/src/nSoundBag.cpp \
-    thirdparty/neiasound/src/nSoundBuffer.cpp \
-    thirdparty/neiasound/src/nSoundEffectParameters.cpp \
-    thirdparty/neiasound/src/nSoundListener.cpp \
-    thirdparty/neiasound/src/nSoundSource.cpp \
-    thirdparty/neiasound/src/nSoundStream.cpp \
-    thirdparty/neiasound/src/nSoundStreamer.cpp \
-    thirdparty/neiasound/src/nSoundStreamerPlaylist.cpp \
-    thirdparty/neiasound/src/nSoundSystem.cpp \
-    thirdparty/neiasound/src/util/nEfxHelper.cpp \
+    thirdparty/neiasound/src/nsoundbag.cpp \
+    thirdparty/neiasound/src/nsoundbuffer.cpp \
+    thirdparty/neiasound/src/nsoundeffectparameters.cpp \
+    thirdparty/neiasound/src/nsoundfilter.cpp \
+    thirdparty/neiasound/src/nsoundlistener.cpp \
+    thirdparty/neiasound/src/nsoundsource.cpp \
+    thirdparty/neiasound/src/nsoundstream.cpp \
+    thirdparty/neiasound/src/nsoundstreamer.cpp \
+    thirdparty/neiasound/src/nsoundstreamerplaylist.cpp \
+    thirdparty/neiasound/src/nsoundsystem.cpp \
+    thirdparty/neiasound/src/util/nefxhelper.cpp \
     thirdparty/neiasound/src/stb_vorbis/nvorbisstream.cpp \
     thirdparty/neiasound/src/wav/nwavestream.cpp \
     src/dwsoundsystem.cpp \
@@ -45,19 +46,20 @@ HEADERS += \
     src/dwfieldphysicsworld.h \
     src/dwtypes.h \
     src/dweveryframe.h \
-    thirdparty/neiasound/src/nSoundBag.h \
-    thirdparty/neiasound/src/nSoundBuffer.h \
-    thirdparty/neiasound/src/nSoundEffectParameters.h \
-    thirdparty/neiasound/src/nSoundFormat.h \
-    thirdparty/neiasound/src/nSoundListener.h \
-    thirdparty/neiasound/src/nSoundSource.h \
-    thirdparty/neiasound/src/nSoundSourceRole.h \
-    thirdparty/neiasound/src/nSoundStream.h \
-    thirdparty/neiasound/src/nSoundStreamer.h \
-    thirdparty/neiasound/src/nSoundStreamerPlaylist.h \
-    thirdparty/neiasound/src/nSoundSystem.h \
+    thirdparty/neiasound/src/nsoundbag.h \
+    thirdparty/neiasound/src/nsoundbuffer.h \
+    thirdparty/neiasound/src/nsoundeffectparameters.h \
+    thirdparty/neiasound/src/nsoundfilter.h \
+    thirdparty/neiasound/src/nsoundformat.h \
+    thirdparty/neiasound/src/nsoundlistener.h \
+    thirdparty/neiasound/src/nsoundsource.h \
+    thirdparty/neiasound/src/nsoundsourceRole.h \
+    thirdparty/neiasound/src/nsoundstream.h \
+    thirdparty/neiasound/src/nsoundstreamer.h \
+    thirdparty/neiasound/src/nsoundstreamerplaylist.h \
+    thirdparty/neiasound/src/nsoundsystem.h \
     thirdparty/neiasound/src/util/efx-util.h \
-    thirdparty/neiasound/src/util/nEfxHelper.h \
+    thirdparty/neiasound/src/util/nefxhelper.h \
     thirdparty/neiasound/src/stb_vorbis/nvorbisstream.h \
     thirdparty/neiasound/src/wav/nwavestream.h \
     src/dwsoundsystem.h \

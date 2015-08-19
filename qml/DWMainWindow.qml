@@ -106,7 +106,9 @@ Window {
     property bool renderUseShader: renderShaderIndex >= 0
     property bool renderSampleSharp: !(renderUseShader)
 
-    onRenderShaderIndexChanged: debugMessage.text = ("Using shader \"%1\"").arg(["NONE"].concat(renderShaders)[renderShaderIndex+1])
+    onRenderShaderIndexChanged: {
+        debugMessage.text = ("Using shader \"%1\"").arg(["NONE"].concat(renderShaders)[renderShaderIndex+1]);
+    }
 
 
     ShaderEffectSource

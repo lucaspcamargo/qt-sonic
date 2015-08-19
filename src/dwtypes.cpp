@@ -13,13 +13,13 @@
 #include "dwutil.h"
 
 #include "dwsoundsystem.h"
-#include "../thirdparty/neiasound/src/nSoundBag.h"
-#include "../thirdparty/neiasound/src/nSoundBuffer.h"
-#include "../thirdparty/neiasound/src/nSoundListener.h"
-#include "../thirdparty/neiasound/src/nSoundSource.h"
-#include "../thirdparty/neiasound/src/nSoundStream.h"
-#include "../thirdparty/neiasound/src/nSoundStreamer.h"
-#include "../thirdparty/neiasound/src/nSoundStreamerPlaylist.h"
+#include "../thirdparty/neiasound/src/nsoundbag.h"
+#include "../thirdparty/neiasound/src/nsoundbuffer.h"
+#include "../thirdparty/neiasound/src/nsoundlistener.h"
+#include "../thirdparty/neiasound/src/nsoundsource.h"
+#include "../thirdparty/neiasound/src/nsoundstream.h"
+#include "../thirdparty/neiasound/src/nsoundstreamer.h"
+#include "../thirdparty/neiasound/src/nsoundstreamerplaylist.h"
 
 static QObject *dwutil_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {

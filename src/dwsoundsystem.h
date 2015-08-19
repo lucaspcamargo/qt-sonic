@@ -1,7 +1,7 @@
 #ifndef DWSOUNDSYSTEM_H
 #define DWSOUNDSYSTEM_H
 
-#include "../thirdparty/neiasound/src/nSoundSystem.h"
+#include "../thirdparty/neiasound/src/nsoundsystem.h"
 #include <QUrl>
 
 class nSoundStream;

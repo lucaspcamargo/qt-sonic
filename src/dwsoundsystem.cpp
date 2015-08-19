@@ -1,8 +1,8 @@
 #include "dwsoundsystem.h"
-#include "../thirdparty/neiasound/src/nSoundSystem.h"
-#include "../thirdparty/neiasound/src/nSoundStream.h"
-#include "../thirdparty/neiasound/src/nSoundBuffer.h"
-#include "../thirdparty/neiasound/src/nSoundListener.h"
+#include "../thirdparty/neiasound/src/nsoundsystem.h"
+#include "../thirdparty/neiasound/src/nsoundstream.h"
+#include "../thirdparty/neiasound/src/nsoundbuffer.h"
+#include "../thirdparty/neiasound/src/nsoundlistener.h"
 #include "../thirdparty/neiasound/src/wav/nwavestream.h"
 #include "../thirdparty/neiasound/src/stb_vorbis/nvorbisstream.h"
 
