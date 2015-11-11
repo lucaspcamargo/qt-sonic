@@ -150,6 +150,8 @@ void dwPlayerBase::injectControl(qreal dvX, qreal dvY, bool aP, bool bP)
 QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
 {
 
+    Q_UNUSED(numIterations)
+
     QString newAnimation = "";
 
     if(m_playerState == PS_GROUND)
@@ -689,13 +691,13 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
 
             if(m_gAngleDifference != 0)
             {
-                bool increasingQuadrants = false;
+                //bool increasingQuadrants = false;
 
-                if(newMode == 0 && prevMode == 3) increasingQuadrants = true;
-                else if(newMode == 3 && prevMode == 0) increasingQuadrants = false;
-                else increasingQuadrants = newMode > prevMode;
+                //if(newMode == 0 && prevMode == 3) increasingQuadrants = true;
+                //else if(newMode == 3 && prevMode == 0) increasingQuadrants = false;
+                //else increasingQuadrants = newMode > prevMode;
 
-                bool increasingAngle = m_gAngleDifference > 0;
+                //bool increasingAngle = m_gAngleDifference > 0;
 
             }
 
@@ -889,6 +891,8 @@ void dwPlayerBase::setAnimation(QString animationName)
 
 void dwPlayerBase::getHit(int xc, int yc)
 {
+    Q_UNUSED(yc)
+
     emit gotHit();
 
     setRingCollectLock(cgTime(64));

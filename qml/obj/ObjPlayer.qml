@@ -8,6 +8,7 @@ DWPlayerBase {
     id: player
     z: field.playerZ
 
+
     // PHYSICS COLLIDER
 
     DWFOPhysicsBody {
@@ -46,8 +47,8 @@ DWPlayerBase {
                 "balancingF":[6, 2, 4, true, 266,    false],
                 "balancingB":[6, 1, 4, true, 266,    false],
                 "spindash": [0, 6, 5, true, 30,    false],
-                "dead": [5, 4, 1, true, 1000,   false],
-                "drowned": [5, 4, 1, true, 1000,   false]
+                "dead":     [5, 4, 1, true, 1000,   false],
+                "drowned":  [5, 4, 1, true, 1000,   false]
     }
 
     Item{

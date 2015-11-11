@@ -25,7 +25,6 @@
         <file>qml/dev/DWDevSwitch.qml</file>
         <file>qml/dev/DWDevText.qml</file>
         <file>qml/dev/bg/bayonetta.jpg</file>
-        <file>qml/dev/bg/chapter.jpg</file>
         <file>qml/dev/bg/pattern.png</file>
         <file>qml/field/EffParticleWalkDust.qml</file>
         <file>qml/field/EffRain.qml</file>

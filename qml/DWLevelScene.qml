@@ -126,7 +126,7 @@ Item {
     {
         id: controls
         anchors.centerIn: parent
-        height: 900
+        height: 700
         width: height * parent.width/parent.height
         scale: parent.height / height
         focus: true

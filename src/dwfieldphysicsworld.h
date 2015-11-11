@@ -62,6 +62,7 @@ signals:
     void debugDrawPolygon( QList<qreal> pointsx, QList<qreal> pointsy, QColor color );
     void debugDrawSolidPolygon( QList<qreal> pointsx, QList<qreal> pointsy, QColor color );
     void debugDrawSegment( qreal x1, qreal y1, qreal x2, qreal y2, QColor color );
+    void debugDrawCircle( qreal x1, qreal y1, qreal radius, QColor color );
     void debugDrawSolidCircle( qreal x1, qreal y1, qreal radius, qreal x2, qreal y2, QColor color );
 
 public slots:

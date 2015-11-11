@@ -22,9 +22,9 @@ LOCAL_SRC_FILES := Alc/ALc.c Alc/alcConfig.c Alc/alcDedicated.c Alc/alcEcho.c Al
 
 # set the platform flags
 ifeq ($(APP_ABI),x86)
-	LOCAL_CFLAGS += -D HAVE_SSE
+	LOCAL_CFLAGS += -D HAVE_SSE -D HAVE_SSE2
 else
-	LOCAL_CFLAGS += -D HAVE_NEON -mfloat-abi=softfp -mfpu=neon -marm
+	LOCAL_CFLAGS += -D HAVE_NEON -mfpu=neon -marm
 endif
 
 #LOCAL_SHARED_LIBRARIES += libOpenSLES

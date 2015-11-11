@@ -122,6 +122,9 @@ int dwFieldPhysicsWorld::addLevelGeomArc(float centerX, float centerY, float rad
 
 int dwFieldPhysicsWorld::addLevelGeomCircle(float x1, float y1, float radius)
 {
+    Q_UNUSED(x1)
+    Q_UNUSED(y1)
+    Q_UNUSED(radius)
     return -1;
 }
 
@@ -254,15 +257,28 @@ void dwFieldPhysicsWorld::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexC
 
     emit debugDrawSolidPolygon(pointsX, pointsY, TO_QCOLOR(color) );
 }
-void dwFieldPhysicsWorld::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color){}
+void dwFieldPhysicsWorld::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
+{
+    emit debugDrawCircle(center.x/m_physicsScale, center.y/m_physicsScale, radius/m_physicsScale, TO_QCOLOR(color));
+}
 void dwFieldPhysicsWorld::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color)
 {
     emit debugDrawSolidCircle(center.x/m_physicsScale, center.y/m_physicsScale, radius/m_physicsScale, axis.x, axis.y, TO_QCOLOR(color));
 }
-void dwFieldPhysicsWorld::DrawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count){}
+void dwFieldPhysicsWorld::DrawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count)
+{
+    Q_UNUSED(centers)
+    Q_UNUSED(radius)
+    Q_UNUSED(colors)
+    Q_UNUSED(count)
+}
+
 void dwFieldPhysicsWorld::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)
 {
     emit debugDrawSegment(p1.x/m_physicsScale, p1.y/m_physicsScale, p2.x/m_physicsScale, p2.y/m_physicsScale, TO_QCOLOR(color));
 }
 
-void dwFieldPhysicsWorld::DrawTransform(const b2Transform& xf){}
+void dwFieldPhysicsWorld::DrawTransform(const b2Transform& xf)
+{
+    Q_UNUSED(xf)
+}

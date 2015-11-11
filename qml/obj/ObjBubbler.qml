@@ -19,6 +19,8 @@ AnimatedSprite{
     property real timeAccum: 0
     property real timeToNextBubble: 0.75
 
+    property int bigCountdown: 7
+
     source: resBase + "obj/spr/bubbler.png"
     frameWidth: 16
     frameHeight: 16
@@ -34,13 +36,23 @@ AnimatedSprite{
         {
             visible = field.waterY < y;
 
-            timeAccum += dt;
+            if(visible) timeAccum += dt;
             if(timeAccum > timeToNextBubble)
             {
                 timeAccum = 0;
                 var c = Qt.createComponent("ObjBubble.qml");
                 var o = c.createObject(field);
-                o.sizeLimit = Math.random() < 0.1 ? 5 : Math.random()*3
+
+                if(bigCountdown)
+                {
+                    o.sizeLimit = Math.random()*3;
+                    bigCountdown--;
+                }else
+                {
+                    o.sizeLimit = 5;
+                    bigCountdown = Math.round(6 + Math.random()*7);
+                }
+
                 o.x = x + 4;
                 o.y = y + 4;
             }

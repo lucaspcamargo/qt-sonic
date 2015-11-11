@@ -22,8 +22,8 @@ Image{
 
     onSourceSizeChanged:
     {
-        x -= (sourceSize.width - width) / 2;
-        y -= (sourceSize.height - height) / 2;
+        x = Math.floor(x - (sourceSize.width - width) / 2);
+        y = Math.floor(y - (sourceSize.height - height) / 2);
         width = sourceSize.width;
         height = sourceSize.height;
     }

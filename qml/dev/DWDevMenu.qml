@@ -12,13 +12,7 @@ Item {
     }
 
 
-    DWImageItem
-    {
-        id: testImage
-        source: "bg/bayonetta.jpg"
-        opacity: 0.3
-        anchors.fill: parent
-    }
+
 
     DWDevText
     {

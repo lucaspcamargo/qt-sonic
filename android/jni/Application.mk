@@ -2,6 +2,6 @@
 #APP_ABI := x86
 
 # set this for ARM (which is also the default)
-APP_API := armeabi
+#APP_API := armeabi
 
 

@@ -92,7 +92,7 @@ function createVis(i)
 
     if(c)
     {
-        var paletted = String(visStubs[i]["source"]).indexOf("/tileset/") >= 0;
+        var paletted = false;//String(visStubs[i]["source"]).indexOf("/tileset/") >= 0;
         var v = (paletted ? cp : c).createObject(field);
         if(v)
         {

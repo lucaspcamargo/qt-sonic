@@ -15,8 +15,6 @@ Window {
     width: 854
     height: 480
 
-    //flags: Qt.FramelessWindowHint
-
     property alias cursorShape: cursorSetter.cursorShape
 
     MouseArea
@@ -32,6 +30,18 @@ Window {
             else renderShaderIndex++;
         }
     }
+
+
+    property bool _DW_MOBILE: Qt.platform.os == "android"
+
+    property bool _DW_DEBUG: globalDebug // set by main
+    property int _DW_FRAME_COUNT: 0
+
+    onFrameSwapped: _DW_FRAME_COUNT++
+
+    property bool _DW_DEBUG_FIELD_INFO: false
+    property bool _DW_DEBUG_PHYSICS_DRAW: false
+    property bool _DW_DEBUG_BVH_DRAW: false
 
     Item
     {
@@ -82,16 +92,6 @@ Window {
 
     property var toolTilesetGenerator: null
 
-    property bool _DW_MOBILE: Qt.platform.os == "android"
-    // set by main
-    property bool _DW_DEBUG: globalDebug
-    property int _DW_FRAME_COUNT: 0
-
-    onFrameSwapped: _DW_FRAME_COUNT++
-
-    property bool _DW_DEBUG_FIELD_INFO: false
-    property bool _DW_DEBUG_PHYSICS_DRAW: false
-    property bool _DW_DEBUG_BVH_DRAW: false
     signal logoPressed()
     signal backgroundPressed()
 

@@ -53,7 +53,6 @@ HEADERS += \
     thirdparty/neiasound/src/nsoundformat.h \
     thirdparty/neiasound/src/nsoundlistener.h \
     thirdparty/neiasound/src/nsoundsource.h \
-    thirdparty/neiasound/src/nsoundsourceRole.h \
     thirdparty/neiasound/src/nsoundstream.h \
     thirdparty/neiasound/src/nsoundstreamer.h \
     thirdparty/neiasound/src/nsoundstreamerplaylist.h \
@@ -90,29 +89,29 @@ RESOURCES += qml.qrc
 !android{
     win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/ -lliquidfun
     else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/ -lliquidfun
-    else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/ -lliquidfun
+    else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/build.local/Box2D/Release/ -lliquidfun
 
     win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/libliquidfun.a
     else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/libliquidfun.a
     else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/liquidfun.lib
     else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/liquidfun.lib
-    else:unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/libliquidfun.a
+    else:unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/build.local/Box2D/Release/libliquidfun.a
 }
 
-
 android {
-    LIBS += $$PWD/../liquidfun/liquidfun/Box2D/obj/local/armeabi-v7a/libliquidfun_static.a
+    LIBS += $$PWD/../liquidfun/liquidfun/Box2D/obj/local/$${ANDROID_TARGET_ARCH}/libliquidfun_static.a
 }
 
 ## OPENAL
 !android {
-unix: CONFIG += link_pkgconfig
-unix: PKGCONFIG += openal
+#unix: CONFIG += link_pkgconfig
+#unix: PKGCONFIG += openal
+LIBS += -lopenal
 }
 
 android {
     INCLUDEPATH += $$PWD/android/jni/include
-    LIBS += $$PWD/android/obj/local/armeabi/libOpenAL-MOB.a
+    LIBS += $$PWD/android/obj/local/$${ANDROID_TARGET_ARCH}/libOpenAL-MOB.a
     LIBS += -lOpenSLES
 }
 

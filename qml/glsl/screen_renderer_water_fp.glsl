@@ -8,9 +8,9 @@ uniform lowp vec4 waterColor;
 
 void main() {
 
-    vec2 newCoord = vec2(coord.x + cos(time+10.0*coord.y)*invScreenWidth, coord.y );
+    mediump vec2 newCoord = vec2(coord.x + cos(time+10.0*coord.y)*invScreenWidth, coord.y );
 
-    vec2 v = vec2(0.5, 0.5)-newCoord;
+    mediump vec2 v = vec2(0.5, 0.5)-newCoord;
 
     lowp vec4 texr = texture2D(src, newCoord + chromatic * v * invScreenWidth);
     lowp vec4 texb = texture2D(src, newCoord - chromatic * v * invScreenWidth);

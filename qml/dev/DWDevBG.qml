@@ -70,14 +70,15 @@ Item {
             duration: 500
         }
     }
+*/
 
     DWImageItem
     {
-        anchors.fill: parent
-        opacity: 0.2
+        id: testImage
         source: "bg/bayonetta.jpg"
+        opacity: 0.3
+        anchors.fill: parent
     }
-*/
 
     MouseArea
     {
