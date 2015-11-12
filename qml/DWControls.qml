@@ -14,6 +14,7 @@ FocusScope {
     property bool bPressed: buttonBTouchPoint.pressed || combinedTouchPoint.pressed || kbdBEquivPressed
 
     property bool dPadMode: false
+    property bool joystickEnabled: true
 
 
     signal enterPressed()
@@ -27,21 +28,67 @@ FocusScope {
     function recalcXY()
     {
 
-        directionValueX = directionIntensity*Math.cos(directionAngle);
-        directionValueY = directionIntensity*Math.sin(directionAngle);
+        var dx = directionIntensity*Math.cos(directionAngle);
+        var dy = directionIntensity*Math.sin(directionAngle);
 
         if(dPadMode)
         {
-            if(directionValueX > 0.33) directionValueX = 1;
-            else if(directionValueX < -0.33) directionValueX = -1;
-            else directionValueX = 0;
+            if(dx > 0.33) dx = 1;
+            else if(dx < -0.33) dx = -1;
+            else dx = 0;
 
-            if(directionValueY > 0.33) directionValueY = 1;
-            else if(directionValueY < -0.33) directionValueY = -1;
-            else directionValueY = 0;
+            if(dy > 0.33) dy = 1;
+            else if(dy < -0.33) dy = -1;
+            else dy = 0;
 
-            directionIntensity = Math.sqrt(directionValueX*directionValueX + directionValueY * directionValueY);
+            directionIntensity = Math.sqrt(dx*dx + dy * dy);
+        }
 
+        directionValueX = dx;
+        directionValueY = dy;
+    }
+
+    function update()
+    {
+        controllerHub.update();
+        debugMessage.text = controllerHub.getControllerStickX(0) + " " + controllerHub.getControllerStickY(0);
+
+        if(joystickEnabled)
+        {
+            var count = controllerHub.controllerCount();
+
+            if(count && controllerHub.controllerIsConnected(0))
+            {
+                //var s = controllerHub.controllerState(0);
+
+                //if(!s)
+                //{
+                 //   console.log("[DWControls.qml] Controller has no state!");
+                 //   return;
+                //}
+
+                kbdAEquivPressed = controllerHub.getControllerAButton(0);
+                kbdBEquivPressed = controllerHub.getControllerBButton(0);
+
+                var dirX = 0.0;
+                var dirY = 0.0;
+                if(controllerHub.getControllerUp(0)) dirY += 1;
+                if(controllerHub.getControllerDown(0)) dirY -= 1;
+                if(controllerHub.getControllerLeft(0)) dirX += 1;
+                if(controllerHub.getControllerRight(0)) dirX -= 1;
+
+                dirX += controllerHub.getControllerStickX(0);
+                dirY += controllerHub.getControllerStickY(0);
+
+                directionIntensity = Math.min(1.0, Math.sqrt(dirX*dirX+dirY*dirY))
+
+                if(directionIntensity > 0)
+                    directionAngle = Math.atan(dirY/dirX)
+                                 + (dirX < 0? -Math.PI : 0);
+                else directionAngle = 0;
+
+                recalcXY();
+            }
         }
     }
 
@@ -251,6 +298,7 @@ FocusScope {
 
         Keys.onReturnPressed: enterPressed();
         Keys.onEscapePressed: escapePressed();
+        Keys.onDeletePressed: {joystickEnabled = !joystickEnabled; debugMessage.text = "Joystick " + (joystickEnabled? "Enabled" : "Disbled");}
 
         function kbdRecalcDirection()
         {

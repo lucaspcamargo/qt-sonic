@@ -29,26 +29,26 @@ DWPlayerBase {
 
     // x offset, y offset, frames, playing, duration, interpolate
     property var animations: {
-        "standing": [6, 0, 1, true, 1000,   false],
-                "goingIdle":[7, 0, 2, true, 2304,   false],
-                "idle":     [9, 0, 2, true, 384,    false],
-                "walking":  [0, 0, 6, true, 99999,  false],
-                "running":  [0, 1, 4, true, 30,     true],
-                "braking":  [7, 5, 2, true, 128,    false],
-                "rolling":  [0, 3, 8, true, 16,     true],
-                "rollingM": [0, 3, 8, true, 99999,  true],
-                "crouched": [5, 1, 1, true, 99999,  false],
-                "falling":  [8, 3, 2, true, 50,  false],
-                "lookingUp":[5, 2, 1, true, 99999,  false],
-                "peelout":  [0, 2, 4, true, 30,     false],
-                "hurt":     [6, 5, 1, true, 99999,  false],
-                "spring":   [0, 4, 5, true, 50,     false],
-                "pushing":  [6, 4, 2, true, 533,    false],
-                "balancingF":[6, 2, 4, true, 266,    false],
-                "balancingB":[6, 1, 4, true, 266,    false],
-                "spindash": [0, 6, 5, true, 30,    false],
-                "dead":     [5, 4, 1, true, 1000,   false],
-                "drowned":  [5, 4, 1, true, 1000,   false]
+                "standing":   [6, 0, 1, true, 1000,  false],
+                "goingIdle":  [7, 0, 2, true, 2304,  false],
+                "idle":       [9, 0, 2, true, 384,   false],
+                "walking":    [0, 0, 6, true, 99999, false],
+                "running":    [0, 1, 4, true, 30,    true ],
+                "braking":    [7, 5, 2, true, 128,   false],
+                "rolling":    [0, 3, 8, true, 16,    true ],
+                "rollingM":   [0, 3, 8, true, 99999, true ],
+                "crouched":   [5, 1, 1, true, 99999, false],
+                "falling":    [8, 3, 2, true, 50,    false],
+                "lookingUp":  [5, 2, 1, true, 99999, false],
+                "peelout":    [0, 2, 4, true, 30,    false],
+                "hurt":       [6, 5, 1, true, 99999, false],
+                "spring":     [0, 4, 5, true, 50,    false],
+                "pushing":    [6, 4, 2, true, 533,   false],
+                "balancingF": [6, 2, 4, true, 266,   false],
+                "balancingB": [6, 1, 4, true, 266,   false],
+                "spindash":   [0, 6, 5, true, 30,    false],
+                "dead":       [5, 4, 1, true, 1000,  false],
+                "drowned":    [5, 4, 1, true, 1000,  false]
     }
 
     Item{

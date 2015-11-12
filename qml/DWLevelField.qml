@@ -195,6 +195,8 @@ DWField {
     {
         onUpdate:
         {
+            controls.update();
+
             preUpdate();
 
             if(fieldActive)

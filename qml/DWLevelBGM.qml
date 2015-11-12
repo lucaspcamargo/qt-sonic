@@ -12,9 +12,10 @@ QtObject {
     property string realizedPrefix: (prefix != ""? prefix : resBase + "music/")
     property url source: realizedPrefix + mainId
     property url introSource: introId == "" ? "" : (realizedPrefix + introId)
+    property bool fadeEnabled: bgmPlayer? bgmPlayer.fadeEnabled : true
 
     property real volume: 1.0
-    Behavior on volume { enabled: bgmPlayer.fadeEnabled; NumberAnimation { easing.type: Easing.OutExpo; duration: 3000; } }
+    Behavior on volume { enabled: bgm.fadeEnabled; NumberAnimation { easing.type: Easing.OutExpo; duration: 3000; } }
 
     onVolumeChanged: {
 

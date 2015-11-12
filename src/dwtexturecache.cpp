@@ -9,6 +9,7 @@
 #include <QList>
 #include <QByteArray>
 #include <QDebug>
+#include <QOpenGLTexture>
 
 dwTextureCache * dwTextureCache::ms_singleton = 0;
 
@@ -73,6 +74,7 @@ void dwTextureCache::onAfterRendering()
     {
         foreach(QOpenGLTexture * tex, m_glDeleteList)
         {
+            tex->destroy();
             delete tex;
         }
         m_glDeleteList.clear();

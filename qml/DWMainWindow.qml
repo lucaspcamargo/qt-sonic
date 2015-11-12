@@ -90,6 +90,11 @@ Window {
         }
     }
 
+    DWControllerHub
+    {
+        id: controllerHub
+    }
+
     property var toolTilesetGenerator: null
 
     signal logoPressed()

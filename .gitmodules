@@ -1,3 +1,6 @@
 [submodule "thirdparty/neiasound"]
 	path = thirdparty/neiasound
 	url = git@github.com:lucaspcamargo/neiasound.git
+[submodule "thirdparty/SDL_GameControllerDB"]
+	path = thirdparty/SDL_GameControllerDB
+	url = git@github.com:gabomdq/SDL_GameControllerDB.git

@@ -3,6 +3,11 @@ TEMPLATE = app
 QT += qml quick network multimedia
 !android{ QT += widgets }
 
+### BEGIN CONFIG
+
+
+### END CONFIG
+
 SOURCES += \
     src/dwroot.cpp \
     src/dwfieldphysicsworld.cpp \
@@ -22,7 +27,6 @@ SOURCES += \
     thirdparty/neiasound/src/stb_vorbis/nvorbisstream.cpp \
     thirdparty/neiasound/src/wav/nwavestream.cpp \
     src/dwsoundsystem.cpp \
-    src/dwcomponentcache.cpp \
     src/dwplayerbase.cpp \
     src/dwutil.cpp \
     src/dwfieldbvh.cpp \
@@ -33,10 +37,9 @@ SOURCES += \
     src/dwmain.cpp \
     src/dwimageitem.cpp \
     src/dwtexturecache.cpp \
-    src/dwtexture.cpp
-
-
-
+    src/dwtexture.cpp \
+    src/dwcontrollerhub.cpp \
+    src/dwcontrollerstate.cpp
 
 # Default rules for deployment.
 include(deployment.pri)
@@ -62,7 +65,6 @@ HEADERS += \
     thirdparty/neiasound/src/stb_vorbis/nvorbisstream.h \
     thirdparty/neiasound/src/wav/nwavestream.h \
     src/dwsoundsystem.h \
-    src/dwcomponentcache.h \
     src/dwplayerbase.h \
     src/dwutil.h \
     src/dwfieldbvh.h \
@@ -72,7 +74,9 @@ HEADERS += \
     src/dwfieldphysicscontactlistener.h \
     src/dwimageitem.h \
     src/dwtexturecache.h \
-    src/dwtexture.h
+    src/dwtexture.h \
+    src/dwcontrollerhub.h \
+    src/dwcontrollerstate.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
@@ -80,6 +84,13 @@ OTHER_FILES += \
     android/AndroidManifest.xml
 
 RESOURCES += qml.qrc
+
+### GENERAL
+
+unix{
+    CONFIG += link_pkgconfig
+}
+
 
 ### LIQUIDFUN
 
@@ -104,8 +115,6 @@ android {
 
 ## OPENAL
 !android {
-#unix: CONFIG += link_pkgconfig
-#unix: PKGCONFIG += openal
 LIBS += -lopenal
 }
 
@@ -115,6 +124,13 @@ android {
     LIBS += -lOpenSLES
 }
 
-DISTFILES +=
+
+## SDL
+
+unix{
+
+    PKGCONFIG += sdl2
+    DEFINES+="DW_USE_SDL2=1"
+}
 
 
