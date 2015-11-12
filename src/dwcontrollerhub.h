@@ -22,6 +22,7 @@ public:
             qDebug("CE");
             controller = joystick = haptic = 0;
             state = 0;
+            plugged = true;
         }
 
         ~ControllerEntry()
@@ -31,6 +32,8 @@ public:
         void *controller;
         void *joystick;
         void *haptic;
+
+        bool plugged;
 
         dwControllerState *state;
 
@@ -43,7 +46,7 @@ signals:
 public slots:
    int controllerCount(){return m_controllers.size();}
 
-   bool controllerIsConnected(int i){return m_controllers[i].controller != 0;}
+   bool controllerIsConnected(int i){return m_controllers[i].plugged;}
    dwControllerState* controllerState(int i){return m_controllers[i].state;}
 
    void update();
@@ -65,7 +68,10 @@ public slots:
    qreal getControllerStickY(int i) { return m_controllers[i].state->StickY; }
 
 private:
-    QVector<ControllerEntry> m_controllers;
+#ifdef DW_USE_SDL2
+   void addSDLController(int index);
+#endif
+   QVector<ControllerEntry> m_controllers;
 };
 
 #endif // DWCONTROLLERHUB_H

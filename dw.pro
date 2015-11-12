@@ -127,7 +127,7 @@ android {
 
 ## SDL
 
-unix{
+!android:unix{
 
     PKGCONFIG += sdl2
     DEFINES+="DW_USE_SDL2=1"

@@ -2,7 +2,7 @@ import QtQuick 2.3
 
 FocusScope {
 
-    opacity: 0.5
+    opacity: 1.0
 
     property real directionAngle: 0
     property real directionIntensity: 0
@@ -10,12 +10,11 @@ FocusScope {
     property real directionValueX: 0
     property real directionValueY: 0
 
-    property bool aPressed: buttonATouchPoint.pressed || combinedTouchPoint.pressed || kbdAEquivPressed
-    property bool bPressed: buttonBTouchPoint.pressed || combinedTouchPoint.pressed || kbdBEquivPressed
+    property bool aPressed: buttonATouchPoint.pressed || kbdAEquivPressed
+    property bool bPressed: buttonBTouchPoint.pressed || kbdBEquivPressed
 
     property bool dPadMode: false
     property bool joystickEnabled: true
-
 
     signal enterPressed()
     signal escapePressed()
@@ -41,7 +40,7 @@ FocusScope {
             else if(dy < -0.33) dy = -1;
             else dy = 0;
 
-            directionIntensity = Math.sqrt(dx*dx + dy * dy);
+            directionIntensity = Math.min(1, Math.sqrt(dx*dx + dy * dy));
         }
 
         directionValueX = dx;
@@ -51,7 +50,6 @@ FocusScope {
     function update()
     {
         controllerHub.update();
-        debugMessage.text = controllerHub.getControllerStickX(0) + " " + controllerHub.getControllerStickY(0);
 
         if(joystickEnabled)
         {
@@ -96,37 +94,21 @@ FocusScope {
     {
         id: dPad
 
-        source: resBase + "ui/controls/controls-dpad-base-hd.png"
+        source: resBase + "ui/virtualpad/dpad.png"
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 48
-        anchors.bottomMargin: 48
+        anchors.leftMargin: 14
+        anchors.bottomMargin: 16
 
         Image
         {
             id:dPadCursor
-            source: resBase + "ui/controls/controls-dpad-cursor.png"
-            width: 200
-            height: 200
+            source: resBase + "ui/virtualpad/dpad-marker.png"
             opacity: directionIntensity
-            x: (0.5 + directionValueX/(dPadMode? Math.sqrt(directionIntensity): 1)/2)*parent.width - 100
-            y: (0.5 - directionValueY/(dPadMode? Math.sqrt(directionIntensity): 1)/2)*parent.height - 100
+            x: (0.5 + 0.4 * directionIntensity * Math.cos(directionAngle))*parent.width - height/2
+            y: (0.5 - 0.4 * directionIntensity * Math.sin(directionAngle))*parent.height - width/2
         }
 
-        Item
-        {
-            id: dPadHint
-            anchors.fill: parent
-            rotation: -180.0*directionAngle/Math.PI
-            Image
-            {
-                source: resBase + "ui/controls/controls-dpad-hint-hd.png"
-                anchors.verticalCenter: parent.verticalCenter
-                x: 153
-                opacity: directionIntensity
-
-            }
-        }
 
         MultiPointTouchArea
         {
@@ -173,21 +155,18 @@ FocusScope {
     Image
     {
         id: buttonA
-        source: resBase + "ui/controls/controls-button-a-hd.png"
+        source: resBase + "ui/virtualpad/button-a.png"
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        anchors.rightMargin: 48
-        anchors.bottomMargin: 48
+        anchors.rightMargin: 14
+        anchors.bottomMargin: 14
 
         Image
         {
             id:buttonAGlow
-            source: resBase + "ui/controls/controls-button-glow.png"
+            source: resBase + "ui/virtualpad/button-marker.png"
             anchors.centerIn: parent
-            visible: buttonATouchPoint.pressed || combinedTouchPoint.pressed || kbdAEquivPressed
-            opacity: 0.6
-            width: 4*sourceSize.width
-            height: width
+            visible: buttonATouchPoint.pressed
         }
 
         MultiPointTouchArea
@@ -200,36 +179,22 @@ FocusScope {
         }
     }
 
-    MultiPointTouchArea
-    {
-        anchors.bottom: buttonA.bottom
-        anchors.right: buttonA.left
-        anchors.left: buttonB.right
-        anchors.top: buttonA.top
-        touchPoints: [TouchPoint
-        {
-            id: combinedTouchPoint
-        }]
-    }
 
     Image
     {
         id: buttonB
-        source: resBase + "ui/controls/controls-button-b-hd.png"
+        source: resBase + "ui/virtualpad/button-b.png"
         anchors.bottom: parent.bottom
         anchors.right: buttonA.left
-        anchors.rightMargin: 64
-        anchors.bottomMargin: 48
+        anchors.rightMargin: 20
+        anchors.bottomMargin: 14
 
         Image
         {
             id:buttonBGlow
-            source: resBase + "ui/controls/controls-button-glow.png"
+            source: resBase + "ui/virtualpad/button-marker.png"
             anchors.centerIn: parent
-            visible: buttonBTouchPoint.pressed || combinedTouchPoint.pressed || kbdBEquivPressed
-            opacity: 0.6
-            width: 4*sourceSize.width
-            height: width
+            visible: buttonBTouchPoint.pressed
         }
 
 

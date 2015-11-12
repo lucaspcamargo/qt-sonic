@@ -125,10 +125,7 @@ Item {
     DWControls
     {
         id: controls
-        anchors.centerIn: parent
-        height: 700
-        width: height * parent.width/parent.height
-        scale: parent.height / height
+        anchors.fill: parent
         focus: true
         visible: _DW_MOBILE
 

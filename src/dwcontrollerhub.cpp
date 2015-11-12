@@ -11,6 +11,8 @@ dwControllerHub::dwControllerHub(QObject *parent) : QObject(parent)
 #ifdef DW_USE_SDL2
     SDL_Init(SDL_INIT_GAMECONTROLLER);
 
+    SDL_GameControllerEventState(SDL_ENABLE);
+
     const char * mappingFilename = "thirdparty/SDL_GameControllerDB/gamecontrollerdb.txt";
     SDL_RWops * mappingRW = SDL_RWFromFile(mappingFilename, "rb");
     int mapC = 0;
@@ -30,46 +32,7 @@ dwControllerHub::dwControllerHub(QObject *parent) : QObject(parent)
             continue;
         }
 
-        SDL_GameController * controller = SDL_GameControllerOpen(joyIndex);
-
-        if(controller)
-        {
-            ControllerEntry entry;
-            entry.state = new dwControllerState();
-
-            entry.controller = controller;
-            SDL_Joystick * joy = SDL_GameControllerGetJoystick(controller);
-            entry.joystick = joy;
-
-            char guid[33];
-            SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 33);
-            qDebug("[dwControllerHub] Found controller %s", guid);
-
-            SDL_Haptic * hap = SDL_HapticOpenFromJoystick( joy );
-            entry.haptic = hap;
-
-            if(hap)
-            {
-                qDebug("[dwControllerHub] Controller %s has haptic support", guid);
-                if(SDL_HapticRumbleInit(hap))
-                {
-                    qDebug("[dwControllerHub] Controller %s does not rumble", guid);
-                    SDL_HapticClose(hap);
-                    hap = 0;
-                    entry.haptic = 0;
-                }
-                else
-                    SDL_HapticRumblePlay(hap, 0.5, 500);
-            }
-            else
-            {
-                qDebug("[dwControllerHub] Controller %s has NO haptic support", guid);
-            }
-
-            m_controllers.push_back(entry);
-
-            emit controllerConnected(m_controllers.size() - 1);
-        }
+        addSDLController(joyIndex);
     }
 
 #endif
@@ -89,13 +52,32 @@ void dwControllerHub::update()
 
     SDL_GameControllerUpdate();
 
-    foreach (ControllerEntry entry, m_controllers) {
+
+    SDL_Event test_event;
+
+    while (SDL_PollEvent(&test_event)) {
+        switch (test_event.type) {
+            case SDL_CONTROLLERDEVICEADDED:
+                addSDLController(test_event.cdevice.which);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    for(int i = 0; i < m_controllers.size(); i++) {
+
+        ControllerEntry entry = m_controllers[i];
 
         if(entry.controller && SDL_GameControllerGetAttached((SDL_GameController*) entry.controller))
         {
             SDL_GameController *c = (SDL_GameController*) entry.controller;
             dwControllerState *cs = entry.state;
 
+            if(!entry.plugged)
+                emit controllerConnected(i);
+            entry.plugged = true;
 
             cs->Up = SDL_GameControllerGetButton(c, SDL_CONTROLLER_BUTTON_DPAD_UP);
             cs->Down = SDL_GameControllerGetButton(c, SDL_CONTROLLER_BUTTON_DPAD_DOWN);
@@ -115,8 +97,58 @@ void dwControllerHub::update()
         }
         else
         {
-            //TODO: controller not plugged in
+            if(entry.plugged)
+                emit controllerDisconnected(i);
+            entry.plugged = false;
         }
+
+        m_controllers[i] = entry;
     }
 #endif
 }
+
+#ifdef DW_USE_SDL2
+void dwControllerHub::addSDLController(int joyIndex)
+{
+    SDL_GameController * controller = SDL_GameControllerOpen(joyIndex);
+
+    if(controller)
+    {
+        ControllerEntry entry;
+        entry.state = new dwControllerState();
+
+        entry.controller = controller;
+        SDL_Joystick * joy = SDL_GameControllerGetJoystick(controller);
+        entry.joystick = joy;
+
+        char guid[33];
+        SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 33);
+        qDebug("[dwControllerHub] Found controller %s", guid);
+
+        SDL_Haptic * hap = SDL_HapticOpenFromJoystick( joy );
+        entry.haptic = hap;
+
+        if(hap)
+        {
+            qDebug("[dwControllerHub] Controller %s has haptic support", guid);
+            if(SDL_HapticRumbleInit(hap))
+            {
+                qDebug("[dwControllerHub] Controller %s does not rumble", guid);
+                SDL_HapticClose(hap);
+                hap = 0;
+                entry.haptic = 0;
+            }
+            else
+                SDL_HapticRumblePlay(hap, 0.5, 500);
+        }
+        else
+        {
+            qDebug("[dwControllerHub] Controller %s has NO haptic support", guid);
+        }
+
+        m_controllers.push_back(entry);
+
+        emit controllerConnected(m_controllers.size() - 1);
+    }
+}
+#endif
