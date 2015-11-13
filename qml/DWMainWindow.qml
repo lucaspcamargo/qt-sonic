@@ -109,7 +109,7 @@ Window {
 
     property int renderShaderIndex: _DW_MOBILE? -1 : 0
     property bool renderUseShader: renderShaderIndex >= 0
-    property bool renderSampleSharp: !(renderUseShader)
+    property bool renderSampleSharp: !_DW_MOBILE
 
     onRenderShaderIndexChanged: {
         debugMessage.text = ("Using shader \"%1\"").arg(["NONE"].concat(renderShaders)[renderShaderIndex+1]);

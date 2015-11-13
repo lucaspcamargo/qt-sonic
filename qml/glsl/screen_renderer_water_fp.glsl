@@ -14,10 +14,11 @@ void main() {
 
     lowp vec4 texr = texture2D(src, newCoord + chromatic * v * invScreenWidth);
     lowp vec4 texb = texture2D(src, newCoord - chromatic * v * invScreenWidth);
-#ifdef GL_ES
-    gl_FragColor = vec4(texr.r, (texr.g + texb.g)/2.0, texb.b, 1.0) * waterColor;
-#else
+// the commented section here uses only two samples on mobile
+//#ifdef GL_ES
+//    gl_FragColor = vec4(texr.r, (texr.g + texb.g)/2.0, texb.b, 1.0) * waterColor;
+//#else
     lowp vec4 texg = texture2D(src, newCoord);
     gl_FragColor = vec4(texr.r, texg.g, texb.b, 1.0) * waterColor;
-#endif
+//#endif
 }
