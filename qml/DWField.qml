@@ -15,9 +15,9 @@ Item {
     property real viewScale: 1
     scale: viewScale
 
-    x: Math.floor(viewScale*(-viewCenterAtX + viewWidth/2))
-    y: Math.floor(viewScale*(-viewCenterAtY + viewHeight/2))
-    property int absoluteXDelta: (-x)/viewScale
-    property int absoluteYDelta: (-y)/viewScale
+    x: /*Math.floor*/ (viewScale*(-viewCenterAtX + viewWidth/2))
+    y: /*Math.floor*/ (viewScale*(-viewCenterAtY + viewHeight/2))
+    property real absoluteXDelta: (-x)/viewScale
+    property real absoluteYDelta: (-y)/viewScale
 
 }

@@ -6,7 +6,7 @@ ShaderEffect {
     id: waterPerspective
 
     width: field.viewWidth
-    height: Math.round(Math.abs(field.viewCenterAtY - field.waterY )/1.3)
+    height: Math.round(Math.abs(field.viewCenterAtY - field.waterY )/verticalFactor)
 
     y: field.waterY - (underwater? 0 : height)
     x: -field.x
@@ -21,6 +21,7 @@ ShaderEffect {
     property var refl: reflSrc
 
 
+    property real verticalFactor: 1.3
     property real fgScale: 0.5 * field.viewWidth / imgSrc.sourceSize.width
     property real bgScale: 5 * fgScale
     property bool underwater: field.viewCenterAtY > field.waterY
@@ -64,7 +65,7 @@ ShaderEffect {
         id: reflSrc
         enabled: reflectionEnabled
         live: reflectionEnabled && waterPerspective.visible
-        sourceItem: bg
+        sourceItem: bgContainer
         sourceRect: reflRect
         textureSize: Qt.size(waterPerspective.width, _DW_MOBILE? 64 : 128)
         parent: null

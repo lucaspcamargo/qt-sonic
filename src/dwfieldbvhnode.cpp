@@ -9,6 +9,13 @@ dwFieldBVHNode::dwFieldBVHNode(dwFieldBVHNode *parent) : QObject(parent)
         m_centerX = parent->centerX();
         m_centerY = parent->centerY();
     }
+    else
+    {
+        m_centerX = m_centerY = 0;
+    }
+
+    m_radius = 0;
+
 }
 
 dwFieldBVHNode::~dwFieldBVHNode()
@@ -16,19 +23,38 @@ dwFieldBVHNode::~dwFieldBVHNode()
 
 }
 
+#include <QChildEvent>
+
+void dwFieldBVHNode::childEvent(QChildEvent *e)
+{
+    if(e->added())
+    {
+        dwFieldBVHNode * child = reinterpret_cast<dwFieldBVHNode*>(e->child());
+        if(!m_active) child->setActive(false);
+    }
+}
+
 void dwFieldBVHNode::recalcGeometry()
 {
     qreal xC = 0;
     qreal yC = 0;
 
-    foreach (QObject * obj, children()) {
-        dwFieldBVHNode * node = reinterpret_cast<dwFieldBVHNode * >(obj);
-        xC += node->centerX();
-        yC += node->centerY();
+    int childCount = children().length();
+
+    if(childCount)
+    {
+        foreach (QObject * obj, children()) {
+            dwFieldBVHNode * node = reinterpret_cast<dwFieldBVHNode * >(obj);
+            xC += node->centerX();
+            yC += node->centerY();
+        }
+
+        xC /= childCount;
+        yC /= childCount;
     }
 
-    setCenterX(xC / children().length());
-    setCenterY(yC / children().length());
+    setCenterX(xC);
+    setCenterY(yC);
 
     qreal maxRadius = 0;
 
@@ -76,4 +102,9 @@ qreal dwFieldBVHNode::getYExtent()
 
     return maxY - minY;
 
+}
+
+void dwFieldBVHNode::markForDeletion()
+{
+    deleteLater();
 }

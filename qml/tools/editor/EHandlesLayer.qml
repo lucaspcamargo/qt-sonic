@@ -53,16 +53,21 @@ Item {
 
         for( var i = 0; i < objMan.objStubsCount; i++ )
         {
-            var obj = objMan.objs[i];
-            if(obj)
-            {
-                var h = handleComponent.createObject(handlesLayer);
-                h.index = i;
-                h.ref = obj;
-                h.setup();
+            createHandle(i);
+        }
+    }
 
-                handles.push(h);
-            }
+    function createHandle(stubIdx)
+    {
+        var obj = field.objectManager.objs[stubIdx];
+        if(obj)
+        {
+            var h = handleComponent.createObject(handlesLayer);
+            h.index = stubIdx;
+            h.ref = obj;
+            h.setup();
+
+            handles.push(h);
         }
     }
 

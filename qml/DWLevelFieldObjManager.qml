@@ -27,7 +27,7 @@ QtObject
 
     function addObjectStub( x, y, w, h, rot, xc, yc, radius, name, opts, inPrefix )
     {
-        objStubs.push({"x": x, "y":y, "w": w, "h":h, "rot":rot, "xc":xc, "yc":yc, "radius": radius, "name": name, "options": opts, "inPrefix": inPrefix});
+        objStubs.push({"name": name, "x": x, "y":y, "w": w, "h":h, "rot":rot, "xc":xc, "yc":yc, "radius": radius, "options": opts, "inPrefix": inPrefix});
         objXC.push(xc);
         objYC.push(yc);
         objRadius.push(radius);
@@ -36,13 +36,13 @@ QtObject
         recreateObj.push(true);
 
         objStubsCount++;
+        return objStubsCount-1;
     }
 
     function init()
     {
-        for(var i = 0; i < objStubs.length; i++)
-            if(objStubs[i])
-                createObject(i);
+        if(!loadObjStubs())
+            resetObjects();
     }
 
     function removeObjStub(index)
@@ -50,10 +50,81 @@ QtObject
         if(objs[index])
         {
             objs[index].destroy();
-            objectDestroyed(index, true);
+            objectDestroyed(index, false);
+
+            if(objBVHNode[index])
+            {
+                objBVHNode.markForDeletion();
+            }
         }
 
         objStubs[index] = null;
+    }
+
+    function removeAllObjStubs()
+    {
+        for(var i = 0; i < objStubsCount; i++)
+        {
+            removeObjStub(i);
+        }
+
+        objStubs = [];
+        objXC = [];
+        objYC = [];
+        objRadius = [];
+        objCreated = [];
+        objBVHNode = [];
+        recreateObj = [];
+
+        objStubsCount = 0;
+        objCount = 0;
+    }
+
+    function loadObjStubs()
+    {
+        if(!levelData.objStubs) return;
+        removeAllObjStubs();
+
+        var levelFile = resBase + levelData.urlPrefix + levelData.objStubs;
+        var newObjStubs = (JSON.parse(DWUtil.readTextFile(levelFile)));
+
+        if(newObjStubs)
+        {
+            objStubs = newObjStubs;
+
+            for(var i = 0; i < objStubs.length; i++)
+            {
+                if(objStubs[i])
+                {
+                    objXC.push(objStubs[i].xc);
+                    objYC.push(objStubs[i].yc);
+                    objRadius.push(objStubs[i].radius);
+                    objCreated.push(false);
+                    objBVHNode.push(null);
+                    recreateObj.push(true);
+                }
+                else
+                {
+                    objStubs.splice(i, 1);
+                    i--;
+                }
+            }
+
+            objStubsCount = objStubs.length;
+            resetObjects();
+
+            return true; //objects were reset
+        }
+
+        return false; // nothing much happened
+    }
+
+    function saveObjStubs()
+    {
+        var levelFile = resBase + levelData.urlPrefix + levelData.objStubs;
+        var success = DWUtil.writeTextFile(levelFile, JSON.stringify(objStubs, null, 2));
+
+        debugMessage.text = success? "Level saved successfully" : "Error saving level";
     }
 
     function update(dt)
@@ -70,11 +141,18 @@ QtObject
     {
         for(var i = 0; i < objStubsCount; i++)
             createObject(i);
+
+        fieldBVH.rebuildBVH();
     }
 
     function objectDestroyed(index, dontRecreateLater)
     {
-        objBVHNode[index].disconnectActivationSignals();
+        if(objBVHNode[index])
+        {
+            objBVHNode[index].disconnectActivationSignals();
+            objBVHNode[index].markForDeletion();
+            objBVHNode[index] = null;
+        }
 
         objCreated[index] = false;
         objs[index] = null;
@@ -89,11 +167,12 @@ QtObject
     {
         if(objCreated[i]) return;
         if(!recreateObj[i]) return;
+        if(!objStubs[i]) return;
 
         var c = Qt.createComponent((objStubs[i]["inPrefix"]? prefixedPrefix : "obj/Obj" )+objStubs[i]["name"]+".qml");
         if(c)
         {
-            var obj = c.createObject(field);
+            var obj = c.createObject(field, {options: objStubs[i].options});
             if(obj)
             {
                 obj.x = objStubs[i]["x"];
@@ -134,6 +213,7 @@ QtObject
                     objBVHNode[i] = bvhNode;
                 }
 
+                bvhNode.active = true;
                 bvhNode.activated.connect(obj.activate);
                 bvhNode.deactivated.connect(obj.deactivate);
 

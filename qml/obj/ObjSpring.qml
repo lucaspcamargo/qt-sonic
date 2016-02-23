@@ -35,7 +35,7 @@ Item {
     DWImageItem
     {
         id: sprite
-        source: resBase + (yellow? "obj/obj/spring-y.png" : "obj/obj/spring.png")
+        source: resBase + (yellow? "obj/obj/spring-y-hd.png" : "obj/obj/spring-hd.png")
         anchors.fill: parent
         visible: openFrames == 0
     }

@@ -42,6 +42,8 @@ public:
         return m_active;
     }
 
+    void childEvent(QChildEvent *);
+
 signals:
     void activated();
     void deactivated();
@@ -124,6 +126,8 @@ public slots:
     void disconnectActivationSignals();
     qreal getXExtent();
     qreal getYExtent();
+
+    void markForDeletion();
 };
 
 #endif // DWFIELDBVHNODE_H

@@ -53,6 +53,31 @@ QString dwUtil::readTextFile(QUrl url)
     return stream.readAll();
 }
 
+bool dwUtil::writeTextFile(QUrl url, QString contents)
+{
+    QString filename = url.toLocalFile();
+
+    if(!filename.isEmpty())
+    {
+        // it is a local file
+        QFile file(filename);
+        file.open(QFile::WriteOnly);
+
+        if(file.isOpen())
+        {
+            QTextStream stream(&file);
+            stream << contents;
+            file.close();
+
+            return true;
+        }
+        else qDebug("[dwUtil] Cannot write to this location");
+    }
+    else qDebug("[dwUtil] It is only possible to write to local files");
+
+    return false;
+}
+
 void dwUtil::putImageDataPixel(int r, int g, int b, int a)
 {
     m_imageData.append(r);
@@ -74,3 +99,24 @@ void dwUtil::saveImageData(QUrl location, int w, int h )
     m_imageData.clear();
 }
 
+#include <QDir>
+#include <QDebug>
+
+QList<QUrl> dwUtil::listFiles(QUrl location)
+{
+    QList<QUrl> ret;
+
+    QDir dir( location.toLocalFile() );
+    if(dir.exists())
+    {
+        dir.setFilter(QDir::Files);
+        QStringList files = dir.entryList();
+
+        foreach(const QString & filename, files)
+        {
+            ret.append(QUrl::fromLocalFile(dir.absoluteFilePath(filename)));
+        }
+    }
+
+    return ret;
+}

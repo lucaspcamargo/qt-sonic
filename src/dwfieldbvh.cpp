@@ -1,6 +1,10 @@
 #include "dwfieldbvh.h"
 #include "dwfieldbvhnode.h"
 #include <QVector2D>
+#include <QList>
+
+#include <QDebug>
+
 
 dwFieldBVH::dwFieldBVH(QObject *parent) : QObject(parent)
 {
@@ -9,6 +13,8 @@ dwFieldBVH::dwFieldBVH(QObject *parent) : QObject(parent)
     m_viewCenterX = 0;
     m_viewCenterY = 0;
     m_viewRadius = 300;
+
+    m_maxChildNodes = 8;
 }
 
 dwFieldBVH::~dwFieldBVH()
@@ -30,6 +36,7 @@ dwFieldBVHNode *dwFieldBVH::createNode(qreal xC, qreal yC, qreal radius, dwField
 
 void dwFieldBVH::update(qreal dt)
 {
+    Q_UNUSED(dt)
     updateNode(m_rootNode);
 }
 
@@ -63,9 +70,11 @@ bool nodeYLessThan( const dwFieldBVHNode * node1, const dwFieldBVHNode * node2 )
     return node1->centerY() < node2->centerY();
 }
 
-void dwFieldBVH::buildBVH(int maxNodes, dwFieldBVHNode * node)
+int buildBVHNode(dwFieldBVHNode * node, int maxChildNodes)
 {
-    if(node->children().length() > maxNodes)
+    int depth = 1;
+
+    if(node->children().length() > maxChildNodes)
     {
         // lets split the node
         QList<dwFieldBVHNode *> nodeChildren;
@@ -89,10 +98,82 @@ void dwFieldBVH::buildBVH(int maxNodes, dwFieldBVHNode * node)
             nodeChildren[i]->setParent( i < (nodeChildren.length()/2)? node1 : node2 );
         }
 
-        buildBVH(maxNodes, node1);
-        buildBVH(maxNodes, node2);
+        int depth1 = buildBVHNode(node1, maxChildNodes);
+        int depth2 = buildBVHNode(node2, maxChildNodes);
+
+        depth = qMax(depth1, depth2) + 1;
     }
 
     node->recalcGeometry();
+
+    return depth;
 }
+
+int dwFieldBVH::buildBVH(dwFieldBVHNode * node)
+{
+
+    qDebug() << "[dwFieldBVH] buildBVH() processing " << node->children().length() << " nodes";
+
+    int depth = buildBVHNode(node, m_maxChildNodes);
+
+    qDebug() << "[dwFieldBVH] tree depth was" << node->children().length();
+
+    return depth;
+}
+
+void findLeafNodes(dwFieldBVHNode *node, QList<dwFieldBVHNode*> *list)
+{
+    if(node->children().size() == 0)
+        list->append(node);
+    else
+    {
+        foreach (QObject * obj, node->children())
+        {
+            dwFieldBVHNode *child = reinterpret_cast<dwFieldBVHNode * >(obj);
+            findLeafNodes(child, list);
+        }
+    }
+}
+
+
+void dwFieldBVH::flattenBVH(dwFieldBVHNode *node)
+{
+    QList<dwFieldBVHNode*> leafNodes;
+    QList<dwFieldBVHNode*> nonLeafNodes;
+
+    // find all leaf nodes
+    if(node->children().size()) // test so that root node is not added as a leaf node
+        findLeafNodes(node, &leafNodes);
+
+    //reparent all leaf nodes
+    foreach (dwFieldBVHNode *leafNode, leafNodes) {
+        leafNode->setParent(node);
+    }
+
+    // delete all children that are not a leaf node
+    foreach (QObject * obj, node->children())
+    {
+        dwFieldBVHNode *child = reinterpret_cast<dwFieldBVHNode * >(obj);
+
+        if(leafNodes.contains(child)) continue;
+
+        nonLeafNodes.append(child);
+    }
+
+    foreach (dwFieldBVHNode *nonLeaf, nonLeafNodes)
+    {
+        delete nonLeaf;
+    }
+
+
+}
+
+void dwFieldBVH::rebuildBVH()
+{
+    qDebug() << "[dwFieldBVH] Rebuilding BVH";
+    flattenBVH(rootNode());
+    buildBVH(rootNode());
+}
+
+
 

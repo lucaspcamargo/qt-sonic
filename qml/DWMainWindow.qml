@@ -12,8 +12,8 @@ Window {
     visibility: _DW_MOBILE? Window.FullScreen : Window.Windowed
     color: "black"
 
-    width: 854
-    height: 480
+    width: 1280
+    height: 720
 
     property alias cursorShape: cursorSetter.cursorShape
 
@@ -54,11 +54,11 @@ Window {
 
             height: 240
             scale: parent.height / height
-            width: Math.ceil(height * parent.width/parent.height)
+            width: Math.round(height * parent.width/parent.height)
             anchors.centerIn: parent
 
             active: false
-            source: (!_DW_MOBILE)? "dev/DWDevMenu.qml" : "ui/DWIntroSequence.qml"
+            source: "dev/DWDevMenu.qml"
         }
 
         Keys.onDigit1Pressed: renderSampleSharp = !renderSampleSharp
@@ -90,6 +90,12 @@ Window {
         }
     }
 
+
+    DWGlobalResources
+    {
+        id: globalResources
+    }
+
     DWControllerHub
     {
         id: controllerHub
@@ -107,7 +113,7 @@ Window {
     property var renderShaders_sourceSmooth:[ false, false, false, false, false, false, false, false, false, false, false ]
     property var renderShaders_hasVP:[ false, false, false, true, false, true, true, false, false, false, false ]
 
-    property int renderShaderIndex: _DW_MOBILE? -1 : 0
+    property int renderShaderIndex: _DW_MOBILE? -1 : -1
     property bool renderUseShader: renderShaderIndex >= 0
     property bool renderSampleSharp: !_DW_MOBILE
 
@@ -122,7 +128,7 @@ Window {
         sourceItem: offscreen? mainContentLoader : null
         hideSource: true
         smooth: renderUseShader? renderShaders_sourceSmooth[renderShaderIndex] : !renderSampleSharp
-        textureSize: mainContentLoader.width + "x" + mainContentLoader.height
+        textureSize: Qt.size(rootWindow.width, rootWindow.height) //mainContentLoader.width + "x" + mainContentLoader.height
 
     }
     ShaderEffect
@@ -134,7 +140,7 @@ Window {
         blending: false
 
 
-        property real shaderScale: renderShaders_scale[renderShaderIndex]
+        property real shaderScale: renderShaderIndex >= 0? renderShaders_scale[renderShaderIndex] : 1
         width: shaderScale > 0? shaderScale * mainContentLoader.width : rootWindow.width
         height: shaderScale > 0? shaderScale * mainContentLoader.height : rootWindow.height
 
@@ -152,6 +158,7 @@ Window {
 
         fragmentShader: (renderUseShader && renderShaderIndex>=0)?
                             DWUtil.readTextFile(Qt.resolvedUrl("glsl/"+renderShaders[renderShaderIndex].toLowerCase()+"_fp.glsl")) : ""
+
     }
 
 
@@ -208,7 +215,7 @@ Window {
         id: dwLogo
         visible: false
 
-        opacity: 0.4
+        opacity: 0.0
 
         source: "ui/icon.png"
         width: sourceSize.width * parent.height/1500
@@ -283,11 +290,6 @@ Window {
             duration: 50
             loops: Animation.Infinite
         }
-    }
-
-    DWGlobalResources
-    {
-        id: globalResources
     }
 
     Text

@@ -22,9 +22,12 @@ public slots:
 
     QIODevice * getDeviceFromUrl(QUrl url);
     QString readTextFile(QUrl url);
+    bool writeTextFile(QUrl url, QString contents);
 
     void putImageDataPixel( int r, int g, int b, int a );
     void saveImageData(QUrl location, int w, int h );
+
+    QList<QUrl> listFiles(QUrl location);
 
 private:
     QList<int> m_imageData;

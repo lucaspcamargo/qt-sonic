@@ -36,8 +36,8 @@ Item {
             c += u_k/2.0 * vec2(sin(u_time/3.0), cos(u_time/2.0));
             v += sin(sqrt(c.x*c.x+c.y*c.y+1.0)+u_time);
             v = v/2.0;
-            vec3 col = vec3(cos(PI*v)/2.0, sin(PI*v), 0.4);
-            gl_FragColor = vec4(col*.1/* + .5*/, 1);
+            vec3 col = vec3(0.1*cos(PI*v)/2.0, 0.3, 0.05 + 0.05*sin(PI*v));
+            gl_FragColor = vec4(col, 1);
         }"
     }
 
@@ -72,12 +72,13 @@ Item {
     }
 */
 
-    DWImageItem
+    Image
     {
         id: testImage
-        source: "bg/bayonetta.jpg"
+        source: "bg/pattern.png"
         opacity: 0.3
         anchors.fill: parent
+        fillMode: Image.Tile
     }
 
     MouseArea

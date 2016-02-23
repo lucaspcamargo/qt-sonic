@@ -17,7 +17,19 @@ DWImageItem {
     function activate(){ active = true; objManager.objCount++; }
     function deactivate(){ active = false; objManager.objCount--; }
 
-    source: resBase + "obj/obj/bumper-32.png"
+    source: resBase + "obj/obj/bumper-hd.png"
+
+    DWImageItem {
+
+        id: bumperFlash
+
+        width: 32
+        height: 32
+
+        source: resBase + "obj/obj/bumper-flash-hd.png"
+
+        opacity: 2.0 * (bumper.scale - 1.0)
+    }
 
     DWFOPhysicsBody {
         id: physicsBody

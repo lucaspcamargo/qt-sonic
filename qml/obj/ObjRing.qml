@@ -34,12 +34,12 @@ DWFieldObject{
 
     AnimatedSprite{
         id: sprite
-        source: resBase + "obj/spr/ring.png"
+        source: resBase + "obj/spr/ring-hd.png"
         running: visible
         width: 16
         height: 16
-        frameWidth: 16
-        frameHeight: 16
+        frameWidth: 16*4
+        frameHeight: 16*4
         frameCount: 8
         frameDuration: convertGenesisTime(4) * 1000
         interpolate: false
@@ -189,7 +189,7 @@ DWFieldObject{
         {
             script:
             {
-                sprite.frameX = 128;
+                sprite.frameX = 128*4;
                 sprite.frameCount = 2;
                 sprite.frameDuration = 300/4;
             }

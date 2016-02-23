@@ -49,11 +49,18 @@ DWField {
 
     onWaterColorChanged: screenRenderer.waterColor = waterColor
 
+    // this is uneeded and buggy but totally cool: breaks editor though
+    Behavior on viewScale { enabled: field.fieldActive; NumberAnimation{ duration: 100 } }
+
     DWFieldBVH
     {
         id: fieldBVH
+
+        maxChildNodes: 8
         viewRadius: field.viewRadius
         activateAll: fieldEditMode
+
+
         onActivateAllChanged:
         {
             update(0);
@@ -132,6 +139,13 @@ DWField {
         }
     }
 
+    function rebuildBVH()
+    {
+        fieldBVH.rebuildBVH();
+        fieldBVH.viewRadius = Qt.vector2d(viewWidth/2, viewHeight/2).length()
+
+    }
+
     function init()
     {
 
@@ -139,7 +153,7 @@ DWField {
         for(var i = 0; i < levelData.chunks.length; i++)
         {
             var chunkData = levelData.chunks[i];
-            console.log(resBase + levelData.urlPrefix + chunkData.chunkSource);
+            console.log("[DWLevelField] init reading chunk: " + resBase + levelData.urlPrefix + chunkData.chunkSource);
             var chunkComponent = Qt.createComponent(resBase + levelData.urlPrefix + chunkData.chunkSource);
             var chunk = chunkComponent.createObject(this);
             if(!chunk) continue;
@@ -154,8 +168,7 @@ DWField {
         player = pComponent.createObject(this, {x: levelData.playerX, y: levelData.playerY });
 
 
-        fieldBVH.buildBVH(16, fieldBVH.rootNode);
-        fieldBVH.viewRadius = Qt.vector2d(viewWidth/2, viewHeight/2).length()
+        rebuildBVH();
 
         if(_DW_DEBUG_BVH_DRAW)createNodeVis(fieldBVH.rootNode, 0);
 
@@ -359,7 +372,7 @@ DWField {
     }
 
     //from the SPG to the engine
-    property real genesisPixelToLocalPixels: Math.round(parent.height / 240);
+    property real genesisPixelToLocalPixels: 1
     property real genesisFrameToSecondInv: 60.0;
     property real genesisFrameToSecond: 1.0/genesisFrameToSecondInv;
 

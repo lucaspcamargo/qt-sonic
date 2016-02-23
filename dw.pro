@@ -39,7 +39,10 @@ SOURCES += \
     src/dwtexturecache.cpp \
     src/dwtexture.cpp \
     src/dwcontrollerhub.cpp \
-    src/dwcontrollerstate.cpp
+    src/dwcontrollerstate.cpp \
+    src/dwsprite.cpp \
+    src/dwspritesheet.cpp \
+    src/dwspritesequence.cpp
 
 # Default rules for deployment.
 include(deployment.pri)
@@ -76,7 +79,10 @@ HEADERS += \
     src/dwtexturecache.h \
     src/dwtexture.h \
     src/dwcontrollerhub.h \
-    src/dwcontrollerstate.h
+    src/dwcontrollerstate.h \
+    src/dwsprite.h \
+    src/dwspritesheet.h \
+    src/dwspritesequence.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
@@ -100,13 +106,13 @@ unix{
 !android{
     win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/ -lliquidfun
     else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/ -lliquidfun
-    else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/build.local/Box2D/Release/ -lliquidfun
+    else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/ -lliquidfun
 
     win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/libliquidfun.a
     else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/libliquidfun.a
     else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/liquidfun.lib
     else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/liquidfun.lib
-    else:unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/build.local/Box2D/Release/libliquidfun.a
+    else:unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/libliquidfun.a
 }
 
 android {

@@ -55,8 +55,8 @@ DWPlayerBase {
         id: spriteManipulator
 
         rotation: Math.round( (currentAnimation == "rolling" || currentAnimation == "rollingM"? 0 : gAngle) / 45) * 45
-        x: - ( player.x - Math.round(player.x))
-        y: - ( player.y - Math.round(player.y))
+        x: 0//- ( player.x - Math.round(player.x))
+        y: 0//- ( player.y - Math.round(player.y))
 
         AnimatedSprite
         {
@@ -387,6 +387,8 @@ DWPlayerBase {
         active = true;
         playerDead = false;
 
+        setAnimation("falling");
+
         player.hasShield = false;
         player.turnedBack = false;
         player.playerQuadModeLocked = false;
@@ -394,6 +396,7 @@ DWPlayerBase {
         player.xSpeed = 0;
         player.ySpeed = 0;
         player.gSpeed = 0;
+        player.playerRolling = false;
 
         player.z = field.playerZ;
     }

@@ -6,8 +6,8 @@
     "bgms":[
 	{
         "type": "simple",
-            "introId": "sonic_2006_aquatic_base_intro.ogg",
-            "id": "sonic_2006_aquatic_base_loop.ogg",
+            "introId": "",
+            "id": "scd-quartz-quadrant.ogg",
 	    "inPrefix": false
 	}
     ],

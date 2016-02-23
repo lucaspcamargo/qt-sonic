@@ -24,7 +24,6 @@
         <file>qml/dev/DWDevMenu.qml</file>
         <file>qml/dev/DWDevSwitch.qml</file>
         <file>qml/dev/DWDevText.qml</file>
-        <file>qml/dev/bg/bayonetta.jpg</file>
         <file>qml/dev/bg/pattern.png</file>
         <file>qml/field/EffParticleWalkDust.qml</file>
         <file>qml/field/EffRain.qml</file>
@@ -113,5 +112,9 @@
         <file>qml/glsl/screen_renderer_water_vp.glsl</file>
         <file>qml/chunk/PLevelChunkVisImpl.qml</file>
         <file>qml/tools/editor/EObjectDisplay.qml</file>
+        <file>qml/level/DWLevelBackgroundFixed.qml</file>
+        <file>qml/tools/editor/EDialog.qml</file>
+        <file>qml/obj/ObjRage16Tile.qml</file>
+        <file>qml/obj/ObjRage16Vortex.qml</file>
     </qresource>
 </RCC>

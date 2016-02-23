@@ -5,66 +5,99 @@ import dw 1.0
 Item
 {
     id: sceneTitle
-    anchors.fill: parent
+    anchors.centerIn: parent
+    height: 1080
+    width: 1920
+    scale: parent.height / height
 
-    property int animDuration: 750
+    property int animDuration: _DW_DEBUG? 0 : 1000
 
-    Image
-    {
-        id: titleDecoration
-        source: resBase + "ui/titlecards/tile.png"
-        height: parent.height * 20
-        fillMode: Image.TileVertically
-
-        x: -width
-        Behavior on x { NumberAnimation { easing.type: Easing.InOutQuart; duration: sceneTitle.animDuration } }
-
-
-        NumberAnimation on y{
-            duration: 400
-            from: 0
-            to: -24
-            easing.type: Easing.Linear
-            running: true
-            loops: Animation.Infinite
-        }
-
-    }
-
-    Rectangle
-    {
-        id: titleShadow
-        width: parent.width
-        height: 96 + (levelData.subtitle? 8 : 0 )
-
-        y: 240
-        color: "#222"
-        opacity: 0.7
-
-        Behavior on y { NumberAnimation { easing.type: Easing.InOutQuart; duration: sceneTitle.animDuration } }
-
-    }
-
-    DWTextBitmap
-    {
-        id: subtitle
-        x: 128 + 4
-        anchors.bottom: titleShadow.bottom
-        anchors.bottomMargin: 6
-        font: "xexex-multi"
-        text: levelData.subtitle
-    }
 
     Image
     {
         id: title
-        x: 427
-        anchors.verticalCenter: parent.verticalCenter
+        y: -1080
 
-        source: Qt.resolvedUrl(resBase + levelData.urlPrefix + "title.png")
+        source: resBase + "ui/titlecards/default-title.png" //Qt.resolvedUrl(resBase + levelData.urlPrefix + "title.png")
 
-        Behavior on x { NumberAnimation { easing.type: Easing.InOutQuart; duration: sceneTitle.animDuration } }
+        Behavior on y { NumberAnimation { easing.type: Easing.InOutQuart; duration: 1.2*sceneTitle.animDuration } }
     }
+
+    Item
+    {
+        id: decorationTop
+        Image
+        {
+            source: resBase + "ui/titlecards/top.png"
+
+            NumberAnimation on y{
+                duration: 400
+                from: 0
+                to: -14.559
+                easing.type: Easing.Linear
+                running: titleAnimation.running
+                loops: Animation.Infinite
+            }
+
+            NumberAnimation on x{
+                duration: 400
+                from: 0
+                to: -166.408
+                easing.type: Easing.Linear
+                running: titleAnimation.running
+                loops: Animation.Infinite
+            }
+
+        }
+
+        y: -350
+        x: 0
+        Behavior on y { NumberAnimation { easing.type: Easing.InOutQuart; duration: sceneTitle.animDuration } }
+
+    }
+
+    Item
+    {
+        id: decorationLeft
+        Image
+        {
+            source: resBase + "ui/titlecards/left.png"
+
+            NumberAnimation on y{
+                duration: 400
+                from: -166.408
+                to: 0
+                easing.type: Easing.Linear
+                running: titleAnimation.running
+                loops: Animation.Infinite
+            }
+
+            NumberAnimation on x{
+                duration: 400
+                from: 14.559
+                to: 0
+                easing.type: Easing.Linear
+                running: titleAnimation.running
+                loops: Animation.Infinite
+            }
+
+        }
+
+        y: -234
+        x: -750
+        Behavior on x { NumberAnimation { easing.type: Easing.InOutQuart; duration: sceneTitle.animDuration } }
+
+    }
+
+    /*DWTextBitmap
+    {
+        id: subtitle
+        x: 128 + 4
+        font: "xexex-multi"
+        text: levelData.subtitle.toUpperCase()
+        visible: false
+    }*/
+
 
     property SequentialAnimation titleAnimation: SequentialAnimation {
 
@@ -83,9 +116,10 @@ Item
                 sceneTitle.visible = true;
                 sceneTitle.animDuration = _DW_DEBUG? 0 : 750;
                 globalFader.opacity = 0;
-                title.x = 128 + 4
-                titleDecoration.x = 0
-                titleShadow.y = 120 - 48
+                title.y = 0
+                decorationLeft.x = -297
+                decorationTop.y = -1
+                sceneFader.color = "#04a"
             }
         }
 
@@ -97,7 +131,7 @@ Item
             script:
             {
                 bgmPlayer.currentBGM = titleAnimation.bgmIndexToPlay;
-                bgmPlayer.resetBGM( bgmPlayer.currentBGM );
+                bgmPlayer.resetBGM( bgmPlayer.currentBGM >= 0? bgmPlayer.currentBGM : 0 );
             }
         }
 
@@ -133,9 +167,9 @@ Item
         ScriptAction {
             script:
             {
-                title.x = 427
-                titleDecoration.x = -titleDecoration.width
-                titleShadow.y = 240
+                title.y = 1080
+                decorationLeft.x = -750
+                decorationTop.y = -350
             }
         }
 
@@ -148,6 +182,7 @@ Item
             {
                 sceneTitle.visible = false;
                 sceneTitle.animDuration = _DW_DEBUG? 0 : 750;
+                sceneFader.color = "#000"
             }
         }
 

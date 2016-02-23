@@ -15,8 +15,10 @@ QtObject {
     property int currentBGM: -1
     property int currentBGMBuffer: -1
 
-    Component.onCompleted:
+    function init()
     {
+        console.log("[DWLevelBGMPlayer] level has " + levelData.bgms.length + " bgms")
+
         for(var bgmIndex = 0; bgmIndex < levelData.bgms.length; bgmIndex++)
         {
             var bgmDef = levelData.bgms[bgmIndex];
@@ -96,8 +98,8 @@ QtObject {
 
     function resetBGM( index )
     {
-        return bgms[index].seekZero();
+        if(bgms[index])
+            return bgms[index].seekZero();
     }
-
 }
 

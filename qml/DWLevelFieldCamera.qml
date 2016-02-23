@@ -8,11 +8,11 @@ QtObject {
     property real minYBoundary: levelData.minBoundaryY
     property real maxYBoundary: levelData.maxBoundaryY
 
-    property real minViewCenterX: minXBoundary + Math.ceil(field.viewWidth/2)
-    property real maxViewCenterX: maxXBoundary - Math.floor(field.viewWidth/2)
+    property real minViewCenterX: minXBoundary + field.viewWidth/2 //Math.ceil(field.viewWidth/2)
+    property real maxViewCenterX: maxXBoundary - field.viewWidth/2 //Math.floor(field.viewWidth/2)
 
-    property real minViewCenterY: minYBoundary + Math.ceil(field.viewHeight/2)
-    property real maxViewCenterY: maxYBoundary - Math.floor(field.viewHeight/2)
+    property real minViewCenterY: minYBoundary + field.viewHeight/2 //Math.ceil(field.viewHeight/2)
+    property real maxViewCenterY: maxYBoundary - field.viewHeight/2 //Math.floor(field.viewHeight/2)
 
     property real viewCenterX: 0
     property real viewCenterY: 0
@@ -29,17 +29,17 @@ QtObject {
         if(Math.abs(viewCenterX - x) > 8)
         {
             if(viewCenterX > x)
-                viewCenterX = Math.round(x) + 8;
+                viewCenterX = x + 8; //Math.round(x) + 8;
             else
-                viewCenterX = Math.round(x) - 8;
+                viewCenterX = x - 8; //Math.round(x) - 8;
         }
 
         if(Math.abs(viewCenterY - y) > 16)
         {
             if(viewCenterY > y)
-                viewCenterY = Math.round(y) + 16;
+                viewCenterY = y + 16; //Math.round(y) + 16;
             else
-                viewCenterY = Math.round(y) - 16;
+                viewCenterY = y - 16; //Math.round(y) - 16;
         }
 
         // respect bounds

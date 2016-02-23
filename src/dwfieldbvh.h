@@ -13,6 +13,7 @@ class dwFieldBVH : public QObject
     Q_PROPERTY(qreal viewRadius READ viewRadius WRITE setViewRadius NOTIFY viewRadiusChanged)
     Q_PROPERTY(bool activateAll READ activateAll WRITE setActivateAll NOTIFY activateAllChanged)
     Q_PROPERTY(dwFieldBVHNode * rootNode READ rootNode CONSTANT)
+    Q_PROPERTY(int maxChildNodes READ maxChildNodes WRITE setMaxChildNodes NOTIFY maxChildNodesChanged)
 
     qreal m_viewCenterX;
 
@@ -25,6 +26,8 @@ class dwFieldBVH : public QObject
     void updateNode(dwFieldBVHNode * node);
 
     bool m_activateAll;
+
+    int m_maxChildNodes;
 
 public:
     explicit dwFieldBVH(QObject *parent = 0);
@@ -55,6 +58,11 @@ public:
         return m_activateAll;
     }
 
+    int maxChildNodes() const
+    {
+        return m_maxChildNodes;
+    }
+
 signals:
 
     void viewCenterXChanged(qreal arg);
@@ -64,6 +72,8 @@ signals:
     void viewRadiusChanged(qreal arg);
 
     void activateAllChanged(bool arg);
+
+    void maxChildNodesChanged(int maxChildNodes);
 
 public slots:
     void setViewCenterX(qreal arg)
@@ -85,7 +95,11 @@ public slots:
 
     dwFieldBVHNode *createNode(qreal xC, qreal yC, qreal radius, dwFieldBVHNode * parent);
 
-    void buildBVH(int maxNodes, dwFieldBVHNode * node);
+    int buildBVH(dwFieldBVHNode * node);
+
+    void flattenBVH(dwFieldBVHNode * node);
+
+    void rebuildBVH();
 
     void update(qreal dt);
 
@@ -104,6 +118,14 @@ public slots:
 
         m_activateAll = arg;
         emit activateAllChanged(arg);
+    }
+    void setMaxChildNodes(int maxChildNodes)
+    {
+        if (m_maxChildNodes == maxChildNodes)
+            return;
+
+        m_maxChildNodes = maxChildNodes;
+        emit maxChildNodesChanged(maxChildNodes);
     }
 };
 

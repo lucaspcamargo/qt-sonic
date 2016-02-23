@@ -1,42 +1,52 @@
 {
-    "name": "Original Zone",
-    "subtitle": "Not very original...",
+    "name": "Test Level",
+    "subtitle": "Subtitle goes here",
     "prefix": "oz",
     "urlPrefix": "oz/",
     "bgms":[
 	{
 	    "type": "simple",
-        "id": "bgm.mp3",
-        "inPrefix": true
+	    "introId": "",
+        "id": "scd-quartz-quadrant.ogg",
+        "inPrefix": false
 	}
     ],
 
     "bgs": [
 	{
-	    "bgType": "parallax",
-	    "bgName": "bg",
-	    "bgParallaxName": "bg-parallax",
+	    "bgType": "fixed",
+	    "bgName": "bg-fixed.png",
 	    "inPrefix": true
 	}
     ],
     
     "chunks": [
-	{
-	    "chunkSource": "chunk0.qml",
-	    "chunkX": -512,
-	    "chunkY": -512
-    }
 
     ],
     
     "effects": [
+	{
+	    "effect": "EffWaterPerspective",
+	    "effectParams": {
+	      "opacity": 1.0,
+	      "reflectionEnabled": false,
+	      "verticalFactor": 3
+	    },
+	    "inPrefix": false
+	},
+	{
+	    "effect": "EffWaterWalk",
+	    "effectParams": {
+	    },
+	    "inPrefix": false
+        }
     ],
 
-    "playerX": -396,
-    "playerY": 220,
+    "playerX": -475,
+    "playerY": 844,
 
     "minBoundaryX": -512,
-    "maxBoundaryX": 7680,
+    "maxBoundaryX": 11168,
     "minBoundaryY": -9000,
     "maxBoundaryY": 2320,
 
@@ -45,7 +55,7 @@
     "waterYCenter": 1000,
     "waterYAmplitude": 8,
     
-    "objStubs": "",
+    "objStubs": "oz-objs.json",
     "visStubs": "",
     "geometryStubs": ""
 } 

@@ -4,3 +4,6 @@
 [submodule "thirdparty/SDL_GameControllerDB"]
 	path = thirdparty/SDL_GameControllerDB
 	url = git@github.com:gabomdq/SDL_GameControllerDB.git
+[submodule "dw-art"]
+	path = dw-art
+	url = git@bitbucket.org:notsonicteam/dw-art.git

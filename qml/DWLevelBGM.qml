@@ -9,10 +9,10 @@ QtObject {
     property string introId: ""
     property string prefix: ""
     property bool loop: true
-    property string realizedPrefix: (prefix != ""? prefix : resBase + "music/")
+    property string realizedPrefix: (prefix != ""? resBase + prefix : resBase + "music/")
     property url source: realizedPrefix + mainId
     property url introSource: introId == "" ? "" : (realizedPrefix + introId)
-    property bool fadeEnabled: bgmPlayer? bgmPlayer.fadeEnabled : true
+    property bool fadeEnabled: true//bgmPlayer? bgmPlayer.fadeEnabled : true
 
     property real volume: 1.0
     Behavior on volume { enabled: bgm.fadeEnabled; NumberAnimation { easing.type: Easing.OutExpo; duration: 3000; } }
@@ -47,7 +47,7 @@ QtObject {
         sndSource.setGain(volume);
 
         if(!sndSource) {
-            console.log("Failed to create source");
+            console.log("[DWLevelBGM] Failed to create source");
             return;
         }
 

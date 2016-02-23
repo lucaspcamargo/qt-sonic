@@ -26,7 +26,9 @@ DWFieldObject {
     }
 
     DWImageItem{
-        source: resBase + "obj/obj/spikes.png"
+        source: resBase + "obj/obj/spikes-hd.png"
+        width: 32
+        height: 32
     }
 
     Component.onCompleted: objManager.updateObjects.connect(update);

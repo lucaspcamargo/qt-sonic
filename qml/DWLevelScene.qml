@@ -8,7 +8,7 @@ Item {
     id: scene
     anchors.fill: parent
 
-    property url levelFile: resBase + "mm/mm.json"
+    property url levelFile: resBase + "oz/oz.json"
     property var levelData: (JSON.parse(DWUtil.readTextFile(levelFile)))
 
     Item
@@ -35,10 +35,18 @@ Item {
             }
         }
 
-        DWLevelBackground {
-            id: bg
-            inPrefix: true
+        Item
+        {
+            id: bgContainer
+            anchors.fill: parent
+
+            DWLevelBackground {
+                id: bg
+                inPrefix: true
+            }
+
         }
+
 
         Image
         {
@@ -128,6 +136,7 @@ Item {
         anchors.fill: parent
         focus: true
         visible: _DW_MOBILE
+        opacity: 0.8
 
         dPadMode: true
     }
@@ -139,7 +148,7 @@ Item {
 
         //z: field.hudZ
 
-        showScore: false
+        showScore: true
         scoreValue: fieldController.score
         timeValue: field.fieldTime
         ringsValue: fieldController.rings
@@ -153,6 +162,7 @@ Item {
         visible: (!_DW_DEBUG) && opacity != 0
 
         Behavior on opacity { NumberAnimation{duration: 500}}
+        Behavior on color { ColorAnimation{ duration: 600 } }
     }
 
     DWLevelTitlecard
@@ -172,7 +182,25 @@ Item {
 
     Component.onCompleted:
     {
+        // create bgms
+        bgmPlayer.init();
+
+        //create backgrounds
+        for(var i = 0; i < levelData.bgs.length; i++)
+        {
+            var bgArgs = levelData.bgs[i];
+
+            if(bgArgs.bgType === "fixed")
+            {
+                var c = Qt.createComponent("level/DWLevelBackgroundFixed.qml");
+                c.createObject(bgContainer, {args:bgArgs});
+            }
+        }
+
+        // render to texture
         offscreen = true;
+
+        //setup editor
         if(_DW_DEBUG) {
             var c = Qt.createComponent("tools/DWLevelEditor.qml");
             levelEditor = c.createObject(this);
@@ -182,6 +210,7 @@ Item {
             editorCheckerboard.destroy();
         }
 
+        // init field
         field.init();
         titleAnimation.running = true;
     }

@@ -11,6 +11,7 @@ Rectangle {
 
     property alias text: label.text
     property alias mouseArea: ma
+    property int textColor: 7
     signal clicked()
 
     color: ma.containsMouse? "#888" : "#333"
@@ -25,7 +26,7 @@ Rectangle {
         anchors.centerIn: parent
 
         font: "xexex-multi"
-        offset: 95*7
+        offset: 95*textColor
 
     }
 

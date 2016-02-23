@@ -1,4 +1,5 @@
 import QtQuick 2.3
+import dw 1.0
 import ".." 1.0
 import "editor" 1.0
 
@@ -18,19 +19,35 @@ Item {
     property int cursorX: snapEnabled? Math.round(cursorPreciseX/snapAmount) * snapAmount : cursorPreciseX
     property int cursorY: snapEnabled? Math.round(cursorPreciseY/snapAmount) * snapAmount : cursorPreciseY
 
-    property bool snapEnabled: false
+    property bool snapEnabled: true
     property int snapAmount: 8
     function changeSnapAmount() {snapAmount *= 2; if(snapAmount > 128) snapAmount = 8;}
 
     property int editMode: 0
-    property var editModeNames: [ "OBJECTS", "TILES", "TILESET", "GEOMETRY" ]
+    property var editModeNames: [ "OBJECTS", "TILESET" ]
     function changeEditMode() { editMode = (editMode+1)%editModeNames.length; }
 
     property var handlesLayer: null
 
+    property int objCurrent: 0
+    property var objShortcuts: [0,1,2,3,4,5,6,7,8,9]
     property var objLib: [
-        {name: "Ring", },
+        {name: "Ring", displayImage:"obj/obj/ring.png"},
+        {name: "Spring", displayImage:"obj/obj/spring.png" },
+        {name: "Monitor", displayImage:"obj/obj/monitor-shield.png" },
+        {name: "Spikes", displayImage:"obj/obj/spikes.png" },
+        {name: "Checkpoint", displayImage:"obj/obj/checkpoint.png" },
+        {name: "Bumper", displayImage:"obj/obj/bumper.png" },
+        {name: "Trigger", displayImage:"obj/obj/TriggerLayerA.png" },
+        {name: "Badnik", displayImage:"obj/obj/badnik.png" },
+        {name: "Bridge", displayImage:"obj/obj/bridge.png" },
+        {name: "RedRing", displayImage:"obj/obj/redRing.png" },
     ]
+
+    property url tileLocation: resBase + levelData.urlPrefix + "tileset"
+    property url tilePrefix: tileLocation + "/"
+    property var tileFiles: DWUtil.listFiles(tileLocation)
+    property int tileCurrent: 0
 
     MouseArea
     {
@@ -63,6 +80,14 @@ Item {
                 originalY = mouse.y
                 fieldOriginalX = field.viewCenterAtX;
                 fieldOriginalY = field.viewCenterAtY;
+            }
+
+            if(mouse.button == Qt.RightButton)
+            {
+                if(editMode == 0)
+                    placeObject();
+                else
+                    placeTile();
             }
 
             mouse.accepted = true
@@ -154,6 +179,31 @@ Item {
         color: "orange"
     }
 
+
+    Image
+    {
+        id: objectDisplayImage
+        visible: editMode == 0
+        x: cursorGuideVertical.x
+        y: cursorGuideHorizontal.y
+        opacity: 0.5
+        source: resBase + objLib[objCurrent].displayImage
+        transformOrigin: Item.TopLeft
+        scale: field.viewScale/levelEditor.scale
+    }
+
+    Image
+    {
+        id: tileDisplayImage
+        visible: editMode == 1
+        x: cursorGuideVertical.x
+        y: cursorGuideHorizontal.y
+        opacity: 0.5
+        source: tileFiles[tileCurrent]
+        transformOrigin: Item.TopLeft
+        scale: field.viewScale/levelEditor.scale
+    }
+
     Rectangle
     {
         id: editorMenuBar
@@ -183,13 +233,14 @@ Item {
             anchors.right: parent.right
 
             EButton            {
-                text: "RELOAD"
-                onClicked: changeEditMode()
+                text: "SAVE"
+                onClicked: saveObjects()
+                textColor: 5
             }
 
             EButton            {
-                text: "SAVE"
-                onClicked: changeEditMode()
+                text: "RELOAD"
+                onClicked: reloadObjects()
             }
 
             EButton            {
@@ -230,7 +281,8 @@ Item {
             id: objDisplayCurrent
 
             label: "CURR"
-            name: "RING"
+            name: objLib[objCurrent].name.toUpperCase()
+            imageSource: resBase + objLib[objCurrent].displayImage
         }
         Repeater
         {
@@ -239,10 +291,69 @@ Item {
             EObjectDisplay
             {
                 label: (index + 1) % 10
-                name: "RING"
+                name: objLib[objShortcuts[index]].name.toUpperCase()
+                imageSource: resBase + objLib[objShortcuts[index]].displayImage
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked: objCurrent = (index)
+                }
             }
         }
 
+
+    }
+
+    Rectangle
+    {
+        id: tileSelect
+
+
+        color: "#000"
+
+        border.color: "#88aa00"
+        border.width: 1
+        clip: true
+
+        width: 48
+        height: parent.height - 40
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        anchors.top: parent.top
+        anchors.topMargin: 20
+
+        MouseArea
+        {
+            anchors.fill: parent
+            hoverEnabled: true
+        }
+
+        ListView
+        {
+            anchors.fill: parent
+            anchors.margins: 4
+
+            spacing: 4
+
+            model: tileFiles.length
+
+            delegate: Image {
+
+                source: tileFiles[index]
+                width: parent.width
+                height: width
+
+                fillMode: Image.PreserveAspectFit
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked: tileCurrent = index
+                }
+
+            }
+
+        }
 
     }
 
@@ -274,17 +385,47 @@ Item {
         }
     }
 
-    function addObject( historyIndex )
+    function placeObject( )
     {
-        if(!historyIndex)
-        {
-
-        }
+        // x, y, w, h, rot, xc, yc, radius, name, opts, inPrefix
+        var createdIndex = field.objectManager.addObjectStub(cursorX, cursorY,
+                                                             objectDisplayImage.width, objectDisplayImage.height,
+                                                             0,
+                                                             cursorX + objectDisplayImage.width/2, cursorY + objectDisplayImage.height/2,
+                                                             64, objLib[objCurrent].name, [], false);
+        field.objectManager.createObject(createdIndex);
+        handlesLayer.createHandle(createdIndex);
     }
 
+    function reloadObjects()
+    {
+        handlesLayer.destroyHandles();
+        field.objectManager.loadObjStubs();
+        handlesLayer.createHandles();
+    }
+
+    function saveObjects()
+    {
+        field.objectManager.saveObjStubs();
+    }
+
+    function placeTile( )
+    {
+        var tileFile = tileFiles[tileCurrent].substr(tileFiles[tileCurrent].lastIndexOf("/") + 1);
+
+        var createdIndex = field.objectManager.addObjectStub(cursorX, cursorY,
+                                                             tileDisplayImage.width, tileDisplayImage.height,
+                                                             0,
+                                                             cursorX + tileDisplayImage.width/2, cursorY + tileDisplayImage.height/2,
+                                                             512, "Rage16Tile", {"tileFile": tileFile, "background": tileFile.indexOf("bg") > -1}, false);
+        field.objectManager.createObject(createdIndex);
+        handlesLayer.createHandle(createdIndex);
+    }
 
     function toggleVisible()
     {
+        console.log("[DWLevelEditor] editor " + (visible? "enabled" : "disabled"))
+
         fieldController.paused = false;
 
         visible = !visible;
@@ -303,11 +444,14 @@ Item {
 
         if(visible)
             field.objectManager.resetObjects();
+        else
+            field.rebuildBVH();
 
         if(visible)
             handlesLayer.createHandles();
         else
             handlesLayer.destroyHandles();
+
     }
 
     Keys.onEscapePressed:
@@ -326,16 +470,54 @@ Item {
         if(event.key == Qt.Key_A)
             changeSnapAmount();
 
+        if(event.key == Qt.Key_C)
+            centerOnPlayerAnim.start();
+
+        if(event.key == Qt.Key_P)
+        {
+            // place player here
+            field.player.x = cursorX;
+            field.player.y = cursorY;
+        }
+
+        if(event.key == Qt.Key_Space)
+            objectsDialog.show();
+
         if(event.key == Qt.Key_Delete || event.key == Qt.Key_X || event.key == Qt.Key_Backspace )
             handlesLayer.deleteSelection();
 
         event.accepted = true;
     }
 
-    Keys.onSpacePressed:
+    ParallelAnimation
     {
-        addObject();
+        id: centerOnPlayerAnim
+
+        NumberAnimation
+        {
+            target: field
+            property: "viewCenterAtX"
+            to: field.player.x
+        }
+
+        NumberAnimation
+        {
+            target: field
+            property: "viewCenterAtY"
+            to: field.player.y
+        }
     }
+
+    Keys.onDigit0Pressed: {objCurrent = 9; event.accepted = true}
+    Keys.onDigit1Pressed: {objCurrent = 0; event.accepted = true}
+    Keys.onDigit2Pressed: {objCurrent = 1; event.accepted = true}
+    Keys.onDigit3Pressed: {objCurrent = 2; event.accepted = true}
+    Keys.onDigit4Pressed: {objCurrent = 3; event.accepted = true}
+    Keys.onDigit5Pressed: {objCurrent = 4; event.accepted = true}
+    Keys.onDigit6Pressed: {objCurrent = 5; event.accepted = true}
+    Keys.onDigit7Pressed: {objCurrent = 6; event.accepted = true}
+    Keys.onDigit8Pressed: {objCurrent = 7; event.accepted = true}
+    Keys.onDigit9Pressed: {objCurrent = 8; event.accepted = true}
 
     Component.onCompleted:
     {
@@ -344,6 +526,46 @@ Item {
         // create field surface
         var c = Qt.createComponent("editor/EHandlesLayer.qml");
         handlesLayer = c.createObject(fieldContainer);
+
+        // read level tiles
+        initTileset();
     }
+
+    function initTileset()
+    {
+        console.log(("[DWLevelEditor] found %1 tiles").arg(tileFiles.length));
+
+        tileFiles.forEach(function (tile){
+
+        });
+
+    }
+
+    EDialog
+    {
+        id: objectsDialog
+
+        GridView
+        {
+            anchors.fill: parent
+            model: objLib.length
+            cellHeight: 56
+            cellWidth: 56
+
+            delegate: EObjectDisplay {
+                name: objLib[index].name.toUpperCase()
+                imageSource: resBase + objLib[index].displayImage
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked: {
+                        objCurrent = (index);
+                        objectsDialog.dismiss();
+                    }
+                }
+            }
+        }
+    }
+
 }
 
