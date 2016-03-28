@@ -1,0 +1,185 @@
+{
+    "scale": 4,
+    "sequences": [
+        {
+            "name": "ring",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 0,
+            "frameW": 16,
+            "frameH": 16,
+            "frameCount": 8,
+            "frameDuration": 0.0666666666666667
+        },
+        {
+            "name": "ring-sparkle",
+            "type": "strip",
+            "frameX": 128,
+            "frameY": 0,
+            "frameW": 16,
+            "frameH": 16,
+            "frameCount": 2,
+            "frameDuration": 0.0666666666666667
+        },
+        {
+            "name": "redring",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 16,
+            "frameW": 32,
+            "frameH": 32,
+            "frameCount": 8,
+            "frameDuration": 0.0666666666666667
+        },
+        {
+            "name": "monitor",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 48,
+            "frameW": 28,
+            "frameH": 32,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "monitor-destroyed1",
+            "type": "strip",
+            "frameX": 28,
+            "frameY": 48,
+            "frameW": 28,
+            "frameH": 32,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "monitor-destroyed2",
+            "type": "strip",
+            "frameX": 56,
+            "frameY": 48,
+            "frameW": 28,
+            "frameH": 32,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "monitor-blink",
+            "type": "strip",
+            "frameX": 160,
+            "frameY": 0,
+            "frameW": 16,
+            "frameH": 14,
+            "frameCount": 3,
+            "frameDuration": 0.0333333333333333
+        },
+        {
+            "name": "spikes",
+            "type": "strip",
+            "frameX": 84,
+            "frameY": 48,
+            "frameW": 32,
+            "frameH": 32,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "spring",
+            "type": "strip",
+            "frameX": 116,
+            "frameY": 48,
+            "frameW": 32,
+            "frameH": 16,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "spring-y",
+            "type": "strip",
+            "frameX": 116,
+            "frameY": 64,
+            "frameW": 32,
+            "frameH": 16,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "spring-open",
+            "type": "strip",
+            "frameX": 148,
+            "frameY": 48,
+            "frameW": 32,
+            "frameH": 32,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "spring-y-open",
+            "type": "strip",
+            "frameX": 180,
+            "frameY": 48,
+            "frameW": 32,
+            "frameH": 32,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "checkpoint",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 80,
+            "frameW": 24,
+            "frameH": 64,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "checkpoint-activated",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 80,
+            "frameW": 24,
+            "frameH": 64,
+            "frameCount": 2,
+            "frameDuration": 0.1
+        },
+        {
+            "name": "dashring-front",
+            "type": "strip",
+            "frameX": 48,
+            "frameY": 80,
+            "frameW": 16,
+            "frameH": 64,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "dashring-back",
+            "type": "strip",
+            "frameX": 64,
+            "frameY": 80,
+            "frameW": 16,
+            "frameH": 64,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "spring-platform",
+            "type": "strip",
+            "frameX": 80,
+            "frameY": 80,
+            "frameW": 32,
+            "frameH": 16,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "explode",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 144,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 5,
+            "frameDuration": 0.066666666666667
+        }
+    ]
+}

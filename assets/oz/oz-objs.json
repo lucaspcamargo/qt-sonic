@@ -1,0 +1,7379 @@
+[
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -192,
+    "xc": -184,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -160,
+    "xc": -152,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 27.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-flower.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 12.75,
+    "x": -240,
+    "xc": -233.625,
+    "y": 872,
+    "yc": 885.625
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -512,
+    "xc": -448,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -384,
+    "xc": -320,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -256,
+    "xc": -192,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -128,
+    "xc": -64,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 0,
+    "xc": 64,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 768,
+    "xc": 832,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 872,
+    "xc": 884,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 768,
+    "xc": 832,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 768,
+    "xc": 832,
+    "y": 1152,
+    "yc": 1216
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 872,
+    "xc": 884,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 872,
+    "xc": 884,
+    "y": 1152,
+    "yc": 1216
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 872,
+    "xc": 884,
+    "y": 920,
+    "yc": 932
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1024,
+    "xc": 1088,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1152,
+    "xc": 1216,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1024,
+    "xc": 1088,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1152,
+    "xc": 1216,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1024,
+    "xc": 1036,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1256,
+    "xc": 1268,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1256,
+    "xc": 1268,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1024,
+    "xc": 1036,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1024,
+    "xc": 1036,
+    "y": 960,
+    "yc": 972
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1088,
+    "xc": 1096,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1120,
+    "xc": 1128,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1152,
+    "xc": 1160,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1256,
+    "xc": 1268,
+    "y": 960,
+    "yc": 972
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1408,
+    "xc": 1472,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-hole.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1408,
+    "xc": 1472,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1512,
+    "xc": 1524,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1512,
+    "xc": 1524,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-block.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 81.25,
+    "x": 1440,
+    "xc": 1480.625,
+    "y": 856,
+    "yc": 900.125
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1448,
+    "xc": 1456,
+    "y": 800,
+    "yc": 808
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1480,
+    "xc": 1488,
+    "y": 800,
+    "yc": 808
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 384,
+    "xc": 448,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 512,
+    "xc": 576,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 640,
+    "xc": 704,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1664,
+    "xc": 1728,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1792,
+    "xc": 1856,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-hole.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1792,
+    "xc": 1856,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-bot-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1664,
+    "xc": 1728,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1920,
+    "xc": 1984,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1920,
+    "xc": 1984,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 128,
+    "xc": 192,
+    "y": 864,
+    "yc": 928
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 256,
+    "xc": 320,
+    "y": 864,
+    "yc": 928
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 128,
+    "xc": 140,
+    "y": 864,
+    "yc": 928
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 360,
+    "xc": 372,
+    "y": 864,
+    "yc": 928
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 128,
+    "xc": 192,
+    "y": 992,
+    "yc": 1056
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0.jpg"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 256,
+    "xc": 320,
+    "y": 992,
+    "yc": 1056
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 128,
+    "xc": 140,
+    "y": 992,
+    "yc": 1056
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 360,
+    "xc": 372,
+    "y": 992,
+    "yc": 1056
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 128,
+    "xc": 140,
+    "y": 952,
+    "yc": 964
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 360,
+    "xc": 372,
+    "y": 896,
+    "yc": 908
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-block.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 81.25,
+    "x": 616,
+    "xc": 656.625,
+    "y": 936,
+    "yc": 980.125
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-block.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 81.25,
+    "x": -176,
+    "xc": -135.375,
+    "y": 928,
+    "yc": 972.125
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 384,
+    "xc": 400,
+    "y": 864,
+    "yc": 880
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 416,
+    "xc": 432,
+    "y": 864,
+    "yc": 880
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 568,
+    "xc": 576,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 600,
+    "xc": 608,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 632,
+    "xc": 640,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-block.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 81.25,
+    "x": 1856,
+    "xc": 1896.625,
+    "y": 808,
+    "yc": 852.125
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-b-fence.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": -128,
+    "xc": -64,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -128,
+    "xc": -120,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-b-fence.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 704,
+    "xc": 768,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-b-fence.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1088,
+    "xc": 1152,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 320,
+    "xc": 384,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-bot-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 320,
+    "xc": 384,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 320,
+    "xc": 332,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 320,
+    "xc": 332,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 448,
+    "xc": 512,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 576,
+    "xc": 640,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-bot-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 448,
+    "xc": 512,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-bot-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 576,
+    "xc": 640,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 680,
+    "xc": 692,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 680,
+    "xc": 692,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-pipe1-bottom.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 320,
+    "xc": 332,
+    "y": 640,
+    "yc": 660
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-pipe1-bottom.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 680,
+    "xc": 692,
+    "y": 640,
+    "yc": 660
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-block.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 81.25,
+    "x": 392,
+    "xc": 432.625,
+    "y": 464,
+    "yc": 508.125
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-block.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 81.25,
+    "x": 584,
+    "xc": 624.625,
+    "y": 416,
+    "yc": 460.125
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 320,
+    "xc": 332,
+    "y": 416,
+    "yc": 428
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 680,
+    "xc": 692,
+    "y": 552,
+    "yc": 564
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1-valve.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 680,
+    "xc": 692,
+    "y": 440,
+    "yc": 452
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 832,
+    "xc": 896,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 832,
+    "xc": 844,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 936,
+    "xc": 948,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-bot-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 832,
+    "xc": 896,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-bot-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 704,
+    "xc": 768,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-pipe1-bottom.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 832,
+    "xc": 844,
+    "y": 512,
+    "yc": 532
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "pipe1.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 936,
+    "xc": 948,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": true,
+      "tileFile": "bg-pipe1-bottom.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 24,
+    "x": 936,
+    "xc": 948,
+    "y": 640,
+    "yc": 660
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-top-a.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1280,
+    "xc": 1344,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Rage16Tile",
+    "options": {
+      "background": false,
+      "tileFile": "fg-pat0-hole.png"
+    },
+    "radius": 512,
+    "rot": 0,
+    "w": 128,
+    "x": 1280,
+    "xc": 1344,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp3.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 64,
+    "x": 704,
+    "xc": 736,
+    "y": 448,
+    "yc": 480
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 64,
+    "x": 768,
+    "xc": 800,
+    "y": 448,
+    "yc": 480
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 712,
+    "xc": 720,
+    "y": 384,
+    "yc": 392
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 712,
+    "xc": 720,
+    "y": 416,
+    "yc": 424
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 712,
+    "xc": 720,
+    "y": 448,
+    "yc": 456
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 808,
+    "xc": 816,
+    "y": 384,
+    "yc": 392
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 808,
+    "xc": 816,
+    "y": 416,
+    "yc": 424
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 808,
+    "xc": 816,
+    "y": 448,
+    "yc": 456
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 726,
+    "xc": 734,
+    "y": 474,
+    "yc": 482
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 794,
+    "xc": 802,
+    "y": 474,
+    "yc": 482
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 772,
+    "xc": 780,
+    "y": 486,
+    "yc": 494
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 747,
+    "xc": 755,
+    "y": 485,
+    "yc": 493
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 832,
+        "maxY": 512,
+        "minX": 704,
+        "minY": 448,
+        "radius": 143.10835055998655,
+        "xC": 768,
+        "xPoints": [
+          -64,
+          -62,
+          -58,
+          -54,
+          -50,
+          -45,
+          -39,
+          -31,
+          -24,
+          -17,
+          -8,
+          0,
+          14,
+          26,
+          39,
+          46,
+          54,
+          60,
+          63,
+          64
+        ],
+        "yC": 480,
+        "yPoints": [
+          -32,
+          -14,
+          -4,
+          2,
+          8,
+          14,
+          19,
+          24,
+          28,
+          30,
+          31,
+          32,
+          30,
+          26,
+          19,
+          12,
+          2,
+          -10,
+          -22,
+          -32
+        ]
+      }
+    },
+    "radius": 286.2167011199731,
+    "rot": 0,
+    "w": 128,
+    "x": 704,
+    "xc": 768,
+    "y": 448,
+    "yc": 480
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-hole.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2072,
+    "xc": 2136,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2072,
+    "xc": 2136,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2072,
+    "xc": 2136,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 656,
+    "yc": 668
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 64,
+    "x": 1984,
+    "xc": 2016,
+    "y": 704,
+    "yc": 736
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2048,
+        "maxY": 768,
+        "minX": 1984,
+        "minY": 704,
+        "radius": 90.50966799187809,
+        "xC": 2016,
+        "xPoints": [
+          -32,
+          -9,
+          5,
+          14,
+          22,
+          28,
+          32
+        ],
+        "yC": 736,
+        "yPoints": [
+          32,
+          27,
+          21,
+          14,
+          2,
+          -11,
+          -32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 1984,
+    "xc": 2016,
+    "y": 704,
+    "yc": 736
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 64,
+    "x": 1984,
+    "xc": 2016,
+    "y": 512,
+    "yc": 544
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1664,
+    "xc": 1728,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1768,
+    "xc": 1780,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1768,
+    "xc": 1780,
+    "y": 640,
+    "yc": 660
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 448,
+    "yc": 460
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2048,
+        "maxY": 576,
+        "minX": 1984,
+        "minY": 512,
+        "radius": 90.50966799187809,
+        "xC": 2016,
+        "xPoints": [
+          -32,
+          -5,
+          12,
+          24,
+          29,
+          32
+        ],
+        "yC": 544,
+        "yPoints": [
+          -32,
+          -27,
+          -14,
+          1,
+          15,
+          32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 1984,
+    "xc": 2016,
+    "y": 512,
+    "yc": 544
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2072,
+    "xc": 2136,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2072,
+    "xc": 2136,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1920,
+    "xc": 1984,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1896,
+    "xc": 1908,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1896,
+    "xc": 1908,
+    "y": 512,
+    "yc": 532
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1920,
+    "xc": 1984,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2072,
+    "xc": 2136,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2048,
+    "xc": 2060,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1896,
+    "xc": 1908,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2200,
+        "maxY": 512,
+        "minX": 1896,
+        "minY": 256,
+        "radius": 397.4317551479751,
+        "xC": 2048,
+        "xPoints": [
+          -152,
+          -152,
+          152,
+          152,
+          -152
+        ],
+        "yC": 384,
+        "yPoints": [
+          -128,
+          128,
+          128,
+          -128,
+          -128
+        ]
+      }
+    },
+    "radius": 794.8635102959502,
+    "rot": 0,
+    "w": 304,
+    "x": 1896,
+    "xc": 2048,
+    "y": 256,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1536,
+    "xc": 1600,
+    "y": 920,
+    "yc": 984
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 64,
+    "x": 1536,
+    "xc": 1568,
+    "y": 856,
+    "yc": 888
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 64,
+    "x": 1600,
+    "xc": 1632,
+    "y": 856,
+    "yc": 888
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1664,
+        "maxY": 920,
+        "minX": 1536,
+        "minY": 856,
+        "radius": 143.10835055998655,
+        "xC": 1600,
+        "xPoints": [
+          -64,
+          -57,
+          -47,
+          -36,
+          -20,
+          0,
+          23,
+          37,
+          49,
+          58,
+          62,
+          64
+        ],
+        "yC": 888,
+        "yPoints": [
+          -32,
+          -4,
+          12,
+          22,
+          30,
+          32,
+          27,
+          20,
+          10,
+          -6,
+          -20,
+          -32
+        ]
+      }
+    },
+    "radius": 286.2167011199731,
+    "rot": 0,
+    "w": 128,
+    "x": 1536,
+    "xc": 1600,
+    "y": 856,
+    "yc": 888
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 81.25,
+    "x": 2144,
+    "xc": 2184.625,
+    "y": 592,
+    "yc": 636.125
+  },
+  {
+    "h": 512,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2328,
+        "maxY": 1024,
+        "minX": 2048,
+        "minY": 512,
+        "radius": 583.5614791947803,
+        "xC": 2188,
+        "xPoints": [
+          -140,
+          140,
+          140,
+          -116,
+          -140,
+          -140
+        ],
+        "yC": 768,
+        "yPoints": [
+          -256,
+          -256,
+          256,
+          256,
+          0,
+          -256
+        ]
+      }
+    },
+    "radius": 1167.1229583895606,
+    "rot": 0,
+    "w": 280,
+    "x": 2048,
+    "xc": 2188,
+    "y": 512,
+    "yc": 768
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 1972,
+    "xc": 1984,
+    "y": 436,
+    "yc": 500
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 1742,
+    "xc": 1754,
+    "y": 547,
+    "yc": 611
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-top.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 1826,
+    "xc": 1838,
+    "y": 591,
+    "yc": 611
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": [
+      "y"
+    ],
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 1803,
+    "xc": 1819,
+    "y": 583,
+    "yc": 591
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1853,
+        "maxY": 623,
+        "minX": 1789,
+        "minY": 599,
+        "radius": 68.35202996254024,
+        "xC": 1821,
+        "xPoints": [
+          -32,
+          24,
+          28,
+          32,
+          30,
+          24,
+          -29
+        ],
+        "yC": 611,
+        "yPoints": [
+          -12,
+          -12,
+          -8,
+          -1,
+          7,
+          12,
+          12
+        ]
+      }
+    },
+    "radius": 136.7040599250805,
+    "rot": 0,
+    "w": 64,
+    "x": 1789,
+    "xc": 1821,
+    "y": 599,
+    "yc": 611
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1664,
+    "xc": 1728,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1664,
+    "xc": 1676,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1768,
+    "xc": 1780,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1792,
+        "maxY": 640,
+        "minX": 1664,
+        "minY": 384,
+        "radius": 286.2167011199731,
+        "xC": 1728,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -8,
+          -64,
+          -64
+        ],
+        "yC": 512,
+        "yPoints": [
+          -128,
+          -128,
+          104,
+          128,
+          128,
+          -128
+        ]
+      }
+    },
+    "radius": 572.4334022399462,
+    "rot": 0,
+    "w": 128,
+    "x": 1664,
+    "xc": 1728,
+    "y": 384,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 756,
+    "xc": 768,
+    "y": 460,
+    "yc": 524
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": [
+      "y"
+    ],
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 1712,
+    "xc": 1728,
+    "y": 368,
+    "yc": 376
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Checkpoint",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 24,
+    "x": 2008,
+    "xc": 2020,
+    "y": 192,
+    "yc": 224
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-fence.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 448,
+    "xc": 512,
+    "y": 320,
+    "yc": 352
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 600,
+    "xc": 614,
+    "y": 352,
+    "yc": 368
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 568,
+    "xc": 582,
+    "y": 352,
+    "yc": 368
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": [
+      "shield"
+    ],
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 632,
+    "xc": 646,
+    "y": 352,
+    "yc": 368
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1056,
+    "xc": 1064,
+    "y": 280,
+    "yc": 288
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1088,
+    "xc": 1096,
+    "y": 280,
+    "yc": 288
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1024,
+    "xc": 1032,
+    "y": 280,
+    "yc": 288
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "DashRing",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1016,
+    "xc": 1024,
+    "y": 256,
+    "yc": 288
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1688,
+    "xc": 1783.5,
+    "y": 640,
+    "yc": 708.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1760,
+    "xc": 1855.5,
+    "y": 512,
+    "yc": 580.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1912,
+    "xc": 2007.5,
+    "y": 520,
+    "yc": 588.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1768,
+    "xc": 1863.5,
+    "y": 384,
+    "yc": 452.375
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": -424,
+    "xc": -419.25,
+    "y": 928,
+    "yc": 931.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": -416,
+    "xc": -411.25,
+    "y": 944,
+    "yc": 947.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": -400,
+    "xc": -395.25,
+    "y": 928,
+    "yc": 931.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": -72,
+    "xc": -67.25,
+    "y": 928,
+    "yc": 931.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": -64,
+    "xc": -59.25,
+    "y": 920,
+    "yc": 923.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 160,
+    "xc": 164.75,
+    "y": 896,
+    "yc": 899.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 176,
+    "xc": 180.75,
+    "y": 888,
+    "yc": 891.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 336,
+    "xc": 340.75,
+    "y": 886,
+    "yc": 889.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 346,
+    "xc": 350.75,
+    "y": 880,
+    "yc": 883.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 349,
+    "xc": 353.75,
+    "y": 894,
+    "yc": 897.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 517,
+    "xc": 521.75,
+    "y": 917,
+    "yc": 920.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 495,
+    "xc": 499.75,
+    "y": 920,
+    "yc": 923.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 510,
+    "xc": 514.75,
+    "y": 930,
+    "yc": 933.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 859,
+    "xc": 863.75,
+    "y": 912,
+    "yc": 915.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1156,
+    "xc": 1160.75,
+    "y": 964,
+    "yc": 967.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1215,
+    "xc": 1219.75,
+    "y": 933,
+    "yc": 936.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1318,
+    "xc": 1322.75,
+    "y": 921,
+    "yc": 924.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1393,
+    "xc": 1397.75,
+    "y": 960,
+    "yc": 963.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1440,
+    "xc": 1444.75,
+    "y": 858,
+    "yc": 861.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1452,
+    "xc": 1456.75,
+    "y": 967,
+    "yc": 970.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1563,
+    "xc": 1567.75,
+    "y": 948,
+    "yc": 951.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1654,
+    "xc": 1658.75,
+    "y": 965,
+    "yc": 968.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1649,
+    "xc": 1653.75,
+    "y": 964,
+    "yc": 967.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1651,
+    "xc": 1655.75,
+    "y": 959,
+    "yc": 962.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1709,
+    "xc": 1713.75,
+    "y": 803,
+    "yc": 806.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2014,
+    "xc": 2018.75,
+    "y": 797,
+    "yc": 800.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1983,
+    "xc": 1987.75,
+    "y": 814,
+    "yc": 817.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2019,
+    "xc": 2023.75,
+    "y": 817,
+    "yc": 820.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2095,
+    "xc": 2099.75,
+    "y": 670,
+    "yc": 673.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2140,
+    "xc": 2144.75,
+    "y": 679,
+    "yc": 682.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2109,
+    "xc": 2113.75,
+    "y": 706,
+    "yc": 709.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2110,
+    "xc": 2114.75,
+    "y": 514,
+    "yc": 517.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2098,
+    "xc": 2102.75,
+    "y": 526,
+    "yc": 529.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2112,
+    "xc": 2116.75,
+    "y": 543,
+    "yc": 546.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1720,
+    "xc": 1724.75,
+    "y": 411,
+    "yc": 414.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1731,
+    "xc": 1735.75,
+    "y": 407,
+    "yc": 410.875
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 81.25,
+    "x": 1318,
+    "xc": 1358.625,
+    "y": 903,
+    "yc": 947.125
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1832,
+    "xc": 1927.5,
+    "y": 645,
+    "yc": 713.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1984,
+    "xc": 2079.5,
+    "y": 650,
+    "yc": 718.375
+  },
+  {
+    "h": 27.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-flower.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 12.75,
+    "x": 1899,
+    "xc": 1905.375,
+    "y": 800,
+    "yc": 813.625
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 81.25,
+    "x": 1950,
+    "xc": 1990.625,
+    "y": 340,
+    "yc": 384.125
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1536,
+    "xc": 1600,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1408,
+    "xc": 1472,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 1588,
+    "xc": 1600,
+    "y": 564,
+    "yc": 628
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 1461,
+    "xc": 1473,
+    "y": 564,
+    "yc": 628
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-top.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 472,
+    "yc": 492
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 64,
+    "x": 1600,
+    "xc": 1632,
+    "y": 448,
+    "yc": 480
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 1512,
+    "xc": 1607.5,
+    "y": 424,
+    "yc": 492.375
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1488,
+    "xc": 1496,
+    "y": 472,
+    "yc": 480
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1520,
+    "xc": 1528,
+    "y": 472,
+    "yc": 480
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": [],
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1552,
+    "xc": 1560,
+    "y": 472,
+    "yc": 480
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1664,
+        "maxY": 640,
+        "minX": 1408,
+        "minY": 384,
+        "radius": 362.03867196751236,
+        "xC": 1536,
+        "xPoints": [
+          128,
+          -128,
+          -128,
+          64,
+          84,
+          96,
+          111,
+          120,
+          127,
+          128,
+          128
+        ],
+        "yC": 512,
+        "yPoints": [
+          128,
+          128,
+          0,
+          0,
+          -3,
+          -8,
+          -20,
+          -33,
+          -50,
+          -64,
+          -128
+        ]
+      }
+    },
+    "radius": 724.0773439350247,
+    "rot": 0,
+    "w": 256,
+    "x": 1408,
+    "xc": 1536,
+    "y": 384,
+    "yc": 512
+  },
+  {
+    "h": 137.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-f-1.png",
+      "z": 3.5
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 215.75,
+    "x": 1984,
+    "xc": 2091.875,
+    "y": 752,
+    "yc": 820.875
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1248,
+    "xc": 1268,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1016,
+    "xc": 1036,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 864,
+    "xc": 884,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1504,
+    "xc": 1524,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 352,
+    "xc": 372,
+    "y": 856,
+    "yc": 872
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 120,
+    "xc": 140,
+    "y": 856,
+    "yc": 872
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 312,
+    "xc": 332,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 672,
+    "xc": 692,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 928,
+    "xc": 948,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 824,
+    "xc": 844,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1656,
+    "xc": 1676,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1760,
+    "xc": 1780,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1888,
+    "xc": 1908,
+    "y": 248,
+    "yc": 264
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2040,
+    "xc": 2060,
+    "y": 248,
+    "yc": 264
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1656,
+    "xc": 1676,
+    "y": 504,
+    "yc": 520
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1656,
+    "xc": 1676,
+    "y": 912,
+    "yc": 928
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1504,
+    "xc": 1524,
+    "y": 912,
+    "yc": 928
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1656,
+    "xc": 1676,
+    "y": 760,
+    "yc": 776
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2040,
+    "xc": 2060,
+    "y": 760,
+    "yc": 776
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1400,
+    "xc": 1420,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1400,
+    "xc": 1420,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 154.5,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-f-1.png",
+      "z": 3.5
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 240.25,
+    "x": -560,
+    "xc": -439.875,
+    "y": 856,
+    "yc": 933.25
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1408,
+    "xc": 1420,
+    "y": 720,
+    "yc": 732
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-hole.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2328,
+        "maxY": 512,
+        "minX": 2200,
+        "minY": 256,
+        "radius": 286.2167011199731,
+        "xC": 2264,
+        "xPoints": [
+          -64,
+          64,
+          64
+        ],
+        "yC": 384,
+        "yPoints": [
+          -128,
+          -128,
+          128
+        ]
+      }
+    },
+    "radius": 572.4334022399462,
+    "rot": 0,
+    "w": 128,
+    "x": 2200,
+    "xc": 2264,
+    "y": 256,
+    "yc": 384
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2296,
+    "xc": 2316,
+    "y": 248,
+    "yc": 264
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 64,
+    "x": 2328,
+    "xc": 2360,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2328,
+    "xc": 2392,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2456,
+    "xc": 2520,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2584,
+    "xc": 2648,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2712,
+    "xc": 2776,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2712,
+    "xc": 2776,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2712,
+    "xc": 2776,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2712,
+    "xc": 2776,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2712,
+    "xc": 2776,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2712,
+    "xc": 2724,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2712,
+    "xc": 2724,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2712,
+    "xc": 2724,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2712,
+    "xc": 2724,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2712,
+    "xc": 2724,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2704,
+    "xc": 2724,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2296,
+    "xc": 2316,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2704,
+    "xc": 2724,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2336,
+    "xc": 2344,
+    "y": 264,
+    "yc": 272
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2336,
+    "xc": 2344,
+    "y": 296,
+    "yc": 304
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2336,
+    "xc": 2344,
+    "y": 328,
+    "yc": 336
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2336,
+    "xc": 2344,
+    "y": 360,
+    "yc": 368
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2336,
+    "xc": 2344,
+    "y": 392,
+    "yc": 400
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2336,
+    "xc": 2344,
+    "y": 424,
+    "yc": 432
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2432,
+    "xc": 2496,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2432,
+    "xc": 2496,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2432,
+    "xc": 2496,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2432,
+    "xc": 2444,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2536,
+    "xc": 2548,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2536,
+    "xc": 2548,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2536,
+    "xc": 2548,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2432,
+    "xc": 2444,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2432,
+    "xc": 2444,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2528,
+    "xc": 2548,
+    "y": 312,
+    "yc": 328
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2424,
+    "xc": 2444,
+    "y": 312,
+    "yc": 328
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2432,
+    "xc": 2444,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2536,
+    "xc": 2548,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 384,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2560,
+        "maxY": 704,
+        "minX": 2432,
+        "minY": 320,
+        "radius": 404.7715405015526,
+        "xC": 2496,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          0,
+          -64,
+          -64
+        ],
+        "yC": 512,
+        "yPoints": [
+          -192,
+          -192,
+          160,
+          192,
+          192,
+          -192
+        ]
+      }
+    },
+    "radius": 809.5430810031052,
+    "rot": 0,
+    "w": 128,
+    "x": 2432,
+    "xc": 2496,
+    "y": 320,
+    "yc": 512
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 2480,
+    "xc": 2494,
+    "y": 288,
+    "yc": 304
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2480,
+    "xc": 2484.75,
+    "y": 352,
+    "yc": 355.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2512,
+    "xc": 2516.75,
+    "y": 336,
+    "yc": 339.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2504,
+    "xc": 2508.75,
+    "y": 360,
+    "yc": 363.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2192,
+    "xc": 2196.75,
+    "y": 320,
+    "yc": 323.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2224,
+    "xc": 2228.75,
+    "y": 296,
+    "yc": 299.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2240,
+    "xc": 2244.75,
+    "y": 320,
+    "yc": 323.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 1944,
+    "xc": 1948.75,
+    "y": 296,
+    "yc": 299.875
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2688,
+    "xc": 2696,
+    "y": 384,
+    "yc": 392
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2688,
+    "xc": 2696,
+    "y": 416,
+    "yc": 424
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2688,
+    "xc": 2696,
+    "y": 448,
+    "yc": 456
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2688,
+    "xc": 2696,
+    "y": 480,
+    "yc": 488
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2688,
+    "xc": 2696,
+    "y": 512,
+    "yc": 520
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2688,
+    "xc": 2696,
+    "y": 544,
+    "yc": 552
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2448,
+    "xc": 2456,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2480,
+    "xc": 2488,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2512,
+    "xc": 2520,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2544,
+    "xc": 2552,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2416,
+    "xc": 2424,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 456,
+    "yc": 468
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2304,
+    "xc": 2316,
+    "y": 664,
+    "yc": 676
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2432,
+    "xc": 2444,
+    "y": 512,
+    "yc": 524
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2432,
+    "xc": 2444,
+    "y": 360,
+    "yc": 372
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2536,
+    "xc": 2548,
+    "y": 624,
+    "yc": 636
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2536,
+    "xc": 2548,
+    "y": 424,
+    "yc": 436
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 81.25,
+    "x": 2456,
+    "xc": 2496.625,
+    "y": 416,
+    "yc": 460.125
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2800,
+    "xc": 2804.75,
+    "y": 408,
+    "yc": 411.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2760,
+    "xc": 2764.75,
+    "y": 440,
+    "yc": 443.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2776,
+    "xc": 2780.75,
+    "y": 424,
+    "yc": 427.875
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2296,
+    "xc": 2391.5,
+    "y": 672,
+    "yc": 740.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2456,
+    "xc": 2551.5,
+    "y": 680,
+    "yc": 748.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2608,
+    "xc": 2703.5,
+    "y": 680,
+    "yc": 748.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2312,
+    "xc": 2407.5,
+    "y": 536,
+    "yc": 604.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2472,
+    "xc": 2567.5,
+    "y": 528,
+    "yc": 596.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2624,
+    "xc": 2719.5,
+    "y": 552,
+    "yc": 620.375
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 180,
+    "w": 32,
+    "x": 2458,
+    "xc": 2474,
+    "y": 698,
+    "yc": 714
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 180,
+    "w": 32,
+    "x": 2495,
+    "xc": 2511,
+    "y": 684,
+    "yc": 700
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 270,
+    "w": 32,
+    "x": 2400,
+    "xc": 2416,
+    "y": 576,
+    "yc": 592
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 270,
+    "w": 32,
+    "x": 2400,
+    "xc": 2416,
+    "y": 608,
+    "yc": 624
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 270,
+    "w": 32,
+    "x": 2400,
+    "xc": 2416,
+    "y": 544,
+    "yc": 560
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 270,
+    "w": 32,
+    "x": 2400,
+    "xc": 2416,
+    "y": 384,
+    "yc": 400
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 270,
+    "w": 32,
+    "x": 2400,
+    "xc": 2416,
+    "y": 416,
+    "yc": 432
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 270,
+    "w": 32,
+    "x": 2400,
+    "xc": 2416,
+    "y": 448,
+    "yc": 464
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 90,
+    "w": 32,
+    "x": 2560,
+    "xc": 2576,
+    "y": 480,
+    "yc": 496
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 90,
+    "w": 32,
+    "x": 2560,
+    "xc": 2576,
+    "y": 512,
+    "yc": 528
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 90,
+    "w": 32,
+    "x": 2560,
+    "xc": 2576,
+    "y": 448,
+    "yc": 464
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 90,
+    "w": 32,
+    "x": 2560,
+    "xc": 2576,
+    "y": 544,
+    "yc": 560
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2391,
+        "maxY": 896,
+        "minX": 2328,
+        "minY": 832,
+        "radius": 89.80534505250787,
+        "xC": 2359.5,
+        "xPoints": [
+          -31.5,
+          -27.5,
+          -23.5,
+          -13.5,
+          -0.5,
+          17.5,
+          31.5
+        ],
+        "yC": 864,
+        "yPoints": [
+          -32,
+          -11,
+          -2,
+          12,
+          24,
+          31,
+          32
+        ]
+      }
+    },
+    "radius": 179.61069010501575,
+    "rot": 0,
+    "w": 63,
+    "x": 2328,
+    "xc": 2359.5,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 0,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2712,
+        "maxY": 896,
+        "minX": 2328,
+        "minY": 896,
+        "radius": 384,
+        "xC": 2520,
+        "xPoints": [
+          -192,
+          192
+        ],
+        "yC": 896,
+        "yPoints": [
+          0,
+          0
+        ]
+      }
+    },
+    "radius": 768,
+    "rot": 0,
+    "w": 384,
+    "x": 2328,
+    "xc": 2520,
+    "y": 896,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-hole.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2840,
+    "xc": 2904,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2968,
+    "xc": 3032,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2840,
+    "xc": 2904,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2968,
+    "xc": 3032,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3096,
+    "xc": 3160,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2968,
+    "xc": 3032,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2840,
+    "xc": 2904,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 416,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3096,
+        "maxY": 800,
+        "minX": 2712,
+        "minY": 384,
+        "radius": 566.1377924145322,
+        "xC": 2904,
+        "xPoints": [
+          -64,
+          -192,
+          -192,
+          -64,
+          -64,
+          64,
+          64,
+          192,
+          192,
+          64
+        ],
+        "yC": 592,
+        "yPoints": [
+          -208,
+          -208,
+          208,
+          208,
+          176,
+          176,
+          208,
+          208,
+          48,
+          48
+        ]
+      }
+    },
+    "radius": 1132.2755848290644,
+    "rot": 0,
+    "w": 384,
+    "x": 2712,
+    "xc": 2904,
+    "y": 384,
+    "yc": 592
+  },
+  {
+    "h": 152,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3224,
+        "maxY": 1024,
+        "minX": 2712,
+        "minY": 872,
+        "radius": 534.0861353751845,
+        "xC": 2968,
+        "xPoints": [
+          -256,
+          -256,
+          -128,
+          -128,
+          0,
+          0,
+          128,
+          128,
+          256,
+          256
+        ],
+        "yC": 948,
+        "yPoints": [
+          -52,
+          -76,
+          -76,
+          -52,
+          -52,
+          -76,
+          -76,
+          -52,
+          -52,
+          76
+        ]
+      }
+    },
+    "radius": 1068.172270750369,
+    "rot": 0,
+    "w": 512,
+    "x": 2712,
+    "xc": 2968,
+    "y": 872,
+    "yc": 948
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3200,
+    "xc": 3212,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3072,
+    "xc": 3084,
+    "y": 768,
+    "yc": 832
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3072,
+    "xc": 3084,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3072,
+    "xc": 3084,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3064,
+    "xc": 3084,
+    "y": 632,
+    "yc": 648
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3192,
+    "xc": 3212,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3064,
+    "xc": 3084,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2840,
+        "maxY": 896,
+        "minX": 2712,
+        "minY": 856,
+        "radius": 134.1044369139217,
+        "xC": 2776,
+        "xPoints": [
+          -64,
+          -64,
+          64,
+          64
+        ],
+        "yC": 876,
+        "yPoints": [
+          20,
+          -20,
+          -20,
+          20
+        ]
+      }
+    },
+    "radius": 268.2088738278434,
+    "rot": 0,
+    "w": 128,
+    "x": 2712,
+    "xc": 2776,
+    "y": 856,
+    "yc": 876
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": [
+      "eshield"
+    ],
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 2904,
+    "xc": 2918,
+    "y": 864,
+    "yc": 880
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2824,
+    "xc": 2919.5,
+    "y": 776,
+    "yc": 844.375
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 2592,
+    "xc": 2608,
+    "y": 880,
+    "yc": 888
+  },
+  {
+    "h": 154.5,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-f-1.png",
+      "z": 3.5
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 240.25,
+    "x": 2840,
+    "xc": 2960.125,
+    "y": 864,
+    "yc": 941.25
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3312,
+    "xc": 3376,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3376,
+    "xc": 3440,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 176,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3504,
+        "maxY": 1088,
+        "minX": 3312,
+        "minY": 912,
+        "radius": 260.4611295375953,
+        "xC": 3408,
+        "xPoints": [
+          -96,
+          -96,
+          -32,
+          -32,
+          96,
+          96
+        ],
+        "yC": 1000,
+        "yPoints": [
+          88,
+          -40,
+          -40,
+          -88,
+          -88,
+          64
+        ]
+      }
+    },
+    "radius": 520.9222590751906,
+    "rot": 0,
+    "w": 192,
+    "x": 3312,
+    "xc": 3408,
+    "y": 912,
+    "yc": 1000
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3312,
+    "xc": 3324,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3376,
+    "xc": 3388,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3480,
+    "xc": 3492,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3472,
+    "xc": 3492,
+    "y": 904,
+    "yc": 920
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3368,
+    "xc": 3388,
+    "y": 952,
+    "yc": 968
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3304,
+    "xc": 3324,
+    "y": 952,
+    "yc": 968
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3368,
+    "xc": 3388,
+    "y": 904,
+    "yc": 920
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 3352,
+    "xc": 3360,
+    "y": 936,
+    "yc": 944
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 3320,
+    "xc": 3328,
+    "y": 936,
+    "yc": 944
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 3440,
+    "xc": 3456,
+    "y": 880,
+    "yc": 896
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 90,
+    "w": 32,
+    "x": 3096,
+    "xc": 3112,
+    "y": 768,
+    "yc": 784
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "RedRing",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 3016,
+    "xc": 3032,
+    "y": 560,
+    "yc": 576
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "RedRing",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": -56,
+    "xc": -40,
+    "y": 432,
+    "yc": 448
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -48,
+    "xc": -40,
+    "y": 400,
+    "yc": 408
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -48,
+    "xc": -40,
+    "y": 480,
+    "yc": 488
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -8,
+    "xc": 0,
+    "y": 440,
+    "yc": 448
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -88,
+    "xc": -80,
+    "y": 440,
+    "yc": 448
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 81.25,
+    "x": 3112,
+    "xc": 3152.625,
+    "y": 936,
+    "yc": 980.125
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2296,
+    "xc": 2391.5,
+    "y": 392,
+    "yc": 460.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 2552,
+    "xc": 2647.5,
+    "y": 408,
+    "yc": 476.375
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1088,
+    "xc": 1152,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 1088,
+    "xc": 1152,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1088,
+    "xc": 1100,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1088,
+    "xc": 1100,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1192,
+    "xc": 1204,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1192,
+    "xc": 1204,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1088,
+    "xc": 1100,
+    "y": 768,
+    "yc": 788
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 1192,
+    "xc": 1204,
+    "y": 768,
+    "yc": 788
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1184,
+    "xc": 1204,
+    "y": 504,
+    "yc": 520
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 1080,
+    "xc": 1100,
+    "y": 504,
+    "yc": 520
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 191,
+    "x": 944,
+    "xc": 1039.5,
+    "y": 520,
+    "yc": 588.375
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1216,
+        "maxY": 768,
+        "minX": 1088,
+        "minY": 512,
+        "radius": 286.2167011199731,
+        "xC": 1152,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          32,
+          64,
+          64,
+          -64
+        ],
+        "yC": 640,
+        "yPoints": [
+          -128,
+          128,
+          128,
+          112,
+          96,
+          -128,
+          -128
+        ]
+      }
+    },
+    "radius": 572.4334022399462,
+    "rot": 0,
+    "w": 128,
+    "x": 1088,
+    "xc": 1152,
+    "y": 512,
+    "yc": 640
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1112,
+    "xc": 1120,
+    "y": 480,
+    "yc": 488
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1144,
+    "xc": 1152,
+    "y": 480,
+    "yc": 488
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 1176,
+    "xc": 1184,
+    "y": 480,
+    "yc": 488
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3656,
+    "xc": 3720,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3656,
+    "xc": 3668,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3760,
+    "xc": 3772,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3752,
+    "xc": 3772,
+    "y": 904,
+    "yc": 920
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 3648,
+    "xc": 3668,
+    "y": 904,
+    "yc": 920
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3480,
+    "xc": 3492,
+    "y": 992,
+    "yc": 1004
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3760,
+    "xc": 3772,
+    "y": 968,
+    "yc": 980
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3784,
+        "maxY": 1040,
+        "minX": 3656,
+        "minY": 912,
+        "radius": 181.01933598375618,
+        "xC": 3720,
+        "xPoints": [
+          -64,
+          -64,
+          64,
+          64
+        ],
+        "yC": 976,
+        "yPoints": [
+          64,
+          -64,
+          -64,
+          64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3656,
+    "xc": 3720,
+    "y": 912,
+    "yc": 976
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 3704,
+    "xc": 3720,
+    "y": 880,
+    "yc": 896
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 2712,
+    "xc": 2726,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 45,
+    "w": 32,
+    "x": 1216,
+    "xc": 1232,
+    "y": 712,
+    "yc": 720
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 315,
+    "w": 32,
+    "x": 1376,
+    "xc": 1392,
+    "y": 616,
+    "yc": 624
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2840,
+    "xc": 2904,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2840,
+    "xc": 2904,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2944,
+    "xc": 2956,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2944,
+    "xc": 2956,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2944,
+    "xc": 2956,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2944,
+    "xc": 2956,
+    "y": 768,
+    "yc": 788
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2936,
+    "xc": 2956,
+    "y": 632,
+    "yc": 648
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 40,
+    "x": 2936,
+    "xc": 2956,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2968,
+        "maxY": 640,
+        "minX": 2840,
+        "minY": 384,
+        "radius": 286.2167011199731,
+        "xC": 2904,
+        "xPoints": [
+          -64,
+          64,
+          64
+        ],
+        "yC": 512,
+        "yPoints": [
+          -128,
+          -128,
+          128
+        ]
+      }
+    },
+    "radius": 572.4334022399462,
+    "rot": 0,
+    "w": 128,
+    "x": 2840,
+    "xc": 2904,
+    "y": 384,
+    "yc": 512
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2888,
+    "xc": 2892.75,
+    "y": 416,
+    "yc": 419.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2928,
+    "xc": 2932.75,
+    "y": 408,
+    "yc": 411.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 2904,
+    "xc": 2908.75,
+    "y": 536,
+    "yc": 539.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3032,
+    "xc": 3036.75,
+    "y": 680,
+    "yc": 683.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3008,
+    "xc": 3012.75,
+    "y": 664,
+    "yc": 667.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3048,
+    "xc": 3052.75,
+    "y": 656,
+    "yc": 659.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3160,
+    "xc": 3164.75,
+    "y": 920,
+    "yc": 923.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3704,
+    "xc": 3708.75,
+    "y": 952,
+    "yc": 955.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3728,
+    "xc": 3732.75,
+    "y": 944,
+    "yc": 947.875
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3072,
+    "xc": 3084,
+    "y": 688,
+    "yc": 700
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2944,
+    "xc": 2956,
+    "y": 440,
+    "yc": 452
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2712,
+    "xc": 2724,
+    "y": 416,
+    "yc": 428
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 2944,
+    "xc": 2956,
+    "y": 688,
+    "yc": 700
+  }
+]

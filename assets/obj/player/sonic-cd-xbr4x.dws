@@ -1,0 +1,205 @@
+{
+    "scale": 4,
+    "sequences": [
+        {
+            "name": "standing",
+            "type": "strip",
+            "frameX": 288,
+            "frameY": 0,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "goingIdle",
+            "type": "strip",
+            "frameX": 336,
+            "frameY": 0,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 2.304
+        },
+        {
+            "name": "idle",
+            "type": "strip",
+            "frameX": 432,
+            "frameY": 0,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 0.384
+        },
+        {
+            "name": "walking",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 0,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 6,
+            "frameDuration": 0.384
+        },
+        {
+            "name": "running",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 48,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 4,
+            "frameDuration": 0.03
+        },
+        {
+            "name": "braking",
+            "type": "strip",
+            "frameX": 336,
+            "frameY": 240,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 0.03
+        },
+        {
+            "name": "rolling",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 144,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 8,
+            "frameDuration": 0.01666666666667
+        },
+        {
+            "name": "rollingM",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 144,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 8,
+            "frameDuration": 999
+        },
+        {
+            "name": "crouched",
+            "type": "strip",
+            "frameX": 240,
+            "frameY": 48,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "falling",
+            "type": "strip",
+            "frameX": 384,
+            "frameY": 144,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 0.05
+        },
+        {
+            "name": "lookingUp",
+            "type": "strip",
+            "frameX": 240,
+            "frameY": 96,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "peelout",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 96,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 4,
+            "frameDuration": 0.033333333333334
+        },
+        {
+            "name": "hurt",
+            "type": "strip",
+            "frameX": 288,
+            "frameY": 240,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "spring",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 196,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 5,
+            "frameDuration": 0.066666666666667
+        },
+        {
+            "name": "pushing",
+            "type": "strip",
+            "frameX": 288,
+            "frameY": 192,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 0.53333333333334
+        },
+        {
+            "name": "balancingF",
+            "type": "strip",
+            "frameX": 288,
+            "frameY": 96,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 0.266666666667
+        },
+        {
+            "name": "balancingB",
+            "type": "strip",
+            "frameX": 288,
+            "frameY": 48,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 2,
+            "frameDuration": 0.266666666667
+        },
+        {
+            "name": "spindash",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 288,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 5,
+            "frameDuration": 0.03333333332
+        },
+        {
+            "name": "dead",
+            "type": "strip",
+            "frameX": 240,
+            "frameY": 192,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "drowned",
+            "type": "strip",
+            "frameX": 288,
+            "frameY": 192,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 1,
+            "frameDuration": 999
+        }
+    ]
+}

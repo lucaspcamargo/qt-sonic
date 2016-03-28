@@ -1,0 +1,65 @@
+{
+    "scale": 4,
+    "sequences": [
+        {
+            "name": "shield-0",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 0,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 10,
+            "frameDuration": 0.016666667
+        },
+        {
+            "name": "shield-1",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 48,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 10,
+            "frameDuration": 0.033333333333333
+        },
+        {
+            "name": "shield-1-spark",
+            "type": "strip",
+            "frameX": 432,
+            "frameY": 96,
+            "frameW": 16,
+            "frameH": 16,
+            "frameCount": 2,
+            "frameDuration": 0.016666667
+        },
+        {
+            "name": "shield-3-bg",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 96,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 9,
+            "frameDuration": 0.033333333333333
+        },
+        {
+            "name": "shield-3-fg",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 144,
+            "frameW": 48,
+            "frameH": 48,
+            "frameCount": 9,
+            "frameDuration": 0.033333333333333
+        },
+        {
+            "name": "shield-3-flare",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 192,
+            "frameW": 80,
+            "frameH": 48,
+            "frameCount": 5,
+            "frameDuration": 0.050
+        }
+    ]
+}
