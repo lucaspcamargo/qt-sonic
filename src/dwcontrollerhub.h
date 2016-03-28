@@ -67,6 +67,22 @@ public slots:
    qreal getControllerStickX(int i) { return m_controllers[i].state->StickX; }
    qreal getControllerStickY(int i) { return m_controllers[i].state->StickY; }
 
+   bool getControllerPrUp(int i) { return m_controllers[i].state->prUp; }
+   bool getControllerPrDown(int i) { return m_controllers[i].state->prDown; }
+   bool getControllerPrLeft(int i) { return m_controllers[i].state->prLeft; }
+   bool getControllerPrRight(int i) { return m_controllers[i].state->prRight; }
+   bool getControllerPrStart(int i) { return m_controllers[i].state->prStart; }
+   bool getControllerPrBack(int i) { return m_controllers[i].state->prBack; }
+   bool getControllerPrLeftShoulder(int i) { return m_controllers[i].state->prLeftShoulder; }
+   bool getControllerPrRightShoulder(int i) { return m_controllers[i].state->prRightShoulder; }
+   bool getControllerPrAButton(int i) { return m_controllers[i].state->prAButton; }
+   bool getControllerPrBButton(int i) { return m_controllers[i].state->prBButton; }
+   bool getControllerPrXButton(int i) { return m_controllers[i].state->prXButton; }
+   bool getControllerPrYButton(int i) { return m_controllers[i].state->prYButton; }
+
+   qreal getControllerPrStickX(int i) { return m_controllers[i].state->prStickX; }
+   qreal getControllerPrStickY(int i) { return m_controllers[i].state->prStickY; }
+
 private:
 #ifdef DW_USE_SDL2
    void addSDLController(int index);

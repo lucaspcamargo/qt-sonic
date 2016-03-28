@@ -7,15 +7,15 @@
 	{
 	    "type": "simple",
 	    "introId": "",
-        "id": "scd-quartz-quadrant.ogg",
-        "inPrefix": false
+        "id": "oz-music.ogg",
+        "inPrefix": true
 	}
     ],
 
     "bgs": [
 	{
-	    "bgType": "fixed",
-	    "bgName": "bg-fixed.png",
+	    "bgType": "qml",
+	    "bgName": "bg0.qml",
 	    "inPrefix": true
 	}
     ],
@@ -25,34 +25,30 @@
     ],
     
     "effects": [
-	{
-	    "effect": "EffWaterPerspective",
-	    "effectParams": {
-	      "opacity": 1.0,
-	      "reflectionEnabled": false,
-	      "verticalFactor": 3
-	    },
-	    "inPrefix": false
-	},
-	{
-	    "effect": "EffWaterWalk",
-	    "effectParams": {
-	    },
-	    "inPrefix": false
+    {
+            "effect": "EffWaterWalk",
+            "effectParams": {
+            },
+            "inPrefix": false
+        },{"effect": "EffParticleWalkDust",
+        "effectParams": {
+        },
+        "inPrefix": false
         }
+
     ],
 
-    "playerX": -475,
-    "playerY": 844,
+    "playerX": -258,
+    "playerY": 876,
 
     "minBoundaryX": -512,
     "maxBoundaryX": 11168,
     "minBoundaryY": -9000,
-    "maxBoundaryY": 2320,
+    "maxBoundaryY": 1024,
 
     "hasWater": true,
-    "waterColor": "#8df",
-    "waterYCenter": 1000,
+    "waterColor": "#44ff7c",
+    "waterYCenter": 970,
     "waterYAmplitude": 8,
     
     "objStubs": "oz-objs.json",

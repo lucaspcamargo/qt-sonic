@@ -38,8 +38,11 @@ Item {
         {
             source: resBase + "obj/spr/bridge-log.png"
             property real myAlpha: (index + 0.5)/logCount
+            width: 16
+            height: 16
+            rotation: Math.random() * 360
             x: index*16
-            y: Math.round(depressionAmount * depressionAlpha * (myAlpha < alpha? Math.sin(myAlpha/alpha * Math.PI / 2) : Math.sin((1 - (myAlpha-alpha)/(1-alpha)) * Math.PI / 2)))
+            y: /*Math.round*/(depressionAmount * depressionAlpha * (myAlpha < alpha? Math.sin(myAlpha/alpha * Math.PI / 2) : Math.sin((1 - (myAlpha-alpha)/(1-alpha)) * Math.PI / 2)))
         }
     }
 

@@ -50,7 +50,7 @@ void dwFieldBVH::updateNode(dwFieldBVHNode *node)
     {
         foreach (QObject * obj, node->children())
         {
-            dwFieldBVHNode * childNode = reinterpret_cast<dwFieldBVHNode * >(obj);
+            dwFieldBVHNode * childNode = static_cast<dwFieldBVHNode * >(obj);
             if(nodeActiveNow)
                 updateNode(childNode);
             else
@@ -80,7 +80,7 @@ int buildBVHNode(dwFieldBVHNode * node, int maxChildNodes)
         QList<dwFieldBVHNode *> nodeChildren;
         foreach (QObject * obj, node->children())
         {
-            nodeChildren.append(reinterpret_cast<dwFieldBVHNode * >(obj));
+            nodeChildren.append(static_cast<dwFieldBVHNode * >(obj));
         }
 
         qreal xSize, ySize;
@@ -129,7 +129,7 @@ void findLeafNodes(dwFieldBVHNode *node, QList<dwFieldBVHNode*> *list)
     {
         foreach (QObject * obj, node->children())
         {
-            dwFieldBVHNode *child = reinterpret_cast<dwFieldBVHNode * >(obj);
+            dwFieldBVHNode *child = static_cast<dwFieldBVHNode * >(obj);
             findLeafNodes(child, list);
         }
     }
@@ -153,7 +153,7 @@ void dwFieldBVH::flattenBVH(dwFieldBVHNode *node)
     // delete all children that are not a leaf node
     foreach (QObject * obj, node->children())
     {
-        dwFieldBVHNode *child = reinterpret_cast<dwFieldBVHNode * >(obj);
+        dwFieldBVHNode *child = static_cast<dwFieldBVHNode * >(obj);
 
         if(leafNodes.contains(child)) continue;
 

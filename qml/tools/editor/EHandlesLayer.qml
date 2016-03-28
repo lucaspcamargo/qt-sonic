@@ -33,6 +33,11 @@ Item {
                 y = ref.y;
                 width = ref.width;
                 height = ref.height;
+
+                if(field.objectManager.objStubs[index].name === "Geometry")
+                {
+                    Qt.createComponent("EGeomDrawer.qml").createObject(this, {color: "#f6f"}).setupFromGeomData(ref.options.geomData);
+                }
             }
 
             function deleteObject()

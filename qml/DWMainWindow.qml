@@ -17,6 +17,19 @@ Window {
 
     property alias cursorShape: cursorSetter.cursorShape
 
+    SequentialAnimation {
+        loops: Animation.Infinite
+        running: true
+        ScriptAction {
+            script: DWRoot.doFrameUpdate()
+        }
+
+        PauseAnimation
+        {
+            duration: 1
+        }
+    }
+
     MouseArea
     {
         id: cursorSetter
@@ -52,10 +65,7 @@ Window {
         Loader{
             id: mainContentLoader
 
-            height: 240
-            scale: parent.height / height
-            width: Math.round(height * parent.width/parent.height)
-            anchors.centerIn: parent
+            anchors.fill: parent
 
             active: false
             source: "dev/DWDevMenu.qml"
@@ -86,6 +96,7 @@ Window {
                     toolTilesetGenerator = c.createObject(null);
                 }
             }
+            else if(event.key == Qt.Key_F11) rootWindow.visibility = (rootWindow.visibility == Window.Windowed? Window.FullScreen : Window.Windowed);
             else if(event.key == Qt.Key_M) DWRoot.soundSystem.masterGain = 1 - DWRoot.soundSystem.masterGain;
         }
     }
@@ -278,19 +289,6 @@ Window {
         onTriggered: {mainContentLoader.active = true;}
     }
 
-    Rectangle {
-        id: animationEnforcer
-        width: 10
-        height: 1
-        color: "red"
-        visible: false
-        NumberAnimation on y {
-            from: 0
-            to: 10
-            duration: 50
-            loops: Animation.Infinite
-        }
-    }
 
     Text
     {

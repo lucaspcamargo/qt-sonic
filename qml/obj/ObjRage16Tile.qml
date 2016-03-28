@@ -4,7 +4,7 @@ import ".."
 
 DWFieldObject {
     id: tile
-    z: background? field.layerBZ : field.layerAZ
+    z: options.tileFile.indexOf("bg-b-") !== -1? field.layerBZ : field.layerAZ
     property var options: null
     property bool sizeMatters: true
     property bool background: options.background? true : false
@@ -12,10 +12,12 @@ DWFieldObject {
     DWImageItem {
         id: tileImage
         source: resBase + levelData.urlPrefix + "tileset/" + options.tileFile
+        anchors.fill: parent
     }
 
     DWFOPhysicsBody {
         id: body
+        active: tile.active
         bodyType: DWFOPhysicsBody.BT_STATIC
         shapeType: DWFOPhysicsBody.ST_POLY_BOX
         shapeCategory: DWFieldPhysicsWorld.CC_LAYER_A
@@ -28,8 +30,11 @@ DWFieldObject {
     {
         if(!background)
             body.rebuildBody();
-        else
-            console.log("Background");
+    }
+
+    /*
+    function update()
+    {
     }
 
     Component.onCompleted: {
@@ -38,5 +43,6 @@ DWFieldObject {
     onActivated: objManager.updateObjects.connect(update);
     onDeactivated: objManager.updateObjects.disconnect(update);
     Component.onDestruction: objManager.updateObjects.disconnect(update);
+    */
 }
 

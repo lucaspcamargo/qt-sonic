@@ -13,7 +13,7 @@ DWFieldObject {
     property string originalType: "rings"
     property string type: "rings"
     property string effect: type
-    property int prefabId: -1
+    property bool solid: type !== "destroyed"
 
     function morph( opts )
     {
@@ -37,27 +37,39 @@ DWFieldObject {
     Component.onCompleted: field.resetted.connect(reset);
     //Component.onDestroyed: field.resetted.disconnect(reset);
 
-    AnimatedSprite
+    DWSprite
     {
         id: sprite
-        source: resBase + "obj/obj/monitor-"+type+".png"
+        spritesheet: resBase + "obj/obj-common.dws?monitor"
+        sequence: solid? "monitor" : (Math.random() > 0.5? "monitor-destroyed1" : "monitor-destroyed2")
         anchors.fill: parent
-        running: visible
+        running: false
     }
 
-    AnimatedSprite
+    DWImageItem
+    {
+        id: screen
+        width: 16
+        height: 14
+        x: 6
+        y: 4
+
+        visible: type != "destroyed"
+
+        source: solid? resBase + "obj/monitor/monitor-"+effect+".png" : ""
+    }
+
+
+    DWSprite
     {
         id: blinker
-        source: resBase + "obj/spr/monitor-blink.png"
+        spritesheet: resBase + "obj/obj-common.dws?monitor-blink"
         visible: type != "destroyed"
-        width: 28
-        height: 32
-        frameWidth: width
-        frameHeight: height
-        frameCount: 6
-        frameDuration: 32
-        interpolate: false
-        running: visible
+        width: 16
+        height: 14
+        x: 6
+        y: 4
+        running: monitor.visible
     }
 
     Image
@@ -74,8 +86,9 @@ DWFieldObject {
 
         Behavior on y {NumberAnimation{duration: 500}}
         Behavior on opacity {SequentialAnimation{PauseAnimation{duration: 500+200} NumberAnimation{duration: 500}}}
+        Behavior on scale {NumberAnimation{duration: 500}}
 
-        source: effect != "destroyed"? resBase + "obj/spr/monitor-icon-"+effect+".png" : ""
+        source: effect != "destroyed"? resBase + "obj/monitor/monitor-"+effect+".png" : ""
 
         transform: Rotation
         {
@@ -86,6 +99,41 @@ DWFieldObject {
             Behavior on angle {NumberAnimation{duration: 500}}
 
         }
+    }
+
+    property bool colliding: false
+
+
+    DWFOPhysicsBody {
+        id: wallsBody
+        active: monitor.active && solid
+        bodyType: DWFOPhysicsBody.BT_STATIC
+        shapeType: DWFOPhysicsBody.ST_POLY_BOX
+        shapeCategory: DWFieldPhysicsWorld.CC_OBJ_NOT_ROLLING
+        shapeCollisionMask: 0xff
+        shapeData: Qt.vector4d(14, 16, 0, 0)
+        origin: Qt.point(14, 16)
+
+        Component.onCompleted: rebuildBody();
+    }
+
+    DWFOPhysicsBody {
+        id: collisionBody
+        active: monitor.active && solid
+        bodyType: DWFOPhysicsBody.BT_DYNAMIC_SENSOR
+        shapeType: DWFOPhysicsBody.ST_POLY_BOX
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_PLAYER
+        shapeData: Qt.vector4d(13, 15, 0, 0)
+        origin: Qt.point(14, 16)
+
+        Component.onCompleted: rebuildBody();
+
+        collisionCallbackEnabled: true
+        collisionEndCallbackEnabled: true
+
+        onCollision: colliding = true
+        onCollisionEnd: colliding = false
     }
 
 
@@ -122,12 +170,8 @@ DWFieldObject {
 
         onUpdate:
         {
-            if( prefabId < 0 && type != "destroyed" )
-            {
-                prefabId = physicsWorld.addLevelGeomRect(x + 14, y + 16, 12, 16, 0, DWFieldPhysicsWorld.CC_OBJ_NOT_ROLLING);
-            }
 
-            if(overlapPlayerI(monitor) && type != "destroyed" && player.playerRolling /*&& player.ySpeed >= 0*/ )
+            if(colliding && solid && player.playerRolling /*&& player.ySpeed >= 0*/ )
             {
                 field.createExplosion(x+14, y+16);
 
@@ -153,11 +197,6 @@ DWFieldObject {
 
                 popSfx.play();
                 type = "destroyed";
-                if( prefabId >= 0 )
-                {
-                    physicsWorld.removeLevelGeom(prefabId);
-                    prefabId = -1;
-                }
             }
         }
     }
@@ -175,6 +214,7 @@ DWFieldObject {
                 effectIcon.opacity = 0;
                 effectIcon.y -= 32;
                 effectIconRotation.angle = 360
+                effectIcon.scale = 1.25
             }
         }
 

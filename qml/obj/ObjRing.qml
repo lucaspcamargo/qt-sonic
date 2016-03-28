@@ -32,18 +32,12 @@ DWFieldObject{
         }
     }
 
-    AnimatedSprite{
+    DWSprite {
         id: sprite
-        source: resBase + "obj/spr/ring-hd.png"
-        running: visible
+        spritesheet: resBase + "obj/obj-common.dws?ring"
+        running: ring.visible
         width: 16
         height: 16
-        frameWidth: 16*4
-        frameHeight: 16*4
-        frameCount: 8
-        frameDuration: convertGenesisTime(4) * 1000
-        interpolate: false
-        smooth: false
     }
 
     property real prevfmod: 0
@@ -57,8 +51,8 @@ DWFieldObject{
     {
         if(!flying)
         {
-            var f = field.fieldTime % (sprite.frameCount * sprite.frameDuration / 1000.0);
-            if(f < prevfmod) sprite.restart();
+            var f = field.fieldTime % (8 * 0.0666666666666667);
+            if(f < prevfmod) sprite.resetSequence();
             prevfmod = f;
 
             if(player.hasShield && player.shieldType == 1 && !collected)
@@ -189,9 +183,7 @@ DWFieldObject{
         {
             script:
             {
-                sprite.frameX = 128*4;
-                sprite.frameCount = 2;
-                sprite.frameDuration = 300/4;
+                sprite.sequence = "ring-sparkle";
             }
         }
 

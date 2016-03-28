@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick network multimedia
+QT += qml quick network multimedia opengl
 !android{ QT += widgets }
 
 ### BEGIN CONFIG
@@ -42,7 +42,9 @@ SOURCES += \
     src/dwcontrollerstate.cpp \
     src/dwsprite.cpp \
     src/dwspritesheet.cpp \
-    src/dwspritesequence.cpp
+    src/dwspritesheetcache.cpp \
+    src/fx/dwfxwater.cpp \
+    src/dwanimationupdater.cpp
 
 # Default rules for deployment.
 include(deployment.pri)
@@ -82,7 +84,10 @@ HEADERS += \
     src/dwcontrollerstate.h \
     src/dwsprite.h \
     src/dwspritesheet.h \
-    src/dwspritesequence.h
+    src/dwspritesheetcache.h \
+    src/fx/dwfxwater.h \
+    src/dwanimatable.h \
+    src/dwanimationupdater.h
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
@@ -97,22 +102,23 @@ unix{
     CONFIG += link_pkgconfig
 }
 
+win32 {
+    LIBS += -lopengl32
+}
+
 
 ### LIQUIDFUN
 
-    INCLUDEPATH += $$PWD/../liquidfun/liquidfun/Box2D
+    win32:INCLUDEPATH += $$PWD/../liquidfun/Box2D
+    else:INCLUDEPATH += $$PWD/../liquidfun/liquidfun/Box2D
     DEPENDPATH += $$PWD/../liquidfun/liquidfun/Box2D
 
 !android{
-    win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/ -lliquidfun
-    else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/ -lliquidfun
+    win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../liquidfun/Box2D/x64/Release/ -lliquidfun
+    else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../liquidfun/Box2D/x64/Debug/ -lliquidfun
     else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/ -lliquidfun
 
-    win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/libliquidfun.a
-    else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/libliquidfun.a
-    else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/release/liquidfun.lib
-    else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/debug/liquidfun.lib
-    else:unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/libliquidfun.a
+    unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/libliquidfun.a
 }
 
 android {
@@ -120,18 +126,32 @@ android {
 }
 
 ## OPENAL
+
+    DEFINES+="NEIASOUND_STATIC=1"
+
+    win32:INCLUDEPATH += $$PWD/../openal-soft/include/
+    win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../openal-soft/build/Debug/ -lOpenAL32
+    else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../openal-soft/build/Debug/ -lOpenAL32
+
 !android {
-LIBS += -lopenal
+    unix:LIBS += -lopenal
 }
 
 android {
-    INCLUDEPATH += $$PWD/android/jni/include
+    INCLUDEPATH += $$PWD/android/jni/include/
     LIBS += $$PWD/android/obj/local/$${ANDROID_TARGET_ARCH}/libOpenAL-MOB.a
     LIBS += -lOpenSLES
 }
 
 
 ## SDL
+
+win32{
+    DEFINES+="DW_USE_SDL2=1"
+    INCLUDEPATH += $$PWD/../sdl2/include/
+    CONFIG(release, debug|release): LIBS += -L$$PWD/../sdl2/lib/x64/ -lSDL2
+    else:CONFIG(debug, debug|release): LIBS += -L$$PWD/../sdl2/lib/x64/ -lSDL2
+}
 
 !android:unix{
 

@@ -1,7 +1,7 @@
 #include "dwcontrollerhub.h"
 
 #ifdef DW_USE_SDL2
-#include "SDL2/SDL.h"
+#include "SDL.h"
 #endif
 
 dwControllerHub::dwControllerHub(QObject *parent) : QObject(parent)
@@ -78,6 +78,8 @@ void dwControllerHub::update()
             if(!entry.plugged)
                 emit controllerConnected(i);
             entry.plugged = true;
+
+            cs->saveStateToPrevious();
 
             cs->Up = SDL_GameControllerGetButton(c, SDL_CONTROLLER_BUTTON_DPAD_UP);
             cs->Down = SDL_GameControllerGetButton(c, SDL_CONTROLLER_BUTTON_DPAD_DOWN);

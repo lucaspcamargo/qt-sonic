@@ -14,6 +14,7 @@ Item {
 
     property real viewScale: 1
     scale: viewScale
+    transformOrigin: Item.TopLeft
 
     x: /*Math.floor*/ (viewScale*(-viewCenterAtX + viewWidth/2))
     y: /*Math.floor*/ (viewScale*(-viewCenterAtY + viewHeight/2))

@@ -14,7 +14,7 @@ ShaderEffect {
 
     visible: !( y > ( field.viewCenterAtY + field.viewHeight ) || (y + height) < ( field.viewCenterAtY - field.viewHeight ) )
 
-    property bool reflectionEnabled: false//!_DW_MOBILE
+    property bool reflectionEnabled: !_DW_MOBILE
     opacity: 0.75
     property color coloring: Qt.darker( field.waterColor )
     property var src: ses
@@ -59,7 +59,7 @@ ShaderEffect {
         live: false
     }
 
-    property rect reflRect: Qt.rect(field.x + x - bg.x, field.y + y + (underwater? height : -height) - bg.y, width, height)
+    property rect reflRect: Qt.rect(field.x + x , field.y + y + (underwater? height : -height), width, height)
     ShaderEffectSource
     {
         id: reflSrc

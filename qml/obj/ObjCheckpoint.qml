@@ -13,58 +13,42 @@ DWFieldObject {
     property bool activated: false
 
 
-    AnimatedSprite{
+    DWSprite{
 
         id: sprite
 
-        source: resBase + "obj/spr/checkpoint-new.png"
+        spritesheet: resBase + "obj/obj-common.dws"
+        sequence: activated? "checkpoint-activated" : "checkpoint"
         x: -4
         width: 24
         height: 64
-        frameWidth: width
-        frameHeight: height
-        frameCount: 1
-        frameDuration: convertGenesisTime(4) * 1000
-        interpolate: false
     }
 
-    DWEveryFrame
-    {
-        enabled: active
+    DWFOPhysicsBody {
+        id: collisionBody
+        active: checkpoint.active
+        bodyType: DWFOPhysicsBody.BT_DYNAMIC_SENSOR
+        shapeType: DWFOPhysicsBody.ST_POLY_BOX
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_PLAYER
+        shapeData: Qt.vector4d(8, 32, 0, 0)
+        origin: Qt.point(8, 32)
 
-        onUpdate:
+        Component.onCompleted: rebuildBody();
+
+        collisionCallbackEnabled: true
+
+        onCollision:
         {
             if(!activated)
             {
-                if( overlapI( checkpoint, playerCollision ) )
-                {
-                    activated = true;
-                    fieldController.checkpoint(x + width/2, y + height - player.playerHalfHeight);
 
-                    sfx.play();
-                }
+                activated = true;
+                fieldController.checkpoint(x + width/2, y + height - player.playerHalfHeight);
+
+                sfx.play();
+
             }
-
-        }
-    }
-
-    SequentialAnimation
-    {
-        running: activated
-
-        ScriptAction
-        {
-            script: sprite.frameCount = 8;
-        }
-
-
-        PauseAnimation {
-            duration: 8 * sprite.frameDuration
-        }
-
-        ScriptAction
-        {
-            script: { sprite.frameCount = 2; sprite.frameX = 8 * 24; }
         }
     }
 

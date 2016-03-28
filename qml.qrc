@@ -70,7 +70,6 @@
         <file>qml/ss/DWSpecialStageScene.qml</file>
         <file>qml/ss/DWSSFieldItem.qml</file>
         <file>qml/ss/DWSSPlayer.qml</file>
-        <file>qml/tools/DWHudDigit.qml</file>
         <file>qml/tools/DWLevelEditor.qml</file>
         <file>qml/tools/DWPalettedTilesetGenerator.qml</file>
         <file>qml/tools/editor/EButton.qml</file>
@@ -101,7 +100,6 @@
         <file>qml/glsl/phosphorish_fp.glsl</file>
         <file>qml/glsl/5xbr_fp.glsl</file>
         <file>qml/glsl/5xbr_vp.glsl</file>
-        <file>qml/field/DWLevelTitlecard.qml</file>
         <file>qml/glsl/crtgeominterlacedcurved_fp.glsl</file>
         <file>qml/glsl/crtgeominterlacedcurved_vp.glsl</file>
         <file>qml/glsl/dot'n'bloom_fp.glsl</file>
@@ -116,5 +114,12 @@
         <file>qml/tools/editor/EDialog.qml</file>
         <file>qml/obj/ObjRage16Tile.qml</file>
         <file>qml/obj/ObjRage16Vortex.qml</file>
+        <file>qml/level/DWLevelHudDigit.qml</file>
+        <file>qml/obj/ObjDashRing.qml</file>
+        <file>qml/obj/ObjTile.qml</file>
+        <file>qml/tools/editor/EGeomDrawer.qml</file>
+        <file>qml/obj/ObjGeometry.qml</file>
+        <file>qml/tools/editor/EColorSelector.qml</file>
+        <file>qml/field/EffNoise.qml</file>
     </qresource>
 </RCC>

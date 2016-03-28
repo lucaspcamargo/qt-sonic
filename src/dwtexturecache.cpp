@@ -68,6 +68,7 @@ void dwTextureCache::deleteAfterRendering(QSGTexture *tex)
     m_qsgDeleteList.push_back(tex);
 }
 
+#include <QSGTexture> // for destruction
 void dwTextureCache::onAfterRendering()
 {
     if(!m_glDeleteList.isEmpty())

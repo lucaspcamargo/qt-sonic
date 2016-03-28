@@ -2,18 +2,15 @@ import QtQuick 2.4
 import ".."
 import "../.."
 
-AnimatedSprite
+import dw 1.0
+
+DWSprite
 {
     id: shield
-    source: resBase + "obj/player/fx/shield-3-fg.png"
-    interpolate: false
+    spritesheet: resBase + "obj/player/fx.dws?shield-3-fg"
     running: visible
     width: 48
     height: 48
-    frameWidth: width
-    frameHeight: height
-    frameCount: 9
-    frameDuration: 32
     visible: false
 
     opacity: visible? 0.75 : 0
@@ -25,19 +22,14 @@ AnimatedSprite
     z: 1
 
 
-    AnimatedSprite
+    DWSprite
     {
         id: shieldBg
-        source: resBase + "obj/player/fx/shield-3-bg.png"
+        spritesheet: resBase + "obj/player/fx.dws?shield-3-bg"
         parent: player
-        interpolate: false
         running: shield.running
         width: 48
         height: 48
-        frameWidth: width
-        frameHeight: height
-        frameCount: 9
-        frameDuration: 32
         visible: shield.visible
         opacity: shield.opacity
         scale: shield.scale
@@ -80,19 +72,13 @@ AnimatedSprite
         gain: 50
     }
 
-    AnimatedSprite
+    DWSprite
     {
         id: flare
-        source: resBase + "obj/player/fx/shield-3-flare.png"
-        interpolate: false
+        spritesheet: resBase + "obj/player/fx.dws?shield-3-flare"
         running: visible
         width: 80
         height: 48
-        frameWidth: width
-        frameHeight: height
-        frameCount: 5
-        frameDuration: 50
-        smooth: false
         visible: false
 
         opacity: 1
@@ -103,7 +89,7 @@ AnimatedSprite
         Timer
         {
             running: flare.visible
-            interval: flare.frameCount*flare.frameDuration
+            interval: 250
             onTriggered: flare.visible = false;
         }
 

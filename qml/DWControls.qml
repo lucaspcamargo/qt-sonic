@@ -1,4 +1,5 @@
 import QtQuick 2.3
+import dw 1.0
 
 FocusScope {
 
@@ -86,11 +87,17 @@ FocusScope {
                 else directionAngle = 0;
 
                 recalcXY();
+
+                if(controllerHub.getControllerStart(0) && !controllerHub.getControllerPrStart(0))
+                    enterPressed();
+
+                if(controllerHub.getControllerBack(0) && !controllerHub.getControllerPrBack(0))
+                    escapePressed();
             }
         }
     }
 
-    Image
+    DWImageItem
     {
         id: dPad
 
@@ -100,7 +107,7 @@ FocusScope {
         anchors.leftMargin: 14
         anchors.bottomMargin: 16
 
-        Image
+        DWImageItem
         {
             id:dPadCursor
             source: resBase + "ui/virtualpad/dpad-marker.png"
@@ -152,7 +159,7 @@ FocusScope {
         }
     }
 
-    Image
+    DWImageItem
     {
         id: buttonA
         source: resBase + "ui/virtualpad/button-a.png"
@@ -161,7 +168,7 @@ FocusScope {
         anchors.rightMargin: 14
         anchors.bottomMargin: 14
 
-        Image
+        DWImageItem
         {
             id:buttonAGlow
             source: resBase + "ui/virtualpad/button-marker.png"
@@ -180,7 +187,7 @@ FocusScope {
     }
 
 
-    Image
+    DWImageItem
     {
         id: buttonB
         source: resBase + "ui/virtualpad/button-b.png"
@@ -189,7 +196,7 @@ FocusScope {
         anchors.rightMargin: 20
         anchors.bottomMargin: 14
 
-        Image
+        DWImageItem
         {
             id:buttonBGlow
             source: resBase + "ui/virtualpad/button-marker.png"

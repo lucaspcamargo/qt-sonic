@@ -11,9 +11,9 @@ Item {
 
     property bool checkpointReached: false
 
-    property real checkpointFieldTime: -1
-    property int checkpointPlayerX: -1
-    property int checkpointPlayerY: -1
+    property real checkpointFieldTime: 0
+    property int checkpointPlayerX: levelData.playerX
+    property int checkpointPlayerY: levelData.playerY
 
     property int previousBGMIndex: -1
     property int drownBGMIndex: -1
@@ -69,6 +69,11 @@ Item {
         pauseSfx.play();
 
         field.fieldActive = !paused;
+
+        if(paused)
+            dwAnimationUpdater.disableDomain(1); // field domain
+        else
+            dwAnimationUpdater.enableDomain(1); // field domain
     }
 
     function checkpoint(x, y)
@@ -93,6 +98,11 @@ Item {
     SequentialAnimation
     {
         id: deathAnimation
+
+        // stop animations
+        ScriptAction {
+            script: dwAnimationUpdater.disableDomain(1); //field domain
+        }
 
         // give player some time to fall down
         PauseAnimation {
@@ -130,11 +140,15 @@ Item {
                 {
                     field.player.x = checkpointPlayerX;
                     field.player.y = checkpointPlayerY;
+                    field.viewCenterAtX = checkpointPlayerX;
+                    field.viewCenterAtY = checkpointPlayerY;
                     titleAnimation.timeToResetTo = checkpointFieldTime;
                 }else
                 {
                     field.player.x = levelData.playerX;
                     field.player.y = levelData.playerY;
+                    field.viewCenterAtX = levelData.playerX;
+                    field.viewCenterAtY = levelData.playerY;
                     field.fieldTime = 0;
                 }
 
@@ -145,6 +159,9 @@ Item {
                 titleAnimation.bgmIndexToPlay = previousBGMIndex;
                 titleAnimation.running = true;
                 drownOverlay.opacity = 0;
+
+                // reenable animations
+                dwAnimationUpdater.enableDomain(1); // field domain
             }
         }
     }
@@ -194,17 +211,15 @@ Item {
         parent: hud
         z: 10
 
-        width: 7 + 17 * redRings.length
+        width: 84 * redRings.length - 20
         height: 22
-
-        Rectangle {color: "#A0000000"; opacity: 1.0; anchors.fill: parent; radius: height/2; border.color: "white"; border.width: 1 }
 
         Row {
             anchors.fill: parent
             anchors.margins: 5
             anchors.topMargin: 4
             anchors.bottomMargin: 4
-            spacing: 3
+            spacing: 20
 
             Repeater
             {
@@ -215,6 +230,8 @@ Item {
 
                     property bool collected: redRings[index]
                     source: resBase + "ui/hud/red-ring" + (collected? ".png" : "-gray.png")
+                    width: 64
+                    height: 64
                 }
             }
         }
@@ -223,7 +240,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: paused? 8 : topMarginProxy
 
-        property real topMarginProxy: -22
+        property real topMarginProxy: -32
 
         Behavior on anchors.topMargin {
             NumberAnimation {
@@ -232,7 +249,7 @@ Item {
             }
         }
 
-        opacity: Math.max(anchors.topMargin, 0.0) / 8.0;
+        opacity: Math.max(anchors.topMargin, 0.0) / 32
 
         SequentialAnimation
         {
@@ -243,7 +260,7 @@ Item {
             }
 
             ScriptAction {
-                script: redRingsDisplay.topMarginProxy = 8
+                script: redRingsDisplay.topMarginProxy = 48
             }
 
             PauseAnimation {
@@ -251,7 +268,7 @@ Item {
             }
 
             ScriptAction {
-                script: redRingsDisplay.topMarginProxy = -22
+                script: redRingsDisplay.topMarginProxy = -64
             }
 
         }

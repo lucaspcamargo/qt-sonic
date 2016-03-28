@@ -1,4 +1,5 @@
 #include "dwfophysicsbody.h"
+#include <QtMath>
 
 dwFOPhysicsBody::dwFOPhysicsBody(QObject *parent) : QObject(parent)
 {
@@ -47,7 +48,7 @@ void dwFOPhysicsBody::_worldDestroyed()
 bool dwFOPhysicsBody::ensureParent()
 {
     if(m_object) return true;
-    return (m_object = reinterpret_cast<QQuickItem*>(parent())) != 0;
+    return (m_object = static_cast<QQuickItem*>(parent())) != 0;
 }
 
 void dwFOPhysicsBody::rebuildBody()
@@ -79,22 +80,23 @@ void dwFOPhysicsBody::rebuildBody()
         return;
     }
 
+    qreal scale = dwFieldPhysicsWorld::singleton()->physicsScale();
+    //b2Vec2 shapeCenter(m_origin.x() * scale, m_origin.y() * scale);
+
     b2Shape *shape = 0;
     b2CircleShape *c = 0;
     b2PolygonShape *b = 0;
 
-    qreal scale = dwFieldPhysicsWorld::singleton()->physicsScale();
-
     switch (m_shapeType) {
     case ST_CIRCLE:
         c = new b2CircleShape();
-        c->m_p.SetZero();
+        c->m_p.SetZero(); //= shapeCenter;
         c->m_radius = scale * m_shapeData[0];
         shape = c;
         break;
     case ST_POLY_BOX:
         b = new b2PolygonShape();
-        b->SetAsBox(scale * m_shapeData.x(), scale * m_shapeData.y());
+        b->SetAsBox(scale * m_shapeData.x(), scale * m_shapeData.y());//, shapeCenter, 0.0f);
         shape = b;
         break;
     default:
@@ -137,8 +139,8 @@ void dwFOPhysicsBody::rebuildBody()
     }
 
     def.active = m_enabled;
-    def.position.Set( scale * ( m_object->x() + m_origin.x()) , scale * ( m_object->y() + m_origin.y() ) );
-    def.angle = 0;
+    def.position.Set( scale * (m_object->x()+m_origin.x()) , scale * (m_object->y()+m_origin.y()) );
+    def.angle = qDegreesToRadians(m_object->rotation());
 
     m_body = m_world->CreateBody(&def);
 
@@ -166,13 +168,12 @@ void dwFOPhysicsBody::rebuildBody()
         break;
     }
 
+
 }
 
 void dwFOPhysicsBody::updateBodyTransform()
 {
-    //qDebug(QString("-> %1 %2").arg(m_invScale * (m_body->GetPosition().x)).arg(m_invScale * (m_body->GetPosition().y)).toLocal8Bit());
-    m_body->SetTransform(((float32)m_scale) * b2Vec2((float32)(m_object->x() + m_origin.x()), (float32)(m_object->y() + m_origin.y())), 0.0f);
-    //qDebug(QString("%1 %2 %3 %4").arg(m_scale * (m_object->x() + m_origin.x())).arg(m_scale * (m_object->y() + m_origin.y())).arg(m_invScale * (m_body->GetPosition().x)).arg(m_invScale * (m_body->GetPosition().y)).toLocal8Bit());
+    m_body->SetTransform(((float32)m_scale) * b2Vec2((float32)(m_object->x()+m_origin.x()), (float32)(m_object->y()+m_origin.y())), (float32) qDegreesToRadians(m_object->rotation()));
 }
 
 #include "qmath.h"

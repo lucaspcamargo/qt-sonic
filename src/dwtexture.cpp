@@ -10,10 +10,12 @@ dwTexture::dwTexture( QUrl source, QImage image ) :
     m_texture( 0 ),
     m_glTexture( 0 ),
     m_source(source),
-    m_image(image),
-    m_realized(false)
+    m_realized(false),
+    m_size(image.size())
 {
-
+    m_data = Data();
+    m_data.type = Data::QT_IMAGE;
+    m_data.qtImage = image;
 }
 
 dwTexture::~dwTexture()
@@ -28,13 +30,16 @@ dwTexture::~dwTexture()
 #include <QQuickWindow>
 #include <QOpenGLTexture>
 
-#if defined(ANDROID)
+#if 0
 #define USE_TEXTURES_16BIT
 #endif
 
 
 void dwTexture::realize(QQuickWindow *window)
 {
+
+    // todo handle m_data
+    QImage m_image = m_data.qtImage;
 
     if(!m_image.isNull())
     {
@@ -115,6 +120,8 @@ void dwTexture::realize(QQuickWindow *window)
             m_texture = window->createTextureFromImage(m_image);
         }
         m_realized = true;
+        m_size = m_image.size();
+        m_image = QImage();
     }
 }
 

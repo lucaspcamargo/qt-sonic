@@ -29,7 +29,7 @@ void dwFieldBVHNode::childEvent(QChildEvent *e)
 {
     if(e->added())
     {
-        dwFieldBVHNode * child = reinterpret_cast<dwFieldBVHNode*>(e->child());
+        dwFieldBVHNode * child = static_cast<dwFieldBVHNode*>(e->child());
         if(!m_active) child->setActive(false);
     }
 }
@@ -44,7 +44,7 @@ void dwFieldBVHNode::recalcGeometry()
     if(childCount)
     {
         foreach (QObject * obj, children()) {
-            dwFieldBVHNode * node = reinterpret_cast<dwFieldBVHNode * >(obj);
+            dwFieldBVHNode * node = static_cast<dwFieldBVHNode * >(obj);
             xC += node->centerX();
             yC += node->centerY();
         }
@@ -59,7 +59,7 @@ void dwFieldBVHNode::recalcGeometry()
     qreal maxRadius = 0;
 
     foreach (QObject * obj, children()) {
-        dwFieldBVHNode * node = reinterpret_cast<dwFieldBVHNode * >(obj);
+        dwFieldBVHNode * node = static_cast<dwFieldBVHNode * >(obj);
         maxRadius = qMax(maxRadius, QVector2D(m_centerX - node->centerX(), m_centerY - node->centerY()).length() + node->radius());
     }
 
@@ -79,7 +79,7 @@ qreal dwFieldBVHNode::getXExtent()
     qreal minX = 1.0e10;
     qreal maxX = 1.0e-10;
     foreach (QObject * obj, children()) {
-        dwFieldBVHNode * node = reinterpret_cast<dwFieldBVHNode * >(obj);
+        dwFieldBVHNode * node = static_cast<dwFieldBVHNode * >(obj);
         minX = qMin(minX, node->centerX() - node->radius());
         maxX = qMax(maxX, node->centerX() + node->radius());
     }
@@ -95,7 +95,7 @@ qreal dwFieldBVHNode::getYExtent()
     qreal minY = 1.0e10;
     qreal maxY = 1.0e-10;
     foreach (QObject * obj, children()) {
-        dwFieldBVHNode * node = reinterpret_cast<dwFieldBVHNode * >(obj);
+        dwFieldBVHNode * node = static_cast<dwFieldBVHNode * >(obj);
         minY = qMin(minY, node->centerY() - node->radius());
         maxY = qMax(maxY, node->centerY() + node->radius());
     }

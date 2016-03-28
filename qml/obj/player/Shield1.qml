@@ -1,20 +1,15 @@
 import QtQuick 2.4
 import ".."
 import "../.."
+import dw 1.0
 
-AnimatedSprite
+DWSprite
 {
     id: shield
-    source: resBase + "obj/player/fx/shield-1.png"
-    interpolate: false
+    spritesheet: resBase + "obj/player/fx.dws?shield-1"
     running: visible
     width: 48
     height: 48
-    frameWidth: width
-    frameHeight: height
-    frameCount: 12
-    frameDuration: 2*16.66666666
-    smooth: false
     visible: false
 
     opacity: visible? 1 : 0
@@ -24,11 +19,11 @@ AnimatedSprite
     Behavior on scale { NumberAnimation { duration: 100 } }
 
 
-    x: - ( player.x - Math.round(player.x))
-    y: - ( player.y - Math.round(player.y)) - height/2
+    x: - 24
+    y: - 24
     z: 1
 
-    onCurrentFrameChanged: if(currentFrame == 0) z = -z;
+    onAnimationLooped: z = -z;
 
     transform: Rotation{
         origin.x: shield.width/2
@@ -37,31 +32,11 @@ AnimatedSprite
         angle: ( shield.z < 0 )? 0 : 180
     }
 
-/*
-    NumberAnimation on opacity
-    {
-        id: shieldFlasherAnimation
-        running: false
-
-        duration: 500
-        from: 1.0
-        to: 0.75
-    }
-*/
-
-
-    function update()
-    {
-        x = - ( player.x - Math.round(player.x)) - width/2;
-        y = - ( player.y - Math.round(player.y)) - height/2;
-    }
-
 
     function action()
     {
         parent.ySpeed = convertGenesisSpeed(-5.5);
         eshieldUseSfx.play();
-        //shieldFlasherAnimation.running = true;
 
         sparkAnimRunning = false;
         sparkAnimRunning = true;
@@ -90,19 +65,14 @@ AnimatedSprite
     Repeater
     {
         model: 4
-        AnimatedSprite
+        DWSprite
         {
             id: sparkSprite
 
-            source: resBase + "obj/player/fx/shield-1-spark.png"
-            interpolate: false
+            spritesheet: resBase + "obj/player/fx.dws?shield-1-spark"
             running: visible
             width: 16
             height: 16
-            frameWidth: width
-            frameHeight: height
-            frameCount: 2
-            frameDuration: 16
             visible: parent == field
             opacity: 0.75
 

@@ -5,7 +5,9 @@
 #include <QQmlApplicationEngine>
 #include <QElapsedTimer>
 
+#include "dwanimationupdater.h"
 #include "dwtexturecache.h"
+#include "dwspritesheetcache.h"
 #include "dwsoundsystem.h"
 
 dwRoot * dwRoot::m_singleton = 0;
@@ -25,9 +27,14 @@ dwRoot::dwRoot(QQmlApplicationEngine *parent) :
     setObjectName("dwRoot");
     m_engine->rootContext()->setContextProperty("DWRoot", this);
 
+    m_animationUpdater = new dwAnimationUpdater(this);
     m_textureCache = new dwTextureCache(this);
+    m_spritesheetCache = new dwSpritesheetCache(this);
     m_soundSystem = new dwSoundSystem(this);
-    m_engine->rootContext()->setContextProperty("dwTextureCache", m_soundSystem);
+
+    m_engine->rootContext()->setContextProperty("dwAnimationUpdater", m_animationUpdater);
+    m_engine->rootContext()->setContextProperty("dwTextureCache", m_textureCache);
+    m_engine->rootContext()->setContextProperty("dwSpritesheetCache", m_spritesheetCache);
     m_engine->rootContext()->setContextProperty("dwSoundSystem", m_soundSystem);
 
     m_timer = new QElapsedTimer();
@@ -36,10 +43,12 @@ dwRoot::dwRoot(QQmlApplicationEngine *parent) :
 
 void dwRoot::onLoaded()
 {
-    m_window = reinterpret_cast<QQuickWindow*>(m_engine->rootObjects()[0]);
+    m_window = static_cast<QQuickWindow*>(m_engine->rootObjects()[0]);
     m_window->setClearBeforeRendering(false);
-    connect(m_window, &QQuickWindow::afterAnimating, this, &dwRoot::doFrameUpdate);
-    connect(m_window, &QQuickWindow::afterRendering, m_textureCache, &dwTextureCache::onAfterRendering);
+
+    connect(this, &dwRoot::update, m_animationUpdater, &dwAnimationUpdater::update);
+    //connect(m_window, &QQuickWindow::afterAnimating, this, &dwRoot::doFrameUpdate, Qt::QueuedConnection); NOW TRIGGERED INSIDE ANIMATION STEP FROM QML
+    connect(m_window, &QQuickWindow::afterRendering, m_textureCache, &dwTextureCache::onAfterRendering, Qt::DirectConnection);
 }
 
 void dwRoot::doFrameUpdate()
@@ -55,8 +64,8 @@ void dwRoot::doFrameUpdate()
     time = (qMin(elapsed * 0.000000001, 0.1));
 #endif
 
-    if(qAbs(time - 1.0/60.0) < 0.002)
-        time = 1.0/60.0;
+    //if(qAbs(time - (1.0/60.0)) < 0.002)
+    //    time = 1.0/60.0;
 
     emit preUpdate(time);
     emit update(time);

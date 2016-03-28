@@ -10,13 +10,15 @@
 #include <fenv.h>
 #endif
 
+#include <QDebug>
+
 int main(int argc, char *argv[])
 {
     dwTypes::registerTypes();
 
     QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine applicationEngine;
+    QQmlApplicationEngine * applicationEngine = new QQmlApplicationEngine();
 
 #ifdef QT_DEBUG
     const bool isDebug = true;
@@ -25,25 +27,30 @@ int main(int argc, char *argv[])
 #endif
     QString buildDate = QString::fromLocal8Bit(__DATE__);
 
-    applicationEngine.rootContext()->setContextProperty("globalDebug", QVariant(isDebug));
-    applicationEngine.rootContext()->setContextProperty("globalBuildDate", QVariant(buildDate));
+    applicationEngine->rootContext()->setContextProperty("globalDebug", QVariant(isDebug));
+    applicationEngine->rootContext()->setContextProperty("globalBuildDate", QVariant(buildDate));
 
-    dwRoot root(&applicationEngine);
+    dwRoot * root = new dwRoot(applicationEngine);
 
 
-    QString resourceBase =
+    QUrl resourceBase =
 
 #ifdef ANDROID
-                                    "assets:/dw/";
+                                    QUrl("assets:/dw/");
 #else
-                                    QStringLiteral("file://") + QDir::currentPath() + QStringLiteral("/assets/");
+                                    QUrl::fromLocalFile( QDir::currentPath() + QStringLiteral("/assets/") );
 #endif
+    qDebug() << "[main] resource base is " << resourceBase.toString();
+    applicationEngine->rootContext()->setContextProperty("resBase", resourceBase);
 
-    applicationEngine.rootContext()->setContextProperty("resBase", QUrl(resourceBase));
+    applicationEngine->load(QUrl("qrc:/core/qml/DWMainWindow.qml"));
 
-    applicationEngine.load(QUrl("qrc:/core/qml/DWMainWindow.qml"));
+    root->onLoaded();
 
-    root.onLoaded();
+    int ret = app.exec();
 
-    return app.exec();
+    delete applicationEngine;
+    //delete root; application engine deletes root somewhat
+
+    return ret;
 }

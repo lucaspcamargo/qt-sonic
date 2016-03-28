@@ -114,6 +114,9 @@ QList<QUrl> dwUtil::listFiles(QUrl location)
 
         foreach(const QString & filename, files)
         {
+            if(filename.endsWith((QChar)'~')) continue;
+            if(filename.startsWith((QChar)'.')) continue;
+
             ret.append(QUrl::fromLocalFile(dir.absoluteFilePath(filename)));
         }
     }

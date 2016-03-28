@@ -27,55 +27,24 @@ DWPlayerBase {
 
     property string currentAnimation: ""
 
-    // x offset, y offset, frames, playing, duration, interpolate
-    property var animations: {
-                "standing":   [6, 0, 1, true, 1000,  false],
-                "goingIdle":  [7, 0, 2, true, 2304,  false],
-                "idle":       [9, 0, 2, true, 384,   false],
-                "walking":    [0, 0, 6, true, 99999, false],
-                "running":    [0, 1, 4, true, 30,    true ],
-                "braking":    [7, 5, 2, true, 128,   false],
-                "rolling":    [0, 3, 8, true, 16,    true ],
-                "rollingM":   [0, 3, 8, true, 99999, true ],
-                "crouched":   [5, 1, 1, true, 99999, false],
-                "falling":    [8, 3, 2, true, 50,    false],
-                "lookingUp":  [5, 2, 1, true, 99999, false],
-                "peelout":    [0, 2, 4, true, 30,    false],
-                "hurt":       [6, 5, 1, true, 99999, false],
-                "spring":     [0, 4, 5, true, 50,    false],
-                "pushing":    [6, 4, 2, true, 533,   false],
-                "balancingF": [6, 2, 4, true, 266,   false],
-                "balancingB": [6, 1, 4, true, 266,   false],
-                "spindash":   [0, 6, 5, true, 30,    false],
-                "dead":       [5, 4, 1, true, 1000,  false],
-                "drowned":    [5, 4, 1, true, 1000,  false]
-    }
 
     Item{
         id: spriteManipulator
 
-        rotation: Math.round( (currentAnimation == "rolling" || currentAnimation == "rollingM"? 0 : gAngle) / 45) * 45
+        rotation: Math.round( (currentAnimation == "rolling" || currentAnimation == "rollingM"? 0 : gAngle) / 0.001) * 0.001
+
         x: 0//- ( player.x - Math.round(player.x))
         y: 0//- ( player.y - Math.round(player.y))
 
-        AnimatedSprite
+        DWSprite
         {
             id: sprite
-            source: resBase + "obj/player/spr/sonic-cd.png"
-            frameCount: 6
-            interpolate: false
+            spritesheet: resBase + "obj/player/sonic-cd-xbr4x.dws?standing"
             running: true
-            paused: true
-            frameX: frameWidth * 4
-            frameY: frameWidth * 2
-            frameWidth: 48
-            frameHeight: frameWidth
             x: -width / 2
             y: -height + playerHalfHeight + (currentAnimation == "falling"? 5 : 0) //(Math.abs(Math.sin(gAngleRad + Math.PI / 4)) + Math.abs(Math.cos(gAngleRad + Math.PI / 4)))
-            height: convertGenesisDimension(48)
-            width: height
-            smooth: true
-
+            height: 48
+            width: 48
 
             transform: Rotation{
 
@@ -85,13 +54,6 @@ DWPlayerBase {
                 angle: (turnedBack )? 180 : 0
             }
 
-            onCurrentFrameChanged:
-            {
-                if(currentAnimation == "falling")
-                {
-                    frameDuration = Math.min(Math.abs( 1/ySpeed * 15000 ), 500);
-                }
-            }
         }
     }
 
@@ -289,7 +251,7 @@ DWPlayerBase {
         onEnabledChanged: {
             field.viewScale = enabled? (1/3) : 1;
             fieldBVH.viewRadius *= enabled? 3 : (1/3);
-            rootWindow.offscreen = !enabled;
+            //rootWindow.offscreen = !enabled;
         }
 
         onUpdate: {
@@ -406,50 +368,14 @@ DWPlayerBase {
         if(playerDead) return;
 
         currentAnimation = animation;
-        sprite.frameX = animations[animation][0] * sprite.frameWidth;
-        sprite.frameY = animations[animation][1] * sprite.frameHeight;
-        sprite.frameCount = animations[animation][2];
 
-        sprite.paused = !animations[animation][3];
-        sprite.frameDuration = animations[animation][4];
-        sprite.interpolate = animations[animation][5];
+        sprite.sequence = animation;
     }
 
-    function advanceAnimationFrame()
-    {
-        sprite.frameX += sprite.frameWidth;
-        if(sprite.frameX >= ((animations[currentAnimation][0] + animations[currentAnimation][2]) * sprite.frameWidth ))
-        {
-            sprite.frameX = ((animations[currentAnimation][0]) * sprite.frameWidth );
-        }
-
-        /* stepping on water, needs work
-        if(field.water && !inWater && (field.waterY - y < playerHalfHeight))
-        {
-            waterSfx.play(0.5, 0.1+Math.random()*0.3);
-        }*/
-    }
-
-    /*
-    function toggleActive() {active = !active;}
-
-    onActiveChanged:
-    {
-        if(active)
-        {
-            field.viewScale = 1;
-            rootWindow.offscreen = true;
-        }else
-        {
-            field.viewScale = 1/3;
-            rootWindow.offscreen = false;
-        }
-    }*/
 
     Component.onCompleted:
     {
         physicsBody.rebuildBody();
-        physicsBody.autorebuild = true;
 
         setAnimation("standing");
 
@@ -479,7 +405,7 @@ DWPlayerBase {
             injectControl(controls.directionValueX, controls.directionValueY, controls.aPressed, controls.bPressed);
             numIterations = Math.max( Math.round(dt/0.01666666), 2 ) * (playerQuadModeVertical? 2 : 1);
             player.updateSim(dt);
-
+            physicsBody.rebuildBody();
         }
         else
         {
@@ -492,25 +418,28 @@ DWPlayerBase {
             animFramesAccum += 1;
             if(animFramesAccum >= Math.max((currentAnimation == "rollingM"? 4 : 8) - Math.round(Math.abs(gSpeed/60)), 1))
             {
-                advanceAnimationFrame();
+                sprite.advanceFrame();
                 animFramesAccum = 0;
             }
         }
 
         if(inWater && playerQuadMode == 0)
         {
-            if(!playerRolling) bubbleTimeAccum += dt;
-            if(bubbleTimeAccum > bubbleTimeToNextBubble)
+            if(!playerRolling)
             {
-                bubbleTimeToNextBubble = 0.25 + Math.random() * 0.5;
-                bubbleTimeAccum = 0;
+                bubbleTimeAccum += dt;
+                if(bubbleTimeAccum > bubbleTimeToNextBubble)
+                {
+                    bubbleTimeToNextBubble = 0.25 + Math.random() * 0.5;
+                    bubbleTimeAccum = 0;
 
-                var c = Qt.createComponent("ObjBubble.qml");
-                var o = c.createObject(field);
-                o.x = x + (turnedBack? -8 : 8);
-                o.y = y - 8;
-                o.sizeLimit = Math.round(Math.random()*2);
-                o.timeToFullSize = 0.75
+                    var c = Qt.createComponent("ObjBubble.qml");
+                    var o = c.createObject(field);
+                    o.x = x + (turnedBack? -8 : 8);
+                    o.y = y - 8;
+                    o.sizeLimit = Math.round(Math.random()*2);
+                    o.timeToFullSize = 0.75
+                }
             }
         }
 

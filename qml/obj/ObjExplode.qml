@@ -6,30 +6,15 @@ Item {
     id: explosion
     z: field.objSfxZ
 
-    AnimatedSprite
+    DWSprite
     {
-        x: -16
-        y: -16
-        width: 32
-        height: 32
-        source: resBase + "obj/fx/explode.png"
-
-        frameWidth: 32
-        frameHeight: 32
-        frameCount: 5
-        frameDuration: 100
-
-        interpolate: false
-        running: true
-
+        x: -24
+        y: -24
+        spritesheet: resBase + "obj/obj-common.dws?explode"
         scale: 1.2
+
+        onAnimationLooped: explosion.destroy()
     }
 
-    Timer
-    {
-        running: true
-        interval: 350
-        onTriggered: explosion.destroy();
-    }
 
 }

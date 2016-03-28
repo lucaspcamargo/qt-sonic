@@ -62,6 +62,7 @@ DWFieldObject {
         popSound.play();
         if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
         badnikBase.destroy();
+        badnikBase.active = false;
 
 
         fieldController.score += 100;

@@ -3,7 +3,7 @@
 
 #include "Box2D/Box2D.h"
 #include <QObject>
-#include <QList>
+#include <QVector>
 
 class dwFOPhysicsBody;
 
@@ -27,6 +27,7 @@ public:
         dwFOPhysicsBody * bodyB;
         int catBodyB;
 
+        ContactCallback(){} // we have a default constructor that does nothing
         ContactCallback(bool end, dwFOPhysicsBody *a, dwFOPhysicsBody *b, int cB) :
         isCollisionEnd(end),
         bodyA(a),
@@ -41,7 +42,7 @@ signals:
 public slots:
 
 private:
-    QList<ContactCallback> m_callbackBuffer;
+    QVector<ContactCallback> m_callbackBuffer;
 };
 
 #endif // DWFIELDPHYSICSCONTACTLISTENER_H

@@ -298,10 +298,6 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
             setGSpeed((m_gSpeed > 0)? phy.groundSpeedCapRolling : - phy.groundSpeedCapRolling);
         }
 
-        // adjust speeds based on m_gSpeed
-        setXSpeed(m_gSpeed*qCos(m_gAngle/180*M_PI));
-        setYSpeed(m_gSpeed*qSin(m_gAngle/180*M_PI));
-
 
         //if on a wall or ceiling validade speed
         //don't leave the wall if it reattached already, let it slide
@@ -504,6 +500,20 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
         }
     }
 
+
+    if(m_playerState == PS_GROUND)
+    {
+        // adjust speeds based on m_gSpeed
+        setXSpeed(m_gSpeed*qCos(m_gAngle/180*M_PI));
+        setYSpeed(m_gSpeed*qSin(m_gAngle/180*M_PI));
+    }
+
+    // add speeds
+    _x=( _x + dt * m_xSpeed );
+    _y=( _y + dt * m_ySpeed );
+
+
+
     //
     // COLLISION ROUTINES
     //
@@ -620,7 +630,7 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
         }
     }else
     { // was on air
-        if( ( ! (sensorAResult < 0 && sensorBResult < 0) ) && m_ySpeed > 0 ) // found something and can land
+        if( ( ! (sensorAResult < 0 && sensorBResult < 0) ) && m_ySpeed > 0 /*&& (angle >= 315 || angle <= 45)*/) // found something and can land
         {
             bool willRoll = controls.directionValueY < -0.5;
 
@@ -662,11 +672,12 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
                 }
                 else
                 {
-                    if(m_playerRolling) _y=( _y - sens.halfHeightDifference);
-                    m_playerRolling = false;
+                    if(m_playerRolling)
+                        _y -= sens.halfHeightDifference;
+                    setPlayerRolling(false);
                     newAnimation = qAbs(m_gSpeed)>0? "walking" : "standing";
                     emit playSfx("land");
-                }
+                }                
 
                 recalcDimensions();
             }
@@ -733,11 +744,6 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
             }
         }
     }
-
-
-    // add speeds
-    _x=( _x + dt * m_xSpeed );
-    _y=( _y + dt * m_ySpeed );
 
 
     // PUSH BACK FROM WALLS - raycast
@@ -849,7 +855,7 @@ bool dwPlayerBase::putOnGround(bool onlyIfLower, bool willRoll, qreal sensorARes
         newY += (sens.verticalSensorLength - m_playerHalfHeight) * m_playerQuadModeSign;
         if(onlyIfLower) //never true for ceiling
         {
-            if(willRoll && !m_playerRolling) newY -= sens.halfHeightDifference;
+            if(willRoll && !m_playerRolling) newY += sens.halfHeightDifference;
             if(newY >= _y) return false;
         }
         _y=(newY);

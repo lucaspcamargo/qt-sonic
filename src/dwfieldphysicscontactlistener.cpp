@@ -14,7 +14,6 @@ dwFieldPhysicsContactListener::~dwFieldPhysicsContactListener()
 
 void dwFieldPhysicsContactListener::BeginContact(b2Contact *contact)
 {
-    if(!contact->IsTouching()) return;
 
     void * a = contact->GetFixtureA()->GetUserData();
     void * b = contact->GetFixtureB()->GetUserData();
@@ -42,7 +41,6 @@ void dwFieldPhysicsContactListener::BeginContact(b2Contact *contact)
 
 void dwFieldPhysicsContactListener::EndContact(b2Contact *contact)
 {
-    if(!contact->IsTouching()) return;
 
     void * a = contact->GetFixtureA()->GetUserData();
     void * b = contact->GetFixtureB()->GetUserData();

@@ -35,7 +35,7 @@ void dwFieldPhysicsWorld::update(float dt)
 //    {
 //        if(b->GetUserData())
 //        {
-//            QQuickItem * item = reinterpret_cast<QQuickItem *>(b->GetUserData());
+//            QQuickItem * item = static_cast<QQuickItem *>(b->GetUserData());
 //            item->setX((b->GetPosition().x/m_physicsScale - item->width()/2));
 //            item->setY( (b->GetPosition().y/m_physicsScale - item->height()/2 ));
 //            item->setRotation(b->GetAngle() * 180 / M_PI );
@@ -128,9 +128,45 @@ int dwFieldPhysicsWorld::addLevelGeomCircle(float x1, float y1, float radius)
     return -1;
 }
 
+int dwFieldPhysicsWorld::addLevelGeomChain(float centerX, float centerY, QList<qreal> pointsX, QList<qreal> pointsY, int category, bool absolutePoints)
+{
+    b2BodyDef def;
+    def.type = b2_staticBody;
+    def.position = b2Vec2(centerX*m_physicsScale, centerY*m_physicsScale);
+    //def.angle = rotationDeg*M_PI/180.0 - M_PI_2 * quadrant;
+
+
+    b2Body * body = m_world->CreateBody(&def);
+
+    int n = pointsX.length();
+
+    b2ChainShape shape;
+    b2Vec2 *bPoints = new b2Vec2[n]();
+    for(int i = 0; i < n; i++)
+    {
+        bPoints[i].x = (pointsX[i] + (absolutePoints? centerX : 0))  * m_physicsScale;
+        bPoints[i].y = (pointsY[i] + (absolutePoints? centerY : 0))  * m_physicsScale;
+    }
+    shape.CreateChain(bPoints, n);
+    delete[] bPoints;
+
+    b2FixtureDef chainFixtureDef;
+    chainFixtureDef.shape = &shape;
+    chainFixtureDef.density = 1;
+    chainFixtureDef.filter.categoryBits = category;
+    body->CreateFixture(&chainFixtureDef);
+
+    return _refBodies.insert(++refCounter, body).key();
+}
+
 void dwFieldPhysicsWorld::setLevelGeomTransform(int prefabId, float x, float y, float angle)
 {
     _refBodies[prefabId]->SetTransform(b2Vec2(x*m_physicsScale, y*m_physicsScale), angle);
+}
+
+void dwFieldPhysicsWorld::setLevelGeomActive(int id, bool active)
+{
+    _refBodies[id]->SetActive(active);
 }
 
 void dwFieldPhysicsWorld::removeLevelGeom(int id)

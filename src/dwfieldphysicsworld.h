@@ -72,7 +72,9 @@ public slots:
     int addLevelGeomEdge(float x1, float y1, float x2, float y2, int categories = 0xFFFF);
     int addLevelGeomArc(float centerX, float centerY, float radius, float rotationDeg, int quadrant, int categories = 0xFFFF);
     int addLevelGeomCircle(float x1, float y1, float radius);
+    int addLevelGeomChain(float centerX, float centerY, QList<qreal> pointsX, QList<qreal> pointsY, int category, bool absolutePoints = false);
     void setLevelGeomTransform(int prefabId, float x, float y, float angle = 0);
+    void setLevelGeomActive(int id, bool active);
     void removeLevelGeom(int id);
     void removeAllLevelGeom();
 

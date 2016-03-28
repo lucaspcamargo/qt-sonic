@@ -15,7 +15,7 @@ ParticleSystem {
         id: imgParticle
         source: resBase + "field/fx/smoke-16.png"
         rotationVariation: 360
-        opacity: 0.5
+        opacity: 0.15
         color: "#DDD"
     }
 

@@ -1,6 +1,7 @@
 #include "dwtypes.h"
 #include <QtQml>
 
+#include "dwanimationupdater.h"
 #include "dweveryframe.h"
 #include "dwcontrollerhub.h"
 #include "dwcontrollerstate.h"
@@ -10,8 +11,11 @@
 #include "dwfieldobject.h"
 #include "dwfophysicsbody.h"
 #include "dwfieldphysicsworld.h"
+#include "dwsprite.h"
 #include "dwplayerbase.h"
 #include "dwutil.h"
+
+#include "fx/dwfxwater.h"
 
 #include "dwsoundsystem.h"
 #include "../thirdparty/neiasound/src/nsoundbag.h"
@@ -46,12 +50,16 @@ void dwTypes::registerTypes()
     qmlRegisterType<dwFieldObject>(PACKAGE_VERSION "DWFieldObject");
     qmlRegisterType<dwFOPhysicsBody>(PACKAGE_VERSION "DWFOPhysicsBody");
     qmlRegisterType<dwFieldPhysicsWorld>(PACKAGE_VERSION "DWFieldPhysicsWorld");
+    qmlRegisterType<dwSprite>(PACKAGE_VERSION "DWSprite");
     qmlRegisterType<dwPlayerBase>(PACKAGE_VERSION "DWPlayerBase");
+
+    qmlRegisterType<dwFxWater>(PACKAGE_VERSION "DWFxWater");
 
     // SINGLETONS
     qmlRegisterSingletonType<dwUtil>( PACKAGE_VERSION "DWUtil", dwutil_singletontype_provider);
 
     // NON-INSTANTIABLE TYPES
+    qmlRegisterUncreatableType<dwAnimationUpdater>( PACKAGE_VERSION "DWAnimationUpdater", QStringLiteral("") );
     qmlRegisterUncreatableType<dwFieldBVHNode>( PACKAGE_VERSION "DWFieldBVHNode", QStringLiteral("") );
 
     // SOUND STUFF
@@ -64,4 +72,7 @@ void dwTypes::registerTypes()
     qmlRegisterUncreatableType<nSoundStream>( PACKAGE_VERSION "NSoundStream", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundStreamer>( PACKAGE_VERSION "NSoundStreamer", QStringLiteral("") );
     qmlRegisterUncreatableType<nSoundStreamerPlaylist>( PACKAGE_VERSION "NSoundStreamerPlaylist", QStringLiteral("") );
+
+#undef PACKAGE_VERSION
+
 }

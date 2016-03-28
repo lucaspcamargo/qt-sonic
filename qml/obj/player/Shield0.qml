@@ -1,17 +1,13 @@
 import QtQuick 2.4
+import dw 1.0
 
-AnimatedSprite
+DWSprite
 {
     id: shield
-    source: resBase + "obj/player/fx/shield-0.png"
-    interpolate: false
+    spritesheet: resBase + "obj/player/fx.dws?shield-0"
     running: visible
     width: 48
     height: 48
-    frameWidth: width
-    frameHeight: height
-    frameCount: 10
-    frameDuration: 0
     visible: false
 
     opacity: visible? 1 : 0
@@ -20,14 +16,8 @@ AnimatedSprite
     scale: visible? 1 : 3
     Behavior on scale { NumberAnimation { duration: 100 } }
 
-    x: - ( player.x - Math.round(player.x))
-    y: - ( player.y - Math.round(player.y)) - height/2
+    x: -24
+    y: -24
     z: 1
 
-
-    function update()
-    {
-        x = - ( player.x - Math.round(player.x)) - width/2;
-        y = - ( player.y - Math.round(player.y)) - height/2;
-    }
 }

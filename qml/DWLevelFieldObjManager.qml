@@ -182,14 +182,13 @@ QtObject
                     obj.width = objStubs[i]["w"];
                     obj.height = objStubs[i]["h"];
                 }
-                if(obj.setRot || obj.rotationMatters)
-                {
-                    obj.rotation = objStubs[i]["rot"];
-                }
+
+                obj.rotation = objStubs[i]["rot"];
+
 
                 if(obj.managerIndex)
                     obj.managerIndex = i;
-                if(obj.morph)
+                if(obj.morph && objStubs[i]["options"])
                     obj.morph( objStubs[i]["options"] );
 
                 objs[i] = obj;

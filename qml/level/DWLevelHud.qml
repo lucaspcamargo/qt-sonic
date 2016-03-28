@@ -1,39 +1,116 @@
 import QtQuick 2.3
 import ".."
-
+import dw 1.0
 
 Item {
 
 
-    property bool showScore: true
+    anchors.centerIn: parent
+    height: 1080
+    width: 1920
+    scale: parent.height / height
+
+    property bool showScore: false
     property int scoreValue: 0
     property int ringsValue: 0
     property real timeValue: 0
 
-    DWTextBitmap
+    DWImageItem
     {
-        x: 13
-        y: 9
-        text: "SCORE"
-        spacing: 2
-        visible: showScore
+        x: 80
+        y: 60
+        source: resBase + "ui/hud/sheet.png"
+        crop: true
+        cropRect: Qt.rect(175, 0, 127, 58)
+
     }
 
-    DWTextBitmap
-    {
-        x: 13
-        y: 9 + (showScore? 18 : 0)
-        text: "TIME"
-        spacing: 2
-    }
-
-    DWTextBitmap
+    DWImageItem
     {
         id: ringsLabel
-        x: 13
-        y: 27 + (showScore? 18 : 0)
-        text: "RINGS"
-        spacing: 2
+        x: 80
+        y: 150
+        source: resBase + "ui/hud/sheet.png"
+        crop: true
+        cropRect: Qt.rect(isRed? 520 : 0, 0, 153, 58)
+        property bool isRed: false
+    }
+
+    Row
+    {
+        x: 270
+        y: 150
+        spacing: 4
+
+        DWLevelHudDigit
+        {
+            digit: ringsValue/100 % 10
+        }
+
+        DWLevelHudDigit
+        {
+            digit: ringsValue/10 % 10
+        }
+
+        DWLevelHudDigit
+        {
+            digit: ringsValue % 10
+        }
+
+    }
+
+
+    Row
+    {
+        x: 250
+        y: 60
+        spacing: 4
+
+        DWLevelHudDigit
+        {
+            digit: Math.floor( timeValue / 60 ) % 10
+        }
+
+        DWImageItem{
+
+            source: resBase + "ui/hud/sheet.png"
+            crop: true
+            cropRect: Qt.rect(366, 62, 15, 57)
+            width: 15
+            height: 57
+
+        }
+
+        DWLevelHudDigit
+        {
+            digit: (Math.floor(timeValue) % 60)/10 % 10
+        }
+
+        DWLevelHudDigit
+        {
+            digit: (Math.floor(timeValue) % 60) % 10
+        }
+
+        DWImageItem{
+
+            source: resBase + "ui/hud/sheet.png"
+            crop: true
+            cropRect: Qt.rect(385, 62, 32, 57)
+            width: 32
+            height: 57
+
+        }
+
+        DWLevelHudDigit
+        {
+            digit: Math.floor(timeValue*10) % 10
+        }
+
+        DWLevelHudDigit
+        {
+            digit:  Math.floor(timeValue*100) % 10
+        }
+
     }
 
     SequentialAnimation
@@ -41,11 +118,11 @@ Item {
         id: ringsLabelAnim
         loops: Animation.Infinite
         running: ringsValue == 0
-        onRunningChanged: ringsLabel.font = "chaotix-hud"
+        onRunningChanged: ringsLabel.isRed = false
 
         ScriptAction
         {
-            script: ringsLabel.font = "chaotix-hud-rings-red"
+            script: ringsLabel.isRed = true
         }
 
         PauseAnimation {
@@ -54,14 +131,14 @@ Item {
 
         ScriptAction
         {
-            script: ringsLabel.font = "chaotix-hud"
+            script: ringsLabel.isRed = false
         }
 
         PauseAnimation {
             duration: 150
         }
     }
-
+/*
     DWTextBitmap
     {
         x: 56
@@ -82,7 +159,7 @@ Item {
     {
         x: 56
         y: 9 + (showScore? 18 : 0)
-        text: Math.floor( timeValue / 60 )+/*"'"*/":"+("0" + Math.floor(timeValue) % 60).slice(-2)//+"\""+("0" + Math.floor(timeValue*100) % 100).slice(-2)
+        text: Math.floor( timeValue / 60 )+":"+("0" + Math.floor(timeValue) % 60).slice(-2)//+"\""+("0" + Math.floor(timeValue*100) % 100).slice(-2)
         spacing: 2
     }
 
@@ -96,7 +173,7 @@ Item {
 
 
 
-/*
+
     Image {
         id: shadow
         anchors.top: texts.top

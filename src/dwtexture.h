@@ -20,11 +20,33 @@ public:
 
     void realize( QQuickWindow * window );
 
+    QSize size() const {return m_size;}
+
+    struct Data {
+
+        enum Type {
+
+            QT_IMAGE,
+            RAW_IMAGE
+        };
+
+        Type type;
+
+        QImage qtImage;
+
+        QByteArray rawImage;
+        int width;
+        int height;
+        int glFormat;
+
+    };
+
 private:
     QUrl m_source;
     QSGTexture * m_texture;
     QOpenGLTexture * m_glTexture;
-    QImage m_image;
+    Data m_data;
+    QSize m_size;
     bool m_realized;
 };
 

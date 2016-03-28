@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import "../../"
+import dw 1.0
 
 Rectangle {
     width: 48
@@ -13,11 +14,11 @@ Rectangle {
 
     property alias label: labelText.text
     property alias name: nameText.text
-    property alias imageSource: displayImage.source
+    property alias sprite: spr.spritesheet
 
-    Image
+    DWSprite
     {
-        id: displayImage
+        id: spr
         anchors.centerIn: parent
     }
 

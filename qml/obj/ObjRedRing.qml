@@ -12,32 +12,26 @@ DWFieldObject{
     property bool collected: false
 
 
-    AnimatedSprite{
-        source: resBase + "obj/spr/redRing.png"
-        width: 32
-        height: 32
-        frameWidth: 32
-        frameHeight: 32
-        frameCount: 8
-        frameDuration: convertGenesisTime(4) * 1000
-        interpolate: false
-    }
-    Item
-    {
-        id: collision
-        x: parent.x + 2
-        y: parent.y + 2
-        width: 28
-        height: 28
+    DWSprite{
+        spritesheet: resBase + "obj/obj-common.dws?redring"
+        running: ring.visible
     }
 
-    DWEveryFrame
-    {
-        id: updater
-        enabled: active
-        onUpdate:
-        {
-            if(!collected && overlapPlayerI(collision))
+    DWFOPhysicsBody {
+        id: physicsBody
+        active: ring.active
+        bodyType: DWFOPhysicsBody.BT_DYNAMIC_SENSOR
+        shapeType: DWFOPhysicsBody.ST_CIRCLE
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_PLAYER | DWFieldPhysicsWorld.CC_DYNAMIC
+        shapeData: Qt.vector4d(16, 16, 0, 0)
+        origin: Qt.point(16, 16)
+
+        Component.onCompleted: rebuildBody();
+
+        collisionCallbackEnabled: true
+        onCollision: {
+            if(!collected)
             {
                 if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
                 collected = true;

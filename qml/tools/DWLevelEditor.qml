@@ -1,4 +1,4 @@
-import QtQuick 2.3
+import QtQuick 2.5
 import dw 1.0
 import ".." 1.0
 import "editor" 1.0
@@ -7,15 +7,38 @@ Item {
 
     id: levelEditor
 
-    width: parent.width/levelEditor.scale
-    height: parent.height/levelEditor.scale
-    scale: Math.max(0.5, parent.width / rootWindow.width)
+    anchors.fill: parent
     anchors.centerIn: parent
     visible: false
 
+    function mapToFieldX(x)
+    {
+        var screenX = x * levelEditor.scale;
+        var containerX = screenX / fieldContainer.scale;
+        return (containerX - field.x) / field.viewScale;
+    }
+
+    function mapToFieldY(y)
+    {
+        var screenY = y * levelEditor.scale;
+        var containerY = screenY / fieldContainer.scale;
+        return (containerY - field.y) / field.viewScale;
+    }
+
+    function mapToScreenX(x)
+    {
+        return (x * field.viewScale + field.x) * fieldContainer.scale / levelEditor.scale;
+    }
+
+    function mapToScreenY(y)
+    {
+        return (y * field.viewScale + field.y) * fieldContainer.scale / levelEditor.scale;
+    }
+
     property bool cursorOnField: editorMouseArea.containsMouse
-    property int cursorPreciseX: (editorMouseArea.mouseX*levelEditor.scale - field.x)/field.viewScale
-    property int cursorPreciseY: (editorMouseArea.mouseY*levelEditor.scale - field.y)/field.viewScale
+    property real fieldScale: (field.viewScale * fieldContainer.scale)
+    property int cursorPreciseX: mapToFieldX(editorMouseArea.mouseX)
+    property int cursorPreciseY: mapToFieldY(editorMouseArea.mouseY)
     property int cursorX: snapEnabled? Math.round(cursorPreciseX/snapAmount) * snapAmount : cursorPreciseX
     property int cursorY: snapEnabled? Math.round(cursorPreciseY/snapAmount) * snapAmount : cursorPreciseY
 
@@ -24,30 +47,35 @@ Item {
     function changeSnapAmount() {snapAmount *= 2; if(snapAmount > 128) snapAmount = 8;}
 
     property int editMode: 0
-    property var editModeNames: [ "OBJECTS", "TILESET" ]
-    function changeEditMode() { editMode = (editMode+1)%editModeNames.length; }
+    property var editModeNames: [ "OBJECTS", "TILESET", "GEOMETRY" ]
+    function changeEditMode() { editMode = (editMode+1)%editModeNames.length; currRotation = 0; geomLast = null; geomDrawer.clear(); }
 
     property var handlesLayer: null
 
     property int objCurrent: 0
     property var objShortcuts: [0,1,2,3,4,5,6,7,8,9]
     property var objLib: [
-        {name: "Ring", displayImage:"obj/obj/ring.png"},
-        {name: "Spring", displayImage:"obj/obj/spring.png" },
-        {name: "Monitor", displayImage:"obj/obj/monitor-shield.png" },
-        {name: "Spikes", displayImage:"obj/obj/spikes.png" },
-        {name: "Checkpoint", displayImage:"obj/obj/checkpoint.png" },
-        {name: "Bumper", displayImage:"obj/obj/bumper.png" },
-        {name: "Trigger", displayImage:"obj/obj/TriggerLayerA.png" },
-        {name: "Badnik", displayImage:"obj/obj/badnik.png" },
-        {name: "Bridge", displayImage:"obj/obj/bridge.png" },
-        {name: "RedRing", displayImage:"obj/obj/redRing.png" },
+        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
+        {name: "Spring", sprite:"obj/obj-common.dws?spring"},
+        {name: "Monitor", sprite:"obj/obj-common.dws?monitor"},
+        {name: "Spikes", sprite:"obj/obj-common.dws?spikes"},
+        {name: "Checkpoint", sprite:"obj/obj-common.dws?checkpoint"},
+        {name: "DashRing", sprite:"obj/obj-common.dws?dashring-front"},
+        {name: "Trigger", sprite:"obj/obj-common.dws?ring"},
+        {name: "Badnik", sprite:"obj/obj-common.dws?ring"},
+        {name: "Bridge", sprite:"obj/obj-common.dws?ring"},
+        {name: "RedRing", sprite:"obj/obj-common.dws?redring"},
+        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
+        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
+        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
+        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
     ]
 
     property url tileLocation: resBase + levelData.urlPrefix + "tileset"
     property url tilePrefix: tileLocation + "/"
     property var tileFiles: DWUtil.listFiles(tileLocation)
     property int tileCurrent: 0
+    property real currRotation: 0
 
     MouseArea
     {
@@ -70,7 +98,12 @@ Item {
         {
             if(mouse.button == Qt.LeftButton)
             {
-                handlesLayer.selectAt(cursorX, cursorY);
+                if(editMode == 2 && geomDrawer.hasLine())
+                    geomFinish();
+                else
+                {
+                    handlesLayer.selectAt(cursorX, cursorY);
+                }
             }
 
             if(mouse.button == Qt.MiddleButton)
@@ -86,8 +119,10 @@ Item {
             {
                 if(editMode == 0)
                     placeObject();
-                else
+                else if(editMode == 1)
                     placeTile();
+                else if(editMode == 2)
+                    geomPlace();
             }
 
             mouse.accepted = true
@@ -97,6 +132,7 @@ Item {
         {
             if(mouse.button === Qt.LeftButton)
             {
+
                 if(selectingRect)
                 {
                     handlesLayer.selectRect();
@@ -129,8 +165,8 @@ Item {
 
             if(panning)
             {
-                field.viewCenterAtX = fieldOriginalX - (mouse.x - originalX)/field.viewScale;
-                field.viewCenterAtY = fieldOriginalY - (mouse.y - originalY)/field.viewScale;
+                field.viewCenterAtX = fieldOriginalX - (mouse.x - originalX)/fieldScale;
+                field.viewCenterAtY = fieldOriginalY - (mouse.y - originalY)/fieldScale;
             }
 
             mouse.accepted = true
@@ -156,7 +192,7 @@ Item {
         id: cursorGuideVertical
         height: parent.height
         width: 1
-        x: Math.round( cursorX * field.viewScale + field.x)/levelEditor.scale
+        x: Math.round( mapToScreenX(cursorX) )
         visible: editorMouseArea.containsMouse
     }
 
@@ -165,34 +201,37 @@ Item {
         id: cursorGuideHorizontal
         width: parent.width
         height: 1
-        y: Math.round(cursorY*field.viewScale + field.y)/levelEditor.scale
+        y: Math.round( mapToScreenY(cursorY) )
         visible: editorMouseArea.containsMouse
     }
 
-    Rectangle
-    {
-        id: cursorGuidePixel
-        width: 1
-        height: 1
-        x: cursorGuideVertical.x
-        y: cursorGuideHorizontal.y
-        color: "orange"
-    }
 
-
-    Image
+    DWSprite
     {
         id: objectDisplayImage
         visible: editMode == 0
         x: cursorGuideVertical.x
         y: cursorGuideHorizontal.y
         opacity: 0.5
-        source: resBase + objLib[objCurrent].displayImage
-        transformOrigin: Item.TopLeft
-        scale: field.viewScale/levelEditor.scale
+        spritesheet: resBase + objLib[objCurrent].sprite
+        transform: [
+
+             Scale{
+                 xScale: yScale
+                 yScale:  fieldScale/levelEditor.scale
+             },
+
+             Rotation
+             {
+                 origin.x: objectDisplayImage.width / 2 * fieldScale/levelEditor.scale
+                 origin.y: objectDisplayImage.height / 2 * fieldScale/levelEditor.scale
+                 angle: currRotation
+             }
+
+         ]
     }
 
-    Image
+    DWImageItem
     {
         id: tileDisplayImage
         visible: editMode == 1
@@ -200,8 +239,45 @@ Item {
         y: cursorGuideHorizontal.y
         opacity: 0.5
         source: tileFiles[tileCurrent]
-        transformOrigin: Item.TopLeft
-        scale: field.viewScale/levelEditor.scale
+
+        transform: [
+
+            Scale{
+                xScale: yScale
+                yScale:  0.25 * fieldScale/levelEditor.scale
+            },
+
+            Rotation
+            {
+                origin.x: tileDisplayImage.width / 2 * 0.25 * fieldScale/levelEditor.scale
+                origin.y: tileDisplayImage.height / 2 * 0.25 * fieldScale/levelEditor.scale
+                angle: currRotation
+            }
+
+        ]
+    }
+
+    Text
+    {
+    }
+
+    DWTextBitmap {
+        id: geomModeDisplay
+        visible: editMode == 2
+        x: cursorGuideVertical.x + 2
+        y: cursorGuideHorizontal.y + 2
+        font: "xexex-multi"
+        text: "LINES"
+        offset: 95 * 6
+    }
+
+    EGeomDrawer
+    {
+        id: geomDrawer
+        parent: fieldContainer
+        x: field.x
+        y: field.y
+        scale: field.scale
     }
 
     Rectangle
@@ -282,7 +358,7 @@ Item {
 
             label: "CURR"
             name: objLib[objCurrent].name.toUpperCase()
-            imageSource: resBase + objLib[objCurrent].displayImage
+            sprite: resBase + objLib[objCurrent].sprite
         }
         Repeater
         {
@@ -292,7 +368,7 @@ Item {
             {
                 label: (index + 1) % 10
                 name: objLib[objShortcuts[index]].name.toUpperCase()
-                imageSource: resBase + objLib[objShortcuts[index]].displayImage
+                sprite: resBase + objLib[objShortcuts[index]].sprite
                 MouseArea
                 {
                     anchors.fill: parent
@@ -390,9 +466,9 @@ Item {
         // x, y, w, h, rot, xc, yc, radius, name, opts, inPrefix
         var createdIndex = field.objectManager.addObjectStub(cursorX, cursorY,
                                                              objectDisplayImage.width, objectDisplayImage.height,
-                                                             0,
+                                                             currRotation,
                                                              cursorX + objectDisplayImage.width/2, cursorY + objectDisplayImage.height/2,
-                                                             64, objLib[objCurrent].name, [], false);
+                                                             64, objLib[objCurrent].name, null, false);
         field.objectManager.createObject(createdIndex);
         handlesLayer.createHandle(createdIndex);
     }
@@ -414,12 +490,46 @@ Item {
         var tileFile = tileFiles[tileCurrent].substr(tileFiles[tileCurrent].lastIndexOf("/") + 1);
 
         var createdIndex = field.objectManager.addObjectStub(cursorX, cursorY,
-                                                             tileDisplayImage.width, tileDisplayImage.height,
-                                                             0,
-                                                             cursorX + tileDisplayImage.width/2, cursorY + tileDisplayImage.height/2,
-                                                             512, "Rage16Tile", {"tileFile": tileFile, "background": tileFile.indexOf("bg") > -1}, false);
+                                                             tileDisplayImage.width*0.25, tileDisplayImage.height*0.25,
+                                                             currRotation,
+                                                             cursorX + tileDisplayImage.width*0.125, cursorY + tileDisplayImage.height*0.125,
+                                                             128, "Tile", {"tileFile": tileFile, "z": tileFile.indexOf("bg-b-")!==-1? field.layerBZ : (tileFile.indexOf("fg-f-")!==-1? field.fgZ :field.layerAZ)}, false);
         field.objectManager.createObject(createdIndex);
         handlesLayer.createHandle(createdIndex);
+    }
+
+
+    property var geomLast: null
+    function geomPlace()
+    {
+        if(geomLast)
+            geomDrawer.addLine({start: geomLast, end: Qt.point(cursorX, cursorY)});
+
+        geomLast = Qt.point(cursorX, cursorY);
+    }
+
+    function geomFinish()
+    {
+        geomLast = null;
+
+        var finalLines = geomDrawer.compile();
+
+
+        if(finalLines)
+        {
+            var gd = geomDrawer.makeGeomData(finalLines);
+
+            // create geom obj
+            var createdIndex = field.objectManager.addObjectStub(gd.minX, gd.minY,
+                                                                 gd.maxX - gd.minX, gd.maxY - gd.minY,
+                                                                 0,
+                                                                 gd.xC, gd.yC,
+                                                                 gd.radius * 2, "Geometry", {geomData: gd}, false);
+            field.objectManager.createObject(createdIndex);
+            handlesLayer.createHandle(createdIndex);
+        }
+
+        geomDrawer.clear();
     }
 
     function toggleVisible()
@@ -438,7 +548,7 @@ Item {
         field.viewScale = 1;
 
         hud.visible = !visible;
-        offscreen = !visible;
+        //offscreen = !visible;
         dwLogo.visible = !visible;
         editorCheckerboard.visible = visible;
 
@@ -469,6 +579,9 @@ Item {
 
         if(event.key == Qt.Key_A)
             changeSnapAmount();
+
+        if(event.key == Qt.Key_R)
+            currRotation = (currRotation+22.5)%360;
 
         if(event.key == Qt.Key_C)
             centerOnPlayerAnim.start();
@@ -554,7 +667,7 @@ Item {
 
             delegate: EObjectDisplay {
                 name: objLib[index].name.toUpperCase()
-                imageSource: resBase + objLib[index].displayImage
+                sprite: resBase + objLib[index].sprite
                 MouseArea
                 {
                     anchors.fill: parent
@@ -565,6 +678,12 @@ Item {
                 }
             }
         }
+    }
+
+    EColorSelector
+    {
+        id: colorSelector
+
     }
 
 }

@@ -11,7 +11,9 @@
 
 dwImageItem::dwImageItem(QQuickItem *parent) :
     QQuickItem(parent),
-    m_texture(0)
+    m_texture(0),
+    m_crop(false),
+    m_cropRect(QRectF(0,0,0,0))
 {
     setFlag(ItemHasContents, true);
     connect(this, &dwImageItem::windowChanged, this, &dwImageItem::onWindowChanged);
@@ -41,10 +43,16 @@ QSGNode *dwImageItem::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintN
         node = new QSGSimpleTextureNode();
     }
 
-    node->setTexture(m_texture.data()->texture());
+    node->setTexture(m_texture->texture());
     node->setRect(QRectF( 0, 0,
-                          widthValid()? width() : m_texture.data()->texture()->textureSize().width(),
-                          heightValid()? height() : m_texture.data()->texture()->textureSize().height() ));
+                          width(),
+                          height() ));
+
+    if(m_crop)
+    {
+        node->setSourceRect(m_cropRect);
+    }
+
     return node;
 }
 
@@ -60,6 +68,11 @@ void dwImageItem::reloadTexture()
     if(m_source.isValid() && window())
     {
         m_texture = dwTextureCache::singleton()->getTexture(m_source, window());
+        if(!m_texture.isNull())
+        {
+            QSize s = m_texture->size();
+            setImplicitSize(s.width(), s.height());
+        }
     }
     else
     {
@@ -71,3 +84,11 @@ void dwImageItem::reloadTexture()
 
 }
 
+
+QSGTexture* dwImageItem::texture() const
+{
+    if(m_texture.isNull() && !m_texture->isRealized())
+        return 0;
+    else
+        return m_texture->texture();
+}

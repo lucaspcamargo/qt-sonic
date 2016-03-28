@@ -15,7 +15,7 @@ Item {
     {
         id: fieldContainer
 
-        height: 240
+        height: 270
         scale: parent.height / height
         width: height * parent.width/parent.height
         anchors.centerIn: parent
@@ -30,8 +30,6 @@ Item {
             {
                 if(visible)
                     color = levelData.bgColor;
-                else
-                    bgColor.destroy();
             }
         }
 
@@ -39,11 +37,6 @@ Item {
         {
             id: bgContainer
             anchors.fill: parent
-
-            DWLevelBackground {
-                id: bg
-                inPrefix: true
-            }
 
         }
 
@@ -68,7 +61,7 @@ Item {
         }
 
 
-        Image
+        DWImageItem
         {
             id: hurtOverlay
             source: resBase + "field/fx/hurt-overlay.png"
@@ -99,7 +92,7 @@ Item {
             }
         }
 
-        Image
+        DWImageItem
         {
             id: drownOverlay
             source: resBase + "field/fx/drown-overlay.png"
@@ -128,15 +121,30 @@ Item {
             }
         }
 
+        DWImageItem
+        {
+            id: vignette
+            source: resBase + "field/fx/vignette.png"
+            anchors.fill: parent
+            opacity: 1
+
+            Behavior on opacity { NumberAnimation {} }
+        }
+
     }
+
+
 
     DWControls
     {
         id: controls
-        anchors.fill: parent
+        anchors.centerIn: parent
+        width: 270*16/9
+        height: 270
+        scale: parent.height / 270
         focus: true
         visible: _DW_MOBILE
-        opacity: 0.8
+        opacity: 0.25
 
         dPadMode: true
     }
@@ -144,14 +152,14 @@ Item {
     DWLevelHud
     {
         id: hud
-        anchors.fill: parent
 
         //z: field.hudZ
 
-        showScore: true
+        showScore: false
         scoreValue: fieldController.score
         timeValue: field.fieldTime
         ringsValue: fieldController.rings
+
     }
 
     Rectangle
@@ -162,7 +170,7 @@ Item {
         visible: (!_DW_DEBUG) && opacity != 0
 
         Behavior on opacity { NumberAnimation{duration: 500}}
-        Behavior on color { ColorAnimation{ duration: 600 } }
+        Behavior on color { ColorAnimation{ duration: 500 } }
     }
 
     DWLevelTitlecard
@@ -195,10 +203,15 @@ Item {
                 var c = Qt.createComponent("level/DWLevelBackgroundFixed.qml");
                 c.createObject(bgContainer, {args:bgArgs});
             }
+            if(bgArgs.bgType === "qml")
+            {
+                var c = Qt.createComponent(resBase + levelData.urlPrefix + "bg/" + bgArgs.bgName);
+                c.createObject(bgContainer, {args: bgArgs} );
+            }
         }
 
         // render to texture
-        offscreen = true;
+        //offscreen = true;
 
         //setup editor
         if(_DW_DEBUG) {

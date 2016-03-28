@@ -12,7 +12,7 @@ Canvas {
 
     contextType: "2d"
     renderTarget: Canvas.Image
-    renderStrategy: Canvas.Immediate
+    renderStrategy: Canvas.Threaded
 
     Component.onCompleted:
     {

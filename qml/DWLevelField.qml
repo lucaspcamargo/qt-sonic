@@ -90,14 +90,6 @@ DWField {
 
     property var player: null
 
-    Item
-    {
-        id: playerCollision
-        z: objSfxZ
-        width: fieldActive && player && player.active && (!player.playerDead)? (player.playerQuadModeVertical? 2*player.playerHalfHeight : 2*player.playerHalfWidth) : 0
-        height: fieldActive && player &&  player.active && (!player.playerDead)? ((!player.playerQuadModeVertical)? 2*player.playerHalfHeight : 2*player.playerHalfWidth) : 0
-        anchors.centerIn: fieldActive && player &&  player.active && (!player.playerDead)? player : null
-    }
 
     Component
     {
@@ -204,6 +196,7 @@ DWField {
         gc();
     }
 
+
     DWEveryFrame
     {
         onUpdate:
@@ -221,6 +214,7 @@ DWField {
             }
             else
             {
+
                 if(player && player.playerDead)
                     player.update(dt);
             }
@@ -305,7 +299,7 @@ DWField {
         o.frameDuration = 75;
 
         o.x = x-16;
-        o.y = waterY - 32 - (waterBorder.visible? 4 : 0);
+        o.y = waterY - 32 //- (waterBorder.visible? 4 : 0);
         o.z = waterBorderZ;
         o.opacity = 0.7;
         return o;
@@ -313,41 +307,57 @@ DWField {
 
     //Behavior on viewScale { enabled: (levelEditor? (!levelEditor.visible) : true); NumberAnimation{ easing.type: Easing.InOutQuart } }
 
-    Image
+//    Image
+//    {
+//        id: waterBorder
+//        visible: water && true//(levelData.waterBorderVisible? true : false)
+//        property int deltaX: 0
+
+//        x: -parent.x - (parent.viewCenterAtX%sourceSize.width) - sourceSize.width - deltaX
+//        y: waterY - 14
+//        z: waterBorderZ
+//        source: visible? (resBase + levelData.urlPrefix + "fx/water-border.png") : ""
+//        width: parent.viewWidth + sourceSize.width * 3
+//        fillMode: Image.TileHorizontally
+//        opacity: 1
+
+//        SequentialAnimation
+//        {
+//            loops: Animation.Infinite
+//            running: waterBorder.visible
+
+//            PauseAnimation { duration: 200 }
+//            ScriptAction { script: waterBorder.deltaX = waterBorder.sourceSize.width * 0.5 }
+//            PauseAnimation { duration: 200 }
+//            ScriptAction { script: waterBorder.deltaX = waterBorder.sourceSize.width * 0 }
+//        }
+//    }
+
+    DWFxWater
     {
-        id: waterBorder
-        visible: water && (levelData.waterBorderVisible? true : false)
-        property int deltaX: 0
+        id: waterRectDraw
 
-        x: -parent.x - (parent.viewCenterAtX%sourceSize.width) - sourceSize.width - deltaX
-        y: waterY - 14
+        x: field.viewCenterAtX - 500
+        y: waterY
         z: waterBorderZ
-        source: resBase + levelData.urlPrefix + "fx/water-border.png"
-        width: parent.viewWidth + sourceSize.width * 3
-        fillMode: Image.TileHorizontally
-        opacity: 1
 
-        SequentialAnimation
-        {
-            loops: Animation.Infinite
-            running: waterBorder.visible
+        width: 1000
+        height: 4000
 
-            PauseAnimation { duration: 200 }
-            ScriptAction { script: waterBorder.deltaX = waterBorder.sourceSize.width * 0.5 }
-            PauseAnimation { duration: 200 }
-            ScriptAction { script: waterBorder.deltaX = waterBorder.sourceSize.width * 0 }
-        }
+        color: field.waterColor
+
     }
+
 
     Rectangle
     {
         id: waterFlasher
 
-        x: waterBorder.x
+        x: field.viewCenterAtX - 500
         y: waterY
         z: waterBorderZ
 
-        width: waterBorder.width
+        width: 1000
         height: 4000
         opacity: 0.0
 
@@ -362,6 +372,62 @@ DWField {
             from: 1.0
             to: 0.0
         }
+
+    }
+
+    ShaderEffect
+    {
+        id: waterBorder
+        visible: true
+
+        x: field.viewCenterAtX - 500
+        y: waterY - 2.5
+        z: waterBorderZ
+
+        width: 1000
+        height: 16
+        opacity: 0.6
+
+        mesh: GridMesh
+        {
+            resolution: Qt.size(100, 4)
+        }
+
+        property real time: field.fieldTime % (2*Math.PI)
+        property real xpos: x
+        property color borderColor: Qt.lighter(field.waterColor)
+
+        vertexShader: "
+            uniform highp mat4 qt_Matrix;
+            attribute highp vec4 qt_Vertex;
+            attribute highp vec2 qt_MultiTexCoord0;
+            varying highp vec2 coord;
+            varying lowp vec2 normal;
+            uniform mediump float time;
+            uniform highp float xpos;
+            void main() {
+                coord = qt_MultiTexCoord0;
+                float worldPos = xpos + 1000.0 * coord.x;
+                float sinarg = 0.1*(worldPos) + time*5.0;
+                float timeAlpha = (1.0 + sin(time * 4.0))*0.5;
+                float angle = atan(cos(sinarg));
+                normal = mix(vec2(-sin(angle), cos(angle)), vec2(sin(angle), cos(angle)), timeAlpha);
+                gl_Position = qt_Matrix * (qt_Vertex + vec4(0.0, 2.5 * mix(sin(sinarg), -sin(sinarg), timeAlpha), 0.0, 0.0) );
+            }"
+
+        fragmentShader: "
+            varying highp vec2 coord;
+            varying lowp vec2 normal;
+            //uniform sampler2D src;
+            uniform lowp float qt_Opacity;
+            uniform lowp vec4 borderColor;
+            void main() {
+                vec2 nn = normalize(normal);
+                lowp vec4 tex = borderColor * pow((1.0-coord.y), 4.0);//texture2D(src, coord);
+                const vec2 lightdir = vec2(0.7, 0.7);
+                tex += vec4(1.0, 1.0, 1.0, 1.0) * pow(dot(nn, lightdir), 32.0) * pow(tex.a, 5.0f);
+                gl_FragColor = vec4(tex.rgb, tex.a) * qt_Opacity;
+            }"
 
     }
 
@@ -419,12 +485,6 @@ DWField {
     {
         return overlap(item1.x, item1.x + item1.width, item1.y, item1.y + item1.height,
                        item2.x, item2.x + item2.width, item2.y, item2.y + item2.height);
-    }
-
-    function overlapPlayerI(item1)
-    {
-        return overlap(item1.x, item1.x + item1.width, item1.y, item1.y + item1.height,
-                       playerCollision.x, playerCollision.x + playerCollision.width, playerCollision.y, playerCollision.y + playerCollision.height);
     }
 
     Column

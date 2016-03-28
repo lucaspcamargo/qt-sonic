@@ -8,8 +8,10 @@ class QQmlApplicationEngine;
 class QQuickWindow;
 class QElapsedTimer;
 
-class dwSoundSystem;
+class dwAnimationUpdater;
 class dwTextureCache;
+class dwSpritesheetCache;
+class dwSoundSystem;
 
 class dwRoot : public QObject
 {
@@ -18,6 +20,8 @@ class dwRoot : public QObject
     Q_PROPERTY(float profilerFrameTime READ profilerFrameTime NOTIFY profilerFrameTimeChanged)
     Q_PROPERTY(float profilerWorstFrameTime READ profilerWorstFrameTime NOTIFY profilerWorstFrameTimeChanged)
     Q_PROPERTY(dwTextureCache * textureCache READ textureCache FINAL CONSTANT)
+    Q_PROPERTY(dwAnimationUpdater * animationUpdater READ animationUpdater FINAL CONSTANT)
+    Q_PROPERTY(dwSpritesheetCache * spritesheetCache READ spritesheetCache FINAL CONSTANT)
     Q_PROPERTY(dwSoundSystem * soundSystem READ soundSystem FINAL CONSTANT)
 
 public:
@@ -40,9 +44,10 @@ public:
         return m_profilerWorstFrameTime;
     }
 
-    dwSoundSystem * soundSystem() const { return m_soundSystem; }
-
+    dwAnimationUpdater * animationUpdater() const { return m_animationUpdater; }
     dwTextureCache * textureCache() const { return m_textureCache; }
+    dwSpritesheetCache * spritesheetCache() const { return m_spritesheetCache; }
+    dwSoundSystem * soundSystem() const { return m_soundSystem; }
 
 signals:
     void preUpdate(float frameTime);
@@ -52,8 +57,6 @@ signals:
     void profilerFPSChanged(float arg);
     void profilerFrameTimeChanged(float arg);
     void profilerWorstFrameTimeChanged(float arg);
-
-    void textureCacheChanged(dwTextureCache * textureCache);
 
 public slots:
     void onLoaded();
@@ -67,8 +70,10 @@ private:
     QElapsedTimer * m_timer;
 
     static dwRoot * m_singleton;
-    dwSoundSystem * m_soundSystem;
+    dwAnimationUpdater * m_animationUpdater;
     dwTextureCache * m_textureCache;
+    dwSpritesheetCache * m_spritesheetCache;
+    dwSoundSystem * m_soundSystem;
 
     float m_profAccum;
     float m_profFrameTimeAccum;

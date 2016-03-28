@@ -65,7 +65,7 @@ public slots:
 
     dwFieldBVHNode * child(int index)
     {
-        return reinterpret_cast<dwFieldBVHNode*>(children()[index]);
+        return static_cast<dwFieldBVHNode*>(children()[index]);
     }
 
     void setCenterX(qreal arg)
@@ -114,7 +114,7 @@ public slots:
 
         foreach (QObject * obj, children())
         {
-            dwFieldBVHNode * childNode = reinterpret_cast<dwFieldBVHNode * >(obj);
+            dwFieldBVHNode * childNode = static_cast<dwFieldBVHNode * >(obj);
             if(childNode->active())
                 childNode->setHierarchyInactive();
         }

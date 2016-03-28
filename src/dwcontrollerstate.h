@@ -25,6 +25,27 @@ public:
     qreal StickX;
     qreal StickY;
 
+
+    // previous state
+
+    void saveStateToPrevious();
+
+    bool prUp;
+    bool prDown;
+    bool prLeft;
+    bool prRight;
+    bool prStart;
+    bool prBack;
+    bool prLeftShoulder;
+    bool prRightShoulder;
+    bool prAButton;
+    bool prBButton;
+    bool prXButton;
+    bool prYButton;
+
+    qreal prStickX;
+    qreal prStickY;
+
 signals:
 
 
@@ -44,6 +65,23 @@ public slots:
 
     qreal getStickX() { return StickX; }
     qreal getStickY() { return StickY; }
+
+    // previous state
+    bool getPrUp() { return prUp; }
+    bool getPrDown() { return prDown; }
+    bool getPrLeft() { return prLeft; }
+    bool getPrRight() { return prRight; }
+    bool getPrStart() { return prStart; }
+    bool getPrBack() { return prBack; }
+    bool getPrLeftShoulder() { return prLeftShoulder; }
+    bool getPrRightShoulder() { return prRightShoulder; }
+    bool getPrAButton() { return prAButton; }
+    bool getPrBButton() { return prBButton; }
+    bool getPrXButton() { return prXButton; }
+    bool getPrYButton() { return prYButton; }
+
+    qreal getPrStickX() { return prStickX; }
+    qreal getPrStickY() { return prStickY; }
 };
 
 #endif // DWCONTROLLERSTATE_H
