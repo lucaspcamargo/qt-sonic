@@ -28,7 +28,11 @@ void dwFieldPhysicsWorld::update(float dt)
 {
     emit beforeUpdating(dt);
 
-    m_world->Step(dt, 8, 3, 3);
+    m_world->Step(dt, 8, 3
+    #ifdef B2_PARTICLE
+    ,3
+#endif
+    );
     m_contactListener->processCallbacks();
 
 //    for ( b2Body* b = _world->GetBodyList(); b; b = b->GetNext())
@@ -308,6 +312,8 @@ void dwFieldPhysicsWorld::DrawSolidCircle(const b2Vec2& center, float32 radius, 
 {
     emit debugDrawSolidCircle(center.x/m_physicsScale, center.y/m_physicsScale, radius/m_physicsScale, axis.x, axis.y, TO_QCOLOR(color));
 }
+
+#ifdef B2_PARTICLE
 void dwFieldPhysicsWorld::DrawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count)
 {
     Q_UNUSED(centers)
@@ -315,6 +321,7 @@ void dwFieldPhysicsWorld::DrawParticles(const b2Vec2 *centers, float32 radius, c
     Q_UNUSED(colors)
     Q_UNUSED(count)
 }
+#endif
 
 void dwFieldPhysicsWorld::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)
 {
