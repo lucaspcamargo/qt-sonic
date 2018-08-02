@@ -40,7 +40,7 @@ dwPlayerBase::dwPlayerBase(QQuickItem *parent) :
 
     anim.distancePerFrameWalk = cgDim(10);
     anim.timePerFrameAccum = 0.0;
-    anim.currentAnimation = "falling";
+    anim.currentAnimation = "standing";
     anim.timeIntoAnimation = 0.0;
 
     sens.verticalSensorLength = cgDim(15.75) + m_playerHalfHeight;
@@ -309,7 +309,8 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
             setGAngle(0);
             setPlayerState(PS_AIR);
             setPlayerQuadMode(0);
-            newAnimation = "falling";
+            //newAnimation = "falling";
+            newAnimation = "running";
             misc.horizontalControlLock = cgTime(30);
         }
 
@@ -360,12 +361,14 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
                 setYSpeed(m_ySpeed * 0.25);
                 setPlayerJumping(false);
                 setPlayerRolling(false);
-                newAnimation = "falling";
+                //newAnimation = "falling";
+                newAnimation = "walking";
                 misc.controlBPressedLastFrame = true; // avoid going into next block
             }
 
-            if( anim.currentAnimation == "spring" && m_ySpeed > 0 ) newAnimation = "falling";
-
+            if( anim.currentAnimation == "spring" && m_ySpeed > 0 )
+                //newAnimation = "falling";
+                newAnimation = "walking";
             qreal xSpeedPrev = m_xSpeed;
             if(!misc.horizontalControlLock) setXSpeed( m_xSpeed + dt * controls.directionValueX * phy.airAccel);
 
@@ -521,6 +524,8 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
     dwFieldPhysicsWorld * physicsWorld = dwFieldPhysicsWorld::singleton();
     QVector4D sensorAResultComplete;
     QVector4D sensorBResultComplete;
+    QVector4D sensorCResultComplete;
+    QVector4D sensorDResultComplete;
     qreal sensorAResult;
     qreal sensorBResult;
     qreal sensorMResult;
@@ -552,6 +557,14 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
     // CC_WATER_EDGE
     categories |= 0x100;
 
+    // fix stupid objects that set air state and dont reset quad mode
+    // TODO maybe set it to zero automatically on setter function, makes sense
+    if(m_playerState == PS_AIR)
+    {
+        setPlayerQuadMode(0);
+    }
+
+
     qreal horizontalSensorLengthNow = sens.horizontalSensorLength;
     switch(m_playerQuadMode)
     {
@@ -559,8 +572,11 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
         sensorAResultComplete = physicsWorld->raycast(_x-sens.sensorHSpan, _y, _x-sens.sensorHSpan, _y+sens.verticalSensorLength, categories);
         sensorBResultComplete = physicsWorld->raycast(_x+sens.sensorHSpan, _y, _x+sens.sensorHSpan, _y+sens.verticalSensorLength, categories);
         sensorMResult = physicsWorld->raycastClosestDistance(_x, _y, _x, _y+sens.verticalSensorLength, categories);
-        sensorCResult = physicsWorld->raycastClosestDistance(_x-sens.sensorHSpan, _y, _x-sens.sensorHSpan, _y-m_playerHalfHeight, hCategories);
-        sensorDResult = physicsWorld->raycastClosestDistance(_x+sens.sensorHSpan, _y, _x+sens.sensorHSpan, _y-m_playerHalfHeight, hCategories);
+        sensorCResultComplete = physicsWorld->raycast(_x-sens.sensorHSpan, _y, _x-sens.sensorHSpan, _y-m_playerHalfHeight, hCategories);
+        sensorDResultComplete = physicsWorld->raycast(_x+sens.sensorHSpan, _y, _x+sens.sensorHSpan, _y-m_playerHalfHeight, hCategories);
+
+        sensorCResult = sensorCResultComplete.x();
+        sensorDResult = sensorDResultComplete.x();
         break;
 
     case 1:
@@ -583,6 +599,8 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
 
 
     qreal angle = 0;
+    bool justLanded = false;
+
     if((sensorAResult > 0) || (sensorBResult > 0))
     {
         if((sensorAResult > 0) && (sensorBResult > 0))
@@ -598,23 +616,45 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
 
     if(m_playerQuadMode == 0 && (sensorCResult > 0 || sensorDResult > 0) )
     {
-        // we hit the ceiling
-        if(m_ySpeed < 0)setYSpeed(0);
-        qreal newY = _y;
 
-        if((sensorCResult > 0) && (sensorDResult > 0))
-            newY += (sensorCResult < sensorDResult)? (1.0 - sensorCResult)*m_playerHalfHeight : (1.0 - sensorCResult)*m_playerHalfHeight;
-        else if(sensorCResult > 0)
-            newY += (1.0 - sensorCResult)*m_playerHalfHeight;
+        qreal angleC = qRadiansToDegrees( qAtan2(sensorCResultComplete.y(), sensorCResultComplete.z()) );
+        qreal angleD = qRadiansToDegrees( qAtan2(sensorDResultComplete.y(), sensorDResultComplete.z()) );
+
+        // check if attach ceiling
+        if( (sensorCResult > 0 && (angleC > 45)) )
+        {
+            // stick to the floor
+            setPlayerState( PS_GROUND );
+            setPlayerQuadMode(3);
+            justLanded = true;
+            setGSpeed( ySpeed() );
+        }
+        else if( (sensorDResult > 0 && (angleD < -45)) )
+        {
+            // stick to the floor
+            setPlayerState( PS_GROUND );
+            setPlayerQuadMode(1);
+            justLanded = true;
+            setGSpeed( -ySpeed() );
+        }
         else
-            newY += (1.0 - sensorDResult)*m_playerHalfHeight;
+        {
+            // we hit the ceiling with our heads
+            if(m_ySpeed < 0) setYSpeed(0);
+            //qreal _y = _y;
 
-        newY += 0.01; // for not sticking
+            if((sensorCResult > 0) && (sensorDResult > 0))
+                _y += (sensorCResult < sensorDResult)? (1.0 - sensorCResult)*m_playerHalfHeight : (1.0 - sensorCResult)*m_playerHalfHeight;
+            else if(sensorCResult > 0)
+                _y += (1.0 - sensorCResult)*m_playerHalfHeight;
+            else
+                _y += (1.0 - sensorDResult)*m_playerHalfHeight;
 
-        _y=(newY);
+            _y += 0.01; // for not sticking
+        }
     }
 
-    if(m_playerState != PS_AIR )
+    if(m_playerState != PS_AIR  && !justLanded) // did not just land from ceiling attachment
     {
         if((sensorAResult < 0) && (sensorBResult < 0))
         {
@@ -623,14 +663,15 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
             setGAngle(0);
 
             if(m_playerRolling) newAnimation = "rollingM";
-            else newAnimation = "falling";
+            //else newAnimation = "falling";
+
         }else
         {
             putOnGround(false, false, sensorAResult, sensorBResult, angle);
         }
     }else
     { // was on air
-        if( ( ! (sensorAResult < 0 && sensorBResult < 0) ) && m_ySpeed > 0 /*&& (angle >= 315 || angle <= 45)*/) // found something and can land
+        if( ( ! (sensorAResult < 0 && sensorBResult < 0) ) && m_ySpeed > 0 && !justLanded ) // found something and can land, skip if attached to ceiling
         {
             bool willRoll = controls.directionValueY < -0.5;
 
@@ -638,6 +679,7 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
             {
 
                 setPlayerState(PS_GROUND);
+                justLanded = true;
 
                 //setm_gSpeed
                 if(m_gAngle > 337.5 || m_gAngle < 22.5)
@@ -746,83 +788,86 @@ QString dwPlayerBase::playerIteration(qreal dt, int numIterations)
     }
 
 
-    // PUSH BACK FROM WALLS - raycast
-    switch(m_playerQuadMode)
+    if( ! (justLanded) )
     {
-    case 0:
-        sensorAHResultComplete = physicsWorld->raycast(_x, _y+sens.horizontalSensorYOffset, _x-horizontalSensorLengthNow, _y+sens.horizontalSensorYOffset, hCategories);
-        sensorBHResultComplete = physicsWorld->raycast(_x, _y+sens.horizontalSensorYOffset, _x+horizontalSensorLengthNow, _y+sens.horizontalSensorYOffset, hCategories);
-        break;
-
-    case 1:
-        sensorAHResultComplete = physicsWorld->raycast(_x + sens.horizontalSensorYOffset, _y, _x+sens.horizontalSensorYOffset, _y+horizontalSensorLengthNow, hCategories);
-        sensorBHResultComplete = physicsWorld->raycast(_x + sens.horizontalSensorYOffset, _y, _x+sens.horizontalSensorYOffset, _y-horizontalSensorLengthNow, hCategories);
-        break;
-
-    case 2:
-        sensorAHResultComplete = physicsWorld->raycast(_x, _y-sens.horizontalSensorYOffset, _x+horizontalSensorLengthNow, _y-sens.horizontalSensorYOffset, hCategories);
-        sensorBHResultComplete = physicsWorld->raycast(_x, _y-sens.horizontalSensorYOffset, _x-horizontalSensorLengthNow, _y-sens.horizontalSensorYOffset, hCategories);
-        break;
-
-    case 3:
-        sensorAHResultComplete = physicsWorld->raycast(_x - sens.horizontalSensorYOffset, _y, _x-sens.horizontalSensorYOffset, _y-horizontalSensorLengthNow, hCategories);
-        sensorBHResultComplete = physicsWorld->raycast(_x - sens.horizontalSensorYOffset, _y, _x-sens.horizontalSensorYOffset, _y+horizontalSensorLengthNow, hCategories);
-        break;
-    }
-    sensorAHResult = sensorAHResultComplete.x();
-    sensorBHResult = sensorBHResultComplete.x();
-
-
-
-    //pushback
-    if(sensorAHResult > 0)
-    {
-        if(!m_playerQuadModeVertical)
+        // PUSH BACK FROM WALLS - raycast
+        switch(m_playerQuadMode)
         {
-            _x=( _x + (1.0 - sensorAHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
-            if(m_gSpeed < 0) setGSpeed(0);
-            if(m_xSpeed < 0 && m_playerQuadMode == 0)
-            {
-                setXSpeed(0);
-                if(m_playerState == PS_GROUND)
-                {
-                    setGSpeed(0);
-                    setPlayerRolling(false);
+        case 0:
+            sensorAHResultComplete = physicsWorld->raycast(_x, _y+sens.horizontalSensorYOffset, _x-horizontalSensorLengthNow, _y+sens.horizontalSensorYOffset, hCategories);
+            sensorBHResultComplete = physicsWorld->raycast(_x, _y+sens.horizontalSensorYOffset, _x+horizontalSensorLengthNow, _y+sens.horizontalSensorYOffset, hCategories);
+            break;
 
-                    if(controls.directionValueX < 0.0) newAnimation = "pushing";
-                    else newAnimation = "standing";
-                }
-            }
-        }else
-        {
-            _y=( _y - (1.0 - sensorAHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
-            if(m_gSpeed < 0) setGSpeed(0);
+        case 1:
+            sensorAHResultComplete = physicsWorld->raycast(_x + sens.horizontalSensorYOffset, _y, _x+sens.horizontalSensorYOffset, _y+horizontalSensorLengthNow, hCategories);
+            sensorBHResultComplete = physicsWorld->raycast(_x + sens.horizontalSensorYOffset, _y, _x+sens.horizontalSensorYOffset, _y-horizontalSensorLengthNow, hCategories);
+            break;
+
+        case 2:
+            sensorAHResultComplete = physicsWorld->raycast(_x, _y-sens.horizontalSensorYOffset, _x+horizontalSensorLengthNow, _y-sens.horizontalSensorYOffset, hCategories);
+            sensorBHResultComplete = physicsWorld->raycast(_x, _y-sens.horizontalSensorYOffset, _x-horizontalSensorLengthNow, _y-sens.horizontalSensorYOffset, hCategories);
+            break;
+
+        case 3:
+            sensorAHResultComplete = physicsWorld->raycast(_x - sens.horizontalSensorYOffset, _y, _x-sens.horizontalSensorYOffset, _y-horizontalSensorLengthNow, hCategories);
+            sensorBHResultComplete = physicsWorld->raycast(_x - sens.horizontalSensorYOffset, _y, _x-sens.horizontalSensorYOffset, _y+horizontalSensorLengthNow, hCategories);
+            break;
         }
-    }
-    if(sensorBHResult > 0)
-    {
-        if(!m_playerQuadModeVertical)
+        sensorAHResult = sensorAHResultComplete.x();
+        sensorBHResult = sensorBHResultComplete.x();
+
+
+
+        //pushback
+        if(sensorAHResult > 0)
         {
-            _x=( _x - (1.0 - sensorBHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
-            if(m_gSpeed > 0) setGSpeed(0);
-            if(m_xSpeed > 0 && m_playerQuadMode == 0)
+            if(!m_playerQuadModeVertical)
             {
-                setXSpeed(0);
-                if(m_playerState == PS_GROUND)
+                _x=( _x + (1.0 - sensorAHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
+                if(m_gSpeed < 0) setGSpeed(0);
+                if(m_xSpeed < 0 && m_playerQuadMode == 0)
                 {
-                    setGSpeed(0);
-                    setPlayerRolling(false);
+                    setXSpeed(0);
+                    if(m_playerState == PS_GROUND)
+                    {
+                        setGSpeed(0);
+                        setPlayerRolling(false);
 
-                    if(controls.directionValueX > 0.0) newAnimation = "pushing";
-                    else newAnimation = "standing";
+                        if(controls.directionValueX < 0.0) newAnimation = "pushing";
+                        else newAnimation = "standing";
+                    }
                 }
+            }else
+            {
+                _y=( _y - (1.0 - sensorAHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
+                if(m_gSpeed < 0) setGSpeed(0);
             }
-        }else
-        {
-            _y=( _y - (1.0 - sensorBHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
-            if(m_gSpeed > 0) setGSpeed(0);
         }
+        if(sensorBHResult > 0)
+        {
+            if(!m_playerQuadModeVertical)
+            {
+                _x=( _x - (1.0 - sensorBHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
+                if(m_gSpeed > 0) setGSpeed(0);
+                if(m_xSpeed > 0 && m_playerQuadMode == 0)
+                {
+                    setXSpeed(0);
+                    if(m_playerState == PS_GROUND)
+                    {
+                        setGSpeed(0);
+                        setPlayerRolling(false);
 
+                        if(controls.directionValueX > 0.0) newAnimation = "pushing";
+                        else newAnimation = "standing";
+                    }
+                }
+            }else
+            {
+                _y=( _y - (1.0 - sensorBHResult)*sens.horizontalSensorLength*m_playerQuadModeSign);
+                if(m_gSpeed > 0) setGSpeed(0);
+            }
+
+        }
     }
 
 

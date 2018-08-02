@@ -95,6 +95,7 @@ void dwTextureCache::onAfterRendering()
 
 QSharedPointer<dwTexture> dwTextureCache::createTexture(QUrl source, QQuickWindow *window)
 {
+    Q_UNUSED(window)
 
     QSharedPointer<dwTexture> ret(0);
 

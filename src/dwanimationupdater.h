@@ -31,6 +31,7 @@ public:
         {
             animatables = new QVector<dwAnimatable*>();
             m_animatables[d]  =  animatables;
+            m_domainFactor[d] = 1.0;
         }
         return animatables;
     }
@@ -63,12 +64,24 @@ public slots:
         m_enabledDomains.remove(i);
     }
 
+    qreal domainTimeFactor(int i) const
+    {
+        return m_domainFactor.value(i, 1.0);
+    }
+
+    void setDomainTimeFactor(int i, qreal fac)
+    {
+        m_domainFactor[i] = fac;
+    }
+
+
     void update(qreal dt);
 
 private:
     static dwAnimationUpdater * ms_singleton;
 
     QMap<int, QVector<dwAnimatable*>*> m_animatables;
+    QMap<int, qreal> m_domainFactor;
     QSet<int> m_enabledDomains;
 
 };

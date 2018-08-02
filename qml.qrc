@@ -8,7 +8,6 @@
         <file>qml/DWLevelField.qml</file>
         <file>qml/DWLevelFieldCamera.qml</file>
         <file>qml/DWLevelFieldObjManager.qml</file>
-        <file>qml/DWLevelFieldVisManager.qml</file>
         <file>qml/level/DWLevelHud.qml</file>
         <file>qml/DWLevelScene.qml</file>
         <file>qml/DWMainScreen.qml</file>
@@ -121,5 +120,9 @@
         <file>qml/obj/ObjGeometry.qml</file>
         <file>qml/tools/editor/EColorSelector.qml</file>
         <file>qml/field/EffNoise.qml</file>
+        <file>qml/level/DWLevelTitlecard.qml</file>
+        <file>qml/obj/ObjBadnikOrbinaut.qml</file>
+        <file>qml/tools/editor/EPropertyPane.qml</file>
+        <file>qml/FundoExemplo.qml</file>
     </qresource>
 </RCC>

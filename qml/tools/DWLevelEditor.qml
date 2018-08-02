@@ -56,17 +56,17 @@ Item {
     property var objShortcuts: [0,1,2,3,4,5,6,7,8,9]
     property var objLib: [
         {name: "Ring", sprite:"obj/obj-common.dws?ring"},
-        {name: "Spring", sprite:"obj/obj-common.dws?spring"},
+        {name: "Spring", sprite:"obj/obj-common.dws?spring", options:[ {name: "yellow", type: "Boolean"} ] },
         {name: "Monitor", sprite:"obj/obj-common.dws?monitor"},
         {name: "Spikes", sprite:"obj/obj-common.dws?spikes"},
         {name: "Checkpoint", sprite:"obj/obj-common.dws?checkpoint"},
         {name: "DashRing", sprite:"obj/obj-common.dws?dashring-front"},
         {name: "Trigger", sprite:"obj/obj-common.dws?ring"},
-        {name: "Badnik", sprite:"obj/obj-common.dws?ring"},
-        {name: "Bridge", sprite:"obj/obj-common.dws?ring"},
+        {name: "BadnikOrbinaut", sprite:"obj/badniks-common.dws?orbinaut-body"},
+        {name: "Bridge", sprite:"obj/badniks-common.dws?orbinaut-spike"},
         {name: "RedRing", sprite:"obj/obj-common.dws?redring"},
-        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
-        {name: "Ring", sprite:"obj/obj-common.dws?ring"},
+        {name: "Ring", sprite:"obj/badniks-common.dws?orbinaut-blink"},
+        {name: "Ring", sprite:"obj/badniks-common.dws?orbinaut-spike"},
         {name: "Ring", sprite:"obj/obj-common.dws?ring"},
         {name: "Ring", sprite:"obj/obj-common.dws?ring"},
     ]
@@ -75,6 +75,8 @@ Item {
     property url tilePrefix: tileLocation + "/"
     property var tileFiles: DWUtil.listFiles(tileLocation)
     property int tileCurrent: 0
+    property var tileAttachment: {"null": [] }
+
     property real currRotation: 0
 
     MouseArea
@@ -287,7 +289,7 @@ Item {
         height: 14
         width: parent.width
 
-        color: "black"
+        color: "#ee000000"
 
         MouseArea        {
             //intercept
@@ -307,6 +309,14 @@ Item {
         Row        {
             spacing: 2
             anchors.right: parent.right
+
+            EButton            {
+                text: "SET ATTACHMENT"
+                onClicked: setTileAttachment()
+                textColor: 1
+            }
+
+            Item{width: 5; height: 5;}
 
             EButton            {
                 text: "SAVE"
@@ -346,6 +356,7 @@ Item {
     Row
     {
         id: objShortcutsRow
+        visible: editMode == 0
 
         x: 2
         y: 16
@@ -383,6 +394,7 @@ Item {
     Rectangle
     {
         id: tileSelect
+        visible: editMode == 1
 
 
         color: "#000"
@@ -391,10 +403,10 @@ Item {
         border.width: 1
         clip: true
 
-        width: 48
-        height: parent.height - 40
-        anchors.right: parent.right
-        anchors.rightMargin: 8
+        width: parent.width - 40
+        height: 48
+        anchors.left: parent.left
+        anchors.leftMargin: 20
         anchors.top: parent.top
         anchors.topMargin: 20
 
@@ -409,6 +421,8 @@ Item {
             anchors.fill: parent
             anchors.margins: 4
 
+            orientation: Qt.Horizontal
+
             spacing: 4
 
             model: tileFiles.length
@@ -416,8 +430,8 @@ Item {
             delegate: Image {
 
                 source: tileFiles[index]
-                width: parent.width
-                height: width
+                height: 40
+                width: 40
 
                 fillMode: Image.PreserveAspectFit
 
@@ -431,6 +445,11 @@ Item {
 
         }
 
+    }
+
+    EPropertyPane
+    {
+        id: propPane
     }
 
     Rectangle
@@ -459,6 +478,17 @@ Item {
 
             text: cursorOnField? ("X " + cursorX + "  Y " + cursorY ): ""
         }
+
+        EButton            {
+            text: "HELP ME PLS"
+            onClicked: helpDialog.show()
+            anchors.right: parent.right
+            anchors.rightMargin: 2
+            textColor: 6
+
+            transformOrigin: Item.BottomRight
+            scale: 2
+        }
     }
 
     function placeObject( )
@@ -483,21 +513,103 @@ Item {
     function saveObjects()
     {
         field.objectManager.saveObjStubs();
+        DWUtil.writeTextFile(resBase+levelData.urlPrefix+"tilesetAttachment.json", JSON.stringify(tileAttachment, null, 2));
     }
 
     function placeTile( )
     {
         var tileFile = tileFiles[tileCurrent].substr(tileFiles[tileCurrent].lastIndexOf("/") + 1);
 
-        var createdIndex = field.objectManager.addObjectStub(cursorX, cursorY,
-                                                             tileDisplayImage.width*0.25, tileDisplayImage.height*0.25,
-                                                             currRotation,
-                                                             cursorX + tileDisplayImage.width*0.125, cursorY + tileDisplayImage.height*0.125,
-                                                             128, "Tile", {"tileFile": tileFile, "z": tileFile.indexOf("bg-b-")!==-1? field.layerBZ : (tileFile.indexOf("fg-f-")!==-1? field.fgZ :field.layerAZ)}, false);
+        var x = cursorX;
+        var y = cursorY;
+        var w = tileDisplayImage.width*0.25;
+        var h = tileDisplayImage.height*0.25;
+        var xC = x + tileDisplayImage.width*0.125;
+        var yC = y + tileDisplayImage.height*0.125;
+        var createdIndex = field.objectManager.addObjectStub(x, y, w, h, currRotation, xC, yC, Math.max(w, h), "Tile", {"tileFile": tileFile, "z": tileFile.indexOf("bg-b-")!==-1? field.layerBZ : (tileFile.indexOf("fg-f-")!==-1? field.fgZ :field.layerAZ)}, false);
         field.objectManager.createObject(createdIndex);
         handlesLayer.createHandle(createdIndex);
+
+        //now for the attachments
+        var atts = tileAttachment[tileFile];
+        if(atts)
+            for(var k in atts)
+            {
+                var aStub = atts[k];
+                var stub = field.objectManager.cloneStubSlow(aStub); // we clone because of the options object
+
+                console.log(JSON.stringify(stub));
+
+                createdIndex = field.objectManager.addObjectStub(stub.x + x, stub.y + y, stub.w, stub.h, stub.rot, stub.xc + x, stub.yc + y, stub.radius,
+                                                                 stub.name, stub.options, stub.inPrefix);
+                field.objectManager.createObject(createdIndex);
+                handlesLayer.createHandle(createdIndex);
+
+            }
     }
 
+    function setTileAttachment( )
+    {
+        var selectedIds = handlesLayer.getSelectedIds();
+
+        if(selectedIds.length)
+        {
+            // find which one is a tile
+            var tileIndex = -1;
+            var tileArea = 0;
+            console.log(JSON.stringify(selectedIds));
+            for(var i in selectedIds)
+            {
+                var id = selectedIds[i];
+                var stub = field.objectManager.objStubs[id];
+                var obj = field.objectManager.objs[id];
+
+                // we want to know the largest tile in selection
+                if(stub.name == "Tile")
+                {
+                    var area = obj.width*obj.height;
+                    if(area >= tileArea)
+                    {
+                        tileIndex = id;
+                        tileArea = area;
+                    }
+                }
+            }
+
+            if(tileIndex >= 0)
+            {
+                var tileStub = field.objectManager.objStubs[tileIndex];
+                var tileObj = field.objectManager.objs[tileIndex];
+
+                // let's create the attachments
+                var atts = [];
+
+                for(var i in selectedIds)
+                {
+                    id = selectedIds[i];
+
+                    if(id === tileIndex) continue;
+
+                    stub = field.objectManager.objStubs[id];
+                    obj = field.objectManager.objs[id];
+
+                    var nStub = field.objectManager.cloneStubSlow(stub);
+                    nStub.x -= tileStub.x;
+                    nStub.y -= tileStub.y;
+                    nStub.xc -= tileStub.x;
+                    nStub.yc -= tileStub.y;
+
+                    atts.push(nStub);
+                }
+
+                tileAttachment[tileStub.options.tileFile] = atts;
+
+                debugMsg(atts.length +  " attachments for tile "+tileStub.options.tileFile+ " were set.")
+            }
+            else debugMsg("No tile is selected.");
+        }
+        else debugMsg("Nothing is selected.");
+    }
 
     property var geomLast: null
     function geomPlace()
@@ -524,7 +636,7 @@ Item {
                                                                  gd.maxX - gd.minX, gd.maxY - gd.minY,
                                                                  0,
                                                                  gd.xC, gd.yC,
-                                                                 gd.radius * 2, "Geometry", {geomData: gd}, false);
+                                                                 gd.radius * 2, "Geometry", {geomData: gd }, false);
             field.objectManager.createObject(createdIndex);
             handlesLayer.createHandle(createdIndex);
         }
@@ -546,6 +658,7 @@ Item {
         field.fieldActive = !visible;
         field.fieldEditMode = visible;
         field.viewScale = 1;
+        bgContainer.visible = !visible;
 
         hud.visible = !visible;
         //offscreen = !visible;
@@ -652,6 +765,13 @@ Item {
 
         });
 
+        var tileAttachmentStr = DWUtil.readTextFile(resBase + levelData.urlPrefix+"tilesetAttachment.json");
+
+        if(tileAttachmentStr)
+        {
+            tileAttachment = JSON.parse(tileAttachmentStr);
+        }
+
     }
 
     EDialog
@@ -680,11 +800,20 @@ Item {
         }
     }
 
-    EColorSelector
+    EDialog
     {
-        id: colorSelector
+        id: helpDialog
 
+        EButton            {
+            text: "OK, GOT IT"
+            onClicked: helpDialog.dismiss()
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.margins: 2
+
+            transformOrigin: Item.BottomRight
+            scale: 2
+        }
     }
-
 }
 

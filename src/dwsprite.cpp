@@ -105,7 +105,7 @@ void dwSprite::updateTime(qreal dt)
     if(!m_seq) return;
 
     int prevFrame = m_frame;
-    dwSpritesheet::Sequence *prevSeq = m_seq;
+    //dwSpritesheet::Sequence *prevSeq = m_seq;
 
     m_timeInFrame += dt;
 

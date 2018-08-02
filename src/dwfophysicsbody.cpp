@@ -27,7 +27,11 @@ dwFOPhysicsBody::dwFOPhysicsBody(QObject *parent) : QObject(parent)
 
 dwFOPhysicsBody::~dwFOPhysicsBody()
 {
-    if(m_body) m_world->DestroyBody(m_body);
+    if(m_body) {
+        m_body->SetUserData(0);
+        m_world->DestroyBody(m_body);
+        dwFieldPhysicsWorld::singleton()->fopbDestroyed(this);
+    }
 }
 
 void dwFOPhysicsBody::_worldDestroyed()

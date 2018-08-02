@@ -45,6 +45,13 @@ void dwFieldPhysicsWorld::update(float dt)
     emit afterUpdating(dt);
 }
 
+void dwFieldPhysicsWorld::fopbDestroyed(dwFOPhysicsBody *body)
+{
+    m_contactListener->fopbDestroyed(body);
+}
+
+
+
 
 int dwFieldPhysicsWorld::addLevelGeomRect(float centerX, float centerY, float halfWidth, float halfHeight, float rotationDeg, int category)
 {

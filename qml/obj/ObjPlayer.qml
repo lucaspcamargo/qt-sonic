@@ -42,7 +42,7 @@ DWPlayerBase {
             spritesheet: resBase + "obj/player/sonic-cd-xbr4x.dws?standing"
             running: true
             x: -width / 2
-            y: -height + playerHalfHeight + (currentAnimation == "falling"? 5 : 0) //(Math.abs(Math.sin(gAngleRad + Math.PI / 4)) + Math.abs(Math.cos(gAngleRad + Math.PI / 4)))
+            y: -height + playerHalfHeight // + (currentAnimation == "falling"? 5 : 0) (Math.abs(Math.sin(gAngleRad + Math.PI / 4)) + Math.abs(Math.cos(gAngleRad + Math.PI / 4)))
             height: 48
             width: 48
 
@@ -240,7 +240,7 @@ DWPlayerBase {
     // MISC ESSENTIALS
 
     property bool playerDead: false
-    property bool playerHarmful: false
+    property bool playerHarmful: player.playerRolling || player.currentAnimation == "spindash"
 
     DWEveryFrame
     {

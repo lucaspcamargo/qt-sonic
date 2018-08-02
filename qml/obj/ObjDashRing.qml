@@ -98,7 +98,7 @@ DWFieldObject {
         if(player.playerState == DWPlayerBase.PS_AIR)
         {
             player.xSpeed = Math.max(player.xSpeed, 10*60);
-            player.ySpeed = 0;
+            player.ySpeed = Math.max(-4, Math.min( 0, (y + height/2 - player.y) ))*60;
         }
         else
         {

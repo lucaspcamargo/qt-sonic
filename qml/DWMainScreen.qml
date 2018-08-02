@@ -7,8 +7,17 @@ import "ui"
 
 Item {
 
-    id: mainScreen
-    anchors.fill: parent
+    id: filler
+
+Item {
+    id:mainScreen
+
+
+    width: 427
+    height: 240
+
+    anchors.centerIn: parent
+    scale: parent.height/height
 
     MouseArea
     {
@@ -209,23 +218,16 @@ Item {
         radius: 16
     }
 
-    Audio
+    DWLevelBGM
     {
         id: mainScreenBgm
-        source: resBase + "music/main-alt.ogg"
-        loops: Audio.Infinite
-        Behavior on volume { NumberAnimation { easing.type: Easing.Linear; duration: 800; } }
-
+        mainId: "main-alt.ogg"
     }
 
-    Audio
-    {
+    DWLevelBGM {
         id: titleBgm
-
-        source: resBase + "music/title.ogg"
-        loops: Audio.Infinite
-        autoPlay: true
-
+        mainId: "title.ogg"
+        autoplay: true
     }
 
 
@@ -326,7 +328,7 @@ Item {
         id: fadeTimer
         interval: 1000
         repeat: false
-        onTriggered: fadeAction()
+        onTriggered: mainScreen.fadeAction()
     }
 
     property var fadeAction: null
@@ -345,6 +347,8 @@ Item {
 
 
     }
+
+}
 
 }
 

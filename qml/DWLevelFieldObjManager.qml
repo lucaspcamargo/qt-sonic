@@ -17,11 +17,6 @@ QtObject
     property int objStubsCount: 0
     property int objCount: 0
 
-    property real viewCenterX: field.viewCenterAtX
-    property real viewCenterY: field.viewCenterAtY
-    property real instantiationDistanceSquared: Math.pow(Qt.vector2d(field.viewWidth, field.viewHeight).length() * 0.7, 2)
-    property real destructionDistanceSquared: Math.pow(Qt.vector2d(field.viewWidth, field.viewHeight).length() * 1.0, 2)
-
     signal updateObjects(real dt);
 
 
@@ -37,6 +32,23 @@ QtObject
 
         objStubsCount++;
         return objStubsCount-1;
+    }
+
+    function cloneStubSlow(stub)
+    {
+        return {
+            name: stub.name,
+            x: stub.x,
+            y: stub.y,
+            w: stub.w,
+            h: stub.h,
+            rot: stub.rot,
+            xc: stub.xc,
+            yc: stub.yc,
+            radius: stub.radius,
+            options: JSON.parse(JSON.stringify(stub.options)),
+            inPrefix: stub.inPrefix,
+        };
     }
 
     function init()
@@ -124,7 +136,7 @@ QtObject
         var levelFile = resBase + levelData.urlPrefix + levelData.objStubs;
         var success = DWUtil.writeTextFile(levelFile, JSON.stringify(objStubs, null, 2));
 
-        debugMessage.text = success? "Level saved successfully" : "Error saving level";
+        debugMsg(success? "Level saved successfully" : "Error saving level");
     }
 
     function update(dt)
@@ -172,11 +184,14 @@ QtObject
         var c = Qt.createComponent((objStubs[i]["inPrefix"]? prefixedPrefix : "obj/Obj" )+objStubs[i]["name"]+".qml");
         if(c)
         {
-            var obj = c.createObject(field, {options: objStubs[i].options});
+            var args = {
+                x: objStubs[i]["x"],
+                y: objStubs[i]["y"],
+                options: objStubs[i].options};
+
+            var obj = c.createObject(field, args);
             if(obj)
             {
-                obj.x = objStubs[i]["x"];
-                obj.y = objStubs[i]["y"];
                 if(obj.setSize || obj.sizeMatters)
                 {
                     obj.width = objStubs[i]["w"];
@@ -213,8 +228,14 @@ QtObject
                 }
 
                 bvhNode.active = true;
-                bvhNode.activated.connect(obj.activate);
-                bvhNode.deactivated.connect(obj.deactivate);
+
+                if(obj.nodeConnect)
+                    obj.nodeConnect(bvhNode);
+                else
+                {
+                    bvhNode.activated.connect(obj.activate);
+                    bvhNode.deactivated.connect(obj.deactivate);
+                }
 
                 return obj;
             }

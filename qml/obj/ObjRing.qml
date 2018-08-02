@@ -42,88 +42,85 @@ DWFieldObject{
 
     property real prevfmod: 0
 
-    Component.onCompleted: objManager.updateObjects.connect(update);
-    onActivated: objManager.updateObjects.connect(update);
-    onDeactivated: objManager.updateObjects.disconnect(update);
-    Component.onDestruction: objManager.updateObjects.disconnect(update);
 
-    function update(dt)
+    DWEveryFrame
     {
-        if(!flying)
+        enabled: ring.active
+        //onEnabledChanged: console.log("Ring is now " + (enabled? "active" : "inactive"))
+        onUpdate:
         {
-            var f = field.fieldTime % (8 * 0.0666666666666667);
-            if(f < prevfmod) sprite.resetSequence();
-            prevfmod = f;
-
-            if(player.hasShield && player.shieldType == 1 && !collected)
+            if(!flying)
             {
-                var vecX = (ring.x+8 - player.x);
-                var vecY = (ring.y + 8 - player.y);
-                var dist = Math.sqrt(vecX*vecX + vecY*vecY);
-                if(dist < 96 && !attraction && !collected)
+                var f = field.fieldTime % (8 * 0.0666666666666667);
+                if(f < prevfmod) sprite.resetSequence();
+                prevfmod = f;
+
+                if(player.hasShield && player.shieldType == 1 && !collected)
                 {
-                    if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
-                    managerIndex = -1;
-                    attraction = true;
-                }
+                    var vecX = (ring.x+8 - player.x);
+                    var vecY = (ring.y + 8 - player.y);
+                    var dist = Math.sqrt(vecX*vecX + vecY*vecY);
+                    if(dist < 96 && !attraction && !collected)
+                    {
+                        if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
+                        managerIndex = -1;
+                        attraction = true;
+                    }
 
-                if(attraction){
-                    vecX /= dist;
-                    vecY /= dist;
-                    xS -= vecX * dt * 1800 * (xS*vecX > 0? 5 : 1) ;
-                    yS -= vecY * dt * 1800 * (yS*vecY > 0? 5 : 1) ;
+                    if(attraction){
+                        vecX /= dist;
+                        vecY /= dist;
+                        xS -= vecX * dt * 1800 * (xS*vecX > 0? 5 : 1) ;
+                        yS -= vecY * dt * 1800 * (yS*vecY > 0? 5 : 1) ;
 
-                    x += xS*dt;
-                    y += yS*dt;
-                }
+                        x += xS*dt;
+                        y += yS*dt;
+                    }
 
-            }else if(attraction && !flying)
-            {
-                flying = true;
-            }
-        }
-
-
-        if ( ring.flying )
-        {
-
-            yS += 0.09375 * 60 * 60 * dt;
-            xS /=  Math.abs(xS) / (Math.abs(xS) - 40 * dt);
-
-            ring.x += xS * dt;
-            ring.y += yS * dt;
-
-            //if(Math.random() > 0.6) return; //simulate shitty ring collision detection
-
-            var categoriesDown = 0x04 | 0x08 | 0x10 | 0x20;
-            var categories = 0x04 | 0x08;
-
-            if(yS > 0)
-            {
-                var rayCastDown = physicsWorld.raycastClosestDistance(ring.x + ring.width / 2, ring.y + ring.height / 2, ring.x + ring.width / 2, ring.y+ring.height, categoriesDown);
-                if(rayCastDown > 0)
+                }else if(attraction && !flying)
                 {
-                    ring.yS *= -0.75;
-                    ring.y -= (ring.height/2)*rayCastDown;
-                }
-            } else
-            {
-                var rayCastUp = physicsWorld.raycastClosestDistance(ring.x + ring.width / 2, ring.y + ring.height / 2, ring.x + ring.width / 2, ring.y, categoriesDown);
-                if(rayCastUp > 0)
-                {
-                    ring.yS *= -0.75;
-                    ring.y += (ring.height/2)*rayCastUp;
+                    flying = true;
                 }
             }
 
+
+            if ( ring.flying )
+            {
+
+                yS += 0.09375 * 60 * 60 * dt;
+                xS /=  Math.abs(xS) / (Math.abs(xS) - 40 * dt);
+
+                ring.x += xS * dt;
+                ring.y += yS * dt;
+
+                //if(Math.random() > 0.6) return; //simulate shitty ring collision detection
+
+                var categoriesDown = 0x04 | 0x08 | 0x10 | 0x20;
+                var categories = 0x04 | 0x08;
+
+                if(yS > 0)
+                {
+                    var rayCastDown = physicsWorld.raycastClosestDistance(ring.x + ring.width / 2, ring.y + ring.height / 2, ring.x + ring.width / 2, ring.y+ring.height, categoriesDown);
+                    if(rayCastDown > 0)
+                    {
+                        ring.yS *= -0.75;
+                        ring.y -= (ring.height/2)*rayCastDown;
+                    }
+                } else
+                {
+                    var rayCastUp = physicsWorld.raycastClosestDistance(ring.x + ring.width / 2, ring.y + ring.height / 2, ring.x + ring.width / 2, ring.y, categoriesDown);
+                    if(rayCastUp > 0)
+                    {
+                        ring.yS *= -0.75;
+                        ring.y += (ring.height/2)*rayCastUp;
+                    }
+                }
+
+            }
+
         }
-
-//        if(!collected && (!player.ringCollectLock > 0) && overlapPlayerI(ring))
-//        {
-//            collect();
-//        }
-
     }
+
 
     function collect()
     {

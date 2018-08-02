@@ -1,0 +1,35 @@
+{
+    "scale": 4,
+    "sequences": [
+        {
+            "name": "orbinaut-body",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 0,
+            "frameW": 20,
+            "frameH": 20,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "orbinaut-blink",
+            "type": "strip",
+            "frameX": 0,
+            "frameY": 24,
+            "frameW": 20,
+            "frameH": 20,
+            "frameCount": 1,
+            "frameDuration": 999
+        },
+        {
+            "name": "orbinaut-spike",
+            "type": "strip",
+            "frameX": 24,
+            "frameY": 0,
+            "frameW": 16,
+            "frameH": 16,
+            "frameCount": 1,
+            "frameDuration": 999
+        }
+    ]
+}

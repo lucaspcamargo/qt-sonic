@@ -195,13 +195,6 @@ Item {
             anchors.fill: parent
         }
 
-        DWTextBitmap
-        {
-            anchors.centerIn: parent
-            text: "PAUSE"
-            spacing: 2
-        }
-
     }
 
     onRedRingsChanged: redRingsDisplayAnim.start();
@@ -238,7 +231,7 @@ Item {
 
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: paused? 8 : topMarginProxy
+        anchors.topMargin: paused? 48 : topMarginProxy
 
         property real topMarginProxy: -32
 

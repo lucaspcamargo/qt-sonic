@@ -16,6 +16,7 @@ DWFieldObject {
     property int gibCount: 0
     property var gibShapes: null
     property string gibLocation: ""
+    property bool popped: false
 
 
     function reboundPlayer()
@@ -45,6 +46,7 @@ DWFieldObject {
 
     function pop()
     {
+        popped = true;
         field.createExplosion(Math.round(x)+width/2, Math.round(y)+height/2);
         field.createFlicky(Math.round(x)+width/2, Math.round(y)+height/2);
 
@@ -61,8 +63,8 @@ DWFieldObject {
 
         popSound.play();
         if(managerIndex >= 0) objManager.objectDestroyed(managerIndex);
-        badnikBase.destroy();
         badnikBase.active = false;
+        badnikBase.destroy();
 
 
         fieldController.score += 100;

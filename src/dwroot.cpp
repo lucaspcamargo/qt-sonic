@@ -47,25 +47,25 @@ void dwRoot::onLoaded()
     m_window->setClearBeforeRendering(false);
 
     connect(this, &dwRoot::update, m_animationUpdater, &dwAnimationUpdater::update);
-    //connect(m_window, &QQuickWindow::afterAnimating, this, &dwRoot::doFrameUpdate, Qt::QueuedConnection); NOW TRIGGERED INSIDE ANIMATION STEP FROM QML
     connect(m_window, &QQuickWindow::afterRendering, m_textureCache, &dwTextureCache::onAfterRendering, Qt::DirectConnection);
+
+
+    connect(m_window, &QQuickWindow::afterAnimating, this, &dwRoot::doFrameUpdate, Qt::DirectConnection);
+    //connect(m_window, &QQuickWindow::afterRendering, this, &dwRoot::doFrameUpdate, Qt::QueuedConnection);
+
 }
 
 void dwRoot::doFrameUpdate()
 {
+    if(!m_window)
+        return;
+
     qint64 elapsed = m_timer->nsecsElapsed();
     m_timer->restart();
 
     float time;
 
-#ifdef ANDROID_DUMMIED
-    time = (0.01666666f * qRound(qMin(elapsed * 0.000000001f, 0.1f)/0.016666666f));
-#else
     time = (qMin(elapsed * 0.000000001, 0.1));
-#endif
-
-    //if(qAbs(time - (1.0/60.0)) < 0.002)
-    //    time = 1.0/60.0;
 
     emit preUpdate(time);
     emit update(time);
@@ -97,6 +97,8 @@ void dwRoot::doFrameUpdate()
 
    //qDebug(QStringLiteral("elapsed: %1  dt: %2").arg(elapsed).arg(qMin(elapsed * 0.000000001f, 0.5f)).toLocal8Bit() );
 
+    m_window->update();
 
 }
+
 

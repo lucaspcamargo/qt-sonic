@@ -26,7 +26,7 @@
 #include "../thirdparty/neiasound/src/nsoundstreamer.h"
 #include "../thirdparty/neiasound/src/nsoundstreamerplaylist.h"
 
-static QObject *dwutil_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
+QObject *dwutil_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine)
     Q_UNUSED(scriptEngine)

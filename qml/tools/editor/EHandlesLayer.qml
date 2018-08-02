@@ -18,13 +18,13 @@ Item {
 
             id: handle
 
-            property int index: -1
+            property int idx: -1
             property var ref: null
             property var stubRef: null
             property bool selected: false
 
-            color: selected? Qt.rgba(1,1,0,0.3) : Qt.rgba(1,0,1,0.25)
-            border.color: selected? "yellow" : "magenta"
+            color: selected? Qt.rgba(1,1,0,0.3) : Qt.hsla(Math.random(),1,0.5,0.2)
+            border.color: selected? "yellow" : "gray"
             border.width: 1
 
             function setup()
@@ -34,7 +34,9 @@ Item {
                 width = ref.width;
                 height = ref.height;
 
-                if(field.objectManager.objStubs[index].name === "Geometry")
+                stubRef = field.objectManager.objStubs[idx]
+
+                if(field.objectManager.objStubs[idx].name === "Geometry")
                 {
                     Qt.createComponent("EGeomDrawer.qml").createObject(this, {color: "#f6f"}).setupFromGeomData(ref.options.geomData);
                 }
@@ -42,7 +44,7 @@ Item {
 
             function deleteObject()
             {
-                field.objectManager.removeObjStub(index);
+                field.objectManager.removeObjStub(idx);
                 destroy();
             }
 
@@ -68,7 +70,7 @@ Item {
         if(obj)
         {
             var h = handleComponent.createObject(handlesLayer);
-            h.index = stubIdx;
+            h.idx = stubIdx;
             h.ref = obj;
             h.setup();
 
@@ -145,20 +147,46 @@ Item {
                 selectedHandles.push(child);
             }
         }
+
+        selectedHandles = selectedHandles;
     }
 
     function selectAt(x, y)
     {
+        var prevSelected = null;
+        if(selectedHandles.length == 1)
+            prevSelected = selectedHandles[0];
+
         clearSelection();
+        selectionRect.x = x;
+        selectionRect.y = y;
+        selectionRect.width = selectionRect.height = 0;
+        selectRect();
 
-        var child = childAt(x, y);
-        if(child)
+        if(selectedHandles.length > 0)
         {
-            if(child === selectionRect) return;
+            var selectedItem = selectedHandles[0];
 
-            child.selected = true;
-            selectedHandles.push(child);
+            // do selection cycling
+            if(prevSelected && selectedHandles.indexOf(prevSelected) >= 0)
+                selectedItem = selectedHandles[(selectedHandles.indexOf(prevSelected)+1)%selectedHandles.length];
+
+            clearSelection();
+            selectedItem.selected = true;
+            selectedHandles  = [selectedItem];
         }
+
+    }
+
+    function getSelectedIds()
+    {
+        var ret = [];
+        for(var handle in selectedHandles)
+        {
+            ret.push(selectedHandles[handle].idx);
+        }
+
+        return ret;
     }
 }
 

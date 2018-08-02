@@ -35,6 +35,7 @@ DWField {
     property real waterYAmplitude: levelData.waterYAmplitude
     property int waterY: waterYCenter
 
+
     /* TODO MAKE INTO EFF
     NumberAnimation on waterY
     {
@@ -47,10 +48,10 @@ DWField {
         loops: Animation.Infinite
     }*/
 
-    onWaterColorChanged: screenRenderer.waterColor = waterColor
+    //onWaterColorChanged: screenRenderer.waterColor = waterColor
 
-    // this is uneeded and buggy but totally cool: breaks editor though
-    Behavior on viewScale { enabled: field.fieldActive; NumberAnimation{ duration: 100 } }
+    // this is uneeded and buggy but totally cool
+    //Behavior on viewScale { enabled: field.fieldActive; NumberAnimation{ duration: 1000 } }
 
     DWFieldBVH
     {
@@ -71,11 +72,6 @@ DWField {
     {
         id: physicsWorld
         physicsScale: 1/convertGenesisDimension(32)
-    }
-
-    property var visualManager: DWLevelFieldVisManager
-    {
-        id: visManager
     }
 
     property var objectManager: DWLevelFieldObjManager
@@ -153,22 +149,25 @@ DWField {
             chunk.y = chunkData.chunkY;
             chunk.process();
         }
-        visManager.init();
         objManager.init();
 
         var pComponent = Qt.createComponent(Qt.resolvedUrl("obj/ObjPlayer.qml"));
         player = pComponent.createObject(this, {x: levelData.playerX, y: levelData.playerY });
 
+        // set camera pos
+        viewCenterAtX = levelData.playerX;
+        viewCenterAtY = levelData.playerY;
 
         rebuildBVH();
 
         if(_DW_DEBUG_BVH_DRAW)createNodeVis(fieldBVH.rootNode, 0);
 
+        /*
         if(water)
         {
             screenRenderer.waterEnabled = true;
             screenRenderer.waterColor = waterColor;
-        }
+        }*/
 
         for(var i = 0; i < levelData.effects.length; i++)
         {
@@ -184,15 +183,14 @@ DWField {
     function reset()
     {
         objManager.fieldReset();
-        visManager.fieldReset();
         resetted();
     }
 
 
     Component.onDestruction:
     {
-        screenRenderer.waterEnabled = false;
-        screenRenderer.waterLevel = 1;
+        //screenRenderer.waterEnabled = false;
+        //screenRenderer.waterLevel = 1;
         gc();
     }
 
@@ -203,7 +201,14 @@ DWField {
         {
             controls.update();
 
-            preUpdate();
+            preUpdate(dt);
+
+            if(false)
+            {
+                var fac = (0.5 + 0.25*(1+Math.sin(fieldTime)));
+                dt *= fac;
+                dwAnimationUpdater.setDomainTimeFactor(DWAnimationUpdater.FieldDomain, fac);
+            }
 
             if(fieldActive)
             {
@@ -228,17 +233,18 @@ DWField {
                 fieldBVH.update(dt);
             }
 
+            /*
             screenRenderer.time = fieldTime / 1.5 * Math.PI * 2;
 
             if(water)
             {
                 screenRenderer.waterLevel = Math.min(1.0, Math.max(0, (waterY - (viewCenterAtY - viewHeight/2))/viewHeight));
-            }
+            }*/
 
             if(physicsWorldDrawer && physicsWorldDrawer.visible)
                 physicsWorldDrawer.updateNow();
 
-            postUpdate();
+            postUpdate(dt);
         }
 
     }
@@ -305,59 +311,35 @@ DWField {
         return o;
     }
 
-    //Behavior on viewScale { enabled: (levelEditor? (!levelEditor.visible) : true); NumberAnimation{ easing.type: Easing.InOutQuart } }
-
-//    Image
-//    {
-//        id: waterBorder
-//        visible: water && true//(levelData.waterBorderVisible? true : false)
-//        property int deltaX: 0
-
-//        x: -parent.x - (parent.viewCenterAtX%sourceSize.width) - sourceSize.width - deltaX
-//        y: waterY - 14
-//        z: waterBorderZ
-//        source: visible? (resBase + levelData.urlPrefix + "fx/water-border.png") : ""
-//        width: parent.viewWidth + sourceSize.width * 3
-//        fillMode: Image.TileHorizontally
-//        opacity: 1
-
-//        SequentialAnimation
-//        {
-//            loops: Animation.Infinite
-//            running: waterBorder.visible
-
-//            PauseAnimation { duration: 200 }
-//            ScriptAction { script: waterBorder.deltaX = waterBorder.sourceSize.width * 0.5 }
-//            PauseAnimation { duration: 200 }
-//            ScriptAction { script: waterBorder.deltaX = waterBorder.sourceSize.width * 0 }
-//        }
-//    }
-
     DWFxWater
     {
+      Component.onCompleted: if(!field.water) destroy();
         id: waterRectDraw
 
-        x: field.viewCenterAtX - 500
-        y: waterY
+        x: field.viewCenterAtX - 250
+        y: waterY-2
         z: waterBorderZ
 
-        width: 1000
+        width: 500
         height: 4000
 
         color: field.waterColor
+
+        time: field.fieldTime % (2*Math.PI)
 
     }
 
 
     Rectangle
     {
+        Component.onCompleted: if(!field.water) destroy();
         id: waterFlasher
 
-        x: field.viewCenterAtX - 500
+        x: field.viewCenterAtX - 250
         y: waterY
         z: waterBorderZ
 
-        width: 1000
+        width: 500
         height: 4000
         opacity: 0.0
 
@@ -377,14 +359,16 @@ DWField {
 
     ShaderEffect
     {
+        Component.onCompleted: if(!field.water) destroy();
+
         id: waterBorder
         visible: true
 
-        x: field.viewCenterAtX - 500
-        y: waterY - 2.5
+        x: field.viewCenterAtX - 250
+        y: waterY-2
         z: waterBorderZ
 
-        width: 1000
+        width: 500
         height: 16
         opacity: 0.6
 
@@ -407,7 +391,7 @@ DWField {
             uniform highp float xpos;
             void main() {
                 coord = qt_MultiTexCoord0;
-                float worldPos = xpos + 1000.0 * coord.x;
+                float worldPos = xpos + 500.0 * coord.x;
                 float sinarg = 0.1*(worldPos) + time*5.0;
                 float timeAlpha = (1.0 + sin(time * 4.0))*0.5;
                 float angle = atan(cos(sinarg));
@@ -425,7 +409,7 @@ DWField {
                 vec2 nn = normalize(normal);
                 lowp vec4 tex = borderColor * pow((1.0-coord.y), 4.0);//texture2D(src, coord);
                 const vec2 lightdir = vec2(0.7, 0.7);
-                tex += vec4(1.0, 1.0, 1.0, 1.0) * pow(dot(nn, lightdir), 32.0) * pow(tex.a, 5.0f);
+                tex += vec4(1.0, 1.0, 1.0, 1.0) * pow(dot(nn, lightdir)* pow(tex.a, 2.0f), 5.0) * 5.0;
                 gl_FragColor = vec4(tex.rgb, tex.a) * qt_Opacity;
             }"
 
@@ -491,7 +475,7 @@ DWField {
     {
         id: debugInfo
 
-        x: viewCenterAtX - viewWidth/2 + 13/viewScale
+        x: viewCenterAtX - viewWidth/2 + 26/viewScale
         y: viewCenterAtY - viewHeight/2 + 64/viewScale
         z: hudZ
         transformOrigin: Item.TopLeft
@@ -501,58 +485,54 @@ DWField {
         Component.onCompleted: if(!_DW_DEBUG) destroy();
         spacing: 3
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : objManager.objCount + " objs ("+objManager.objStubsCount+")"
-            font: "xexex-multi"; offset: 95*5
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
+
         }
 
-        DWTextBitmap
-        {
-            text: !visible? "" : visManager.visCount + " vis ("+visManager.visStubsCount+")"
-            font: "xexex-multi"; offset: 95*5
-        }
-
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : player.playerState + " " + player.playerQuadMode + " " + (player.currentAnimation) + (player.canUseMidair? " M" : "")
-            font: "xexex-multi"; offset: 95*2
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
+
         }
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : "x  " + player.x.toFixed(2)
-            font: "xexex-multi"; offset: 95*7
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
         }
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : "y  " + player.y.toFixed(2)
-            font: "xexex-multi"; offset: 95*7
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
         }
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : "xS " + player.xSpeed.toFixed(2)
-            font: "xexex-multi"; offset: 95*8
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
         }
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : "yS " + player.ySpeed.toFixed(2)
-            font: "xexex-multi"; offset: 95*8
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
         }
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : "gS " + player.gSpeed.toFixed(2)
-            font: "xexex-multi"; offset: 95*9
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
         }
 
-        DWTextBitmap
+        Text
         {
             text: !visible? "" : "gA " + player.gAngle.toFixed(2)
-            font: "xexex-multi"; offset: 95*9
+            color: "yellow"; font.bold: true; font.pixelSize: 8; style: Text.Outline; styleColor: "#880";
         }
     }
 }

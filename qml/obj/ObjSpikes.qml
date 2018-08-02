@@ -50,21 +50,19 @@ DWFieldObject {
         running: false
     }
 
-    Component.onCompleted: objManager.updateObjects.connect(update);
-    onActivated: objManager.updateObjects.connect(update);
-    onDeactivated: objManager.updateObjects.disconnect(update);
-    Component.onDestruction: {
-        objManager.updateObjects.disconnect(update);
-    }
-
-    function update(dt)
+    DWEveryFrame
     {
-        if(colliding && !player.playerInvincible )
+        enabled: spikes.active
+        onUpdate:
         {
-            player.getHit(spikes.x + spikes.width/2, spikes.y + spikes.height / 2);
-            spikedSfx.play();
+            if(colliding && !player.playerInvincible )
+            {
+                player.getHit(spikes.x + spikes.width/2, spikes.y + spikes.height / 2);
+                spikedSfx.play();
+            }
         }
     }
+
 
     DWSoundEffect
     {

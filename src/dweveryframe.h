@@ -2,6 +2,7 @@
 #define DWEVERYFRAME_H
 
 #include <QObject>
+#include "dwroot.h"
 
 class dwEveryFrame : public QObject
 {
@@ -10,7 +11,12 @@ class dwEveryFrame : public QObject
     bool m_enabled;
 
 public:
-    explicit dwEveryFrame(QObject *parent = 0);
+    explicit dwEveryFrame(QObject *parent = 0) :
+        QObject(parent),
+        m_enabled(true)
+    {
+        changeConnection();
+    }
 
 bool enabled() const
 {
@@ -23,7 +29,10 @@ signals:
     void enabledChanged(bool arg);
 
 public slots:
-    void onUpdated(float dt);
+    void onUpdated(float dt)
+    {
+        emit update(dt);
+    }
 
     void setEnabled(bool arg)
     {
@@ -33,11 +42,18 @@ public slots:
         m_enabled = arg;
         emit enabledChanged(arg);
 
-        //changeConnection();
+        changeConnection();
     }
 
 private:
-    void changeConnection();
+    void changeConnection()
+    {
+        if(m_enabled)
+            connect(dwRoot::singleton(), &dwRoot::update, this, &dwEveryFrame::onUpdated);
+        else
+            disconnect(dwRoot::singleton(), &dwRoot::update, this, &dwEveryFrame::onUpdated);
+
+    }
 };
 
 #endif // DWEVERYFRAME_H

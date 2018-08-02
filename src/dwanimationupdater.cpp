@@ -15,10 +15,11 @@ void dwAnimationUpdater::update(qreal dt)
     foreach(const int d, m_enabledDomains)
     {
        QVector<dwAnimatable*>* anims = animatablesInDomain(d);
+       qreal factor = m_domainFactor[d];
 
        foreach(dwAnimatable *a, *anims)
        {
-           a->updateTime(dt);
+           a->updateTime(dt * factor);
        }
     }
 }

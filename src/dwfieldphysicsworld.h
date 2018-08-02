@@ -10,6 +10,7 @@
 #include <QVector4D>
 
 class dwFieldPhysicsContactListener;
+class dwFOPhysicsBody;
 
 class dwFieldPhysicsWorld : public QObject, public b2Draw
 {
@@ -67,6 +68,8 @@ signals:
 
 public slots:
     void update(float dt);
+
+    void fopbDestroyed(dwFOPhysicsBody* body);
 
     int addLevelGeomRect(float centerX, float centerY, float halfWidth, float halfHeight, float rotationDeg, int categories = 0xFFFF);
     int addLevelGeomEdge(float x1, float y1, float x2, float y2, int categories = 0xFFFF);

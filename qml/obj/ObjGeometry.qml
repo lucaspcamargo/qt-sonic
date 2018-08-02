@@ -19,7 +19,12 @@ DWFieldObject{
             if(options.geomData)
             {
                 var gd = options.geomData;
-               prefabId = physicsWorld.addLevelGeomChain(gd.xC, gd.yC, gd.xPoints, gd.yPoints, options.categories? options.categories : DWFieldPhysicsWorld.CC_LAYER_A, false);
+                // yc and xc in geomdata are absolute positions from drawing time
+                // this object can be moved while keeping the same geometry data
+                // so we have to recalc
+                prefabId = physicsWorld.addLevelGeomChain(x + gd.xC - gd.minX, y + gd.yC - gd.minY,
+                                                          gd.xPoints, gd.yPoints,
+                                                          options.categories? options.categories : DWFieldPhysicsWorld.CC_LAYER_A, false);
             }
         }
     }

@@ -12,6 +12,6 @@ void main()
 
     lowp vec4 tex = texture2D(src, (coord-vec2(0.5, 0)) * vec2(mix(bgScale, fgScale, coord.y), 1 ) + vec2(displacement, 0) );
     lowp vec3 color = min( vec3(1.0), max(vec3(0.0), tex.rrr + coloring.rgb));
-    gl_FragColor = vec4( color, 1.0) * (0.4 + 0.6*coord.y);
+    gl_FragColor = vec4( color, 1.0) * (coord.y);
 
 }

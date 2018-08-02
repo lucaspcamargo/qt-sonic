@@ -13,19 +13,6 @@
     "yc": 872
   },
   {
-    "h": 16,
-    "inPrefix": false,
-    "name": "Ring",
-    "options": [],
-    "radius": 64,
-    "rot": 0,
-    "w": 16,
-    "x": -160,
-    "xc": -152,
-    "y": 864,
-    "yc": 872
-  },
-  {
     "h": 27.25,
     "inPrefix": false,
     "name": "Rage16Tile",
@@ -984,19 +971,6 @@
     "yc": 880
   },
   {
-    "h": 32,
-    "inPrefix": false,
-    "name": "Spikes",
-    "options": [],
-    "radius": 64,
-    "rot": 0,
-    "w": 32,
-    "x": 416,
-    "xc": 432,
-    "y": 864,
-    "yc": 880
-  },
-  {
     "h": 16,
     "inPrefix": false,
     "name": "Ring",
@@ -1050,35 +1024,6 @@
     "xc": 1896.625,
     "y": 808,
     "yc": 852.125
-  },
-  {
-    "h": 64,
-    "inPrefix": false,
-    "name": "Rage16Tile",
-    "options": {
-      "background": true,
-      "tileFile": "bg-b-fence.png"
-    },
-    "radius": 512,
-    "rot": 0,
-    "w": 128,
-    "x": -128,
-    "xc": -64,
-    "y": 832,
-    "yc": 864
-  },
-  {
-    "h": 16,
-    "inPrefix": false,
-    "name": "Ring",
-    "options": [],
-    "radius": 64,
-    "rot": 0,
-    "w": 16,
-    "x": -128,
-    "xc": -120,
-    "y": 864,
-    "yc": 872
   },
   {
     "h": 64,
@@ -1954,63 +1899,6 @@
     "inPrefix": false,
     "name": "Tile",
     "options": {
-      "tileFile": "fg-ramp4.png",
-      "z": 3
-    },
-    "radius": 128,
-    "rot": 0,
-    "w": 64,
-    "x": 1984,
-    "xc": 2016,
-    "y": 704,
-    "yc": 736
-  },
-  {
-    "h": 64,
-    "inPrefix": false,
-    "name": "Geometry",
-    "options": {
-      "geomData": {
-        "maxX": 2048,
-        "maxY": 768,
-        "minX": 1984,
-        "minY": 704,
-        "radius": 90.50966799187809,
-        "xC": 2016,
-        "xPoints": [
-          -32,
-          -9,
-          5,
-          14,
-          22,
-          28,
-          32
-        ],
-        "yC": 736,
-        "yPoints": [
-          32,
-          27,
-          21,
-          14,
-          2,
-          -11,
-          -32
-        ]
-      }
-    },
-    "radius": 181.01933598375618,
-    "rot": 0,
-    "w": 64,
-    "x": 1984,
-    "xc": 2016,
-    "y": 704,
-    "yc": 736
-  },
-  {
-    "h": 64,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
       "tileFile": "fg-ramp1.png",
       "z": 3
     },
@@ -2545,94 +2433,6 @@
     "inPrefix": false,
     "name": "Tile",
     "options": {
-      "tileFile": "pipe1.png",
-      "z": 3
-    },
-    "radius": 128,
-    "rot": 90,
-    "w": 24,
-    "x": 1742,
-    "xc": 1754,
-    "y": 547,
-    "yc": 611
-  },
-  {
-    "h": 40,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
-      "tileFile": "bg-pipe1-top.png",
-      "z": 3
-    },
-    "radius": 128,
-    "rot": 90,
-    "w": 24,
-    "x": 1826,
-    "xc": 1838,
-    "y": 591,
-    "yc": 611
-  },
-  {
-    "h": 16,
-    "inPrefix": false,
-    "name": "Spring",
-    "options": [
-      "y"
-    ],
-    "radius": 64,
-    "rot": 0,
-    "w": 32,
-    "x": 1803,
-    "xc": 1819,
-    "y": 583,
-    "yc": 591
-  },
-  {
-    "h": 24,
-    "inPrefix": false,
-    "name": "Geometry",
-    "options": {
-      "geomData": {
-        "maxX": 1853,
-        "maxY": 623,
-        "minX": 1789,
-        "minY": 599,
-        "radius": 68.35202996254024,
-        "xC": 1821,
-        "xPoints": [
-          -32,
-          24,
-          28,
-          32,
-          30,
-          24,
-          -29
-        ],
-        "yC": 611,
-        "yPoints": [
-          -12,
-          -12,
-          -8,
-          -1,
-          7,
-          12,
-          12
-        ]
-      }
-    },
-    "radius": 136.7040599250805,
-    "rot": 0,
-    "w": 64,
-    "x": 1789,
-    "xc": 1821,
-    "y": 599,
-    "yc": 611
-  },
-  {
-    "h": 128,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
       "tileFile": "fg-pat0-bot-a.png",
       "z": 3
     },
@@ -2732,21 +2532,6 @@
     "yc": 524
   },
   {
-    "h": 16,
-    "inPrefix": false,
-    "name": "Spring",
-    "options": [
-      "y"
-    ],
-    "radius": 64,
-    "rot": 0,
-    "w": 32,
-    "x": 1712,
-    "xc": 1728,
-    "y": 368,
-    "yc": 376
-  },
-  {
     "h": 64,
     "inPrefix": false,
     "name": "Checkpoint",
@@ -2758,22 +2543,6 @@
     "xc": 2020,
     "y": 192,
     "yc": 224
-  },
-  {
-    "h": 64,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
-      "tileFile": "bg-b-fence.png",
-      "z": 3
-    },
-    "radius": 128,
-    "rot": 0,
-    "w": 128,
-    "x": 448,
-    "xc": 512,
-    "y": 320,
-    "yc": 352
   },
   {
     "h": 32,
@@ -2883,54 +2652,6 @@
     "xc": 1783.5,
     "y": 640,
     "yc": 708.375
-  },
-  {
-    "h": 136.75,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
-      "tileFile": "bg-b-planks.png",
-      "z": -3
-    },
-    "radius": 128,
-    "rot": 0,
-    "w": 191,
-    "x": 1760,
-    "xc": 1855.5,
-    "y": 512,
-    "yc": 580.375
-  },
-  {
-    "h": 136.75,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
-      "tileFile": "bg-b-planks.png",
-      "z": -3
-    },
-    "radius": 128,
-    "rot": 0,
-    "w": 191,
-    "x": 1912,
-    "xc": 2007.5,
-    "y": 520,
-    "yc": 588.375
-  },
-  {
-    "h": 136.75,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
-      "tileFile": "bg-b-planks.png",
-      "z": -3
-    },
-    "radius": 128,
-    "rot": 0,
-    "w": 191,
-    "x": 1768,
-    "xc": 1863.5,
-    "y": 384,
-    "yc": 452.375
   },
   {
     "h": 7.75,
@@ -6163,19 +5884,6 @@
     "yc": 844.375
   },
   {
-    "h": 16,
-    "inPrefix": false,
-    "name": "Spring",
-    "options": null,
-    "radius": 64,
-    "rot": 0,
-    "w": 32,
-    "x": 2592,
-    "xc": 2608,
-    "y": 880,
-    "yc": 888
-  },
-  {
     "h": 154.5,
     "inPrefix": false,
     "name": "Tile",
@@ -7120,22 +6828,6 @@
     "yc": 648
   },
   {
-    "h": 32,
-    "inPrefix": false,
-    "name": "Tile",
-    "options": {
-      "tileFile": "pipe-junction2.png",
-      "z": 3
-    },
-    "radius": 128,
-    "rot": 0,
-    "w": 40,
-    "x": 2936,
-    "xc": 2956,
-    "y": 376,
-    "yc": 392
-  },
-  {
     "h": 256,
     "inPrefix": false,
     "name": "Geometry",
@@ -7375,5 +7067,7046 @@
     "xc": 2956,
     "y": 688,
     "yc": 700
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 2680,
+    "xc": 2696,
+    "y": 880,
+    "yc": 888
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-fence.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 440,
+    "xc": 504,
+    "y": 320,
+    "yc": 352
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 1344,
+    "xc": 1376,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1408,
+        "maxY": 896,
+        "minX": 1344,
+        "minY": 832,
+        "radius": 90.50966799187809,
+        "xC": 1376,
+        "xPoints": [
+          -32,
+          -18,
+          -7,
+          1,
+          8,
+          15,
+          19,
+          24,
+          28,
+          30,
+          31,
+          32
+        ],
+        "yC": 864,
+        "yPoints": [
+          32,
+          30,
+          27,
+          23,
+          18,
+          12,
+          6,
+          -1,
+          -9,
+          -16,
+          -25,
+          -32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 1344,
+    "xc": 1376,
+    "y": 832,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3904,
+    "xc": 3968,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3904,
+    "xc": 3968,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4032,
+    "xc": 4096,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4032,
+    "xc": 4096,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4032,
+    "xc": 4096,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4032,
+    "xc": 4096,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4136,
+    "xc": 4148,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4136,
+    "xc": 4148,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3904,
+    "xc": 3968,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3904,
+    "xc": 3968,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3904,
+    "xc": 3916,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3904,
+    "xc": 3916,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4128,
+    "xc": 4148,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3896,
+    "xc": 3916,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 4032,
+    "xc": 4048,
+    "y": 864,
+    "yc": 880
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 4000,
+    "xc": 4016,
+    "y": 864,
+    "yc": 880
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 3968,
+    "xc": 3984,
+    "y": 864,
+    "yc": 880
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 88.25,
+    "rot": 0,
+    "w": 81.25,
+    "x": 4000,
+    "xc": 4040.625,
+    "y": 928,
+    "yc": 972.125
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3224,
+    "xc": 3288,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3224,
+    "xc": 3288,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3224,
+    "xc": 3236,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3224,
+    "xc": 3288,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3224,
+    "xc": 3288,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3224,
+    "xc": 3236,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 3224,
+    "xc": 3236,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-slope1.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 256,
+    "x": 2968,
+    "xc": 3096,
+    "y": 384,
+    "yc": 422
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3216,
+    "xc": 3236,
+    "y": 440,
+    "yc": 456
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 2936,
+    "xc": 2956,
+    "y": 376,
+    "yc": 392
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3224,
+        "maxY": 460,
+        "minX": 2968,
+        "minY": 384,
+        "radius": 267.04306768759227,
+        "xC": 3096,
+        "xPoints": [
+          -128,
+          -106,
+          -95,
+          -79,
+          -68,
+          -54,
+          -40,
+          -34,
+          -23,
+          -11,
+          -1,
+          12,
+          26,
+          43,
+          55,
+          68,
+          82,
+          91,
+          102,
+          112,
+          128,
+          128,
+          98,
+          76,
+          50,
+          14,
+          -14,
+          -42,
+          -72,
+          -101,
+          -128,
+          -128
+        ],
+        "yC": 422,
+        "yPoints": [
+          -38,
+          -37,
+          -36,
+          -32,
+          -28,
+          -22,
+          -16,
+          -13,
+          -9,
+          -7,
+          -6,
+          -5,
+          -2,
+          4,
+          9,
+          15,
+          21,
+          24,
+          25,
+          26,
+          26,
+          37,
+          38,
+          32,
+          19,
+          8,
+          4,
+          -4,
+          -17,
+          -26,
+          -27,
+          -38
+        ]
+      }
+    },
+    "radius": 534.0861353751845,
+    "rot": 0,
+    "w": 256,
+    "x": 2968,
+    "xc": 3096,
+    "y": 384,
+    "yc": 422
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-slope1.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 256,
+    "x": 3352,
+    "xc": 3480,
+    "y": 448,
+    "yc": 486
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3224,
+        "maxY": 460,
+        "minX": 2968,
+        "minY": 384,
+        "radius": 267.04306768759227,
+        "xC": 3096,
+        "xPoints": [
+          -128,
+          -106,
+          -95,
+          -79,
+          -68,
+          -54,
+          -40,
+          -34,
+          -23,
+          -11,
+          -1,
+          12,
+          26,
+          43,
+          55,
+          68,
+          82,
+          91,
+          102,
+          112,
+          128,
+          128,
+          98,
+          76,
+          50,
+          14,
+          -14,
+          -42,
+          -72,
+          -101,
+          -128,
+          -128
+        ],
+        "yC": 422,
+        "yPoints": [
+          -38,
+          -37,
+          -36,
+          -32,
+          -28,
+          -22,
+          -16,
+          -13,
+          -9,
+          -7,
+          -6,
+          -5,
+          -2,
+          4,
+          9,
+          15,
+          21,
+          24,
+          25,
+          26,
+          26,
+          37,
+          38,
+          32,
+          19,
+          8,
+          4,
+          -4,
+          -17,
+          -26,
+          -27,
+          -38
+        ]
+      }
+    },
+    "radius": 534.0861353751845,
+    "rot": 0,
+    "w": 256,
+    "x": 3352,
+    "xc": 3480,
+    "y": 448,
+    "yc": 486
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3328,
+    "xc": 3340,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3328,
+    "xc": 3340,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 3328,
+    "xc": 3340,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3608,
+    "xc": 3672,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3608,
+    "xc": 3672,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3608,
+    "xc": 3672,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3608,
+    "xc": 3672,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3608,
+    "xc": 3620,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3608,
+    "xc": 3620,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3600,
+    "xc": 3620,
+    "y": 504,
+    "yc": 520
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 3608,
+    "xc": 3620,
+    "y": 768,
+    "yc": 788
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3736,
+    "xc": 3800,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3736,
+    "xc": 3800,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3736,
+    "xc": 3800,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3736,
+    "xc": 3800,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3736,
+    "xc": 3748,
+    "y": 640,
+    "yc": 704
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3736,
+    "xc": 3748,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3736,
+    "xc": 3748,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3728,
+    "xc": 3748,
+    "y": 440,
+    "yc": 456
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3728,
+    "xc": 3748,
+    "y": 504,
+    "yc": 520
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 3736,
+    "xc": 3748,
+    "y": 768,
+    "yc": 788
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3320,
+    "xc": 3340,
+    "y": 440,
+    "yc": 456
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3992,
+    "xc": 4056,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3992,
+    "xc": 4056,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4120,
+    "xc": 4184,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4120,
+    "xc": 4184,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3864,
+    "xc": 3928,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3864,
+    "xc": 3928,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3968,
+    "xc": 3980,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4120,
+    "xc": 4132,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 3968,
+    "xc": 3980,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 4120,
+    "xc": 4132,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 4044,
+    "xc": 4056,
+    "y": 524,
+    "yc": 588
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 4056,
+    "xc": 4088,
+    "y": 512,
+    "yc": 544
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1408,
+        "maxY": 896,
+        "minX": 1344,
+        "minY": 832,
+        "radius": 90.50966799187809,
+        "xC": 1376,
+        "xPoints": [
+          -32,
+          -18,
+          -7,
+          1,
+          8,
+          15,
+          19,
+          24,
+          28,
+          30,
+          31,
+          32
+        ],
+        "yC": 864,
+        "yPoints": [
+          32,
+          30,
+          27,
+          23,
+          18,
+          12,
+          6,
+          -1,
+          -9,
+          -16,
+          -25,
+          -32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 4056,
+    "xc": 4088,
+    "y": 512,
+    "yc": 544
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp3.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 3992,
+    "xc": 4024,
+    "y": 512,
+    "yc": 544
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2391,
+        "maxY": 896,
+        "minX": 2328,
+        "minY": 832,
+        "radius": 89.80534505250787,
+        "xC": 2359.5,
+        "xPoints": [
+          -31.5,
+          -27.5,
+          -23.5,
+          -13.5,
+          -0.5,
+          17.5,
+          31.5
+        ],
+        "yC": 864,
+        "yPoints": [
+          -32,
+          -11,
+          -2,
+          12,
+          24,
+          31,
+          32
+        ]
+      }
+    },
+    "radius": 179.61069010501575,
+    "rot": 0,
+    "w": 63,
+    "x": 3992,
+    "xc": 4023.5,
+    "y": 512,
+    "yc": 544
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4120,
+    "xc": 4184,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4120,
+    "xc": 4184,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4120,
+    "xc": 4184,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4120,
+    "xc": 4184,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4120,
+    "xc": 4132,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4120,
+    "xc": 4132,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4112,
+    "xc": 4132,
+    "y": 312,
+    "yc": 328
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 3960,
+    "xc": 3980,
+    "y": 440,
+    "yc": 456
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3936,
+    "xc": 3940.75,
+    "y": 472,
+    "yc": 475.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3960,
+    "xc": 3964.75,
+    "y": 488,
+    "yc": 491.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3928,
+    "xc": 3932.75,
+    "y": 496,
+    "yc": 499.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3768,
+    "xc": 3772.75,
+    "y": 480,
+    "yc": 483.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3792,
+    "xc": 3796.75,
+    "y": 480,
+    "yc": 483.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 3792,
+    "xc": 3796.75,
+    "y": 504,
+    "yc": 507.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4168,
+    "xc": 4172.75,
+    "y": 344,
+    "yc": 347.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4144,
+    "xc": 4148.75,
+    "y": 392,
+    "yc": 395.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4184,
+    "xc": 4188.75,
+    "y": 392,
+    "yc": 395.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4016,
+    "xc": 4020.75,
+    "y": 624,
+    "yc": 627.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4160,
+    "xc": 4164.75,
+    "y": 616,
+    "yc": 619.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4192,
+    "xc": 4196.75,
+    "y": 608,
+    "yc": 611.875
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 3864,
+    "xc": 3928,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 3864,
+    "xc": 3928,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 88.25,
+    "rot": 0,
+    "w": 81.25,
+    "x": 3832,
+    "xc": 3872.625,
+    "y": 544,
+    "yc": 588.125
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 3968,
+    "xc": 3980,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": [
+      "y"
+    ],
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 3960,
+    "xc": 3976,
+    "y": 432,
+    "yc": 440
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-fence.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2776,
+    "xc": 2840,
+    "y": 320,
+    "yc": 352
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-fence.png",
+      "z": -3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 2136,
+    "xc": 2200,
+    "y": 192,
+    "yc": 224
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 3968,
+    "xc": 4063.5,
+    "y": 456,
+    "yc": 524.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 3952,
+    "xc": 4047.5,
+    "y": 808,
+    "yc": 876.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 4104,
+    "xc": 4199.5,
+    "y": 808,
+    "yc": 876.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 4256,
+    "xc": 4351.5,
+    "y": 808,
+    "yc": 876.375
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 3224,
+    "xc": 3236,
+    "y": 480,
+    "yc": 492
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 3328,
+    "xc": 3340,
+    "y": 520,
+    "yc": 532
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 3608,
+    "xc": 3620,
+    "y": 584,
+    "yc": 596
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 3736,
+    "xc": 3748,
+    "y": 472,
+    "yc": 484
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 4024,
+    "xc": 4119.5,
+    "y": 672,
+    "yc": 740.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 4176,
+    "xc": 4271.5,
+    "y": 672,
+    "yc": 740.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 4328,
+    "xc": 4423.5,
+    "y": 680,
+    "yc": 748.375
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 3248,
+    "xc": 3256,
+    "y": 416,
+    "yc": 424
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 3280,
+    "xc": 3288,
+    "y": 416,
+    "yc": 424
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 3312,
+    "xc": 3320,
+    "y": 416,
+    "yc": 424
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 512,
+    "yc": 576
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 384,
+    "yc": 448
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": -640,
+    "xc": -576,
+    "y": 256,
+    "yc": 320
+  },
+  {
+    "h": 8,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 4352,
+        "maxY": 1088,
+        "minX": 4352,
+        "minY": 1080,
+        "radius": 8,
+        "xC": 4352,
+        "xPoints": [
+          0,
+          0
+        ],
+        "yC": 1084,
+        "yPoints": [
+          4,
+          -4
+        ]
+      }
+    },
+    "radius": 16,
+    "rot": 0,
+    "w": 0,
+    "x": 4352,
+    "xc": 4352,
+    "y": 1080,
+    "yc": 1084
+  },
+  {
+    "h": 8,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 4480,
+        "maxY": 1088,
+        "minX": 4480,
+        "minY": 1080,
+        "radius": 8,
+        "xC": 4480,
+        "xPoints": [
+          0,
+          0
+        ],
+        "yC": 1084,
+        "yPoints": [
+          -4,
+          4
+        ]
+      }
+    },
+    "radius": 16,
+    "rot": 0,
+    "w": 0,
+    "x": 4480,
+    "xc": 4480,
+    "y": 1080,
+    "yc": 1084
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4224,
+    "xc": 4288,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4224,
+    "xc": 4288,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-slope1.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 256,
+    "x": 4352,
+    "xc": 4480,
+    "y": 832,
+    "yc": 870
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3224,
+        "maxY": 460,
+        "minX": 2968,
+        "minY": 384,
+        "radius": 267.04306768759227,
+        "xC": 3096,
+        "xPoints": [
+          -128,
+          -106,
+          -95,
+          -79,
+          -68,
+          -54,
+          -40,
+          -34,
+          -23,
+          -11,
+          -1,
+          12,
+          26,
+          43,
+          55,
+          68,
+          82,
+          91,
+          102,
+          112,
+          128,
+          128,
+          98,
+          76,
+          50,
+          14,
+          -14,
+          -42,
+          -72,
+          -101,
+          -128,
+          -128
+        ],
+        "yC": 422,
+        "yPoints": [
+          -38,
+          -37,
+          -36,
+          -32,
+          -28,
+          -22,
+          -16,
+          -13,
+          -9,
+          -7,
+          -6,
+          -5,
+          -2,
+          4,
+          9,
+          15,
+          21,
+          24,
+          25,
+          26,
+          26,
+          37,
+          38,
+          32,
+          19,
+          8,
+          4,
+          -4,
+          -17,
+          -26,
+          -27,
+          -38
+        ]
+      }
+    },
+    "radius": 534.0861353751845,
+    "rot": 0,
+    "w": 256,
+    "x": 4352,
+    "xc": 4480,
+    "y": 832,
+    "yc": 870
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4608,
+    "xc": 4672,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4608,
+    "xc": 4672,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4736,
+    "xc": 4800,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4736,
+    "xc": 4800,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4608,
+    "xc": 4672,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4608,
+    "xc": 4672,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4736,
+    "xc": 4800,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4736,
+    "xc": 4800,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4736,
+    "xc": 4748,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4736,
+    "xc": 4748,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 896,
+    "yc": 960
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 1024,
+    "yc": 1088
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 960,
+    "yc": 972
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4736,
+    "xc": 4748,
+    "y": 856,
+    "yc": 868
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4728,
+    "xc": 4748,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4600,
+    "xc": 4620,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4224,
+    "xc": 4288,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4224,
+    "xc": 4288,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4224,
+    "xc": 4236,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4224,
+    "xc": 4236,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4328,
+    "xc": 4340,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4328,
+    "xc": 4340,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4320,
+    "xc": 4340,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4216,
+    "xc": 4236,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4248,
+    "xc": 4312,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4248,
+    "xc": 4312,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4504,
+    "xc": 4568,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4504,
+    "xc": 4568,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4760,
+    "xc": 4824,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4760,
+    "xc": 4824,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4760,
+    "xc": 4772,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 4760,
+    "xc": 4772,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4728,
+    "xc": 4748,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 4704,
+    "xc": 4720,
+    "y": 895,
+    "yc": 903
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4760,
+    "xc": 4824,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4760,
+    "xc": 4824,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4504,
+    "xc": 4568,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4504,
+    "xc": 4568,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-hole.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4248,
+    "xc": 4312,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4280,
+    "xc": 4344,
+    "y": 272,
+    "yc": 336
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4280,
+    "xc": 4344,
+    "y": 272,
+    "yc": 336
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 240,
+    "yc": 304
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 240,
+    "yc": 304
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4280,
+    "xc": 4292,
+    "y": 272,
+    "yc": 336
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4376,
+    "xc": 4388,
+    "y": 240,
+    "yc": 304
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4480,
+    "xc": 4492,
+    "y": 240,
+    "yc": 304
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4248,
+    "xc": 4312,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4248,
+    "xc": 4312,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4472,
+    "xc": 4492,
+    "y": 232,
+    "yc": 248
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4368,
+    "xc": 4388,
+    "y": 232,
+    "yc": 248
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4272,
+    "xc": 4292,
+    "y": 264,
+    "yc": 280
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4760,
+    "xc": 4772,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4752,
+    "xc": 4772,
+    "y": 440,
+    "yc": 456
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4600,
+    "xc": 4620,
+    "y": 312,
+    "yc": 328
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4416,
+    "xc": 4420.75,
+    "y": 264,
+    "yc": 267.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4431,
+    "xc": 4435.75,
+    "y": 265,
+    "yc": 268.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4414,
+    "xc": 4418.75,
+    "y": 282,
+    "yc": 285.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4318,
+    "xc": 4322.75,
+    "y": 304,
+    "yc": 307.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4464,
+    "xc": 4468.75,
+    "y": 344,
+    "yc": 347.875
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4376,
+    "xc": 4440,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4504,
+    "xc": 4568,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 4240,
+    "xc": 4335.5,
+    "y": 456,
+    "yc": 524.375
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 4280,
+    "xc": 4294,
+    "y": 544,
+    "yc": 560
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 4312,
+    "xc": 4326,
+    "y": 544,
+    "yc": 560
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 4248,
+    "xc": 4262,
+    "y": 544,
+    "yc": 560
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 4248,
+    "xc": 4264,
+    "y": 288,
+    "yc": 304
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4344,
+    "xc": 4352,
+    "y": 240,
+    "yc": 248
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4312,
+    "xc": 4320,
+    "y": 240,
+    "yc": 248
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Badnik",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 2136,
+    "xc": 2144,
+    "y": 224,
+    "yc": 232
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Badnik",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 416,
+    "xc": 424,
+    "y": 352,
+    "yc": 360
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4688,
+    "xc": 4696,
+    "y": 488,
+    "yc": 496
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4688,
+    "xc": 4696,
+    "y": 528,
+    "yc": 536
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4688,
+    "xc": 4696,
+    "y": 568,
+    "yc": 576
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4688,
+    "xc": 4696,
+    "y": 608,
+    "yc": 616
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4864,
+    "xc": 4928,
+    "y": 800,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4864,
+    "xc": 4928,
+    "y": 800,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-hole.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4864,
+    "xc": 4928,
+    "y": 928,
+    "yc": 992
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4992,
+    "xc": 5056,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4992,
+    "xc": 5056,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4968,
+    "xc": 4980,
+    "y": 800,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4968,
+    "xc": 4980,
+    "y": 928,
+    "yc": 992
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4864,
+    "xc": 4876,
+    "y": 800,
+    "yc": 864
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4864,
+    "xc": 4876,
+    "y": 928,
+    "yc": 992
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4856,
+    "xc": 4876,
+    "y": 792,
+    "yc": 808
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4960,
+    "xc": 4980,
+    "y": 792,
+    "yc": 808
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4968,
+    "xc": 4980,
+    "y": 856,
+    "yc": 868
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4904,
+    "xc": 4908.75,
+    "y": 824,
+    "yc": 827.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 4928,
+    "xc": 4932.75,
+    "y": 816,
+    "yc": 819.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 5056,
+    "xc": 5060.75,
+    "y": 880,
+    "yc": 883.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 5080,
+    "xc": 5084.75,
+    "y": 856,
+    "yc": 859.875
+  },
+  {
+    "h": 7.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-plant1.png",
+      "z": 3
+    },
+    "radius": 9.5,
+    "rot": 0,
+    "w": 9.5,
+    "x": 5000,
+    "xc": 5004.75,
+    "y": 848,
+    "yc": 851.875
+  },
+  {
+    "h": 88.25,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-block.png",
+      "z": 3
+    },
+    "radius": 88.25,
+    "rot": 0,
+    "w": 81.25,
+    "x": 4888,
+    "xc": 4928.625,
+    "y": 840,
+    "yc": 884.125
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4904,
+    "xc": 4912,
+    "y": 768,
+    "yc": 776
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4936,
+    "xc": 4944,
+    "y": 768,
+    "yc": 776
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-slope1.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 256,
+    "x": 5120,
+    "xc": 5248,
+    "y": 832,
+    "yc": 870
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3224,
+        "maxY": 460,
+        "minX": 2968,
+        "minY": 384,
+        "radius": 267.04306768759227,
+        "xC": 3096,
+        "xPoints": [
+          -128,
+          -106,
+          -95,
+          -79,
+          -68,
+          -54,
+          -40,
+          -34,
+          -23,
+          -11,
+          -1,
+          12,
+          26,
+          43,
+          55,
+          68,
+          82,
+          91,
+          102,
+          112,
+          128,
+          128,
+          98,
+          76,
+          50,
+          14,
+          -14,
+          -42,
+          -72,
+          -101,
+          -128,
+          -128
+        ],
+        "yC": 422,
+        "yPoints": [
+          -38,
+          -37,
+          -36,
+          -32,
+          -28,
+          -22,
+          -16,
+          -13,
+          -9,
+          -7,
+          -6,
+          -5,
+          -2,
+          4,
+          9,
+          15,
+          21,
+          24,
+          25,
+          26,
+          26,
+          37,
+          38,
+          32,
+          19,
+          8,
+          4,
+          -4,
+          -17,
+          -26,
+          -27,
+          -38
+        ]
+      }
+    },
+    "radius": 534.0861353751845,
+    "rot": 0,
+    "w": 256,
+    "x": 5120,
+    "xc": 5248,
+    "y": 832,
+    "yc": 870
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5096,
+    "xc": 5108,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5088,
+    "xc": 5108,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4888,
+    "xc": 4952,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4888,
+    "xc": 4952,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4888,
+    "xc": 4952,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4888,
+    "xc": 4952,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5016,
+    "xc": 5080,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5016,
+    "xc": 5080,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5144,
+    "xc": 5208,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5144,
+    "xc": 5208,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5016,
+    "xc": 5080,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5016,
+    "xc": 5080,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5144,
+    "xc": 5208,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5144,
+    "xc": 5208,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5248,
+    "xc": 5260,
+    "y": 448,
+    "yc": 512
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5248,
+    "xc": 5260,
+    "y": 576,
+    "yc": 640
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 5248,
+    "xc": 5260,
+    "y": 704,
+    "yc": 724
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5240,
+    "xc": 5260,
+    "y": 440,
+    "yc": 456
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 5248,
+    "xc": 5260,
+    "y": 488,
+    "yc": 500
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4760,
+    "xc": 4772,
+    "y": 536,
+    "yc": 548
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 648,
+    "yc": 660
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4608,
+    "xc": 4620,
+    "y": 400,
+    "yc": 412
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1-valve.png",
+      "z": 3
+    },
+    "radius": 24,
+    "rot": 0,
+    "w": 24,
+    "x": 4480,
+    "xc": 4492,
+    "y": 264,
+    "yc": 276
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4960,
+    "xc": 5024,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4960,
+    "xc": 5024,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4960,
+    "xc": 4972,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5064,
+    "xc": 5076,
+    "y": 320,
+    "yc": 384
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5056,
+    "xc": 5076,
+    "y": 312,
+    "yc": 328
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4952,
+    "xc": 4972,
+    "y": 312,
+    "yc": 328
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 4896,
+    "xc": 4928,
+    "y": 384,
+    "yc": 416
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1408,
+        "maxY": 896,
+        "minX": 1344,
+        "minY": 832,
+        "radius": 90.50966799187809,
+        "xC": 1376,
+        "xPoints": [
+          -32,
+          -18,
+          -7,
+          1,
+          8,
+          15,
+          19,
+          24,
+          28,
+          30,
+          31,
+          32
+        ],
+        "yC": 864,
+        "yPoints": [
+          32,
+          30,
+          27,
+          23,
+          18,
+          12,
+          6,
+          -1,
+          -9,
+          -16,
+          -25,
+          -32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 4896,
+    "xc": 4928,
+    "y": 384,
+    "yc": 416
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp3.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 5088,
+    "xc": 5120,
+    "y": 384,
+    "yc": 416
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2391,
+        "maxY": 896,
+        "minX": 2328,
+        "minY": 832,
+        "radius": 89.80534505250787,
+        "xC": 2359.5,
+        "xPoints": [
+          -31.5,
+          -27.5,
+          -23.5,
+          -13.5,
+          -0.5,
+          17.5,
+          31.5
+        ],
+        "yC": 864,
+        "yPoints": [
+          -32,
+          -11,
+          -2,
+          12,
+          24,
+          31,
+          32
+        ]
+      }
+    },
+    "radius": 179.61069010501575,
+    "rot": 0,
+    "w": 63,
+    "x": 5088,
+    "xc": 5119.5,
+    "y": 384,
+    "yc": 416
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-bot-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4960,
+    "xc": 5024,
+    "y": 64,
+    "yc": 128
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1360,
+        "maxY": 480,
+        "minX": 1232,
+        "minY": 352,
+        "radius": 181.01933598375618,
+        "xC": 1296,
+        "xPoints": [
+          -64,
+          -64,
+          0,
+          8,
+          40,
+          64,
+          64,
+          -64
+        ],
+        "yC": 416,
+        "yPoints": [
+          -64,
+          64,
+          64,
+          48,
+          48,
+          64,
+          -64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4960,
+    "xc": 5024,
+    "y": 64,
+    "yc": 128
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5064,
+    "xc": 5076,
+    "y": 64,
+    "yc": 128
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4960,
+    "xc": 4972,
+    "y": 64,
+    "yc": 128
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 5064,
+    "xc": 5076,
+    "y": 192,
+    "yc": 212
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 4960,
+    "xc": 4972,
+    "y": 192,
+    "yc": 212
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4960,
+    "xc": 5024,
+    "y": -64,
+    "yc": 0
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 4960,
+    "xc": 5024,
+    "y": -64,
+    "yc": 0
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5088,
+    "xc": 5152,
+    "y": -64,
+    "yc": 0
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5088,
+    "xc": 5152,
+    "y": -64,
+    "yc": 0
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp2.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 5088,
+    "xc": 5120,
+    "y": 64,
+    "yc": 96
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3800,
+        "maxY": 384,
+        "minX": 3736,
+        "minY": 320,
+        "radius": 90.50966799187809,
+        "xC": 3768,
+        "xPoints": [
+          -32,
+          -31,
+          -27,
+          -23,
+          -18,
+          -12,
+          -5,
+          1,
+          11,
+          17,
+          32
+        ],
+        "yC": 352,
+        "yPoints": [
+          32,
+          19,
+          8,
+          0,
+          -7,
+          -14,
+          -19,
+          -24,
+          -28,
+          -30,
+          -32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 5088,
+    "xc": 5120,
+    "y": 64,
+    "yc": 96
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp1.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 5152,
+    "xc": 5184,
+    "y": 64,
+    "yc": 96
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 2048,
+        "maxY": 576,
+        "minX": 1984,
+        "minY": 512,
+        "radius": 90.50966799187809,
+        "xC": 2016,
+        "xPoints": [
+          -32,
+          -5,
+          12,
+          24,
+          29,
+          32
+        ],
+        "yC": 544,
+        "yPoints": [
+          -32,
+          -27,
+          -14,
+          1,
+          15,
+          32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 5152,
+    "xc": 5184,
+    "y": 64,
+    "yc": 96
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5216,
+    "xc": 5228,
+    "y": 64,
+    "yc": 128
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5216,
+    "xc": 5228,
+    "y": -64,
+    "yc": 0
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5208,
+    "xc": 5228,
+    "y": -72,
+    "yc": -56
+  },
+  {
+    "h": 256,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 5240,
+        "maxY": 192,
+        "minX": 5216,
+        "minY": -64,
+        "radius": 257.12253887981115,
+        "xC": 5228,
+        "xPoints": [
+          -12,
+          12,
+          12,
+          -12
+        ],
+        "yC": 64,
+        "yPoints": [
+          -128,
+          -128,
+          128,
+          128
+        ]
+      }
+    },
+    "radius": 514.2450777596223,
+    "rot": 0,
+    "w": 24,
+    "x": 5216,
+    "xc": 5228,
+    "y": -64,
+    "yc": 64
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 24,
+    "x": 5216,
+    "xc": 5228,
+    "y": 192,
+    "yc": 212
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 5140,
+    "xc": 5152,
+    "y": -12,
+    "yc": 52
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 5012,
+    "xc": 5024,
+    "y": -12,
+    "yc": 52
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 4960,
+    "xc": 4972,
+    "y": -64,
+    "yc": 0
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 4952,
+    "xc": 4972,
+    "y": -72,
+    "yc": -56
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4816,
+    "xc": 4824,
+    "y": 408,
+    "yc": 416
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4816,
+    "xc": 4824,
+    "y": 376,
+    "yc": 384
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": 4816,
+    "xc": 4824,
+    "y": 344,
+    "yc": 352
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "RedRing",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 5136,
+    "xc": 5152,
+    "y": 80,
+    "yc": 96
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-slope1.png",
+      "z": 3
+    },
+    "radius": 256,
+    "rot": 0,
+    "w": 256,
+    "x": 5376,
+    "xc": 5504,
+    "y": 896,
+    "yc": 934
+  },
+  {
+    "h": 76,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 3224,
+        "maxY": 460,
+        "minX": 2968,
+        "minY": 384,
+        "radius": 267.04306768759227,
+        "xC": 3096,
+        "xPoints": [
+          -128,
+          -106,
+          -95,
+          -79,
+          -68,
+          -54,
+          -40,
+          -34,
+          -23,
+          -11,
+          -1,
+          12,
+          26,
+          43,
+          55,
+          68,
+          82,
+          91,
+          102,
+          112,
+          128,
+          128,
+          98,
+          76,
+          50,
+          14,
+          -14,
+          -42,
+          -72,
+          -101,
+          -128,
+          -128
+        ],
+        "yC": 422,
+        "yPoints": [
+          -38,
+          -37,
+          -36,
+          -32,
+          -28,
+          -22,
+          -16,
+          -13,
+          -9,
+          -7,
+          -6,
+          -5,
+          -2,
+          4,
+          9,
+          15,
+          21,
+          24,
+          25,
+          26,
+          26,
+          37,
+          38,
+          32,
+          19,
+          8,
+          4,
+          -4,
+          -17,
+          -26,
+          -27,
+          -38
+        ]
+      }
+    },
+    "radius": 534.0861353751845,
+    "rot": 0,
+    "w": 256,
+    "x": 5376,
+    "xc": 5504,
+    "y": 896,
+    "yc": 934
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5368,
+    "xc": 5380,
+    "y": 904,
+    "yc": 968
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5360,
+    "xc": 5380,
+    "y": 888,
+    "yc": 904
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-hole.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 4992,
+    "xc": 5056,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5096,
+    "xc": 5108,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -160,
+    "xc": -152,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Ring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 16,
+    "x": -128,
+    "xc": -120,
+    "y": 864,
+    "yc": 872
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 2016,
+    "xc": 2032,
+    "y": 752,
+    "yc": 760
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 45,
+    "w": 32,
+    "x": 1792,
+    "xc": 1808,
+    "y": 384,
+    "yc": 392
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 45,
+    "w": 32,
+    "x": 1792,
+    "xc": 1808,
+    "y": 536,
+    "yc": 544
+  },
+  {
+    "h": 16,
+    "inPrefix": false,
+    "name": "Spring",
+    "options": null,
+    "radius": 64,
+    "rot": 315,
+    "w": 32,
+    "x": 1864,
+    "xc": 1880,
+    "y": 456,
+    "yc": 464
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 1744,
+    "xc": 1839.5,
+    "y": 520,
+    "yc": 588.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 1896,
+    "xc": 1991.5,
+    "y": 520,
+    "yc": 588.375
+  },
+  {
+    "h": 136.75,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-b-planks.png",
+      "z": -3
+    },
+    "radius": 191,
+    "rot": 0,
+    "w": 191,
+    "x": 1768,
+    "xc": 1863.5,
+    "y": 384,
+    "yc": 452.375
+  },
+  {
+    "h": 20,
+    "inPrefix": false,
+    "name": "BadnikOrbinaut",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 20,
+    "x": 312,
+    "xc": 322,
+    "y": 816,
+    "yc": 826
+  },
+  {
+    "h": 20,
+    "inPrefix": false,
+    "name": "BadnikOrbinaut",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 20,
+    "x": 4488,
+    "xc": 4498,
+    "y": 192,
+    "yc": 202
+  },
+  {
+    "h": 20,
+    "inPrefix": false,
+    "name": "BadnikOrbinaut",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 20,
+    "x": 3616,
+    "xc": 3626,
+    "y": 880,
+    "yc": 890
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5632,
+    "xc": 5696,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5632,
+    "xc": 5696,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0-top-a.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5760,
+    "xc": 5824,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5760,
+    "xc": 5824,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5760,
+    "xc": 5772,
+    "y": 832,
+    "yc": 896
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5632,
+    "xc": 5644,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction1.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5624,
+    "xc": 5644,
+    "y": 952,
+    "yc": 968
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-pat0.jpg",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 128,
+    "x": 5760,
+    "xc": 5824,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1376,
+        "maxY": 512,
+        "minX": 1248,
+        "minY": 384,
+        "radius": 181.01933598375618,
+        "xC": 1312,
+        "xPoints": [
+          -64,
+          64,
+          64,
+          -64,
+          -64
+        ],
+        "yC": 448,
+        "yPoints": [
+          -64,
+          -64,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "radius": 362.03867196751236,
+    "rot": 0,
+    "w": 128,
+    "x": 5760,
+    "xc": 5824,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 24,
+    "x": 5760,
+    "xc": 5772,
+    "y": 960,
+    "yc": 1024
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction2.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5752,
+    "xc": 5772,
+    "y": 952,
+    "yc": 968
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe-junction3.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 0,
+    "w": 40,
+    "x": 5752,
+    "xc": 5772,
+    "y": 824,
+    "yc": 840
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "fg-ramp4.png",
+      "z": 3
+    },
+    "radius": 64,
+    "rot": 0,
+    "w": 64,
+    "x": 5696,
+    "xc": 5728,
+    "y": 896,
+    "yc": 928
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 1408,
+        "maxY": 896,
+        "minX": 1344,
+        "minY": 832,
+        "radius": 90.50966799187809,
+        "xC": 1376,
+        "xPoints": [
+          -32,
+          -18,
+          -7,
+          1,
+          8,
+          15,
+          19,
+          24,
+          28,
+          30,
+          31,
+          32
+        ],
+        "yC": 864,
+        "yPoints": [
+          32,
+          30,
+          27,
+          23,
+          18,
+          12,
+          6,
+          -1,
+          -9,
+          -16,
+          -25,
+          -32
+        ]
+      }
+    },
+    "radius": 181.01933598375618,
+    "rot": 0,
+    "w": 64,
+    "x": 5696,
+    "xc": 5728,
+    "y": 896,
+    "yc": 928
+  },
+  {
+    "h": 64,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 5216,
+        "maxY": 192,
+        "minX": 5216,
+        "minY": 128,
+        "radius": 64,
+        "xC": 5216,
+        "xPoints": [
+          0,
+          0
+        ],
+        "yC": 160,
+        "yPoints": [
+          -32,
+          32
+        ]
+      }
+    },
+    "radius": 128,
+    "rot": 0,
+    "w": 0,
+    "x": 5216,
+    "xc": 5216,
+    "y": 128,
+    "yc": 160
+  },
+  {
+    "h": 128,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "pipe1.png",
+      "z": 3
+    },
+    "radius": 128,
+    "rot": 90,
+    "w": 24,
+    "x": 5568,
+    "xc": 5580,
+    "y": 736,
+    "yc": 800
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-bottom.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 90,
+    "w": 24,
+    "x": 5484,
+    "xc": 5496,
+    "y": 780,
+    "yc": 800
+  },
+  {
+    "h": 40,
+    "inPrefix": false,
+    "name": "Tile",
+    "options": {
+      "tileFile": "bg-pipe1-top.png",
+      "z": 3
+    },
+    "radius": 40,
+    "rot": 90,
+    "w": 24,
+    "x": 5652,
+    "xc": 5664,
+    "y": 780,
+    "yc": 800
+  },
+  {
+    "h": 24,
+    "inPrefix": false,
+    "name": "Geometry",
+    "options": {
+      "geomData": {
+        "maxX": 5679,
+        "maxY": 812,
+        "minX": 5481,
+        "minY": 788,
+        "radius": 199.44924166313595,
+        "xC": 5580,
+        "xPoints": [
+          -99,
+          -97,
+          -92,
+          -88,
+          90,
+          94,
+          97,
+          99,
+          99,
+          96,
+          92,
+          88,
+          81,
+          -88,
+          -92,
+          -95,
+          -98,
+          -99
+        ],
+        "yC": 800,
+        "yPoints": [
+          -1,
+          -7,
+          -11,
+          -12,
+          -12,
+          -10,
+          -7,
+          -3,
+          1,
+          7,
+          10,
+          12,
+          12,
+          12,
+          11,
+          9,
+          5,
+          -1
+        ]
+      }
+    },
+    "radius": 398.8984833262719,
+    "rot": 0,
+    "w": 198,
+    "x": 5481,
+    "xc": 5580,
+    "y": 788,
+    "yc": 800
+  },
+  null,
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 5500,
+    "xc": 5514,
+    "y": 756,
+    "yc": 772
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 5576,
+    "xc": 5592,
+    "y": 756,
+    "yc": 772
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Spikes",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 32,
+    "x": 5608,
+    "xc": 5624,
+    "y": 756,
+    "yc": 772
+  },
+  {
+    "h": 32,
+    "inPrefix": false,
+    "name": "Monitor",
+    "options": null,
+    "radius": 64,
+    "rot": 0,
+    "w": 28,
+    "x": 5537,
+    "xc": 5551,
+    "y": 756,
+    "yc": 772
   }
 ]

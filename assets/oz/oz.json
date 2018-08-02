@@ -25,15 +25,23 @@
     ],
     
     "effects": [
-    {
+        {
             "effect": "EffWaterWalk",
             "effectParams": {
             },
             "inPrefix": false
-        },{"effect": "EffParticleWalkDust",
-        "effectParams": {
         },
-        "inPrefix": false
+        {
+            "effect": "EffParticleWalkDust",
+            "effectParams": {
+            },
+            "inPrefix": false
+        },
+        {
+            "effect": "EffWaterPerspective",
+            "effectParams": {
+            },
+            "inPrefix": false
         }
 
     ],
@@ -47,11 +55,9 @@
     "maxBoundaryY": 1024,
 
     "hasWater": true,
-    "waterColor": "#44ff7c",
+    "waterColor": "#4f7",
     "waterYCenter": 970,
     "waterYAmplitude": 8,
     
-    "objStubs": "oz-objs.json",
-    "visStubs": "",
-    "geometryStubs": ""
+    "objStubs": "oz-objs.json"
 } 

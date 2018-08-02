@@ -4,6 +4,17 @@
 #include <QImage>
 #include <QUrl>
 
+
+
+
+#ifdef ANDROID
+#define SCALE_TEXTURES_HALF
+#define NO_MIPMAPPING
+#else
+//#define USE_COMPRESSED_TEXTURES
+#endif
+
+
 class QOpenGLTexture;
 class QSGTexture;
 class QQuickWindow;
@@ -14,9 +25,9 @@ public:
     dwTexture( QUrl source, QImage image );
     ~dwTexture();
 
-    QSGTexture * texture() { return m_texture; }
+    QSGTexture * texture() const { return m_texture; }
 
-    bool isRealized() { return m_realized; }
+    bool isRealized() const { return m_realized; }
 
     void realize( QQuickWindow * window );
 

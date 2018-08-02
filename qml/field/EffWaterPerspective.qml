@@ -14,22 +14,20 @@ ShaderEffect {
 
     visible: !( y > ( field.viewCenterAtY + field.viewHeight ) || (y + height) < ( field.viewCenterAtY - field.viewHeight ) )
 
-    property bool reflectionEnabled: !_DW_MOBILE
+    property bool reflectionEnabled: false//!_DW_MOBILE
     opacity: 0.75
     property color coloring: Qt.darker( field.waterColor )
     property var src: ses
     property var refl: reflSrc
 
-
-    property real verticalFactor: 1.3
+    property real verticalFactor: 2.0
     property real fgScale: 0.5 * field.viewWidth / imgSrc.sourceSize.width
     property real bgScale: 5 * fgScale
     property bool underwater: field.viewCenterAtY > field.waterY
     property real underwaterMix: underwater? 1 : 0
     property real displacement: field.viewCenterAtX / imgSrc.sourceSize.width + field.fieldTime / 7
 
-    vertexShader: "
-                    uniform highp mat4 qt_Matrix;
+    vertexShader: " uniform highp mat4 qt_Matrix;
                     uniform lowp float underwaterMix;
 
                     attribute highp vec4 qt_Vertex;

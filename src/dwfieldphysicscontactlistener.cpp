@@ -67,6 +67,8 @@ void dwFieldPhysicsContactListener::EndContact(b2Contact *contact)
 void dwFieldPhysicsContactListener::processCallbacks()
 {
     foreach (ContactCallback callback, m_callbackBuffer) {
+        if(m_destroyedStuff.contains(callback.bodyA))
+            continue;
         if(!callback.isCollisionEnd)
             callback.bodyA->collision( callback.catBodyB, callback.bodyB );
         else
@@ -75,5 +77,6 @@ void dwFieldPhysicsContactListener::processCallbacks()
     }
 
     m_callbackBuffer.clear();
+    m_destroyedStuff.clear();
 }
 

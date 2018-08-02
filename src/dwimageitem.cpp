@@ -24,9 +24,14 @@ dwImageItem::dwImageItem(QQuickItem *parent) :
 
 QSGNode *dwImageItem::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *data)
 {
+    Q_UNUSED(data)
+
     // if there is no texture, there will be no node
-    if(!m_texture)
+    if(!m_texture || width() <= 0 || height() <=0 )
+    {
+        if(oldNode) delete oldNode;
         return 0;
+    }
 
     if(!m_texture->isRealized())
     {
@@ -50,7 +55,15 @@ QSGNode *dwImageItem::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintN
 
     if(m_crop)
     {
+#ifdef SCALE_TEXTURES_HALF
+        const qreal scale =  0.5;    //m_texture->texture()->textureSize().width() / m_texture->size().width();
+        node->setSourceRect(m_cropRect.x() * scale,
+                            m_cropRect.y() * scale,
+                            m_cropRect.width() * scale,
+                            m_cropRect.height() * scale );
+#else
         node->setSourceRect(m_cropRect);
+#endif
     }
 
     return node;

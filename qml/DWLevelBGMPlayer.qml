@@ -4,7 +4,7 @@ QtObject {
 
     id: bgmPlayer
 
-    property real gain: DWRoot.soundSystem.masterGain
+    property real gain: 1.0
     property real underwaterGainFactor: Qt.platform.os == "android"? Math.sqrt(0.4) : 0.4
 
     property bool underwater: false

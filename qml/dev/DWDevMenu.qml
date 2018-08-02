@@ -3,8 +3,15 @@ import ".."
 import dw 1.0
 
 Item {
+
+    anchors.fill: parent
+
+Item {
     width: 427
     height: 240
+
+    anchors.centerIn: parent
+    scale: parent.height/height
 
     DWDevBG
     {
@@ -103,6 +110,8 @@ Item {
         interval: 32
         onTriggered: bgm.play()
     }
+
+}
 
 }
 

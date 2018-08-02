@@ -15,3 +15,13 @@ dwFieldObject::~dwFieldObject()
 
 }
 
+#include "dwfieldbvhnode.h"
+
+void dwFieldObject::nodeConnect(QObject *bvhNode)
+{
+    dwFieldBVHNode * n = (dwFieldBVHNode*) (bvhNode);
+    connect(n, &dwFieldBVHNode::activeChanged, this, &dwFieldObject::setActive);
+    if(n->active() != m_active)
+        setActive(n->active());
+}
+

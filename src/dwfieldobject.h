@@ -75,6 +75,8 @@ signals:
 
 public slots:
 
+void nodeConnect(QObject * bvhNode);
+
 void activate()
 {
     setActive(true);

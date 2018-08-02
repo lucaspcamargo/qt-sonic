@@ -116,6 +116,9 @@ void dwControllerHub::addSDLController(int joyIndex)
 
     if(controller)
     {
+
+        qDebug("[dwControllerHub] Opening controller %d", joyIndex);
+
         ControllerEntry entry;
         entry.state = new dwControllerState();
 
@@ -152,5 +155,7 @@ void dwControllerHub::addSDLController(int joyIndex)
 
         emit controllerConnected(m_controllers.size() - 1);
     }
+    else
+        qDebug("[dwControllerHub] Could not open controller %d", joyIndex);
 }
 #endif

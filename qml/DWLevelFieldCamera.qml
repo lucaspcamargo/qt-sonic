@@ -26,6 +26,7 @@ QtObject {
         var x = player.x;
         var y = player.y - 20 + player.playerHalfHeight;
 
+
         if(Math.abs(viewCenterX - x) > 8)
         {
             if(viewCenterX > x)
@@ -42,6 +43,7 @@ QtObject {
                 viewCenterY = y - 16; //Math.round(y) - 16;
         }
 
+
         // respect bounds
 
         if(viewCenterX < minViewCenterX) viewCenterX = minViewCenterX;
@@ -50,8 +52,14 @@ QtObject {
         if(viewCenterY < minViewCenterY) viewCenterY = minViewCenterY;
         if(viewCenterY > maxViewCenterY) viewCenterY = maxViewCenterY;
 
-        field.viewCenterAtX = viewCenterX;
-        field.viewCenterAtY = viewCenterY;
+
+        // set camera position
+
+        field.viewCenterAtX = field.viewCenterAtX*0.72 + 0.28*viewCenterX;
+        field.viewCenterAtY = field.viewCenterAtY*0.72 + 0.28*viewCenterY;
+
+
+        // kill player if needed
 
         if(player.y > maxYBoundary && !player.playerDead ) player.die(false);
     }

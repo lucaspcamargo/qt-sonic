@@ -70,9 +70,12 @@ bool nodeYLessThan( const dwFieldBVHNode * node1, const dwFieldBVHNode * node2 )
     return node1->centerY() < node2->centerY();
 }
 
+
 int buildBVHNode(dwFieldBVHNode * node, int maxChildNodes)
 {
     int depth = 1;
+
+    //qDebug() << "Build BVH Node: " << node->children().length() << " children";
 
     if(node->children().length() > maxChildNodes)
     {
@@ -96,6 +99,7 @@ int buildBVHNode(dwFieldBVHNode * node, int maxChildNodes)
         for(int i = 0; i < nodeChildren.length(); i++)
         {
             nodeChildren[i]->setParent( i < (nodeChildren.length()/2)? node1 : node2 );
+            //qDebug(i < (nodeChildren.length()/2)? "A" : "B");
         }
 
         int depth1 = buildBVHNode(node1, maxChildNodes);
@@ -105,6 +109,8 @@ int buildBVHNode(dwFieldBVHNode * node, int maxChildNodes)
     }
 
     node->recalcGeometry();
+
+    //qDebug() << "My depth is " << depth;
 
     return depth;
 }
@@ -116,7 +122,7 @@ int dwFieldBVH::buildBVH(dwFieldBVHNode * node)
 
     int depth = buildBVHNode(node, m_maxChildNodes);
 
-    qDebug() << "[dwFieldBVH] tree depth was" << node->children().length();
+    qDebug() << "[dwFieldBVH] tree depth was" << depth;
 
     return depth;
 }
@@ -158,6 +164,7 @@ void dwFieldBVH::flattenBVH(dwFieldBVHNode *node)
         if(leafNodes.contains(child)) continue;
 
         nonLeafNodes.append(child);
+        child->setParent(0); // disassemble the node hierarchy
     }
 
     foreach (dwFieldBVHNode *nonLeaf, nonLeafNodes)

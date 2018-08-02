@@ -104,8 +104,6 @@ public slots:
             emit activated();
         else
             emit deactivated();
-
-        //qDebug(arg? "node changed to active" : "node changed to inactive");
     }
 
     void setHierarchyInactive()

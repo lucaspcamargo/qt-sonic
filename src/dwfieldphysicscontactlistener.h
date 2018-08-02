@@ -21,6 +21,8 @@ public:
     virtual void EndContact(b2Contact* contact);
 
 
+    void fopbDestroyed(dwFOPhysicsBody* body) { m_destroyedStuff.push_back(body); }
+
     struct ContactCallback {
         bool isCollisionEnd;
         dwFOPhysicsBody * bodyA;
@@ -43,6 +45,7 @@ public slots:
 
 private:
     QVector<ContactCallback> m_callbackBuffer;
+    QVector<dwFOPhysicsBody*> m_destroyedStuff;
 };
 
 #endif // DWFIELDPHYSICSCONTACTLISTENER_H

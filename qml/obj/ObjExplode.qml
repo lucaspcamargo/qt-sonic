@@ -13,7 +13,7 @@ Item {
         spritesheet: resBase + "obj/obj-common.dws?explode"
         scale: 1.2
 
-        onAnimationLooped: explosion.destroy()
+        onAnimationLooped: {explosion.visible = false; explosion.destroy();}
     }
 
 

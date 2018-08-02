@@ -11,6 +11,9 @@ Item {
     property url levelFile: resBase + "oz/oz.json"
     property var levelData: (JSON.parse(DWUtil.readTextFile(levelFile)))
 
+
+
+
     Item
     {
         id: fieldContainer
@@ -102,8 +105,8 @@ Item {
             Behavior on opacity { NumberAnimation {} }
 
             property real originalChromatic: 0
-            Component.onCompleted: originalChromatic = screenRendererWater.chromatic;
-            onOpacityChanged: screenRendererWater.chromatic = originalChromatic + 5 * opacity;
+            //Component.onCompleted: originalChromatic = screenRendererWater.chromatic;
+            //onOpacityChanged: screenRendererWater.chromatic = originalChromatic + 5 * opacity;
 
             SequentialAnimation
             {
@@ -121,15 +124,15 @@ Item {
             }
         }
 
-        DWImageItem
-        {
-            id: vignette
-            source: resBase + "field/fx/vignette.png"
-            anchors.fill: parent
-            opacity: 1
+//        DWImageItem
+//        {
+//            id: vignette
+//            source: resBase + "field/fx/vignette.png"
+//            anchors.fill: parent
+//            opacity: 1
 
-            Behavior on opacity { NumberAnimation {} }
-        }
+//            Behavior on opacity { NumberAnimation {} }
+//        }
 
     }
 
@@ -227,5 +230,8 @@ Item {
         field.init();
         titleAnimation.running = true;
     }
+
+    property url bgFile: Qt.resolvedUrl("./FundoExemplo.qml")
+
 
 }

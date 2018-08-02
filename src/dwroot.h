@@ -62,6 +62,7 @@ public slots:
     void onLoaded();
     void doFrameUpdate();
 
+
     static dwRoot * singleton(){return m_singleton;}
 
 private:

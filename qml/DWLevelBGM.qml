@@ -9,12 +9,14 @@ QtObject {
     property string introId: ""
     property string prefix: ""
     property bool loop: true
+    property bool autoplay: false
     property string realizedPrefix: (prefix != ""? resBase + prefix : resBase + "music/")
     property url source: realizedPrefix + mainId
     property url introSource: introId == "" ? "" : (realizedPrefix + introId)
     property bool fadeEnabled: true//bgmPlayer? bgmPlayer.fadeEnabled : true
 
     property real volume: 1.0
+    property real pitch: 1.0
     Behavior on volume { enabled: bgm.fadeEnabled; NumberAnimation { easing.type: Easing.OutExpo; duration: 3000; } }
 
     onVolumeChanged: {
@@ -31,6 +33,8 @@ QtObject {
 
     }
 
+    onPitchChanged: if(sndSource) sndSource.pitch = pitch
+
     property var sndSource: null
     property var sndStream: null
     property var sndIntroStream: null
@@ -44,7 +48,8 @@ QtObject {
         var name = "BGM" + Math.random();
 
         sndSource = sndSys.createSource(name);
-        sndSource.setGain(volume);
+        sndSource.gain = volume;
+        sndSource.pitch = pitch;
 
         if(!sndSource) {
             console.log("[DWLevelBGM] Failed to create source");
@@ -66,7 +71,10 @@ QtObject {
 
         sndStreamer = sndSys.createStreamer(name, sndSource, sndPlaylist);
 
+        if(autoplay) play();
     }
+
+    onAutoplayChanged: if(autoplay) play();
 
     Component.onDestruction: {
         if(!dwSoundSystem) return;

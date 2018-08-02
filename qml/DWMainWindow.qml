@@ -17,18 +17,15 @@ Window {
 
     property alias cursorShape: cursorSetter.cursorShape
 
-    SequentialAnimation {
-        loops: Animation.Infinite
-        running: true
-        ScriptAction {
-            script: DWRoot.doFrameUpdate()
-        }
-
-        PauseAnimation
-        {
-            duration: 1
-        }
+    Timer
+    {
+        id: updateTimer
+        repeat: true
+        running: false
+        onTriggered: DWRoot.doFrameUpdate()
+        interval: 1
     }
+
 
     MouseArea
     {
@@ -50,7 +47,8 @@ Window {
     property bool _DW_DEBUG: globalDebug // set by main
     property int _DW_FRAME_COUNT: 0
 
-    onFrameSwapped: _DW_FRAME_COUNT++
+    // TODO fix case when a frame update does not make screen dirty
+    onFrameSwapped: {_DW_FRAME_COUNT++;}// DWRoot.doFrameUpdate(); update();}
 
     property bool _DW_DEBUG_FIELD_INFO: false
     property bool _DW_DEBUG_PHYSICS_DRAW: false
@@ -68,7 +66,7 @@ Window {
             anchors.fill: parent
 
             active: false
-            source: "dev/DWDevMenu.qml"
+            source: "DWLevelScene.qml"//"dev/DWDevMenu.qml"
         }
 
         Keys.onDigit1Pressed: renderSampleSharp = !renderSampleSharp
@@ -132,7 +130,7 @@ Window {
         debugMessage.text = ("Using shader \"%1\"").arg(["NONE"].concat(renderShaders)[renderShaderIndex+1]);
     }
 
-
+/*
     ShaderEffectSource
     {
         id: videoSource
@@ -221,7 +219,7 @@ Window {
         vertexShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_water_vp.glsl"))
         fragmentShader: DWUtil.readTextFile(Qt.resolvedUrl("glsl/screen_renderer_water_fp.glsl"))
     }
-
+*/
     Image {
         id: dwLogo
         visible: false
@@ -367,6 +365,13 @@ Window {
         }
 
         font.pixelSize: 16
+    }
+
+    function debugMsg(msg)
+    {
+        // force change
+        debugMessage.text = "";
+        debugMessage.text = msg;
     }
 
 }

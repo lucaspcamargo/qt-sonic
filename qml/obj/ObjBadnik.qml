@@ -16,17 +16,42 @@ ObjBadnikBase {
         smooth: false
     }
 
+    DWFOPhysicsBody {
+        id: physicsBody
+        active: badnik.active
+        bodyType: DWFOPhysicsBody.BT_DYNAMIC_SENSOR
+        shapeType: DWFOPhysicsBody.ST_POLY_BOX
+        shapeCategory: DWFieldPhysicsWorld.CC_PLAYER_SENSOR
+        shapeCollisionMask: DWFieldPhysicsWorld.CC_PLAYER | DWFieldPhysicsWorld.CC_DYNAMIC
+        shapeData: Qt.vector4d(16, 16, 0, 0)
+        origin: Qt.point(16, 16)
+
+        Component.onCompleted: rebuildBody();
+
+        collisionCallbackEnabled: true
+        onCollision: {
+            colliding = true;
+        }
+
+        collisionEndCallbackEnabled: true
+        onCollisionEnd: {
+            colliding = false;
+        }
+    }
+
+    property bool colliding: false
+
     DWEveryFrame
     {
         id: updater
-        enabled: badnik.active && field.fieldActive
+        enabled: badnik.active
         onUpdate:
         {
             if(previousXDelta - xDelta) sprite.mirror = (previousXDelta - xDelta > 0);
             x += previousXDelta - xDelta;
             previousXDelta = xDelta;
 
-            if(overlapPlayerI(badnik))
+            if(colliding)
             {
                 if(player.playerRolling || player.playerHarmful)
                 {

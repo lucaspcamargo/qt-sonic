@@ -6,17 +6,41 @@
 #include "dwroot.h"
 #include "dwtypes.h"
 
+#ifdef QT_QML_DEBUG
+#include <QApplication>
+#include <QMessageBox>
+#include <unistd.h>
+#endif
+
 #ifdef QT_DEBUG
 #include <fenv.h>
 #endif
 
 #include <QDebug>
 
+// enable optimus! and the amd thinguie like optimus!
+extern "C" {
+    Q_DECL_EXPORT uint32_t NvOptimusEnablement = 0x00000001;
+    Q_DECL_EXPORT int AmdPowerXpressRequestHighPerformance = 1;
+}
+
 int main(int argc, char *argv[])
 {
     dwTypes::registerTypes();
 
-    QGuiApplication app(argc, argv);
+
+#ifdef QT_QML_DEBUG
+    QApplication
+#else
+    QGuiApplication
+#endif
+    app(argc, argv);
+
+#ifdef QT_QML_DEBUG
+
+    //QMessageBox::information(0, "PID", QString("I am %1").arg(getpid()), QMessageBox::Ok);
+
+#endif
 
     QQmlApplicationEngine * applicationEngine = new QQmlApplicationEngine();
 
