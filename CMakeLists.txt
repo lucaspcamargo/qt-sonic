@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.8.12)
 project( dw LANGUAGES CXX C ) 
 
+option( DW_USE_SDL2 "Use SDL2 for joystick support" ON )
+
+
+
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -50,4 +55,9 @@ add_executable(${PROJECT_NAME}
     qml.qrc
     )
 
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Box2D openal GL)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Box2D openal GL )
+
+if(DW_USE_SDL2)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Box2D openal GL SDL2 )
+    target_compile_definitions( ${PROJECT_NAME} PRIVATE DW_USE_SDL2=1 )
+endif(DW_USE_SDL2)

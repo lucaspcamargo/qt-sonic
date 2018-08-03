@@ -1,7 +1,16 @@
 #include "dwcontrollerhub.h"
 
 #ifdef DW_USE_SDL2
-#include "SDL.h"
+#include "SDL2/SDL.h"
+    #if SDL_MINOR_VERSION 
+        #include "thirdparty/SDL_GameControllerDs_ControllerMappingsB/data/SDL_gamecontrollerdb2.0.6.h"
+    #else 
+        #if SDL_PATCHLEVEL == 5 
+            #include "thirdparty/SDL_GameControllerDB/data/SDL_gamecontrollerdb2.0.5.h"
+        #else
+            #include "thirdparty/SDL_GameControllerDB/data/SDL_gamecontrollerdb2.0.4.h"
+        #endif
+    #endif
 #endif
 
 dwControllerHub::dwControllerHub(QObject *parent) : QObject(parent)
@@ -13,15 +22,13 @@ dwControllerHub::dwControllerHub(QObject *parent) : QObject(parent)
 
     SDL_GameControllerEventState(SDL_ENABLE);
 
-    const char * mappingFilename = "thirdparty/SDL_GameControllerDB/gamecontrollerdb.txt";
-    SDL_RWops * mappingRW = SDL_RWFromFile(mappingFilename, "rb");
+    SDL_RWops * mappingRW = SDL_RWFromMem(s_ControllerMappings, sizeof(s_ControllerMappings));
     int mapC = 0;
     if(mappingRW && (mapC = SDL_GameControllerAddMappingsFromRW(mappingRW, 1)) != -1)
     {
-        qDebug("[dwControllerHub] Read %d controller mappings from [%s]", mapC, mappingFilename);
+        qDebug("[dwControllerHub] Read %d controller mappings from [mem]", mapC);
     }
-    else qDebug("[dwControllerHub] Failed to read controller mappings from [%s]", mappingFilename);
-
+    else qDebug("[dwControllerHub] Failed to read controller mappings from [mem]");
 
     int numJoy = SDL_NumJoysticks();
 
