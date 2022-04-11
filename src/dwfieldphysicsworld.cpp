@@ -89,7 +89,7 @@ int dwFieldPhysicsWorld::addLevelGeomEdge(float x1, float y1, float x2, float y2
     b2Body * body = m_world->CreateBody(&def);
 
     b2EdgeShape shape;
-    shape.Set(b2Vec2(0,0), b2Vec2((x2-x1)*m_physicsScale, (y2-y1)*m_physicsScale));
+    shape.SetTwoSided(b2Vec2(0,0), b2Vec2((x2-x1)*m_physicsScale, (y2-y1)*m_physicsScale)); // TODO check difference with two sided
 
     b2FixtureDef edgeFixtureDef;
     edgeFixtureDef.shape = &shape;
@@ -119,7 +119,7 @@ int dwFieldPhysicsWorld::addLevelGeomArc(float centerX, float centerY, float rad
         arcPoints[i].x = qCos(-angle) * radius * m_physicsScale;
         arcPoints[i].y = qSin(-angle)* radius * m_physicsScale;
     }
-    shape.CreateChain(arcPoints, ARC_SEGMENTS + 1);
+    shape.CreateChain(arcPoints, ARC_SEGMENTS + 1, arcPoints[0], arcPoints[1]); // TODO review ghost points
     delete[] arcPoints;
 
     b2FixtureDef arcFixtureDef;
@@ -158,7 +158,7 @@ int dwFieldPhysicsWorld::addLevelGeomChain(float centerX, float centerY, QList<q
         bPoints[i].x = (pointsX[i] + (absolutePoints? centerX : 0))  * m_physicsScale;
         bPoints[i].y = (pointsY[i] + (absolutePoints? centerY : 0))  * m_physicsScale;
     }
-    shape.CreateChain(bPoints, n);
+    shape.CreateChain(bPoints, n, bPoints[0], bPoints[1]); // TODO review ghost vertices
     delete[] bPoints;
 
     b2FixtureDef chainFixtureDef;
@@ -177,7 +177,7 @@ void dwFieldPhysicsWorld::setLevelGeomTransform(int prefabId, float x, float y, 
 
 void dwFieldPhysicsWorld::setLevelGeomActive(int id, bool active)
 {
-    _refBodies[id]->SetActive(active);
+    _refBodies[id]->SetEnabled(active);
 }
 
 void dwFieldPhysicsWorld::removeLevelGeom(int id)
@@ -209,8 +209,8 @@ public:
         m_categories = categories;
         m_fraction = -1;
     }
-    float32 ReportFixture(b2Fixture* fixture, const b2Vec2& point,
-                          const b2Vec2& normal, float32 fraction)
+    float ReportFixture(b2Fixture* fixture, const b2Vec2& point,
+                          const b2Vec2& normal, float fraction)
     {
         if(!(fixture->GetFilterData().categoryBits & m_categories)) return -1;
         m_fixture = fixture;
@@ -223,7 +223,7 @@ public:
     b2Fixture* m_fixture;
     b2Vec2 m_point;
     b2Vec2 m_normal;
-    float32 m_fraction;
+    float m_fraction;
 };
 float dwFieldPhysicsWorld::raycastClosestDistance(float x1, float y1, float x2, float y2, int categories)
 {
@@ -262,15 +262,14 @@ void dwFieldPhysicsWorld::makeMeABox(QQuickItem *item)
     boxFixtureDef.shape = &shape;
     boxFixtureDef.density = 1;
     boxFixtureDef.filter.categoryBits = CC_DYNAMIC;
+    boxFixtureDef.userData.pointer = (uintptr_t) item;
     body->CreateFixture(&boxFixtureDef);
-
-    body->SetUserData(item);
 }
 
 void dwFieldPhysicsWorld::debugDraw()
 {
     m_doingDebugDraw = true;
-    m_world->DrawDebugData();
+    m_world->DebugDraw();
 
     for(int i = 0; i < m_raysDrawBeginPoints.length(); i++)
     {
@@ -304,11 +303,11 @@ void dwFieldPhysicsWorld::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexC
 
     emit debugDrawSolidPolygon(pointsX, pointsY, TO_QCOLOR(color) );
 }
-void dwFieldPhysicsWorld::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
+void dwFieldPhysicsWorld::DrawCircle(const b2Vec2& center, float radius, const b2Color& color)
 {
     emit debugDrawCircle(center.x/m_physicsScale, center.y/m_physicsScale, radius/m_physicsScale, TO_QCOLOR(color));
 }
-void dwFieldPhysicsWorld::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color)
+void dwFieldPhysicsWorld::DrawSolidCircle(const b2Vec2& center, float radius, const b2Vec2& axis, const b2Color& color)
 {
     emit debugDrawSolidCircle(center.x/m_physicsScale, center.y/m_physicsScale, radius/m_physicsScale, axis.x, axis.y, TO_QCOLOR(color));
 }
@@ -331,4 +330,9 @@ void dwFieldPhysicsWorld::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const 
 void dwFieldPhysicsWorld::DrawTransform(const b2Transform& xf)
 {
     Q_UNUSED(xf)
+}
+
+void dwFieldPhysicsWorld::DrawPoint(const b2Vec2& p, float size, const b2Color& color)
+{
+    emit debugDrawPoint(p.x/m_physicsScale, p.y/m_physicsScale, size, TO_QCOLOR(color));
 }

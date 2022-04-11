@@ -55,9 +55,9 @@ add_executable(${PROJECT_NAME}
     qml.qrc
     )
 
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Box2D openal GL )
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick box2d openal GL )
 
 if(DW_USE_SDL2)
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Box2D openal GL SDL2 )
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick box2d openal GL SDL2 )
     target_compile_definitions( ${PROJECT_NAME} PRIVATE DW_USE_SDL2=1 )
 endif(DW_USE_SDL2)

@@ -33,10 +33,10 @@ DWField {
     property color waterColor: levelData.waterColor
     property real waterYCenter: levelData.waterYCenter
     property real waterYAmplitude: levelData.waterYAmplitude
-    property int waterY: waterYCenter
+    property real waterY: waterYCenter
 
 
-    /* TODO MAKE INTO EFF
+    // TODO MAKE INTO EFF
     NumberAnimation on waterY
     {
 
@@ -46,7 +46,7 @@ DWField {
         duration: 5000
         easing.type: Easing.SineCurve
         loops: Animation.Infinite
-    }*/
+    }
 
     //onWaterColorChanged: screenRenderer.waterColor = waterColor
 

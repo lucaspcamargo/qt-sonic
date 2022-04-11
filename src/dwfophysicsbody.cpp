@@ -28,7 +28,7 @@ dwFOPhysicsBody::dwFOPhysicsBody(QObject *parent) : QObject(parent)
 dwFOPhysicsBody::~dwFOPhysicsBody()
 {
     if(m_body) {
-        m_body->SetUserData(0);
+        m_body->GetUserData().pointer = 0;
         m_world->DestroyBody(m_body);
         dwFieldPhysicsWorld::singleton()->fopbDestroyed(this);
     }
@@ -118,6 +118,7 @@ void dwFOPhysicsBody::rebuildBody()
     fixture.isSensor = m_sensor;
     fixture.filter.categoryBits = static_cast<uint16>(m_shapeCategory);
     fixture.filter.maskBits = static_cast<uint16>(m_shapeCollisionMask);
+    fixture.userData.pointer = (uintptr_t) this;
 
     b2BodyDef def;
     switch (m_bodyType) {
@@ -142,9 +143,10 @@ void dwFOPhysicsBody::rebuildBody()
         break;
     }
 
-    def.active = m_enabled;
+    def.enabled = m_enabled;
     def.position.Set( scale * (m_object->x()+m_origin.x()) , scale * (m_object->y()+m_origin.y()) );
     def.angle = qDegreesToRadians(m_object->rotation());
+    def.userData.pointer = (uintptr_t) this;
 
     m_body = m_world->CreateBody(&def);
 
@@ -154,8 +156,7 @@ void dwFOPhysicsBody::rebuildBody()
         return;
     }
 
-    m_body->CreateFixture(&fixture)->SetUserData(this);
-    m_body->SetUserData(this);
+    auto fix = m_body->CreateFixture(&fixture);
 
     switch (m_bodyType) {
     case BT_STATIC:
@@ -177,7 +178,7 @@ void dwFOPhysicsBody::rebuildBody()
 
 void dwFOPhysicsBody::updateBodyTransform()
 {
-    m_body->SetTransform(((float32)m_scale) * b2Vec2((float32)(m_object->x()+m_origin.x()), (float32)(m_object->y()+m_origin.y())), (float32) qDegreesToRadians(m_object->rotation()));
+    m_body->SetTransform(((float)m_scale) * b2Vec2((float)(m_object->x()+m_origin.x()), (float)(m_object->y()+m_origin.y())), (float) qDegreesToRadians(m_object->rotation()));
 }
 
 #include "qmath.h"

@@ -2,7 +2,7 @@
 #define DWFIELDPHYSICSWORLD_H
 
 #include <QObject>
-#include <Box2D/Box2D.h>
+#include <box2d/box2d.h>
 #include <QMap>
 #include <QList>
 #include <QQuickItem>
@@ -45,13 +45,14 @@ public:
 
     void DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);
     void DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);
-    void DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color);
-    void DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color);
+    void DrawCircle(const b2Vec2& center, float radius, const b2Color& color);
+    void DrawSolidCircle(const b2Vec2& center, float radius, const b2Vec2& axis, const b2Color& color);
 #ifdef B2_PARTICLE
-    void DrawParticles(const b2Vec2 *centers, float32 radius, const b2ParticleColor *colors, int32 count);
+    void DrawParticles(const b2Vec2 *centers, float radius, const b2ParticleColor *colors, int32 count);
 #endif 
     void DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color);
     void DrawTransform(const b2Transform& xf);
+    void DrawPoint(const b2Vec2& p, float size, const b2Color& color);
 
     static dwFieldPhysicsWorld * singleton(){ return m_instance; }
     b2World * world() {return m_world;}
@@ -67,6 +68,7 @@ signals:
     void debugDrawSegment( qreal x1, qreal y1, qreal x2, qreal y2, QColor color );
     void debugDrawCircle( qreal x1, qreal y1, qreal radius, QColor color );
     void debugDrawSolidCircle( qreal x1, qreal y1, qreal radius, qreal x2, qreal y2, QColor color );
+    void debugDrawPoint( qreal x1, qreal y1, qreal radius, QColor color );
 
 public slots:
     void update(float dt);

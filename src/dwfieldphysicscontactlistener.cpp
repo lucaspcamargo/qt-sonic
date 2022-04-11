@@ -15,8 +15,8 @@ dwFieldPhysicsContactListener::~dwFieldPhysicsContactListener()
 void dwFieldPhysicsContactListener::BeginContact(b2Contact *contact)
 {
 
-    void * a = contact->GetFixtureA()->GetUserData();
-    void * b = contact->GetFixtureB()->GetUserData();
+    auto a = (void*) contact->GetFixtureA()->GetUserData().pointer;
+    auto b = (void*) contact->GetFixtureB()->GetUserData().pointer;
 
     if(a || b)
     {
@@ -42,8 +42,8 @@ void dwFieldPhysicsContactListener::BeginContact(b2Contact *contact)
 void dwFieldPhysicsContactListener::EndContact(b2Contact *contact)
 {
 
-    void * a = contact->GetFixtureA()->GetUserData();
-    void * b = contact->GetFixtureB()->GetUserData();
+    void * a = (void*) contact->GetFixtureA()->GetUserData().pointer;
+    void * b = (void*) contact->GetFixtureB()->GetUserData().pointer;
 
     if(a || b)
     {

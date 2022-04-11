@@ -2,7 +2,7 @@
 #define DWFOPHYSICSBODY_H
 
 #include "dwfieldobject.h"
-#include "Box2D/Box2D.h"
+#include <box2d/box2d.h>
 #include "dwfieldphysicsworld.h"
 #include "QQmlListProperty"
 
@@ -202,7 +202,7 @@ public slots:
             return;
 
         m_enabled = arg;
-        if(m_body) m_body->SetActive(m_enabled);
+        if(m_body) m_body->SetEnabled(m_enabled);
         emit enabledChanged(arg);
     }
 
