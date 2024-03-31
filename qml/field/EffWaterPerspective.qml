@@ -40,21 +40,19 @@ ShaderEffect {
 
     fragmentShader: DWUtil.readTextFile(Qt.resolvedUrl(resBase + "field/water-perspective/fragment-" + (reflectionEnabled? "reflection.glsl" : "no-reflection.glsl")))
 
-    Image
-    {
-        id: imgSrc
-        parent: null
-        source: resBase + "field/water-perspective/water-texture.png"
-    }
+
 
     ShaderEffectSource
     {
         id: ses
-        anchors.fill: imgSrc
-        sourceItem: imgSrc
-        parent: null
+        sourceItem: Image
+        {
+            id: imgSrc
+            source: resBase + "field/water-perspective/water-texture.png"
+        }
         wrapMode: ShaderEffectSource.Repeat
         live: false
+        visible: false
     }
 
     property rect reflRect: Qt.rect(field.x + x , field.y + y + (underwater? height : -height), width, height)
