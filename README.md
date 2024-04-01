@@ -32,7 +32,8 @@ You will need Qt 5, Box2D, SDL2 and OpenAL. SDL2 is used exclusively for game co
 
 Make sure to init and update submodules, `neiasound` and `SDL_GameControllerDB` are brought in as such.
 
-### Linux
+
+### Linux
 
 When all dependencies (including headers) are installed, just build with `qmake` as normal. Example:
 
