@@ -168,4 +168,7 @@ win32{
     DEFINES+="DW_USE_SDL2=1"
 }
 
+DISTFILES += \
+    README.md
+
 
