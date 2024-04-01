@@ -17,7 +17,8 @@ Screenshots of the game and the level editor.
 * Original physics recoded from scratch using the [Sonic Physics Guide](https://info.sonicretro.org/Sonic_Physics_Guide) from the Sonic retro community.
     * They were not kept exactly the same, though! Everything was made to work in floating point, with real raycasting and iterative physics steps. Values were recalculated
       to have the same effects but now work in various framerates in the same way.
-    * Box2D is used for level geometry and raycasting.
+    * Box2D is used for level geometry and raycasting. 
+    * There is no need for manual angle arrays or prefab shapes, all angles are determined from geometry.
 * Built-in level editor, completely integrated into the engine, that can be summoned anytime from debug mode.
 * Custom systems to supplement some defficiencies of QML for games:
     * Hierarchical spatial object activation and culling.
