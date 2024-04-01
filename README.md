@@ -53,7 +53,8 @@ $ ./build/qt-sonic
 This project was built for Windows before, also using QtCreator, but that was a while ago.
 It is not guaranteed to work out of the box in any way. You need to review the project file to make sure all the dependencies are found correctly, depending on how they were installed/built. Other that that it should be smooth sailing.
 
-### Android
+
+### Android
 
 It is also possible to build for Android, just follow the normal procedure of 
 building Android projects using QtCreator. You will need to supply your own choice of
