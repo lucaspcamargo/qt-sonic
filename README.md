@@ -1,9 +1,9 @@
 # qt-sonic
 
-This is a demo of a Sonic the Hedgehog style engine, implemented in Qt/QML.
+This is a demo of a Sonic the Hedgehog game engine, implemented in Qt/QML.
 
 It started in the end of 2014 as something to do in a long winter with no money,
-and was mostly abandoned a little time later, but I decided to dust it off because it is still something interesting.
+and was mostly abandoned some time later, but I decided to dust it off because it is still something interesting.
 
 I don't expect to be working on this again anytime soon, but it would be nice to complete 
 at least one demo level at some point. Someday. Qt has already gone through two major releases (from 4 to 6)
@@ -27,12 +27,14 @@ Screenshots of the game and the level editor.
 
 ## Building
 
+
 You will need Qt 5, Box2D, SDL2 and OpenAL. SDL2 is used exclusively for game controller support.
 
-Make sure to init and update submodules, 
-`neiasound` and `SDL_GameControllerDB` are brought in as such.
+Make sure to init and update submodules, `neiasound` and `SDL_GameControllerDB` are brought in as such.
 
-Then, just build with qmake as normal. Example:
+### Linux
+
+When all dependencies (including headers) are installed, just build with `qmake` as normal. Example:
 
 ```bash
 # Create a build folder from the project directory and buyild there
@@ -45,10 +47,17 @@ $ cd ..
 $ ./build/qt-sonic
 ```
 
+### Windows
+
+This project was built for Windows before, also using QtCreator, but that was a while ago.
+It is not guaranteed to work out of the box in any way. You need to review the project file to make sure all the dependencies are found correctly, depending on how they were installed/built. Other that that it should be smooth sailing.
+
+### Android
+
 It is also possible to build for Android, just follow the normal procedure of 
 building Android projects using QtCreator. You will need to supply your own choice of
-OpenAL and Box2D implementations to the build. Some Android directive in the .pro file 
-assume you are using LiquidFun and OpenSLES, you will want to edit those to suit your needs.
+OpenAL and Box2D implementations to the build. Some Android directives in the .pro file 
+assume you are using LiquidFun and OpenSLES, and you will want to edit those to suit your needs.
 
 ## License
 
