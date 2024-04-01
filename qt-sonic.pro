@@ -169,6 +169,7 @@ win32{
 }
 
 DISTFILES += \
-    README.md
+    README.md \
+    TODO.md
 
 
