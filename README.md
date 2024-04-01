@@ -14,7 +14,7 @@ Screenshots of the game and the level editor.
 
 ## Features
 
-* Original physics recoded from scratch using the [Sonic Physics Guide](https://info.sonicretro.org/Sonic_Physics_Guide) from the Sonic retro community.
+* Original physics recoded from scratch using the [Sonic Physics Guide](https://info.sonicretro.org/Sonic_Physics_Guide) from the Sonic Retro community.
     * They were not kept exactly the same, though! Everything was made to work in floating point, with real raycasting and iterative physics steps. Values were recalculated
       to have the same effects but now work in various framerates in the same way.
     * Box2D is used for level geometry and raycasting. 
@@ -27,8 +27,10 @@ Screenshots of the game and the level editor.
 
 ## Building
 
-You will need Qt 5, Box2D, and OpenAL. Make sure to init and update submodules, 
-neiasound and SDL_GameControllerDB are brought in as such.
+You will need Qt 5, Box2D, SDL2 and OpenAL. SDL2 is used exclusively for game controller support.
+
+Make sure to init and update submodules, 
+`neiasound` and `SDL_GameControllerDB` are brought in as such.
 
 Then, just build with qmake as normal. Example:
 
