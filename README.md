@@ -10,6 +10,7 @@ at least one demo level at some point. Someday. Qt has already gone through two 
 since this was started!
 
 ![Readme](./doc/readme.png)
+Screenshots of the game and the level editor.
 
 ## Features
 
