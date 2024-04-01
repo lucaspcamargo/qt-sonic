@@ -25,7 +25,7 @@ Item {
     {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 16
-        text: "DW DEV MENU"
+        text: "DEV MENU"
     }
 
     FocusScope {
@@ -90,7 +90,7 @@ Item {
 
         anchors.horizontalCenter: parent.horizontalCenter
         y: parent.height - 16
-        text: "Lucas Camargo - cmakeshift - " + globalBuildDate
+        text: "qt-sonic - " + globalBuildDate
 
     }
 

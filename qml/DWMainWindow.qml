@@ -6,7 +6,7 @@ import dw 1.0
 Window {
     id: rootWindow
 
-    title: "dw"
+    title: "qt-sonic"
 
     visible: true
     visibility: _DW_MOBILE? Window.FullScreen : Window.Windowed

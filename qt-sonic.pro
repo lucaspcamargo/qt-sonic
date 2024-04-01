@@ -107,22 +107,31 @@ win32 {
 }
 
 
-### LIQUIDFUN
-
-    win32:INCLUDEPATH += $$PWD/../liquidfun/Box2D
-    else:INCLUDEPATH += $$PWD/../liquidfun/liquidfun/Box2D
-    DEPENDPATH += $$PWD/../liquidfun/liquidfun/Box2D
+### LIQUIDFUN -- just use box2d on desktop
+#
+#    win32:INCLUDEPATH += $$PWD/../liquidfun/Box2D
+#    else:INCLUDEPATH += $$PWD/../liquidfun/liquidfun/Box2D
+#    DEPENDPATH += $$PWD/../liquidfun/liquidfun/Box2D
+#
+#!android{
+#    win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../liquidfun/Box2D/x64/Release/ -lliquidfun
+#    else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../liquidfun/Box2D/x64/Debug/ -lliquidfun
+#    else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/ -lliquidfun
+#
+#    unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/libliquidfun.a
+#}
 
 !android{
     win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../liquidfun/Box2D/x64/Release/ -lliquidfun
     else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../liquidfun/Box2D/x64/Debug/ -lliquidfun
-    else:unix: LIBS += -L$$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/ -lliquidfun
-
-    unix: PRE_TARGETDEPS += $$PWD/../liquidfun/liquidfun/Box2D/Box2D/Release/libliquidfun.a
+    else:unix: LIBS += -lbox2d
 }
 
 android {
     LIBS += $$PWD/../liquidfun/liquidfun/Box2D/obj/local/$${ANDROID_TARGET_ARCH}/libliquidfun_static.a
+    # copied from above
+    INCLUDEPATH += $$PWD/../liquidfun/liquidfun/Box2D
+    DEPENDPATH += $$PWD/../liquidfun/liquidfun/Box2D
 }
 
 ## OPENAL
