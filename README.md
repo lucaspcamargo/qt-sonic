@@ -49,14 +49,14 @@ assume you are using LiquidFun and OpenSLES, you will want to edit those to suit
 
 ## License
 
-The engine, and all code in this repo, are licensed under the MIT license. 
+The engine, and all code in this repo, is licensed under the GPL V3.0 license. 
 Dependencies have their own licenses.
 
-Any original assets made for this are hereby placed in the public domain, 
-to the extent of their originality (if that makes sense).
+Any original assets made for this are hereby licensed as [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en), 
+to the extent of their originality (if that makes any sense).
 
 I don't own many of the placeholder assets used thoughout this demo, those
-are property of their respective owners.
+are the property of their respective owners. They can be scrapped and replaced on demand.
 
-Sonic is a property of SEGA and they own many of the placeholder assets. 
+Sonic is a property of SEGA and they own most, if not all, of the placeholder assets. 
 This is just a tech demo made for fun.
