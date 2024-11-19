@@ -2,6 +2,7 @@
 #define DWFIELDPHYSICSWORLD_H
 
 #include <QObject>
+#include <box2d/b2_draw.h>
 #include <box2d/box2d.h>
 #include <QMap>
 #include <QList>

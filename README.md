@@ -63,7 +63,7 @@ assume you are using LiquidFun and OpenSLES, and you will want to edit those to 
 
 ## License
 
-The engine, and all code in this repo, is licensed under the GPL V3.0 license. 
+The engine is licensed under the GPL V3.0 license. 
 Dependencies have their own licenses.
 
 Any original assets made for this are hereby licensed as [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en), 

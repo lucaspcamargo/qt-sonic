@@ -15,12 +15,12 @@ ShaderEffect {
     visible: !( y > ( field.viewCenterAtY + field.viewHeight ) || (y + height) < ( field.viewCenterAtY - field.viewHeight ) )
 
     property bool reflectionEnabled: false//!_DW_MOBILE
-    opacity: 0.75
+    opacity: 0.1
     property color coloring: Qt.darker( field.waterColor )
     property var src: ses
     property var refl: reflSrc
 
-    property real verticalFactor: 2.0
+    property real verticalFactor: 4.0
     property real fgScale: 0.5 * field.viewWidth / imgSrc.sourceSize.width
     property real bgScale: 5 * fgScale
     property bool underwater: field.viewCenterAtY > field.waterY

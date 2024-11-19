@@ -148,29 +148,57 @@ Item
         anchors.rightMargin: -200
     }
 
-//    DWImageItem
-//    {
-//        id: fg
-//        source: "bg0-fg.png"
+   DWImageItem
+   {
+       id: fg
+       source: "bg0-fg.png"
 
-//        x: (-field.viewCenterAtX * 0.1 * 4) % width
-//        y: 940 + (-field.viewCenterAtY * 0.05 * 4)
-//        opacity: 1
-//    }
-//    DWImageItem
-//    {
-//        source: "bg0-fg.png"
-//        anchors.top: fg.top
-//        anchors.left: fg.right
-//        anchors.leftMargin: 0
-//        opacity: 1
-//    }
-//    DWImageItem
-//    {
-//        source: "bg0-ground.png"
-//        anchors.top: fg.top
-//        anchors.right: fg.left
-//        anchors.rightMargin: 0
-//        opacity: 1
-//    }
+       x: (-field.viewCenterAtX * 0.1 * 4) % width
+       y: 840 + (-field.viewCenterAtY * 0.05 * 4)
+       opacity: 1
+   }
+   DWImageItem
+   {
+       source: "bg0-fg.png"
+       anchors.top: fg.top
+       anchors.left: fg.right
+       anchors.leftMargin: 0
+       opacity: 1
+   }
+   DWImageItem
+   {
+       source: "bg0-ground.png"
+       anchors.top: fg.top
+       anchors.right: fg.left
+       anchors.rightMargin: 0
+       opacity: 1
+   }
+
+   DWImageItem
+   {
+       id: wall
+       source: "bg0-wall-temp.png"
+
+       x: (-field.viewCenterAtX * 0.75 * 4) % width
+       y: 3250 + (-field.viewCenterAtY * 0.75 * 4)
+       opacity: 1
+   }
+
+   DWImageItem
+   {
+       source: "bg0-wall-temp.png"
+       anchors.top: wall.top
+       anchors.left: wall.right
+       anchors.leftMargin: 0
+       opacity: 1
+   }
+
+   DWImageItem
+   {
+       source: "bg0-wall-temp.png"
+       anchors.top: wall.top
+       anchors.right: wall.left
+       anchors.rightMargin: 0
+       opacity: 1
+   }
 }

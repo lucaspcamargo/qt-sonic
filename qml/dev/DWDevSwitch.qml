@@ -11,15 +11,15 @@ DWDevButton {
     {
         if(prop == "") return;
 
-        var on = eval(prop)? true : false;
-        text = description.replace(/_/g, "-") + (on? " is ON" : " is OFF");
-        colorIndex = on? 7 : 5;
+        //var on = eval(prop)? true : false;
+        //text = description.replace(/_/g, "-") + (on? " is ON" : " is OFF");
+        //colorIndex = on? 7 : 5;
     }
 
     Component.onCompleted: update()
 
     onClicked: {
-        eval(prop + "= !" + prop + ";");
+        //eval(prop + "= !" + prop + ";");
         update();
     }
 

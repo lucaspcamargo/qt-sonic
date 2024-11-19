@@ -52,7 +52,7 @@
     "minBoundaryX": -512,
     "maxBoundaryX": 11168,
     "minBoundaryY": -9000,
-    "maxBoundaryY": 1024,
+    "maxBoundaryY": 1536,
 
     "hasWater": true,
     "waterColor": "#4f7",
