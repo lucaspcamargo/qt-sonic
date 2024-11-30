@@ -8,7 +8,7 @@ Item {
     id: scene
     anchors.fill: parent
 
-    property url levelFile: resBase + "oz/oz.json"
+    property url levelFile: resBase + "tl/tl.json"
     property var levelData: (JSON.parse(DWUtil.readTextFile(levelFile)))
 
 

@@ -1,0 +1,63 @@
+{
+    "name": "Test Level",
+    "subtitle": "Subtitle goes here",
+    "prefix": "tl",
+    "urlPrefix": "tl/",
+    "bgms":[
+	{
+	    "type": "simple",
+	    "introId": "",
+        "id": "tl-music.ogg",
+        "inPrefix": true
+	}
+    ],
+
+    "bgs": [
+        {
+            "bgType": "qml",
+            "bgName": "tl-bg0.qml",
+            "inPrefix": true
+        }
+    ],
+    
+    "chunks": [
+
+    ],
+    
+    "effects": [
+        {
+            "effect": "EffWaterWalk",
+            "effectParams": {
+            },
+            "inPrefix": false
+        },
+        {
+            "effect": "EffParticleWalkDust",
+            "effectParams": {
+            },
+            "inPrefix": false
+        },
+        {
+            "effect": "EffWaterPerspective",
+            "effectParams": {
+            },
+            "inPrefix": false
+        }
+
+    ],
+
+    "playerX": -528,
+    "playerY": 496,
+
+    "minBoundaryX": -640,
+    "maxBoundaryX": 11168,
+    "minBoundaryY": -9000,
+    "maxBoundaryY": 1664,
+
+    "hasWater": true,
+    "waterColor": "#2dd",
+    "waterYCenter": 1000,
+    "waterYAmplitude": 8,
+    
+    "objStubs": "tl-objs.json"
+} 

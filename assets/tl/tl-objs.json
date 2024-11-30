@@ -1,0 +1,1135 @@
+[
+  {
+    "name": "Tile",
+    "x": -512,
+    "y": 512,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -448,
+    "yc": 576,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -384,
+    "y": 640,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -320,
+    "yc": 704,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -256,
+    "y": 768,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -192,
+    "yc": 832,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -128,
+    "y": 896,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -64,
+    "yc": 960,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 0,
+    "y": 1024,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 64,
+    "yc": 1088,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 128,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 192,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 256,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 320,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "10.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -512,
+    "y": 640,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -448,
+    "yc": 704,
+    "radius": 128,
+    "options": {
+      "tileFile": "1.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -384,
+    "y": 768,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -320,
+    "yc": 832,
+    "radius": 128,
+    "options": {
+      "tileFile": "1.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -256,
+    "y": 896,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -192,
+    "yc": 960,
+    "radius": 128,
+    "options": {
+      "tileFile": "1.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -128,
+    "y": 1024,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -64,
+    "yc": 1088,
+    "radius": 128,
+    "options": {
+      "tileFile": "1.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 0,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 64,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "1.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 128,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 192,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "1.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -512,
+    "y": 768,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -448,
+    "yc": 832,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -384,
+    "y": 896,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -320,
+    "yc": 960,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -256,
+    "y": 1024,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -192,
+    "yc": 1088,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -128,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -64,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 0,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 64,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Geometry",
+    "x": -512,
+    "y": 512,
+    "w": 896,
+    "h": 896,
+    "rot": 0,
+    "xc": -64,
+    "yc": 960,
+    "radius": 2534.2707037725863,
+    "options": {
+      "geomData": {
+        "minX": -512,
+        "maxX": 384,
+        "minY": 512,
+        "maxY": 1408,
+        "xC": -64,
+        "yC": 960,
+        "radius": 1267.1353518862932,
+        "xPoints": [
+          -448,
+          448,
+          192,
+          -448,
+          -448
+        ],
+        "yPoints": [
+          -448,
+          448,
+          448,
+          -192,
+          -448
+        ]
+      }
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": -640,
+    "y": 512,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -576,
+    "yc": 576,
+    "radius": 128,
+    "options": {
+      "tileFile": "105.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Geometry",
+    "x": -640,
+    "y": 512,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": -576,
+    "yc": 576,
+    "radius": 362.03867196751236,
+    "options": {
+      "geomData": {
+        "minX": -640,
+        "maxX": -512,
+        "minY": 512,
+        "maxY": 640,
+        "xC": -576,
+        "yC": 576,
+        "radius": 181.01933598375618,
+        "xPoints": [
+          64,
+          0,
+          -33,
+          -64,
+          -64,
+          64,
+          64
+        ],
+        "yPoints": [
+          -64,
+          -64,
+          -56,
+          -48,
+          64,
+          64,
+          -64
+        ]
+      }
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 384,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 448,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "145.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 512,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 576,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "146.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 128,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 192,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 512,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 576,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "110.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 384,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 448,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "13.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 256,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 320,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "12.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 640,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 704,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "17.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 768,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 832,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "211.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 896,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 960,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "212.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1024,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1088,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "210.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1024,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1088,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "221.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 768,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 832,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "226.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 768,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 832,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "228.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 896,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 960,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "39.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 896,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 960,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "32.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 768,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 832,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "44.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 768,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 832,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "242.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1152,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1216,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "63.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1280,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1344,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "64.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1408,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1472,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "65.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1536,
+    "y": 1536,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1600,
+    "yc": 1600,
+    "radius": 128,
+    "options": {
+      "tileFile": "66.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 896,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 960,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "91.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1024,
+    "y": 1280,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1088,
+    "yc": 1344,
+    "radius": 128,
+    "options": {
+      "tileFile": "259.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 1024,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 1088,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "255.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 896,
+    "y": 1152,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 960,
+    "yc": 1216,
+    "radius": 128,
+    "options": {
+      "tileFile": "250.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Tile",
+    "x": 256,
+    "y": 1408,
+    "w": 128,
+    "h": 128,
+    "rot": 0,
+    "xc": 320,
+    "yc": 1472,
+    "radius": 128,
+    "options": {
+      "tileFile": "4.png",
+      "z": 3
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Geometry",
+    "x": 256,
+    "y": 1408,
+    "w": 1408,
+    "h": 256,
+    "rot": 0,
+    "xc": 960,
+    "yc": 1536,
+    "radius": 2862.167011199731,
+    "options": {
+      "geomData": {
+        "minX": 256,
+        "maxX": 1664,
+        "minY": 1408,
+        "maxY": 1664,
+        "xC": 960,
+        "yC": 1536,
+        "radius": 1431.0835055998655,
+        "xPoints": [
+          -704,
+          -704,
+          -448,
+          704,
+          704,
+          672,
+          632,
+          592,
+          576,
+          560,
+          536,
+          472,
+          448,
+          424,
+          384,
+          356,
+          328,
+          320,
+          290,
+          253,
+          230,
+          192
+        ],
+        "yPoints": [
+          -128,
+          0,
+          128,
+          128,
+          0,
+          0,
+          8,
+          24,
+          32,
+          40,
+          48,
+          64,
+          64,
+          64,
+          56,
+          48,
+          37,
+          32,
+          18,
+          7,
+          3,
+          0
+        ]
+      }
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Geometry",
+    "x": 256,
+    "y": 1152,
+    "w": 896,
+    "h": 384,
+    "rot": 0,
+    "xc": 704,
+    "yc": 1344,
+    "radius": 1949.6379151011606,
+    "options": {
+      "geomData": {
+        "minX": 256,
+        "maxX": 1152,
+        "minY": 1152,
+        "maxY": 1536,
+        "xC": 704,
+        "yC": 1344,
+        "radius": 974.8189575505803,
+        "xPoints": [
+          448,
+          448,
+          192,
+          64,
+          64,
+          112,
+          112,
+          96,
+          96,
+          256,
+          256,
+          320,
+          320,
+          416,
+          416,
+          320,
+          320,
+          192,
+          -128,
+          -160,
+          -192,
+          -224,
+          -320,
+          -448
+        ],
+        "yPoints": [
+          192,
+          -192,
+          -192,
+          -64,
+          128,
+          128,
+          64,
+          64,
+          -32,
+          -32,
+          0,
+          0,
+          64,
+          64,
+          192,
+          192,
+          160,
+          192,
+          192,
+          184,
+          176,
+          160,
+          64,
+          64
+        ]
+      }
+    },
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -440,
+    "y": 560,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -432,
+    "yc": 568,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -424,
+    "y": 576,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -416,
+    "yc": 584,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -408,
+    "y": 592,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -400,
+    "yc": 600,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -392,
+    "y": 608,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -384,
+    "yc": 616,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -376,
+    "y": 624,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -368,
+    "yc": 632,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -304,
+    "y": 696,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -296,
+    "yc": 704,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -288,
+    "y": 712,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -280,
+    "yc": 720,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -272,
+    "y": 728,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -264,
+    "yc": 736,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -256,
+    "y": 744,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -248,
+    "yc": 752,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Ring",
+    "x": -240,
+    "y": 760,
+    "w": 16,
+    "h": 16,
+    "rot": 0,
+    "xc": -232,
+    "yc": 768,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Spring",
+    "x": 1032,
+    "y": 1136,
+    "w": 32,
+    "h": 16,
+    "rot": 0,
+    "xc": 1048,
+    "yc": 1144,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Spring",
+    "x": 672,
+    "y": 1520,
+    "w": 32,
+    "h": 16,
+    "rot": 0,
+    "xc": 688,
+    "yc": 1528,
+    "radius": 64,
+    "options": null,
+    "inPrefix": false
+  },
+  {
+    "name": "Geometry",
+    "x": -896,
+    "y": -512,
+    "w": 256,
+    "h": 1664,
+    "rot": 0,
+    "xc": -768,
+    "yc": 320,
+    "radius": 3367.1542881192718,
+    "options": {
+      "geomData": {
+        "minX": -896,
+        "maxX": -640,
+        "minY": -512,
+        "maxY": 1152,
+        "xC": -768,
+        "yC": 320,
+        "radius": 1683.5771440596359,
+        "xPoints": [
+          128,
+          128,
+          -128
+        ],
+        "yPoints": [
+          -832,
+          832,
+          832
+        ]
+      }
+    },
+    "inPrefix": false
+  }
+]
